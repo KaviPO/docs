@@ -42,7 +42,6 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "apireference",
         "authentication",
         "merchantdetails"
       ]
@@ -50,7 +49,7 @@
     {
       "group": "API Documentation",
       "pages": [ 
-        "api-reference/hpp",
+        "api-reference/apireference",
         {
         "group": "API Details",
         "pages": [
