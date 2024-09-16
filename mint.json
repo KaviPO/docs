@@ -31,12 +31,15 @@
       "url": "api-reference"
     }
   ],
+   /*
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
       "url": "https://mintlify.com/docs"
-    },
+    }
+   
+    ,
     {
       "name": "Community",
       "icon": "slack",
@@ -48,13 +51,15 @@
       "url": "https://mintlify.com/blog"
     }
   ],
+  */
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "Introduction",
+        "API Reference",
+        "Authentication",
+        "Merchant Details"
       ]
     },
     {
