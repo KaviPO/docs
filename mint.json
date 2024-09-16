@@ -60,7 +60,7 @@
       "pages": [ {
         "group": "API Details",
         "pages": [
-          "api-reference/introduction",
+          "api-reference/hpp",
           "api-reference/introduction",
           "api-reference/introduction"
         ]
