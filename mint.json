@@ -38,7 +38,7 @@
     {
       "group": "Get Started",
       "pages": [
-        "Introduction",
+        "introduction",
         "API Reference",
         "Authentication",
         "Merchant Details"
