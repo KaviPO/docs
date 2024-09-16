@@ -49,7 +49,9 @@
     },
     {
       "group": "API Documentation",
-      "pages": [ {
+      "pages": [ 
+        "api-reference/hpp",
+        {
         "group": "API Details",
         "pages": [
           "api-reference/hpp",
