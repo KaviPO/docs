@@ -22,6 +22,15 @@
       "name": "Support",
       "url": "mailto:support@paymentoptions.com"
     },
+    {
+      "name": "EN Version",
+      "url": "introduction"
+    },
+    {
+      "name": "日本語版",
+      "URL": "/JP/introduction"
+    }
+    
 
     
   ],
