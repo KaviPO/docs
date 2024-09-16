@@ -63,16 +63,14 @@
           "api-reference/webhook",
           "api-reference/transaction",
           "api-reference/generatetoken",
-          "api-reference/usetoken" {
-          "group" : "Subscription",
-          "pages":["api-reference/createsubsciption",
+          "api-reference/usetoken",
+          "api-reference/createsubsciption",
           "api-reference/listsubsciption",
           "api-reference/detailsubsciption",
           "api-reference/pausesubsciption",
           "api-reference/resumesubsciption",
-          "api-reference/cancelsubsciption",
-          ]
-          }
+          "api-reference/cancelsubsciption"
+         
         ]
       }
       ]
