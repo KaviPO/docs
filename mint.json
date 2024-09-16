@@ -15,12 +15,7 @@
       "to": "#FFAB31"
     }
   },
-  "styles": {
-.h-7 {
-    height: 2.75rem;
-}
-
-}
+  "styles": "/CSS/custom-styles.css",
 
   "topbarLinks": [
     {
