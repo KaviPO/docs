@@ -53,9 +53,14 @@
         {
         "group": "API Details",
         "pages": [
-          "api-reference/hpp",
-          "api-reference/hppgpay",
-          "api-reference/hppewallet",
+          {
+            "group": "Hosted Payment Page",
+            "pages": [
+              "api-reference/hpp",
+              "api-reference/hppgpay",
+              "api-reference/hppewallet"
+          ]
+          },
           "api-reference/purchase",
           "api-reference/authorisation",
           "api-reference/voidauth",
@@ -65,13 +70,17 @@
           "api-reference/transaction",
           "api-reference/generatetoken",
           "api-reference/usetoken",
-          "api-reference/createsubsciption",
-          "api-reference/listsubsciption",
-          "api-reference/detailsubsciption",
-          "api-reference/pausesubsciption",
-          "api-reference/resumesubsciption",
-          "api-reference/cancelsubsciption"
-         
+          {
+            "group": "Subscriptions",
+            "pages": [
+              "api-reference/createsubsciption",
+              "api-reference/listsubsciption",
+              "api-reference/detailsubsciption",
+              "api-reference/pausesubsciption",
+              "api-reference/resumesubsciption",
+              "api-reference/cancelsubsciption"
+          ]
+          }
         ]
       }
       ]
