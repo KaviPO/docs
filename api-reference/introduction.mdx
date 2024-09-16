@@ -3,31 +3,18 @@ title: 'Introduction'
 description: 'Example section for showcasing API endpoints'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
 
-## Welcome
+## Hosted Payment Page Link Creation
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+### Purpose:
+Generate a link to open the Hosted Payment Page (HPP) for capturing transactions.
+### API Details:
+- HTTP Method: `POST`
+- Endpoint URL: `/api/v1/server-to-server-interface/hpp/generate/link`
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
 
-## Authentication
+<Note> Key Points: </Note>
+- If the payload is pre-filled with data (e.g., amount, currency, customer details, return_url, payment method), these details will be reflected on the HPP, providing a streamlined user experience.
+- If the payload lacks certain data, the customer will need to manually enter the missing information on the HPP.
+- Ensure that the necessary headers and authentication details are included to successfully generate the HPP link.
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
