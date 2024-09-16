@@ -6,14 +6,14 @@ description: 'Example section for showcasing API endpoints'
 
 ## Hosted Payment Page Link Creation
 
-### Purpose:
+### Purpose
 Generate a link to open the Hosted Payment Page (HPP) for capturing transactions.
-### API Details:
+### API Details
 - HTTP Method: `POST`
 - Endpoint URL: `/api/v1/server-to-server-interface/hpp/generate/link`
 
 
-<Note> Key Points: </Note>
+### Key Points
 - If the payload is pre-filled with data (e.g., amount, currency, customer details, return_url, payment method), these details will be reflected on the HPP, providing a streamlined user experience.
 - If the payload lacks certain data, the customer will need to manually enter the missing information on the HPP.
 - Ensure that the necessary headers and authentication details are included to successfully generate the HPP link.
