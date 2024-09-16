@@ -31,8 +31,8 @@
       "url": "api-reference"
     }
   ],
-   /*
   "anchors": [
+    /*
     {
       "name": "Documentation",
       "icon": "book-open-cover",
@@ -50,8 +50,9 @@
       "icon": "newspaper",
       "url": "https://mintlify.com/blog"
     }
+    */
   ],
-  */
+
   "navigation": [
     {
       "group": "Get Started",
