@@ -73,12 +73,12 @@
           {
             "group": "Subscriptions",
             "pages": [
-              "api-reference/createsubsciption",
-              "api-reference/listsubsciption",
-              "api-reference/detailsubsciption",
-              "api-reference/pausesubsciption",
-              "api-reference/resumesubsciption",
-              "api-reference/cancelsubsciption"
+              "api-reference/createsubscription",
+              "api-reference/listsubscription",
+              "api-reference/detailsubscription",
+              "api-reference/pausesubscription",
+              "api-reference/resumesubscription",
+              "api-reference/cancelsubscription"
           ]
           }
         ]
