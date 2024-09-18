@@ -11,8 +11,8 @@
     "light": "#FFAB31",
     "dark": "#F18A00",
     "anchors": {
-      "from": "#F18A00",
-      "to": "#FFAB31"
+      "from": "#FFAB31",
+      "to": "#F18A00"
     }
   },
 
