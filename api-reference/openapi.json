@@ -3,7 +3,7 @@
   "info": {
     "title": "API Documentation",
     "version": "1.0.0",
-    "description": "This API uses HTTP Basic Authentication where the API key is passed as credentials in the Authorization header."
+    "description": "This API uses HTTP Basic Authentication where the API key is passed as credentials in the Authorization header"
   },
   "paths": {
     "/api/v1/server-to-server-interface/hpp/generate/link": {
