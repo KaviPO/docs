@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "API Documentation",
+    "title": "My API",
     "version": "1.0.0",
     "description": "API documentation for generating HPP links"
   },
@@ -83,32 +83,8 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Invalid Request"
           }
-        },
-        "security": [
-          {
-            "basicAuth": []
-          },
-          {
-            "api_key": []
-          }
-        ]
-      }
-    }
-  },
-  "components": {
-    "securitySchemes": {
-      "basicAuth": {
-        "type": "http",
-        "scheme": "basic"
-      },
-      "api_key": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "x-api-key"
+        }
       }
     }
   }
