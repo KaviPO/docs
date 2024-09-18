@@ -14,3 +14,39 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 - If the payload lacks certain data, the customer will need to manually enter the missing information on the HPP.
 - Ensure that the necessary headers and authentication details are included to successfully generate the HPP link.
 
+```json
+{
+    "return_url": {
+        "webhook_url": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b",
+        "success_url": "http://www.bing.com/",
+        "decline_url": "http://www.google.com/",
+        "cancel_url": "http://tinkfactory.com/"
+    },
+    "amount": "",
+    "currency": "JPY",
+    "merchant_id": "JP00000275",
+    "merchant_email": "info@tinkfactory.com",
+    "merchant_txn_ref": "2003089893366DTEST",
+    "payment_method": {
+        "type": "scheme",
+        "store_payment_method": true
+    },
+    "billing_address": {
+        "country": "JP",
+        "email": "kavi@ghunowa.com",
+        "phone": "52553305",
+        "address1": "Ebene Junction",
+        "city": "Ebene",
+        "state": "Rose-Hill",
+        "postal_code": "1234567"
+    },
+    "shipping_address": {
+        "country": "JP",
+        "email": "kavi@ghunowa.com",
+        "phone": "52553305",
+        "address1": "Ebene Junction",
+        "city": "Ebene",
+        "state": "Rose-Hill",
+        "postal_code": "1234567"
+    }
+}
