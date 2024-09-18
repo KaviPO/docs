@@ -98,24 +98,6 @@
   "footerSocials": {
     "website": "https://www.paymentoptions.com",
     "linkedin": "https://www.linkedin.com/company/payment-options/"
-  },
-
-  "anchors": [
-    {
-        "name": "API References",
-        "icon": "code",
-        "url": "api-reference/hpp"
-    },
-    {
-        "name": "Content",
-        "icon": "pencil",
-        "url": "content"
-    },
-    {
-        "name": "Contact us",
-        "icon": "envelope",
-        "url": "https://mintlify.com/contact-us"
-    }
-]
+  }
   
 }
