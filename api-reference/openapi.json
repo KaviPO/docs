@@ -11,7 +11,7 @@
         "summary": "Endpoint with Basic Auth",
         "security": [
           {
-            "basicAuth": []
+            "ApiKeyAuth": []
           }
         ],
         "requestBody": {
@@ -42,10 +42,10 @@
   },
   "components": {
     "securitySchemes": {
-      "basicAuth": {
-        "type": "http",
-        "scheme": "basic",
-        "description": "Use your API key as the username in Basic Auth, leave the password blank."
+      "ApiKeyAuth": {
+        "type": "apikey",
+        "in": "header",
+        "name": "X-API-KEY"
       }
     }
   }
