@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev/"
     }
   ],
   "security": [
@@ -19,9 +19,9 @@
     }
   ],
   "paths": {
-    "/plants": {
+    "/api/v1/server-to-server-interface/hpp/generate/link": {
       "hpp": {
-        "description": "Returns all plants from the system that the user has access to",
+        "description": "This payload allows to generate link to open Hosted Payment Page to capture a transaction.",
         "parameters": [
           {
             "name": "limit",
