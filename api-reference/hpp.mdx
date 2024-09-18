@@ -46,6 +46,36 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 | ∟ city              | string               | no            | 65             | The cardholder’s shipping city.                                                                  |
 | ∟ postal_code       | string               | no            | 45             | The cardholder’s shipping postal code.                                                           |
 
+# Response Attributes
+
+| **Attributes**      | **Description**                                                                 |
+|:--------------------|:--------------------------------------------------------------------------------|
+| **id**              | The transaction reference ID                                                    |
+| **url**             | The URL link of the hosted payment page generated                                |
+| **amount**          | The amount of the transaction                                                    |
+| **currency**        | The processing currency of the transaction                                       |
+| **merchant_txn_ref**| The merchant transaction reference ID                                            |
+| **merchant_id**     | The DAS merchant ID of the transaction performed                                 |
+| **merchant_email**  | The email address of the Merchant                                                |
+| **return_url**      | A JSON object containing the Return URL                                          |
+| ∟ webhook_url      | The webhook URL link                                                             |
+| ∟ success_url      | The redirect URL link after payment gets successful.                              |
+| ∟ decline_url      | The redirect URL link after payment gets failed.                                  |
+| ∟ cancel_url       | The URL link of the cancellation page                                             |
+| **billing_address** | A JSON object containing the billing address of the cardholder                   |
+| ∟ city             | The cardholder’s billing city                                                    |
+| ∟ email            | The cardholder’s billing email address                                           |
+| ∟ phone            | The cardholder’s billing phone number                                            |
+| ∟ country          | The cardholder’s billing country code                                            |
+| ∟ address1         | The cardholder’s billing address line                                            |
+| ∟ postal_code      | The cardholder’s billing postal code                                              |
+| **shipping_address**| A JSON object containing the shipping address of the cardholder.                 |
+| ∟ city             | The cardholder’s shipping city                                                   |
+| ∟ email            | The cardholder’s shipping email address                                          |
+| ∟ phone            | The cardholder’s shipping phone number                                           |
+| ∟ country          | The cardholder’s shipping country code                                           |
+| ∟ address1         | The cardholder’s shipping address line                                           |
+| ∟ postal_code      | The cardholder’s shipping postal code                                             |
 
 
 <RequestExample>
