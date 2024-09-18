@@ -1,174 +1,110 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "API Documentation",
-    "version": "1.0.0",
-    "description": "This API uses HTTP Basic Authentication where the API key is passed as credentials in the Authorization header."
+    "title": "Payment Gateway API",
+    "version": "1.0.0"
   },
-  "servers": [
-    {
-      "url": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev",
-      "description": "Development Server"
-    }
-  ],
-   "components": {
+  "components": {
     "securitySchemes": {
       "ApiKeyAuth": {
-        "type": "apikey",
+        "type": "apiKey",
         "in": "header",
         "name": "X-API-KEY"
       }
     }
   },
-
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
   "paths": {
     "/api/v1/server-to-server-interface/hpp/generate/link": {
       "post": {
-        "summary": "Endpoint with Basic Auth",
+        "summary": "Generate HPP Link",
+        "description": "This endpoint generates a Hosted Payment Page (HPP) link.",
         "security": [
           {
             "ApiKeyAuth": []
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-  "type": "object",
-  "properties": {
-    "return_url": {
-      "type": "object",
-      "description": "A JSON object containing the Return URL",
-      "properties": {
-        "webhook_url": {
-          "type": "string",
-          "description": "The webhook URL link"
-        },
-        "success_url": {
-          "type": "string",
-          "description": "The redirect URL link after payment is successful"
-        },
-        "decline_url": {
-          "type": "string",
-          "description": "The redirect URL link after payment failed"
-        },
-        "cancel_url": {
-          "type": "string",
-          "description": "The cancel URL link after payment gets cancelled"
-        }
-      }
-    },
-    "amount": {
-      "type": "number",
-      "description": "The amount of the transaction. If passed as an empty string, the amount must be manually entered in the Hosted Payment Page"
-    },
-    "currency": {
-      "type": "string",
-      "description": "The abbreviation of the processing currency of the product (e.g., JPY for Japanese Yen)"
-    },
-    "merchant_id": {
-      "type": "string",
-      "description": "The merchant ID (DASMID)"
-    },
-    "merchant_email": {
-      "type": "string",
-      "description": "The email address of the Merchant"
-    },
-    "merchant_txn_ref": {
-      "type": "string",
-      "description": "The merchant transaction reference ID"
-    },
-    "payment_method": {
-      "type": "object",
-      "description": "A JSON object containing Payment Method",
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "The payment method type, e.g., 'scheme' for credit cards or wallet options like 'gcash'"
-        },
-        "store_payment_method": {
-          "type": "boolean",
-          "description": "True to generate token, False not to generate"
-        }
-      }
-    },
-    "billing_address": {
-      "type": "object",
-      "description": "A JSON object containing the billing address of the cardholder",
-      "properties": {
-        "country": {
-          "type": "string",
-          "description": "The cardholder’s billing country code"
-        },
-        "email": {
-          "type": "string",
-          "description": "The cardholder’s billing email address"
-        },
-        "phone": {
-          "type": "string",
-          "description": "The cardholder’s billing phone number"
-        },
-        "address1": {
-          "type": "string",
-          "description": "The cardholder’s billing address line"
-        },
-        "city": {
-          "type": "string",
-          "description": "The cardholder’s billing city"
-        },
-        "postal_code": {
-          "type": "string",
-          "description": "The cardholder’s billing postal code"
-        }
-      }
-    },
-    "shipping_address": {
-      "type": "object",
-      "description": "A JSON object containing the shipping address of the cardholder. This object is optional.",
-      "properties": {
-        "country": {
-          "type": "string",
-          "description": "The cardholder’s shipping country code"
-        },
-        "email": {
-          "type": "string",
-          "description": "The cardholder’s shipping email address"
-        },
-        "phone": {
-          "type": "string",
-          "description": "The cardholder’s shipping phone number"
-        },
-        "address1": {
-          "type": "string",
-          "description": "The cardholder’s shipping address line"
-        },
-        "city": {
-          "type": "string",
-          "description": "The cardholder’s shipping city"
-        },
-        "postal_code": {
-          "type": "string",
-          "description": "The cardholder’s shipping postal code"
-        }
-      }
-    }
-  }
-}
-
-
+                "type": "object",
+                "properties": {
+                  "return_url": {
+                    "type": "object",
+                    "description": "A JSON object containing the Return URL",
+                    "properties": {
+                      "webhook_url": {
+                        "type": "string",
+                        "description": "The webhook URL link"
+                      },
+                      "success_url": {
+                        "type": "string",
+                        "description": "The redirect URL link after payment is successful"
+                      },
+                      "decline_url": {
+                        "type": "string",
+                        "description": "The redirect URL link after payment failed"
+                      },
+                      "cancel_url": {
+                        "type": "string",
+                        "description": "The cancel URL link after payment gets cancelled"
+                      }
+                    }
+                  },
+                  "amount": {
+                    "type": "number",
+                    "description": "The amount of the transaction"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "The processing currency"
+                  },
+                  "merchant_id": {
+                    "type": "string",
+                    "description": "The merchant ID"
+                  },
+                  "merchant_email": {
+                    "type": "string",
+                    "description": "The email address of the Merchant"
+                  },
+                  "merchant_txn_ref": {
+                    "type": "string",
+                    "description": "The merchant transaction reference ID"
+                  },
+                  "payment_method": {
+                    "type": "object",
+                    "description": "A JSON object containing the payment method"
+                  }
+                }
+              }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Successful response"
-          },
-          "401": {
-            "description": "Unauthorized - Invalid API Key"
+            "description": "HPP Link Generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hpp_url": {
+                      "type": "string",
+                      "description": "The generated HPP link"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
   }
- 
 }
