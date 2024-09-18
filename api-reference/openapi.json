@@ -6,7 +6,7 @@
     "description": "API documentation for generating HPP links"
   },
   "paths": {
-    "/server-to-server-interface/hpp/generate/link": {
+    "/api/v1/server-to-server-interface/hpp/generate/link": {
       "post": {
         "summary": "Generate HPP Link",
         "description": "This endpoint generates a Hosted Payment Page (HPP) link for a transaction.",
