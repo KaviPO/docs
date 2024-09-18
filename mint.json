@@ -48,10 +48,7 @@
     },
     {
       "group": "API Documentation",
-      "pages": [ 
-        "api-reference/apireference",
-        {
-        "group": "API Details",
+      
         "pages": [
           {
             "group": "Hosted Payment Page",
@@ -82,8 +79,6 @@
           ]
           }
         ]
-      }
-      ]
     },
     {
       "group": "Endpoint Examples",
