@@ -14,10 +14,10 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 - If the payload lacks certain data, the customer will need to manually enter the missing information on the HPP.
 - Ensure that the necessary headers and authentication details are included to successfully generate the HPP link.
 
-# Attributes for HPP Endpoint
+# Request Attributes
 
 | **Attributes**      | **Type**             | **Mandatory** | **Max Length** | **Description**                                                                                  |
-|---------------------|----------------------|---------------|----------------|--------------------------------------------------------------------------------------------------|
+|:--------------------|:---------------------|:--------------|:---------------|:-------------------------------------------------------------------------------------------------|
 | **return_url**       | object               | yes           | -              | A JSON object containing the Return URL                                                          |
 | ∟ webhook_url       | string               | yes           | 255            | The webhook URL link                                                                             |
 | ∟ success_url       | string               | yes           | 255            | The redirect URL link after payment gets successful.                                             |
@@ -45,6 +45,7 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 | ∟ address1          | string               | no            | 199            | The cardholder’s shipping address line.                                                          |
 | ∟ city              | string               | no            | 65             | The cardholder’s shipping city.                                                                  |
 | ∟ postal_code       | string               | no            | 45             | The cardholder’s shipping postal code.                                                           |
+
 
 
 <RequestExample>
