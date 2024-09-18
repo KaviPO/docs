@@ -20,7 +20,7 @@
   ],
   "paths": {
     "/api/v1/server-to-server-interface/hpp/generate/link": {
-      "post": {
+      "hpp": {
         "description": "This payload allows to generate link to open Hosted Payment Page to capture a transaction.",
         "parameters": [
           {
