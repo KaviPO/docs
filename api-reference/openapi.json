@@ -11,7 +11,7 @@
       "description": "Development Server"
     }
   ],
-  
+
   "paths": {
     "/api/v1/server-to-server-interface/hpp/generate/link": {
       "post": {
@@ -25,14 +25,172 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "exampleField": {
-                    "type": "string",
-                    "description": "Example field in the request body"
-                  }
-                }
-              }
+  "type": "object",
+  "properties": {
+    "return_url": {
+      "type": "object",
+      "description": "A JSON object containing the Return URL",
+      "properties": {
+        "webhook_url": {
+          "type": "string",
+          "maxLength": 255,
+          "description": "The webhook URL link",
+          "example": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b"
+        },
+        "success_url": {
+          "type": "string",
+          "maxLength": 255,
+          "description": "The redirect URL link after payment is successful",
+          "example": "https://www.example.com/success"
+        },
+        "decline_url": {
+          "type": "string",
+          "maxLength": 255,
+          "description": "The redirect URL link after payment failed",
+          "example": "https://www.example.com/decline"
+        },
+        "cancel_url": {
+          "type": "string",
+          "maxLength": 255,
+          "description": "The cancel URL link after payment gets cancelled",
+          "example": "https://www.example.com/cancel"
+        }
+      }
+    },
+    "amount": {
+      "type": "number",
+      "description": "The amount of the transaction. If passed as an empty string, the amount must be manually entered in the Hosted Payment Page",
+      "example": 100.50
+    },
+    "currency": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "The abbreviation of the processing currency of the product (e.g., JPY for Japanese Yen)",
+      "example": "JPY"
+    },
+    "merchant_id": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "The merchant ID (DASMID)",
+      "example": "JP00000275"
+    },
+    "merchant_email": {
+      "type": "string",
+      "maxLength": 45,
+      "description": "The email address of the Merchant",
+      "example": "merchant@example.com"
+    },
+    "merchant_txn_ref": {
+      "type": "string",
+      "maxLength": 45,
+      "description": "The merchant transaction reference ID",
+      "example": "2003089893366DTEST"
+    },
+    "payment_method": {
+      "type": "object",
+      "description": "A JSON object containing Payment Method",
+      "properties": {
+        "type": {
+          "type": "string",
+          "maxLength": 128,
+          "description": "The payment method type, e.g., 'scheme' for credit cards or wallet options like 'gcash'",
+          "example": "scheme"
+        },
+        "store_payment_method": {
+          "type": "boolean",
+          "maxLength": 5,
+          "description": "True to generate token, False not to generate",
+          "example": true
+        }
+      }
+    },
+    "billing_address": {
+      "type": "object",
+      "description": "A JSON object containing the billing address of the cardholder",
+      "properties": {
+        "country": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "The cardholder’s billing country code",
+          "example": "JP"
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 45,
+          "description": "The cardholder’s billing email address",
+          "example": "cardholder@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 15,
+          "description": "The cardholder’s billing phone number",
+          "example": "52553305"
+        },
+        "address1": {
+          "type": "string",
+          "maxLength": 199,
+          "description": "The cardholder’s billing address line",
+          "example": "Ebene Junction"
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 65,
+          "description": "The cardholder’s billing city",
+          "example": "Ebene"
+        },
+        "postal_code": {
+          "type": "string",
+          "maxLength": 45,
+          "description": "The cardholder’s billing postal code",
+          "example": "1234567"
+        }
+      }
+    },
+    "shipping_address": {
+      "type": "object",
+      "description": "A JSON object containing the shipping address of the cardholder. This object is optional.",
+      "properties": {
+        "country": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "The cardholder’s shipping country code",
+          "example": "JP"
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 45,
+          "description": "The cardholder’s shipping email address",
+          "example": "cardholder@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 20,
+          "description": "The cardholder’s shipping phone number",
+          "example": "52553305"
+        },
+        "address1": {
+          "type": "string",
+          "maxLength": 199,
+          "description": "The cardholder’s shipping address line",
+          "example": "Ebene Junction"
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 65,
+          "description": "The cardholder’s shipping city",
+          "example": "Ebene"
+        },
+        "postal_code": {
+          "type": "string",
+          "maxLength": 45,
+          "description": "The cardholder’s shipping postal code",
+          "example": "1234567"
+        }
+      }
+    }
+  }
+}
+
             }
           }
         },
