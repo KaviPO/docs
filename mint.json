@@ -7,7 +7,7 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#F18A00",
+    "primary": "#FFAB31",
     "light": "#FFAB31",
     "dark": "#F18A00",
     "anchors": {
@@ -15,7 +15,6 @@
       "to": "#FFAB31"
     }
   },
-  "styles": "/CSS/custom-styles.css",
 
   "topbarLinks": [
     {
