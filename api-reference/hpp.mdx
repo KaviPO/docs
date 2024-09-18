@@ -50,4 +50,46 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
         "postal_code": "1234567"
     }
 ```
+
+```bash
+curl --location 'https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/server-to-server-interface/hpp/generate/link' \
+--header 'Authorization: Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6' \
+--header 'x-api-key: bLm8c1C0fL3FtPzrjSr0' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "return_url": {
+        "webhook_url": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b",
+        "success_url": "http://www.bing.com/",
+        "decline_url": "http://www.google.com/",
+        "cancel_url": "http://tinkfactory.com/"
+    },
+    "amount": "",
+    "currency": "JPY",
+    "merchant_id": "JP00000275",
+    "merchant_email": "info@tinkfactory.com",
+    "merchant_txn_ref": "2003089893366DTEST",
+    "payment_method": {
+        "type": "scheme",
+        "store_payment_method": true
+    },
+    "billing_address": {
+        "country": "JP",
+        "email": "kavi@ghunowa.com",
+        "phone": "52553305",
+        "address1": "Ebene Junction",
+        "city": "Ebene",
+        "state": "Rose-Hill",
+        "postal_code": "1234567"
+    },
+    "shipping_address": {
+        "country": "JP",
+        "email": "kavi@ghunowa.com",
+        "phone": "52553305",
+        "address1": "Ebene Junction",
+        "city": "Ebene",
+        "state": "Rose-Hill",
+        "postal_code": "1234567"
+    }
+}'
+```
 </CodeGroup>
