@@ -5,6 +5,13 @@
     "version": "1.0.0",
     "description": "This API uses HTTP Basic Authentication where the API key is passed as credentials in the Authorization header"
   },
+  "servers": [
+    {
+      "url": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev",
+      "description": "Development Server"
+    }
+  ],
+  
   "paths": {
     "/api/v1/server-to-server-interface/hpp/generate/link": {
       "post": {
