@@ -15,7 +15,7 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 - Ensure that the necessary headers and authentication details are included to successfully generate the HPP link.
 
 <CodeGroup>
-```json
+```json JSON
     "return_url": {
         "webhook_url": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b",
         "success_url": "http://www.bing.com/",
@@ -51,7 +51,7 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
     }
 ```
 
-```bash
+```bash cURL
 curl --location 'https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/server-to-server-interface/hpp/generate/link' \
 --header 'Authorization: Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6' \
 --header 'x-api-key: bLm8c1C0fL3FtPzrjSr0' \
