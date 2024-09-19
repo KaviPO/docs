@@ -18,6 +18,8 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 
 # Request Attributes
 
+# Attributes for HPP Request
+
 | **Attributes**      | **Type**             | **Mandatory** | **Max Length** | **Description**                                                                                  |
 |:--------------------|:---------------------|:--------------|:---------------|:-------------------------------------------------------------------------------------------------|
 | **return_url**       | object               | yes           | -              | A JSON object containing the Return URL                                                          |
@@ -31,7 +33,7 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 | **merchant_email**   | string               | yes           | 45             | The email address of the Merchant.                                                               |
 | **merchant_txn_ref** | string               | yes           | 45             | The merchant transaction reference ID.                                                           |
 | **payment_method**   | object               | no            | -              | A JSON object containing Payment Method.                                                         |
-| ∟ type              | string               | yes           | 128            | The Payment method type (e.g., "scheme" for credit cards, or wallets like "gcash").              |
+| ∟ type              | string               | yes           | 128            | The payment method type, e.g., "scheme" for credit cards or wallet options like "gcash".         |
 | ∟ store_payment_method | boolean           | yes           | 5              | True to generate a token, or False not to generate one.                                          |
 | **billing_address**  | object               | no            | -              | A JSON object containing the billing address of the cardholder.                                  |
 | ∟ country           | string               | no            | 2              | The cardholder’s billing country code.                                                           |
@@ -47,74 +49,98 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 | ∟ address1          | string               | no            | 199            | The cardholder’s shipping address line.                                                          |
 | ∟ city              | string               | no            | 65             | The cardholder’s shipping city.                                                                  |
 | ∟ postal_code       | string               | no            | 45             | The cardholder’s shipping postal code.                                                           |
+| **browser_info**     | object               | no            | -              | A JSON object containing the browser info. This object is optional.                              |
+| ∟ acceptHeader      | string               | no            | 45             | Information about the browser's accepted data formats                                            |
+| ∟ screenColorDepth  | int                  | no            | 5              | Number of bits used to represent colors on the screen                                            |
+| ∟ javaEnabled       | boolean              | no            | 5              | Indicates whether Java is enabled in the browser                                                 |
+| ∟ language          | string               | no            | 2              | The browser's language setting                                                                   |
+| ∟ screenHeight      | int                  | no            | 5              | Height of the browser window in pixels                                                           |
+| ∟ screenWidth       | int                  | no            | 5              | Width of the browser window in pixels                                                            |
+| ∟ challengeWindow   | int                  | no            | 5              | Dimensions of the pop-up window used in challenge                                                |
+| ∟ userAgent         | string               | no            | 199            | String providing detailed information about the browser and operating system                     |
+
 
 # Response Attributes
 
-| **Attributes**      | **Description**                                                                 |
-|:--------------------|:--------------------------------------------------------------------------------|
-| **id**              | The transaction reference ID                                                    |
-| **url**             | The URL link of the hosted payment page generated                                |
-| **amount**          | The amount of the transaction                                                    |
-| **currency**        | The processing currency of the transaction                                       |
-| **merchant_txn_ref**| The merchant transaction reference ID                                            |
-| **merchant_id**     | The DAS merchant ID of the transaction performed                                 |
-| **merchant_email**  | The email address of the Merchant                                                |
-| **return_url**      | A JSON object containing the Return URL                                          |
-| ∟ webhook_url      | The webhook URL link                                                             |
-| ∟ success_url      | The redirect URL link after payment gets successful.                              |
-| ∟ decline_url      | The redirect URL link after payment gets failed.                                  |
-| ∟ cancel_url       | The URL link of the cancellation page                                             |
-| **billing_address** | A JSON object containing the billing address of the cardholder                   |
-| ∟ city             | The cardholder’s billing city                                                    |
-| ∟ email            | The cardholder’s billing email address                                           |
-| ∟ phone            | The cardholder’s billing phone number                                            |
-| ∟ country          | The cardholder’s billing country code                                            |
-| ∟ address1         | The cardholder’s billing address line                                            |
-| ∟ postal_code      | The cardholder’s billing postal code                                              |
-| **shipping_address**| A JSON object containing the shipping address of the cardholder.                 |
-| ∟ city             | The cardholder’s shipping city                                                   |
-| ∟ email            | The cardholder’s shipping email address                                          |
-| ∟ phone            | The cardholder’s shipping phone number                                           |
-| ∟ country          | The cardholder’s shipping country code                                           |
-| ∟ address1         | The cardholder’s shipping address line                                           |
-| ∟ postal_code      | The cardholder’s shipping postal code                                             |
+# Response Attributes
+
+| **Attributes**        | **Description**                                                                 |
+|:----------------------|:--------------------------------------------------------------------------------|
+| **id**                | The transaction reference ID                                                    |
+| **url**               | The URL Link of the hosted payment page link generated                          |
+| **amount**            | The Amount of transaction                                                       |
+| **currency**          | The processing currency of the transaction                                      |
+| **merchant_txn_ref**  | The merchant transaction reference ID                                           |
+| **merchant_id**       | The DAS merchant ID of the transaction performed                                |
+| **merchant_email**    | The email address of the Merchant                                               |
+| **return_url**        | A JSON object containing the Return URL                                         |
+| ∟ **webhook_url**     | The webhook URL link                                                            |
+| ∟ **success_url**     | The redirect URL link after payment gets successful.                            |
+| ∟ **decline_url**     | The redirect URL link after payment gets failed.                                |
+| ∟ **cancel_url**      | The URL link of the cancellation page                                           |
+| **billing_address**   | A JSON object containing the billing address of the cardholder                  |
+| ∟ **city**            | The cardholder’s billing city                                                   |
+| ∟ **email**           | The cardholder’s billing email address                                          |
+| ∟ **phone**           | The cardholder’s billing phone number                                           |
+| ∟ **state**           | The cardholder’s billing state                                                  |
+| ∟ **country**         | The cardholder’s billing country code                                           |
+| ∟ **address1**        | The cardholder’s billing address line                                           |
+| ∟ **postal_code**     | The cardholder’s billing postal code                                            |
+| **shipping_address**  | A JSON object containing the shipping address of the cardholder                 |
+| ∟ **city**            | The cardholder’s shipping city                                                  |
+| ∟ **email**           | The cardholder’s shipping email address                                         |
+| ∟ **phone**           | The cardholder’s shipping phone number                                          |
+| ∟ **state**           | The cardholder’s shipping state                                                 |
+| ∟ **country**         | The cardholder’s shipping country code                                          |
+| ∟ **address1**        | The cardholder’s shipping address line                                          |
+| ∟ **postal_code**     | The cardholder’s shipping postal code                                           |
 
 
 <RequestExample>
 ```json Request Example
 {
     "return_url": {
-        "webhook_url": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b",
-        "success_url": "http://www.bing.com/",
-        "decline_url": "http://www.google.com/",
-        "cancel_url": "http://tinkfactory.com/"
+        "webhook_url": "http://webhook.site.com",
+        "success_url": "http://www.yoursuccessurl.com/",
+        "decline_url": "http://www.yourdeclineurl.com/",
+        "cancel_url": "http://www.yourcancelurl.com/"
     },
-    "amount": "",
+    "amount": "<float/string/int>",
     "currency": "JPY",
-    "merchant_id": "JP00000275",
-    "merchant_email": "info@tinkfactory.com",
-    "merchant_txn_ref": "2003089893366DTEST",
+    "merchant_id": "<DASMID>",
+    "merchant_email": "<merchant_email>",
+    "merchant_txn_ref": "<string>",
     "payment_method": {
         "type": "scheme",
         "store_payment_method": true
     },
     "billing_address": {
-        "country": "JP",
-        "email": "kavi@ghunowa.com",
-        "phone": "52553305",
-        "address1": "Ebene Junction",
-        "city": "Ebene",
-        "state": "Rose-Hill",
-        "postal_code": "1234567"
+        "country": "<string>",
+        "email": "<billing_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
     },
     "shipping_address": {
-        "country": "JP",
-        "email": "kavi@ghunowa.com",
-        "phone": "52553305",
-        "address1": "Ebene Junction",
-        "city": "Ebene",
-        "state": "Rose-Hill",
-        "postal_code": "1234567"
+        "country": "<string>",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
+    },
+    "browser_info": {
+        "acceptHeader": "text/html",
+        "screenColorDepth": "<int>",
+        "javaEnabled": <boolean>,
+        "language": "<string>",
+        "screenHeight": "<int>",
+        "screenWidth": "<int>",
+        "challengeWindow": "<int>",
+        "userAgent": "Mozilla/4.0 (MSIE 6.0; Windows NT 5.0)"
     }
 }
 ```
@@ -123,34 +149,36 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 <ResponseExample>
 ```json Response Example
 {
-    "id": "8099279b-e499-464d-ad50-57eed0e4b309",
-    "url": "<Generated HPP Link>",
-    "amount": "",
-    "currency": "<currency>",
-    "merchant_txn_ref": "<ref>",
+    "id": "9f3028ee-3023-413a-bcd5-ca9d71216eec",
+    "url": "https://checkout.paymentoptions.com",
+    "amount": "<float/string/int>",
+    "currency": "JPY",
+    "merchant_txn_ref": "<string>",
     "merchant_id": "<DASMID>",
-    "merchant_email": "<merchant email>",
+    "merchant_email": "<merchant_email>",
     "return_url": {
-        "webhook_url": "",
-        "success_url": "",
-        "decline_url": "",
-        "cancel_url": ""
+        "webhook_url": "http://webhook.site.com",
+        "success_url": "http://www.yoursuccessurl.com/",
+        "decline_url": "http://www.yourdeclineurl.com/",
+        "cancel_url": "http://www.yourcancelurl.com/"
     },
     "billing_address": {
-        "city": "<city>",
-        "email": "<email>",
-        "phone": "<phone number>",
-        "country": "<country code>",
-        "address1": "<address line 1>",
-        "postal_code": "<postal code>"
+        "city": "<string>",
+        "email": "<billing_email>",
+        "phone": "<phone_number>",
+        "state": "<string>",
+        "country": "<string>",
+        "address1": "<string>",
+        "postal_code": "<string>"
     },
     "shipping_address": {
-        "city": "<city>",
-        "email": "<email>",
-        "phone": "<phone number>",
-        "country": "<country code>",
-        "address1": "<address line 1>",
-        "postal_code": "<postal code>"
+        "city": "Ebene",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "state": "<string>",
+        "country": "<string>",
+        "address1": "<string>",
+        "postal_code": "<string>"
     }
 }
 ```
