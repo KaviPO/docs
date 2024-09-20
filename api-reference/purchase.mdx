@@ -2,3 +2,137 @@
 title: 'Purchase'
 description: 'The Purchase API is used to directly authorize and capture funds in a single transaction, completing the payment process immediately.'
 ---
+
+<RequestExample>
+```json Request Example
+{
+    "amount": "<float/string/int>",
+    "currency": "JPY",
+    "card": {
+        "cvc": "<card_cvc>",
+        "expiry_month": "<expiry_mm>",
+        "expiry_year": "expiry_yy",
+        "name": "<customer_name>",
+        "number": "<credit_card_number>"
+    },
+    "payment_method": {
+        "type": "scheme",
+        "store_payment_method": false
+    },
+    "merchant_txn_ref": "<string>",
+    "customer_ip": "10.10.0.0",
+    "merchant_id": "<DASMID>",
+    "return_url": {
+        "return_url": {
+        "webhook_url": "http://webhook.site.com",
+        "success_url": "http://www.yoursuccessurl.com/",
+        "decline_url": "http://www.yourdeclineurl.com/",
+        "cancel_url": "http://www.yourcancelurl.com/"
+    },
+    "billing_address": {
+        "country": "<string>",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
+    },
+     "shipping_address": {
+        "country": "<string>",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
+    },
+    "browser_info": {
+        "acceptHeader": "text/html",
+        "screenColorDepth": "<int>",
+        "javaEnabled": <boolean>,
+        "language": "<string>",
+        "screenHeight": "<int>",
+        "screenWidth": "<int>",
+        "challengeWindow": "<int>",
+        "userAgent": "Mozilla/4.0 (MSIE 6.0; Windows NT 5.0)"
+    },
+    "time_zone": "Asia/Kuala_Lumpur"
+}
+```
+</RequestExample>
+
+<ResponseExample>
+```json Response Example
+{
+    "success": true,
+    "status_code": 201,
+    "is_live": false,
+    "transaction_type": "CAPTURE",
+    "gateway_response": {
+        "version": "1",
+        "type": "INFO",
+        "message": "Payment Successful.",
+        "code": "INFO0000"
+    },
+    "merchant_details": {
+        "legal_name": "<string>",
+        "mid": "<DASMID>",
+        "merchant_txn_ref": "<string>",
+        "billing_details": {
+            "billing_address": {
+                "country": "<string>",
+                "email": "<billing_email>",
+                "address1": "<string>",
+                "phone": "<phone_number>",
+                "city": "<string>",
+                "state": "<string>",
+                "postal_code": "<string>"
+            },
+            "shipping_address": {
+                "country": "<string>",
+                "email": "<shipping_email>",
+                "address1": "<string>",
+                "phone": "<phone_number>",
+                "city": "<string>",
+                "state": "<string>",
+                "postal_code": "<string>"
+            }
+        },
+        "device_details": {
+            "visited_ip": "10.10.0.0",
+            "customer_ip": "<customer_ip>"
+        }
+    },
+    "payment_details": {
+        "amount": "<payment_amount>",
+        "response_code": 0,
+        "auth_code": "<auth_code>",
+        "currency": "JPY",
+        "payment_method": "<payment_method>",
+        "scheme": "MASTERCARD",
+        "card": {
+            "name": "<customer_name>",
+            "number": "<card_number(hash)>",
+            "expiry_month": "<expiry_mm>",
+            "expiry_year": "expiry_yy"
+        },
+        "additional_data": {
+            "payment_data_source": {
+                "type": "card"
+            }
+        }
+    },
+    "transaction_details": {
+        "id": "<transaction_id>",
+        "ref": 69700,
+        "timestamp": "yyyy-mm-ddThh:mm:ss.000Z",
+        "merchant_txn_ref": "<string>",
+        "stored_payment_method_id": null
+    },
+    "risk-details": {
+        "risk_score": null
+    }
+}
+```
+<ResponseExample>
