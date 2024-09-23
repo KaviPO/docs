@@ -16,3 +16,104 @@ description: 'The Cancel Subscription API allows merchants to permanently stop a
 - The cancellation becomes effective immediately, and no further billing cycles will be processed.
 ### Required Parameters
 - **Subscription ID:** The unique identifier of the subscription to be resumed.
+
+
+### Subscription ID Attribute in Endpoint URL
+
+| **Attributes**         | **Type**            | **Mandatory** | **Max Length** | **Description**                                                                 |
+|:-----------------------|:--------------------|:--------------|:---------------|:--------------------------------------------------------------------------------|
+| **Subscription ID**    | string    | yes           | 36             | The Subscription ID of the subscription.                    |
+
+### Response Attributes
+
+| **Attributes**       | **Description**                                                                 |
+|:---------------------|:--------------------------------------------------------------------------------|
+| **success**                       | `true` on successful transaction, `false` on failure.                                                                          |
+| **status_code**                   | The status code of the transaction.                                                                                            |
+| **is_live**                       | `true` if live transaction, `false` if test transaction.                                                                       |
+| **gateway_response**              | A JSON object containing the response from the gateway.                                                                        |
+|  ∟ **version**                    | The version of the gateway.                                                                                                    |
+|  ∟ **type**                       | Type of response (e.g., INFO for informative response).                                                                        |
+|  ∟ **message**                    | The message response from the gateway.                                                                                         |
+|  ∟ **code**                       | Message code of the response.                                                                                                  |
+| **subscription_details**          | A JSON object containing subscription details.                                                                                 |
+|  ∟ **id**                         | The Subscription ID.                                                                                                           |
+|  ∟ **type**                       | The Type of subscription (CYCLE or Unlimited).                                                                                 |
+|  ∟ **max_cycle_count**            | The number of maximum cycles.                                                                                                  |
+|  ∟ **status**                     | The status of the subscription.                                                                                                |
+|  ∟ **completed_payment_cycle**    | The number of completed payment cycles.                                                                                        |
+|  ∟ **next_payment_date**          | The next payment date of the subscription.                                                                                     |
+|  ∟ **next_payment_cycle**         | The next payment cycle number.                                                                                                 |
+|  ∟ **subscription_plan_details**  | A JSON object containing subscription plan details.                                                                            |
+|    ∟ **name**                     | The name of the subscription plan.                                                                                             |
+|    ∟ **desc**                     | The description of the subscription plan.                                                                                      |
+|    ∟ **billing_cycle_type**       | Type of cycle (DAYS or MONTHS).                                                                                                |
+|    ∟ **billing_cycle_interval**   | The number of cycle intervals.                                                                                                 |
+|    ∟ **amount**                   | The payment amount of the subscription plan.                                                                                   |
+|    ∟ **ccy**                      | The currency of the subscription transaction.                                                                                  |
+|    ∟ **trial_period_duration**    | Duration of Trial Period (if `has_trial_period`: true).                                                                        |
+|    ∟ **trial_period_duration_type** | Type of Trial Period (DAYS or MONTHS) (if `has_trial_period`: true).                                                           |
+|    ∟ **plan_discount_percentage** | The percentage of discount (if `has_discount`: true).                                                                          |
+|    ∟ **plan_discount_duration**   | The duration of discount (if `has_discount`: true).                                                                            |
+|  ∟ **subscription_transaction_details** | A JSON object containing subscription transaction details (can contain multiple subscription transactions).              |
+|    ∟ **id**                       | The Transaction ID of this subscription transaction.                                                                           |
+|    ∟ **ref**                      | The reference of the subscription transaction.                                                                                 |
+|    ∟ **cycle**                    | The number of payment cycles of the subscription.                                                                              |
+|    ∟ **status**                   | The status of the subscription transaction.                                                                                    |
+|    ∟ **transaction_date**         | The date of the subscription transaction.                                                                                      |
+|    ∟ **amount**                   | The payment amount of the subscription transaction.                                                                            |
+|    ∟ **ccy**                      | The currency of the subscription transaction.                                                                                  |
+|    ∟ **event**                    | The subscription transaction event.                                                                                           |
+
+
+
+
+<ResponseExample>
+```json Response Example
+{
+    "success": true,
+    "status_code": 200,
+    "is_live": false,
+    "gateway_response": {
+        "version": "1",
+        "type": "INFO",
+        "message": "Subscription Updated.",
+        "code": "INFO3000"
+    },
+    "subscription_details": {
+        "id": "2048b01c-1512-45b9-98fc-27aac4deabce",
+        "type": "CYCLE",
+        "max_cycle_count": 10,
+        "status": "CANCELLED",
+        "completed_payment_cycle": 1,
+        "last_payment_status": "SUCCESSFUL",
+        "next_payment_date": "yyyy-mm-ddThh:mm:ss.000Z",
+        "next_payment_cycle": 2,
+        "subscription_plan_details": {
+            "name": "Three weeks plan",
+            "desc": "Billed every two days",
+            "billing_cycle_type": "DAYS",
+            "billing_cycle_interval": 2,
+            "amount": 1000,
+            "ccy": "JPY",
+            "trial_period_duration": "",
+            "trial_period_duration_type": "NONE",
+            "plan_discount_percentage": 10,
+            "plan_discount_duration": 2
+        },
+        "subscription_transcation_details": [
+            {
+                "id": "<subscription_transcation_id>",
+                "ref": 69770,
+                "cycle": 1,
+                "status": "SUCCESSFUL",
+                "transaction_date": "yyyy-mm-ddThh:mm:ss.000Z",
+                "amount": 900,
+                "ccy": "JPY",
+                "event": "CAPTURED"
+            }
+        ]
+    }
+}
+```
+</ResponseExample>
