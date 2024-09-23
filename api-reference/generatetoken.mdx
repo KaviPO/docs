@@ -15,7 +15,7 @@ Endpoint URL: `/api/v1/server-to-server-interface/payment`
 Card Number, Expiry Date, CVV, Customer Information.
 </Info>
 
-store_payment_method: Must be set to true in the payload to store the card token for future use.
+`store_payment_method`: Must be set to `true` in the payload to store the card token for future use.
 
 
 ``` json
@@ -26,9 +26,120 @@ store_payment_method: Must be set to true in the payload to store the card token
   },
 ```
 
-Setting store_payment_method to true ensures that the card token is stored for future transactions without needing to re-enter card details.
+Setting `store_payment_method` to `true` ensures that the card token is stored for future transactions without needing to re-enter card details.
 
 
+### Request Attributes
+
+| **Attributes**         | **Type**            | **Mandatory** | **Max Length** | **Description**                                                                 |
+|:-----------------------|:--------------------|:--------------|:---------------|:--------------------------------------------------------------------------------|
+| **amount**             | float/string/int    | yes           | as per Bank    | The amount of the transaction.                                                  |
+| **currency**           | string              | yes           | 3              | The abbreviation of the processing currency of the product (e.g., JPY for Japanese Yen).|
+| **card**               | object              | yes           | -              | A JSON object containing the Card Details                                       |
+| ∟ **cvc**              | string              | yes           | 4              | The Security Code of the card (3 digits for most, 4 digits for AMEX).           |
+| ∟ **expiry_month**     | string              | yes           | 2              | The expiry month of the card (e.g., 12 for December).                           |
+| ∟ **expiry_year**      | string              | yes           | 2              | The expiry year of the card (e.g., 24 for 2024).                                |
+| ∟ **name**             | string              | yes           | 255            | The cardholder’s name on the card.                                              |
+| ∟ **number**           | string              | yes           | 16             | The card number.                                                                |
+| **payment_method**     | object              | yes           | -              | A JSON object containing Payment Method.                                        |
+| ∟ **type**             | string              | yes           | 128            | The payment method type, e.g., "scheme" for credit cards, or "gcash" for wallets.|
+| ∟ **store_payment_method** | boolean         | yes           | 5              | True to store the payment method or False not to store (for tokenization).      |
+| **merchant_txn_ref**   | string              | yes           | 45             | The merchant transaction reference ID.                                          |
+| **customer_ip**        | string              | yes           | 45             | The IP address of the cardholder.                                               |
+| **merchant_id**        | string              | yes           | 128            | The merchant ID (DASMID).                                                       |
+| **return_url**         | object              | no            | -              | A JSON object containing the Return URL.                                        |
+| ∟ **webhook_url**      | string              | no            | 255            | The webhook URL link.                                                           |
+| ∟ **success_url**      | string              | no            | 255            | The redirect URL after successful payment.                                      |
+| ∟ **decline_url**      | string              | no            | 255            | The redirect URL after failed payment.                                          |
+| ∟ **cancel_url**       | string              | no            | 255            | The cancel URL link after the payment is cancelled.                             |
+| **billing_address**    | object              | yes           | -              | A JSON object containing the billing address of the cardholder.                 |
+| ∟ **country**          | string              | yes           | 2              | The cardholder’s billing country code.                                          |
+| ∟ **email**            | string              | yes           | 45             | The cardholder’s billing email address.                                         |
+| ∟ **address1**         | string              | yes           | 199            | The cardholder’s billing address line.                                          |
+| ∟ **phone_number**     | string              | yes           | 20             | The cardholder’s billing phone number.                                          |
+| ∟ **city**             | string              | yes           | 65             | The cardholder’s billing city.                                                  |
+| ∟ **state**            | string              | no            | 65             | The cardholder’s billing state.                                                 |
+| ∟ **postal_code**      | string              | yes           | 45             | The cardholder’s billing postal code.                                           |
+| **shipping_address**   | object              | no            | -              | A JSON object containing the shipping address of the cardholder. (Optional)     |
+| ∟ **country**          | string              | no            | 2              | The cardholder’s shipping country code.                                         |
+| ∟ **email**            | string              | no            | 45             | The cardholder’s shipping email address.                                        |
+| ∟ **address1**         | string              | no            | 199            | The cardholder’s shipping address line.                                         |
+| ∟ **phone**            | string              | no            | 20             | The cardholder’s shipping phone number.                                         |
+| ∟ **city**             | string              | no            | 65             | The cardholder’s shipping city.                                                 |
+| ∟ **state**            | string              | no            | 65             | The cardholder’s shipping state.                                                |
+| ∟ **postal_code**      | string              | no            | 45             | The cardholder’s shipping postal code.                                          |
+| **browser_info**       | object              | no            | -              | A JSON object containing the browser info. (Optional)                           |
+| ∟ **acceptHeader**     | string              | no            | 45             | Information about the browser's accepted data formats.                          |
+| ∟ **screenColorDepth** | int                 | no            | 5              | Number of bits used to represent colors on the screen.                          |
+| ∟ **javaEnabled**      | boolean             | no            | 5              | Indicates whether Java is enabled in the browser.                               |
+| ∟ **language**         | string              | no            | 2              | The browser's language setting.                                                 |
+| ∟ **screenHeight**     | int                 | no            | 5              | The height of the browser window in pixels.                                     |
+| ∟ **screenWidth**      | int                 | no            | 5              | The width of the browser window in pixels.                                      |
+| ∟ **challengeWindow**  | int                 | no            | 5              | Dimensions of the pop-up window used in challenge.                              |
+| ∟ **userAgent**        | string              | no            | 199            | String providing detailed information about the browser and operating system.   |
+| **time_zone**          | string              | yes           | 128            | The country time zone of the transaction.                                       |
+
+
+### Response Attributes
+
+| **Attributes**       | **Description**                                                                 |
+|:---------------------|:--------------------------------------------------------------------------------|
+| **success**          | `true` on successful transaction, `false` on failure.                           |
+| **status_code**      | The status code of the transaction.                                             |
+| **is_live**          | `true` if live transaction, `false` if test transaction.                        |
+| **transaction_type** | The transaction type, e.g., CAPTURE for authorized transaction.                 |
+| **gateway_response** | A JSON object containing the response from the gateway.                         |
+| ∟ **version**        | The version of the gateway.                                                     |
+| ∟ **type**           | Type of response, e.g., INFO for informative.                                   |
+| ∟ **message**        | The message response from the gateway.                                          |
+| ∟ **code**           | Message code of the response.                                                   |
+| **merchant_details** | A JSON object containing the details of the merchant.                           |
+| ∟ **legal_name**     | The merchant’s legal name.                                                      |
+| ∟ **mid**            | The merchant ID (DASMID).                                                       |
+| ∟ **merchant_txn_ref**| The merchant transaction reference.                                             |
+| **billing_details**  | A JSON object containing the billing details.                                   |
+| ∟ **billing_address**| A JSON object containing the billing address.                                   |
+| ∟∟ **country**       | The cardholder’s billing country code.                                           |
+| ∟∟ **email**         | The cardholder’s billing email address.                                          |
+| ∟∟ **address1**      | The cardholder’s billing address line.                                           |
+| ∟∟ **phone**         | The cardholder’s billing phone number.                                           |
+| ∟∟ **city**          | The cardholder’s billing city.                                                   |
+| ∟∟ **state**         | The cardholder’s billing state.                                                  |
+| ∟∟ **postal_code**   | The cardholder’s billing postal code.                                            |
+| **shipping_address** | A JSON object containing the shipping address.                                  |
+| ∟ **country**        | The cardholder’s shipping country code.                                          |
+| ∟ **email**          | The cardholder’s shipping email address.                                         |
+| ∟ **address1**       | The cardholder’s shipping address line.                                          |
+| ∟ **phone**          | The cardholder’s shipping phone number.                                          |
+| ∟ **city**           | The cardholder’s shipping city.                                                  |
+| ∟ **state**          | The cardholder’s shipping state.                                                 |
+| ∟ **postal_code**    | The cardholder’s shipping postal code.                                           |
+| **device_details**   | A JSON object containing the details of the device.                             |
+| ∟ **visited_ip**     | IP address of the payment page.                                                  |
+| ∟ **customer_ip**    | IP address of the cardholder.                                                    |
+| **payment_details**  | A JSON object containing the payment details of the transaction.                |
+| ∟ **amount**         | The amount value of the transaction.                                             |
+| ∟ **response_code**  | The acquirer response code.                                                      |
+| ∟ **auth_code**      | The acquirer authorization code.                                                 |
+| ∟ **currency**       | The currency of the transaction.                                                 |
+| ∟ **payment_method** | The payment card type, e.g., Credit Card or Debit Card.                          |
+| ∟ **scheme**         | The card brand scheme, e.g., VISA, MASTERCARD, or AMEX.                          |
+| ∟ **card**           | A JSON object containing details of the card.                                    |
+| ∟∟ **name**          | The cardholder's name on the card.                                               |
+| ∟∟ **number**        | The card number.                                                                 |
+| ∟∟ **exp_month**     | The expiry month of the card, e.g., 12 for December.                             |
+| ∟∟ **exp_year**      | The expiry year of the card, e.g., 24 for 2024.                                  |
+| **additional_data**  | A JSON object containing additional data.                                        |
+| ∟ **payment_data_source** | A JSON object containing the payment data source.                              |
+| ∟∟ **type**          | The type of payment data source, e.g., Card, GooglePay, ApplePay, or Gcash.       |
+| **transaction_details** | A JSON object containing details of the transaction.                            |
+| ∟ **id**             | The transaction ID.                                                              |
+| ∟ **ref**            | The authorization code of the transaction.                                       |
+| ∟ **timestamp**      | Date and time of the transaction.                                                |
+| ∟ **merchant_txn_ref** | The merchant transaction reference ID.                                          |
+| ∟ **stored_payment_method_id** | The stored payment method ID (Token).                                    |
+| **risk-details**     | A JSON object containing details of risk.                                        |
+| ∟ **risk_score**     | The risk score.                                                                  |
 
 
 <RequestExample>
@@ -163,3 +274,4 @@ Setting store_payment_method to true ensures that the card token is stored for f
 }
 ```
 </ResponseExample>
+
