@@ -2,3 +2,164 @@
 title: 'Generate Card Token'
 description: 'The Generate Card Token API is used to tokenize sensitive card information during the Purchase or Authorization process, allowing secure transactions without exposing the actual card details.'
 ---
+
+### API Details
+HTTP Method: `POST`
+Endpoint URL: `/api/v1/server-to-server-interface/payment`
+
+### Key Points
+<Info>
+- Tokenising a card allows for repeated transactions without needing to re-enter the card details, improving both security and user experience.
+- The generated token can be used for both Purchase and Authorization transactions, providing flexibility for different types of payments.
+- Important parameters typically include:
+Card Number, Expiry Date, CVV, Customer Information.
+</Info>
+
+store_payment_method: Must be set to true in the payload to store the card token for future use.
+
+
+```
+{
+  "payment_method": {
+    "type": "scheme",
+    "store_payment_method": true
+  },
+```
+
+Setting store_payment_method to true ensures that the card token is stored for future transactions without needing to re-enter card details.
+
+
+
+
+<RequestExample>
+```json Request Example
+{
+    "amount": "2000",
+    "currency": "JPY",
+    "card": {
+        "cvc": "100",
+        "expiry_month": "12",
+        "expiry_year": "24",
+        "name": "Kavi G",
+        "number": "4000000000001091"
+    },
+    "payment_method": {
+        "type": "scheme",
+        "store_payment_method": true
+    },
+    "merchant_txn_ref": "qwe",
+    "customer_ip": "10.10.0.0",
+    "merchant_id": "JP00000282",
+    "return_url": {
+        "webhook_url": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b",
+        "success_url": "https://www.google.com/",
+        "decline_url": "https://www.bing.com/",
+        "cancel_url": "https://www.bing.com/"
+    },
+    "billing_address": {
+        "country": "JP",
+        "email": "kavi@ghunowa.com",
+        "phone": "52553305",
+        "address1": "Oxford Road",
+        "city": "Tokyo",
+        "state": "Rose-Hill",
+        "postal_code": "205701"
+    },
+    "shipping_address": {
+        "country": "JP",
+        "email": "kavi@ghunowa.com",
+        "phone": "52553305",
+        "address1": "Oxford Road",
+        "city": "Tokyo",
+        "state": "Rose-Hill",
+        "postal_code": "205701"
+    },
+    "browser_info": {
+        "acceptHeader": "text/html",
+        "screenColorDepth": "48",
+        "javaEnabled": false,
+        "language": "de",
+        "screenHeight": "1200",
+        "screenWidth": "1600",
+        "challengeWindow": "4",
+        "userAgent": "Mozilla/4.0 (MSIE 6.0; Windows NT 5.0)"
+    },
+    "time_zone": "Asia/Kuala_Lumpur"
+}
+```
+</RequestExample>
+
+<ResponseExample>
+```json Response Example
+{
+    "success": true,
+    "status_code": 201,
+    "is_live": false,
+    "transaction_type": "CAPTURE",
+    "gateway_response": {
+        "version": "1",
+        "type": "INFO",
+        "message": "Payment Successful.",
+        "code": "INFO0000"
+    },
+    "merchant_details": {
+        "legal_name": "アイベック株式会社",
+        "mid": "JP00000282",
+        "merchant_txn_ref": "qwe",
+        "billing_details": {
+            "billing_address": {
+                "country": "JP",
+                "email": "kavi@ghunowa.com",
+                "phone": "52553305",
+                "address1": "Oxford Road",
+                "city": "Tokyo",
+                "state": "Rose-Hill",
+                "postal_code": "205701"
+            },
+            "shipping_address": {
+                "country": "JP",
+                "email": "kavi@ghunowa.com",
+                "phone": "52553305",
+                "address1": "Oxford Road",
+                "city": "Tokyo",
+                "state": "Rose-Hill",
+                "postal_code": "205701"
+            }
+        },
+        "device_details": {
+            "visited_ip": "10.10.0.0",
+            "customer_ip": "102.119.100.56"
+        }
+    },
+    "payment_details": {
+        "amount": 2000,
+        "response_code": 0,
+        "auth_code": "788334",
+        "currency": "JPY",
+        "payment_method": "VISA_DEBIT-SSL",
+        "scheme": "VISA",
+        "card": {
+            "name": "Kavi G",
+            "number": "400000******1091",
+            "exp_month": "12",
+            "exp_year": "24"
+        },
+        "additional_data": {
+            "payment_data_source": {
+                "type": "card"
+            }
+        }
+    },
+    "transaction_details": {
+        "id": "c2bb653b-30fa-4662-b12c-8a440264ab14",
+        "ref": 69760,
+        "timestamp": "2024-09-23T02:48:26.000Z",
+        "merchant_txn_ref": "qwe",
+        "stored_payment_method_id": "094db781-fabc-4c6d-8fcd-18bee06a527a"
+    },
+    "risk-details": {
+        "risk_score": null
+    }
+}
+```
+</ResponseExample>
