@@ -35,7 +35,7 @@ The `stored_payment_method_id` is the token generated from the card tokenization
 <RequestExample>
 ```json Request Example
 {
-    "amount": "2400",
+    "amount": "<float/string/int>",
     "currency": "JPY",
     "payment_method": {
         "type": "scheme",
@@ -46,36 +46,38 @@ The `stored_payment_method_id` is the token generated from the card tokenization
     "customer_ip": "10.10.0.0",
     "merchant_id": "JP00000282",
     "return_url": {
-        "webhook_url": "https://sme.dasgateway.com/v1/mc",
-        "success_url": "https://www.google.com/",
-        "decline_url": "https://www.bing.com/"
+        "return_url": {
+        "webhook_url": "http://webhook.site.com",
+        "success_url": "http://www.yoursuccessurl.com/",
+        "decline_url": "http://www.yourdeclineurl.com/",
+        "cancel_url": "http://www.yourcancelurl.com/"
     },
     "billing_address": {
-        "country": "JP",
-        "email": "info@tinkfactory.com",
-        "address1": "47A123",
-        "phone_number": "9999999999",
-        "city": "ACambridge",
-        "state": "Cambridgeshire",
-        "postal_code": "CB94BQ"
+        "country": "<string>",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
     },
     "shipping_address": {
-        "country": "IN",
-        "email": "info@tinkfactory.com",
-        "address1": "adfadfdsf",
-        "phone_number": "111111",
-        "city": "ACambridge",
-        "state": "Cambridgeshire",
-        "postal_code": "3534534"
+        "country": "<string>",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
     },
     "browser_info": {
         "acceptHeader": "text/html",
-        "screenColorDepth": "48",
-        "javaEnabled": false,
-        "language": "de",
-        "screenHeight": "1200",
-        "screenWidth": "1600",
-        "challengeWindow": "4",
+        "screenColorDepth": "<int>",
+        "javaEnabled": <boolean>,
+        "language": "<string>",
+        "screenHeight": "<int>",
+        "screenWidth": "<int>",
+        "challengeWindow": "<int>",
         "userAgent": "Mozilla/4.0 (MSIE 6.0; Windows NT 5.0)"
     },
     "time_zone": "Asia/Kuala_Lumpur"
@@ -98,46 +100,46 @@ The `stored_payment_method_id` is the token generated from the card tokenization
         "code": "INFO0000"
     },
     "merchant_details": {
-        "legal_name": "アイベック株式会社",
-        "mid": "JP00000282",
-        "merchant_txn_ref": "qwe",
+        "legal_name": "<string>",
+        "mid": "<DASMID>",
+        "merchant_txn_ref": "<string>",
         "billing_details": {
             "billing_address": {
-                "country": "JP",
-                "email": "info@tinkfactory.com",
-                "address1": "47A123",
-                "phone_number": "9999999999",
-                "city": "ACambridge",
-                "state": "Cambridgeshire",
-                "postal_code": "CB94BQ"
+                "country": "<string>",
+                "email": "<billing_email>",
+                "address1": "<string>",
+                "phone": "<phone_number>",
+                "city": "<string>",
+                "state": "<string>",
+                "postal_code": "<string>"
             },
             "shipping_address": {
-                "country": "IN",
-                "email": "info@tinkfactory.com",
-                "address1": "adfadfdsf",
-                "phone_number": "111111",
-                "city": "ACambridge",
-                "state": "Cambridgeshire",
-                "postal_code": "3534534"
+                "country": "<string>",
+                "email": "<shipping_email>",
+                "address1": "<string>",
+                "phone": "<phone_number>",
+                "city": "<string>",
+                "state": "<string>",
+                "postal_code": "<string>"
             }
         },
         "device_details": {
             "visited_ip": "10.10.0.0",
-            "customer_ip": "102.119.100.56"
+            "customer_ip": "<customer_ip>"
         }
     },
     "payment_details": {
-        "amount": 2400,
+        "amount": "<payment_amount>",
         "response_code": 0,
-        "auth_code": "874030",
+        "auth_code": "<auth_code>",
         "currency": "JPY",
-        "payment_method": "VISA_DEBIT-SSL",
-        "scheme": "VISA",
+        "payment_method": "<payment_method>",
+        "scheme": "MASTERCARD",
         "card": {
-            "name": "Kavi G",
-            "number": "400000******1091",
-            "exp_month": "12",
-            "exp_year": "24"
+            "name": "<customer_name>",
+            "number": "<card_number(hash)>",
+            "expiry_month": "<expiry_mm>",
+            "expiry_year": "<expiry_yy>"
         },
         "additional_data": {
             "payment_data_source": {
@@ -146,10 +148,10 @@ The `stored_payment_method_id` is the token generated from the card tokenization
         }
     },
     "transaction_details": {
-        "id": "31e736a5-bf15-4054-99c7-e5ade30c3c1a",
-        "ref": 69765,
-        "timestamp": "2024-09-23T06:22:05.000Z",
-        "merchant_txn_ref": "qwe",
+        "id": "<transaction_id>",
+        "ref": <ref>,
+        "timestamp": "yyyy-mm-ddThh:mm:ss.000Z",
+        "merchant_txn_ref": "<string>",
         "stored_payment_method_id": "094db781-fabc-4c6d-8fcd-18bee06a527a"
     },
     "risk-details": {
