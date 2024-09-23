@@ -1,0 +1,77 @@
+---
+title: ' Webhook Handler'
+description: 'The Webhook Handler is used to receive and process real-time notifications (webhooks) from the API when specific events occur, such as successful payments, refunds, or failed transactions.'
+---
+
+### Webhook Events
+- The API can send notifications for various events such as:
+Payment Success
+Payment Failure
+- These events allow your system to react instantly to important changes in the transaction lifecycle.
+### Endpoint URL
+- You need to set up an endpoint URL that will receive `POST` requests from the API.
+- This endpoint should be publicly accessible to ensure the webhooks are delivered successfully.
+### Security Considerations
+- It’s important to verify that the incoming requests are from the API by checking the signature or token included in the webhook.
+- Use secure `HTTP` (HTTPS) to ensure that the data received is encrypted.
+
+# Webhool URL Attributes in `return_url`
+
+| **Attributes**         | **Type**  | **Mandatory** | **Max Length** | **Description**                                                                 |
+|:-----------------------|:----------|:--------------|:---------------|:--------------------------------------------------------------------------------|
+| **return_url**          | object    | yes           | -              | A JSON object containing the Return URL.                                        |
+| ∟ **webhook_url**       | string    | no            | 255            | The webhook URL link.                                                           |
+| ∟ **success_url**       | string    | no            | 255            | The redirect URL link after payment is successful.                              |
+| ∟ **decline_url**       | string    | no            | 255            | The redirect URL link after payment fails.                                      |
+| ∟ **cancel_url**        | string    | no            | 255            | The cancel URL link after payment is cancelled.                                 |
+
+
+<RequestExample>
+``` json Request Example in return_url
+"return_url": {
+        "return_url": {
+        "webhook_url": "http://webhook.site.com",
+        "success_url": "http://www.yoursuccessurl.com/",
+        "decline_url": "http://www.yourdeclineurl.com/",
+        "cancel_url": "http://www.yourcancelurl.com/"
+    },
+```
+</RequestExample>
+
+<ResponseExample>
+```json Response Example of HPP with Webhook Url
+{
+    "id": "<transaction_id>",
+    "url": "https://checkout.paymentoptions.com",
+    "amount": "<float/string/int>",
+    "currency": "JPY",
+    "merchant_txn_ref": "<string>",
+    "merchant_id": "<DASMID>",
+    "merchant_email": "<merchant_email>",
+    "return_url": {
+        "webhook_url": "http://webhook.site.com",
+        "success_url": "http://www.yoursuccessurl.com/",
+        "decline_url": "http://www.yourdeclineurl.com/",
+        "cancel_url": "http://www.yourcancelurl.com/"
+    },
+    "billing_address": {
+        "city": "<string>",
+        "email": "<billing_email>",
+        "phone": "<phone_number>",
+        "state": "<string>",
+        "country": "<string>",
+        "address1": "<string>",
+        "postal_code": "<string>"
+    },
+    "shipping_address": {
+        "city": "Ebene",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "state": "<string>",
+        "country": "<string>",
+        "address1": "<string>",
+        "postal_code": "<string>"
+    }
+}
+```
+</ResponseExample>

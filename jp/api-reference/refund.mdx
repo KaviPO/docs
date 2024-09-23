@@ -1,0 +1,143 @@
+---
+title: 'Refund'
+description: 'The Refund API is used to return funds to the customer after a successful purchase or capture transaction.'
+---
+
+### API Details:
+HTTP Method: `POST`
+Endpoint URL: `/api/v1/server-to-server-interface/refund`
+
+
+### Key Points
+<Info>
+- The Refund API allows the merchant to reverse a transaction, sending the funds back to the customer’s payment method.
+- This API is typically used in scenarios such as order cancellations, product returns, or when a customer disputes a charge.
+- Refunds can be partial or full, depending on the amount specified in the refund request. If a partial amount is refunded, the remaining balance of the original transaction is still valid.
+</Info>
+
+### Request Attributes
+
+| **Attributes**         | **Type**  | **Mandatory** | **Max Length** | **Description**                                                                 |
+|:-----------------------|:----------|:--------------|:---------------|:--------------------------------------------------------------------------------|
+| **transactionId**       | string    | yes           | 36             | The original transaction ID of the authorized transaction.                      |
+| **amount**             | int/string| yes           | as per Bank    | The amount to be refunded. This should not exceed the amount captured/purchased. Amount limit depends on the bank. |
+| **merchant_id**         | string    | yes           | 10             | The merchant ID (DASMID).                                                       |
+| **notes**              | string    | no            | 128            | The reference of the refund transaction (optional).                             |
+| **browser_info**        | object    | no            | -              | A JSON object containing the browser info. This object is optional.             |
+| ∟ **acceptHeader**      | string    | no            | 45             | Information about the browser's accepted data formats.                          |
+| ∟ **screenColorDepth**  | int       | no            | 5              | Number of bits used to represent colors on the screen.                          |
+| ∟ **javaEnabled**       | boolean   | no            | 5              | Indicates whether Java is enabled in the browser.                               |
+| ∟ **language**          | string    | no            | 2              | The browser's language setting.                                                 |
+| ∟ **screenHeight**      | int       | no            | 5              | Height of the browser window in pixels.                                         |
+| ∟ **screenWidth**       | int       | no            | 5              | Width of the browser window in pixels.                                          |
+| ∟ **challengeWindow**   | int       | no            | 5              | Dimensions of the pop-up window used in challenge.                              |
+| ∟ **userAgent**         | string    | no            | 199            | String providing detailed information about the browser and operating system.   |
+
+
+### Response Attributes
+
+| **Attributes**         | **Description**                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------|
+| **success**            | `true` on successful transaction, `false` on failure.                           |
+| **status_code**        | The status code of the transaction.                                             |
+| **is_live**            | `true` if live transaction, `false` if test transaction.                        |
+| **transaction_type**   | The transaction type, e.g., REFUND for any Captured transaction.                |
+| **gateway_response**   | A JSON object containing the response from the gateway.                         |
+| ∟ **version**          | The version of the gateway.                                                     |
+| ∟ **type**             | Type of response, e.g., INFO for informative.                                   |
+| ∟ **message**          | The message response from the gateway.                                          |
+| ∟ **code**             | Message code of the response.                                                   |
+| **merchant_details**   | A JSON object containing the details of the merchant.                           |
+| ∟ **legal_name**       | The merchant’s legal name.                                                      |
+| ∟ **mid**              | The merchant ID (DASMID).                                                       |
+| ∟ **merchant_txn_ref** | The merchant transaction reference.                                             |
+| **payment_details**    | A JSON object containing the payment details of the transaction.                |
+| ∟ **amount**           | The amount value of the transaction.                                            |
+| ∟ **response_code**    | The acquirer response code.                                                     |
+| ∟ **auth_code**        | The acquirer authorization code.                                                |
+| ∟ **currency**         | The currency of the transaction.                                                |
+| ∟ **payment_method**   | The payment card type, e.g., Credit Card or Debit Card.                         |
+| ∟ **scheme**           | The card brand scheme, e.g., VISA, MASTERCARD, or AMEX.                         |
+| ∟ **card**             | A JSON object containing details of the card.                                   |
+| ∟∟ **name**            | The cardholder’s name on the card.                                               |
+| ∟∟ **number**          | The card number.                                                                 |
+| ∟∟ **exp_month**       | The expiry month of the card, e.g., 12 for December.                            |
+| ∟∟ **exp_year**        | The expiry year of the card, e.g., 24 for 2024.                                 |
+| **additional_data**    | A JSON object containing additional data.                                       |
+| ∟∟ **payment_data_source** | A JSON object containing payment data source.                              |
+| ∟∟∟ **type**           | The type of payment data source, e.g., Card, GooglePay, ApplePay, or Gcash.      |
+| **transaction_details**| A JSON object containing details of the transaction.                            |
+| ∟ **id**               | The transaction ID of the transaction.                                          |
+| ∟ **ref**              | The authorization code of the transaction.                                      |
+| ∟ **timestamp**        | Date and time of the transaction.                                               |
+| ∟ **merchant_txn_ref** | The merchant transaction reference ID.                                          |
+
+
+<RequestExample>
+```json Request Example
+{
+    "transactionId": "<transaction_id>",
+    "amount": <float/string/int>,
+    "merchant_id": "<DASMID>",
+    "notes": "<string>",
+    "browser_info": {
+         "acceptHeader": "text/html",
+        "screenColorDepth": "<int>",
+        "javaEnabled": <boolean>,
+        "language": "<string>",
+        "screenHeight": "<int>",
+        "screenWidth": "<int>",
+        "challengeWindow": "<int>",
+        "userAgent": "Mozilla/4.0 (MSIE 6.0; Windows NT 5.0)"
+    }
+}
+```
+</RequestExample>
+
+<ResponseExample>
+```json Response Example
+{
+    "success": true,
+    "status_code": 201,
+    "is_live": false,
+    "transaction_type": "REFUND",
+    "gateway_response": {
+        "version": "1",
+        "type": "INFO",
+        "message": "Amount successfully refunded.",
+        "code": "INFO0002"
+    },
+        "merchant_details": {
+        "legal_name": "<string>",
+        "mid": "<DASMID>",
+        "merchant_txn_ref": "<string>"
+    },
+    "payment_details": {
+        "amount": <payment_amount>,
+        "response_code": 0,
+        "auth_code": "<auth_code>",
+        "currency": "JPY",
+        "payment_method": "<payment_method>",
+        "scheme": "MASTERCARD",
+        "card": {
+           "name": "<customer_name>",
+            "number": "<card_number(hash)>",
+            "expiry_month": "<expiry_mm>",
+            "expiry_year": "<expiry_yy>"
+        },
+        "additional_data": {
+            "payment_data_source": {
+                "type": "card"
+            }
+        }
+    },
+    "transaction_details": {
+        "id": "<transaction_id>",
+        "ref": <ref>,
+        "timestamp": "yyyy-mm-ddThh:mm:ss.000Z",
+        "merchant_txn_ref": "<string>"
+    }
+}
+
+```
+</ResponseExample>
