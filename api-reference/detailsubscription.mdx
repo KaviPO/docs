@@ -1,4 +1,30 @@
 ---
 title: 'Subscription Details'
-description: 'Authorise a payment by securing funds for a transaction without capturing them immediately.'
+description: 'The Subscription Details API is used to retrieve detailed information about a specific subscription, including its current status, billing history, and upcoming payments.'
 ---
+
+### API Details
+- HTTP Method: `GET`
+- Endpoint URL: `/api/v1/server-to-server-interface/subscription/{subscription_id}`
+
+### Key Points
+<Info>
+### Retrieve Detailed Subscription Data:
+- This API provides comprehensive information on an individual subscription, such as:
+- Subscription ID
+- Plan Name and Description
+- Status (active, expired, cancelled)
+- Start Date, End Date, and Next Billing Date
+- Cycle Interval (e.g., monthly, every 2 days)
+- Trial Period and Discount Information
+- Billing History: Details of past payments, including amounts and dates
+### Subscription ID
+- The Subscription ID must be provided in the URL to retrieve the details of a specific subscription.
+</Info>
+
+### Subscription ID Attribute in Endpoint URL
+
+| **Attribute**         | **Type**  | **Mandatory** | **Max Length** | **Description**                                             |
+|-----------------------|-----------|---------------|----------------|-------------------------------------------------------------|
+| **Subscription ID**    | string    | yes           | 36             | The Subscription ID of the subscription.                    |
+
