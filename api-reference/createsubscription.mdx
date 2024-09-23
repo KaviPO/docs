@@ -11,18 +11,18 @@ description: 'The Create Subscription API allows merchants to set up recurring b
 
 ``` json
 "subscription": {
-        "plan_name": "Three weeks plan",
-        "plan_desc": "Billed every two days",
-        "cycle_type": "DAYS",
+        "plan_name": "<string>",
+        "plan_desc": "<string>",
+        "cycle_type": "<DAYS/MONTHS>",
         "subscription_end_type": "CYCLE",
-        "cycle_interval": 2,
-        "max_cycle_count": 10,
-        "has_trial_period": false,
+        "cycle_interval": <int>,
+        "max_cycle_count": <int>,
+        "has_trial_period": <boolean>,
         "trial_period_duration_type": "DAYS",
-        "trial_period_duration": 14,
-        "has_discount": true,
-        "discount_percentage": 10,
-        "discount_duration": 2
+        "trial_period_duration": <int>,
+        "has_discount": <boolean>,
+        "discount_percentage": <int>,
+        "discount_duration": <int>
     }
 ```
 
@@ -331,12 +331,12 @@ Plan Name and Description.
         "risk_score": null
     },
     "subscription_details": {
-        "id": "2048b01c-1512-45b9-98fc-27aac4deabce",
+        "id": "<transaction_id>",
         "type": "CYCLE",
         "max_cycle_count": 10,
         "status": "ACTIVE",
         "completed_payment_cycle": 1,
-        "next_payment_date": "2024-09-25T07:04:31.423Z",
+        "next_payment_date": "yyyy-mm-ddThh:mm:ss.000Z",
         "next_payment_cycle": 2,
         "subscription_plan_details": {
             "name": "Three weeks plan",
