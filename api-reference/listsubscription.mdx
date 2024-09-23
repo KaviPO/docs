@@ -1,4 +1,22 @@
 ---
 title: 'Subscription List'
-description: 'Authorise a payment by securing funds for a transaction without capturing them immediately.'
+description: 'The Subscription List API allows merchants to retrieve a list of all active, cancelled, or expired subscriptions, providing an overview of their customers subscription statuses.'
 ---
+
+
+### API Details 
+- HTTP Method: `GET`
+- Endpoint URL: `/api/v1/server-to-server-interface/subscription/list`
+
+### Key Points
+<Info>
+### Retrieve Subscription Data:
+- The Subscription List API helps merchants track the status of all subscriptions plans, including active, cancelled, or expired subscriptions.
+### Subscription Data - Each subscription record includes:
+- Subscription ID
+- Plan Name and Description
+- Current Status (active, expired, or canceled)
+- Start Date and End Date
+- Cycle Interval and Next Billing Date
+- Trial and Discount Information (if applicable).
+</Info>
