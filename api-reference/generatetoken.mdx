@@ -157,54 +157,55 @@ The `stored_payment_method_id` can be used in the Use of Card Token API for futu
 <RequestExample>
 ```json Request Example
 {
-    "amount": "2000",
+    "amount": "<float/string/int>",
     "currency": "JPY",
     "card": {
-        "cvc": "100",
-        "expiry_month": "12",
-        "expiry_year": "24",
-        "name": "Kavi G",
-        "number": "4000000000001091"
+        "cvc": "<card_cvc>",
+        "expiry_month": "<expiry_mm>",
+        "expiry_year": "<expiry_yy>",
+        "name": "<customer_name>",
+        "number": "<credit_card_number>"
     },
     "payment_method": {
         "type": "scheme",
         "store_payment_method": true
     },
-    "merchant_txn_ref": "qwe",
+    "merchant_txn_ref": "<string>",
     "customer_ip": "10.10.0.0",
-    "merchant_id": "JP00000282",
+    "merchant_id": "<DASMID>",
     "return_url": {
-        "webhook_url": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b",
-        "success_url": "https://www.google.com/",
-        "decline_url": "https://www.bing.com/",
-        "cancel_url": "https://www.bing.com/"
+        "return_url": {
+        "webhook_url": "http://webhook.site.com",
+        "success_url": "http://www.yoursuccessurl.com/",
+        "decline_url": "http://www.yourdeclineurl.com/",
+        "cancel_url": "http://www.yourcancelurl.com/"
     },
     "billing_address": {
-        "country": "JP",
-        "email": "kavi@ghunowa.com",
-        "phone": "52553305",
-        "address1": "Oxford Road",
-        "city": "Tokyo",
-        "state": "Rose-Hill",
-        "postal_code": "205701"
+        "country": "<string>",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
     },
-    "shipping_address": {
-        "country": "JP",
-        "email": "kavi@ghunowa.com",
-        "phone": "52553305",
-        "address1": "Oxford Road",
-        "city": "Tokyo",
-        "state": "Rose-Hill",
-        "postal_code": "205701"
+     "shipping_address": {
+        "country": "<string>",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
     },
     "browser_info": {
         "acceptHeader": "text/html",
-        "screenColorDepth": "48",
-        "javaEnabled": false,
-        "language": "de",
-        "screenHeight": "1200",
-        "screenWidth": "1600",
-        "challengeWindow": "4",
+        "screenColorDepth": "<int>",
+        "javaEnabled": <boolean>,
+        "language": "<string>",
+        "screenHeight": "<int>",
+        "screenWidth": "<int>",
+        "challengeWindow": "<int>",
         "userAgent": "Mozilla/4.0 (MSIE 6.0; Windows NT 5.0)"
     },
     "time_zone": "Asia/Kuala_Lumpur"
@@ -226,46 +227,46 @@ The `stored_payment_method_id` can be used in the Use of Card Token API for futu
         "code": "INFO0000"
     },
     "merchant_details": {
-        "legal_name": "アイベック株式会社",
-        "mid": "JP00000282",
-        "merchant_txn_ref": "qwe",
+        "legal_name": "<string>",
+        "mid": "<DASMID>",
+        "merchant_txn_ref": "<string>",
         "billing_details": {
             "billing_address": {
-                "country": "JP",
-                "email": "kavi@ghunowa.com",
-                "phone": "52553305",
-                "address1": "Oxford Road",
-                "city": "Tokyo",
-                "state": "Rose-Hill",
-                "postal_code": "205701"
+                "country": "<string>",
+                "email": "<billing_email>",
+                "address1": "<string>",
+                "phone": "<phone_number>",
+                "city": "<string>",
+                "state": "<string>",
+                "postal_code": "<string>"
             },
             "shipping_address": {
-                "country": "JP",
-                "email": "kavi@ghunowa.com",
-                "phone": "52553305",
-                "address1": "Oxford Road",
-                "city": "Tokyo",
-                "state": "Rose-Hill",
-                "postal_code": "205701"
+                "country": "<string>",
+                "email": "<shipping_email>",
+                "address1": "<string>",
+                "phone": "<phone_number>",
+                "city": "<string>",
+                "state": "<string>",
+                "postal_code": "<string>"
             }
         },
         "device_details": {
             "visited_ip": "10.10.0.0",
-            "customer_ip": "102.119.100.56"
+            "customer_ip": "<customer_ip>"
         }
     },
     "payment_details": {
-        "amount": 2000,
+        "amount": "<payment_amount>",
         "response_code": 0,
-        "auth_code": "788334",
+        "auth_code": "<auth_code>",
         "currency": "JPY",
-        "payment_method": "VISA_DEBIT-SSL",
-        "scheme": "VISA",
+        "payment_method": "<payment_method>",
+        "scheme": "MASTERCARD",
         "card": {
-            "name": "Kavi G",
-            "number": "400000******1091",
-            "exp_month": "12",
-            "exp_year": "24"
+            "name": "<customer_name>",
+            "number": "<card_number(hash)>",
+            "expiry_month": "<expiry_mm>",
+            "expiry_year": "<expiry_yy>"
         },
         "additional_data": {
             "payment_data_source": {
@@ -274,11 +275,11 @@ The `stored_payment_method_id` can be used in the Use of Card Token API for futu
         }
     },
     "transaction_details": {
-        "id": "c2bb653b-30fa-4662-b12c-8a440264ab14",
-        "ref": 69760,
-        "timestamp": "2024-09-23T02:48:26.000Z",
-        "merchant_txn_ref": "qwe",
-        "stored_payment_method_id": "094db781-fabc-4c6d-8fcd-18bee06a527a"
+        "id": "<transaction_id>",
+        "ref": <ref>,
+        "timestamp": "yyyy-mm-ddThh:mm:ss.000Z",
+        "merchant_txn_ref": "<string>",
+        "stored_payment_method_id": "<stored_payment_method_id>"
     },
     "risk-details": {
         "risk_score": null
