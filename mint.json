@@ -23,21 +23,14 @@
     }
   },
   "topbarLinks": [
-  {
-    "name": "Support",
-    "url": "mailto:support@paymentoptions.com"
-  },
-  {
-    "name": "EN",
-    "url": "/",
-    "icon": "/flags/flag_en.svg"
-  },
-  {
-    "name": "JP",
-    "url": "/jp",
-    "icon": "/flags/flag_jp.svg"
-  }
-],
+    {
+      "name": {
+        "en": "Support",
+        "jp": "サポート"
+      },
+      "url": "mailto:support@paymentoptions.com"
+    }
+  ],
   "topbarCtaButton": {
     "name": {
       "en": "Dashboard",
