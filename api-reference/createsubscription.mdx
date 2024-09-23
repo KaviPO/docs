@@ -7,6 +7,25 @@ description: 'The Create Subscription API allows merchants to set up recurring b
 - HTTP Method: `POST`
 - Endpoint URL: `/api/v1/server-to-server-interface/subscription/payment`
 
+### Request Example of Subscription Creation
+
+``` json
+"subscription": {
+        "plan_name": "Three weeks plan",
+        "plan_desc": "Billed every two days",
+        "cycle_type": "DAYS",
+        "subscription_end_type": "CYCLE",
+        "cycle_interval": 2,
+        "max_cycle_count": 10,
+        "has_trial_period": false,
+        "trial_period_duration_type": "DAYS",
+        "trial_period_duration": 14,
+        "has_discount": true,
+        "discount_percentage": 10,
+        "discount_duration": 2
+    }
+```
+
 ### Key Points
 <Info>
 ### Subscription Creation
@@ -20,5 +39,177 @@ Plan Name and Description.
 - Trial Period: Option to offer a trial period before the subscription starts.
 - Discounts: Ability to apply discounts for a set number of billing cycles.
 </Info>
+
+
+
+<RequestExample>
+```json Request Example
+{
+    "amount": "<float/string/int>",
+    "currency": "JPY",
+    "card": {
+        "cvc": "<card_cvc>",
+        "expiry_month": "<expiry_mm>",
+        "expiry_year": "<expiry_yy>",
+        "name": "<customer_name>",
+        "number": "<credit_card_number>"
+    },
+    "payment_method": {
+        "type": "scheme",
+        "store_payment_method": false
+    },
+    "merchant_txn_ref": "<string>",
+    "customer_ip": "10.10.0.0",
+    "merchant_id": "<DASMID>",
+    "return_url": {
+        "return_url": {
+        "webhook_url": "http://webhook.site.com",
+        "success_url": "http://www.yoursuccessurl.com/",
+        "decline_url": "http://www.yourdeclineurl.com/",
+        "cancel_url": "http://www.yourcancelurl.com/"
+    },
+    "billing_address": {
+        "country": "<string>",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
+    },
+     "shipping_address": {
+        "country": "<string>",
+        "email": "<shipping_email>",
+        "phone": "<phone_number>",
+        "address1": "<string>",
+        "city": "<string>",
+        "state": "<string>",
+        "postal_code": "<string>"
+    },
+    "browser_info": {
+        "acceptHeader": "text/html",
+        "screenColorDepth": "<int>",
+        "javaEnabled": <boolean>,
+        "language": "<string>",
+        "screenHeight": "<int>",
+        "screenWidth": "<int>",
+        "challengeWindow": "<int>",
+        "userAgent": "Mozilla/4.0 (MSIE 6.0; Windows NT 5.0)"
+    },
+    "time_zone": "Asia/Kuala_Lumpur",
+    "subscription": {
+        "plan_name": "Three weeks plan",
+        "plan_desc": "Billed every two days",
+        "cycle_type": "DAYS",
+        "subscription_end_type": "CYCLE",
+        "cycle_interval": 2,
+        "max_cycle_count": 10,
+        "has_trial_period": false,
+        "trial_period_duration_type": "DAYS",
+        "trial_period_duration": 14,
+        "has_discount": true,
+        "discount_percentage": 10,
+        "discount_duration": 2
+    }
+}
+```
+</RequestExample>
+
+<ResponseExample>
+```json Request Example
+{
+    "success": true,
+    "status_code": 201,
+    "is_live": false,
+    "transaction_type": "CAPTURE",
+    "gateway_response": {
+        "version": "1",
+        "type": "INFO",
+        "message": "Payment Successful.",
+        "code": "INFO0000"
+    },
+    "merchant_details": {
+        "legal_name": "<string>",
+        "mid": "<DASMID>",
+        "merchant_txn_ref": "<string>",
+        "billing_details": {
+            "billing_address": {
+                "country": "<string>",
+                "email": "<billing_email>",
+                "address1": "<string>",
+                "phone": "<phone_number>",
+                "city": "<string>",
+                "state": "<string>",
+                "postal_code": "<string>"
+            },
+            "shipping_address": {
+                "country": "<string>",
+                "email": "<shipping_email>",
+                "address1": "<string>",
+                "phone": "<phone_number>",
+                "city": "<string>",
+                "state": "<string>",
+                "postal_code": "<string>"
+            }
+        },
+        "device_details": {
+            "visited_ip": "10.10.0.0",
+            "customer_ip": "<customer_ip>"
+        }
+    },
+    "payment_details": {
+        "amount": "<payment_amount>",
+        "response_code": 0,
+        "auth_code": "<auth_code>",
+        "currency": "JPY",
+        "payment_method": "<payment_method>",
+        "scheme": "MASTERCARD",
+        "card": {
+            "name": "<customer_name>",
+            "number": "<card_number(hash)>",
+            "expiry_month": "<expiry_mm>",
+            "expiry_year": "<expiry_yy>"
+        },
+        "additional_data": {
+            "payment_data_source": {
+                "type": "card"
+            }
+        }
+    },
+    "transaction_details": {
+        "id": "<transaction_id>",
+        "ref": <ref>,
+        "timestamp": "yyyy-mm-ddThh:mm:ss.000Z",
+        "merchant_txn_ref": "<string>",
+        "stored_payment_method_id": null
+    },
+    "risk-details": {
+        "risk_score": null
+    },
+    "subscription_details": {
+        "id": "2048b01c-1512-45b9-98fc-27aac4deabce",
+        "type": "CYCLE",
+        "max_cycle_count": 10,
+        "status": "ACTIVE",
+        "completed_payment_cycle": 1,
+        "next_payment_date": "2024-09-25T07:04:31.423Z",
+        "next_payment_cycle": 2,
+        "subscription_plan_details": {
+            "name": "Three weeks plan",
+            "desc": "Billed every two days",
+            "billing_cycle_type": "DAYS",
+            "billing_cycle_interval": 2,
+            "amount": 1000,
+            "ccy": "JPY",
+            "trial_period_duration": "",
+            "trial_period_duration_type": "NONE",
+            "plan_discount_percentage": 10,
+            "plan_discount_duration": 2
+        }
+    }
+}
+
+```
+</ResponseExample>
 
 
