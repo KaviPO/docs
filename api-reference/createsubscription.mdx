@@ -1,4 +1,24 @@
 ---
 title: 'Create Subscription'
-description: 'Authorise a payment by securing funds for a transaction without capturing them immediately.'
+description: 'The Create Subscription API allows merchants to set up recurring billing for customers, offering flexible plans with various billing intervals, trials, and discounts.'
 ---
+
+### API Details
+- HTTP Method: `POST`
+- Endpoint URL: `/api/v1/server-to-server-interface/subscription/payment`
+
+### Key Points
+<Info>
+### Subscription Creation
+- This API enables the setup of subscription plans, allowing for automatic recurring payments. It supports various billing cycles and flexible configurations such as discounts and trial periods.
+### Subscription Configuration
+- Merchants can define custom plans, including:
+Plan Name and Description.
+- Cycle Type: Billing can be based on days, weeks, months, etc.
+- Cycle Interval: Defines the frequency of billing (e.g., every 2 days, every month).
+- Max Cycle Count: Sets the maximum number of billing cycles.
+- Trial Period: Option to offer a trial period before the subscription starts.
+- Discounts: Ability to apply discounts for a set number of billing cycles.
+</Info>
+
+
