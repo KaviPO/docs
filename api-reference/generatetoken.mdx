@@ -15,18 +15,30 @@ Endpoint URL: `/api/v1/server-to-server-interface/payment`
 Card Number, Expiry Date, CVV, Customer Information.
 </Info>
 
-`store_payment_method`: Must be set to `true` in the payload to store the card token for future use.
+`store_payment_method`: Must be set to `true` in the payload to store the card token for future use. 
 
-
-``` json
+``` json Request Example
 {
   "payment_method": {
     "type": "scheme",
     "store_payment_method": true
-  },
+  }
 ```
-
 Setting `store_payment_method` to `true` ensures that the card token is stored for future transactions without needing to re-enter card details.
+
+``` json Response Example
+{
+  "transaction_details": {
+    "id": "<transaction_id>",
+    "ref": <ref>,
+    "timestamp": "yyyy-mm-ddThh:mm:ss.000Z",
+    "merchant_txn_ref": "<string>",
+    "stored_payment_method_id": "094db781-fabc-4c6d-8fcd-18bee06a527a"
+  }
+}
+```
+The `stored_payment_method_id` can be used in the Use of Card Token API for future transactions without needing to re-enter card details.
+
 
 
 ### Request Attributes
