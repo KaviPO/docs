@@ -1,9 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": {
-    "en": "Payment Options - API Documentation",
-    "jp": "お支払いオプション - APIドキュメント"
-  },
+  "name": "Payment Options - API Documentation",
   "logo": {
     "dark": "/logo/logo_dark.png",
     "light": "/logo/logo_light.png"
@@ -24,93 +21,67 @@
   },
   "topbarLinks": [
     {
-      "name": {
-        "en": "Support",
-        "jp": "サポート"
-      },
+      "name": "Support",
       "url": "mailto:support@paymentoptions.com"
     },
     {
       "name": "EN",
-      "url": "/",
-      "icon": "/flags/flag_en.svg"
+      "url": "/"
     },
     {
       "name": "JP",
-      "url": "/jp",
-      "icon": "/flags/flag_jp.svg"
+      "url": "/jp"
     }
   ],
   "topbarCtaButton": {
-    "name": {
-      "en": "Dashboard",
-      "jp": "ダッシュボード"
-    },
+    "name": "Dashboard",
     "url": "https://me.paymentoptions.com/"
   },
   "tabs": [
     {
-      "name": {
-        "en": "API Reference",
-        "jp": "API リファレンス"
-      },
+      "name": "API Reference",
       "url": "api-reference"
     }
   ],
-  "navigation": {
-    "en": [
-      {
-        "group": "Get Started",
-        "pages": ["introduction", "authentication", "merchantdetails"]
-      },
-      {
-        "group": "API Documentation",
-        "pages": [
-          { "group": "Hosted Payment Page", "pages": ["api-reference/hpp", "api-reference/hppgpay", "api-reference/hppewallet"] },
-          "api-reference/purchase",
-          "api-reference/authorisation",
-          "api-reference/voidauth",
-          "api-reference/capture",
-          "api-reference/refund",
-          "api-reference/webhook",
-          "api-reference/transaction",
-          "api-reference/generatetoken",
-          "api-reference/usetoken",
-          { "group": "Subscriptions", "pages": ["api-reference/createsubscription", "api-reference/listsubscription", "api-reference/detailsubscription", "api-reference/pausesubscription", "api-reference/resumesubscription", "api-reference/cancelsubscription"] }
-        ]
-      },
-      {
-        "group": "Endpoint Examples",
-        "pages": ["api-reference/endpoint/hpp"]
-      }
-    ],
-    "jp": [
-      {
-        "group": "開始する",
-        "pages": ["introduction", "authentication", "merchantdetails"]
-      },
-      {
-        "group": "API ドキュメント",
-        "pages": [
-          { "group": "ホステッド決済ページ", "pages": ["api-reference/hpp", "api-reference/hppgpay", "api-reference/hppewallet"] },
-          "api-reference/purchase",
-          "api-reference/authorisation",
-          "api-reference/voidauth",
-          "api-reference/capture",
-          "api-reference/refund",
-          "api-reference/webhook",
-          "api-reference/transaction",
-          "api-reference/generatetoken",
-          "api-reference/usetoken",
-          { "group": "サブスクリプション", "pages": ["api-reference/createsubscription", "api-reference/listsubscription", "api-reference/detailsubscription", "api-reference/pausesubscription", "api-reference/resumesubscription", "api-reference/cancelsubscription"] }
-        ]
-      },
-      {
-        "group": "エンドポイント例",
-        "pages": ["api-reference/endpoint/hpp"]
-      }
-    ]
-  },
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": ["introduction", "authentication", "merchantdetails"]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        {
+          "group": "Hosted Payment Page",
+          "pages": ["api-reference/hpp", "api-reference/hppgpay", "api-reference/hppewallet"]
+        },
+        "api-reference/purchase",
+        "api-reference/authorisation",
+        "api-reference/voidauth",
+        "api-reference/capture",
+        "api-reference/refund",
+        "api-reference/webhook",
+        "api-reference/transaction",
+        "api-reference/generatetoken",
+        "api-reference/usetoken",
+        {
+          "group": "Subscriptions",
+          "pages": [
+            "api-reference/createsubscription",
+            "api-reference/listsubscription",
+            "api-reference/detailsubscription",
+            "api-reference/pausesubscription",
+            "api-reference/resumesubscription",
+            "api-reference/cancelsubscription"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": ["api-reference/endpoint/hpp"]
+    }
+  ],
   "footerSocials": {
     "website": "https://www.paymentoptions.com",
     "linkedin": "https://www.linkedin.com/company/payment-options/"
