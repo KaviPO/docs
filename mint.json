@@ -30,6 +30,12 @@
     "url": "https://me.paymentoptions.com/"
   },
   "anchors": [],
+  "tabs": [
+    {
+      "name": "日本語 (JP)",
+      "url": "jp/introduction"
+    }
+  ],
   "navigation": [
     {
       "group": "Get Started",
@@ -37,6 +43,14 @@
         "introduction",
         "authentication",
         "merchantdetails"
+      ]
+    },
+    {
+      "group": "Get Started JP",
+      "pages": [
+        "jp/introduction",
+        "jp/authentication",
+        "jp/merchantdetails"
       ]
     },
     {
