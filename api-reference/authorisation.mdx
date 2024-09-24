@@ -50,7 +50,7 @@ Endpoint URL: `/api/v1/server-to-server-interface/authorization`
 | ∟ **country**          | string              | no            | 2              | The cardholder’s shipping country code.                                         |
 | ∟ **email**            | string              | no            | 45             | The cardholder’s shipping email address.                                        |
 | ∟ **address1**         | string              | no            | 199            | The cardholder’s shipping address line.                                         |
-| ∟ **phone**            | string              | no            | 20             | The cardholder’s shipping phone number.                                         |
+| ∟ **phone_number**            | string              | no            | 20             | The cardholder’s shipping phone number.                                         |
 | ∟ **city**             | string              | no            | 65             | The cardholder’s shipping city.                                                 |
 | ∟ **state**            | string              | no            | 65             | The cardholder’s shipping state.                                                |
 | ∟ **postal_code**      | string              | no            | 45             | The cardholder’s shipping postal code.                                          |
@@ -88,7 +88,7 @@ Endpoint URL: `/api/v1/server-to-server-interface/authorization`
 | ∟∟ **country**       | The cardholder’s billing country code.                                           |
 | ∟∟ **email**         | The cardholder’s billing email address.                                          |
 | ∟∟ **address1**      | The cardholder’s billing address line.                                           |
-| ∟∟ **phone**         | The cardholder’s billing phone number.                                           |
+| ∟∟ **phone_number**         | The cardholder’s billing phone number.                                           |
 | ∟∟ **city**          | The cardholder’s billing city.                                                   |
 | ∟∟ **state**         | The cardholder’s billing state.                                                  |
 | ∟∟ **postal_code**   | The cardholder’s billing postal code.                                            |
@@ -96,7 +96,7 @@ Endpoint URL: `/api/v1/server-to-server-interface/authorization`
 | ∟ **country**        | The cardholder’s shipping country code.                                          |
 | ∟ **email**          | The cardholder’s shipping email address.                                         |
 | ∟ **address1**       | The cardholder’s shipping address line.                                          |
-| ∟ **phone**          | The cardholder’s shipping phone number.                                          |
+| ∟ **phone_number**          | The cardholder’s shipping phone number.                                          |
 | ∟ **city**           | The cardholder’s shipping city.                                                  |
 | ∟ **state**          | The cardholder’s shipping state.                                                 |
 | ∟ **postal_code**    | The cardholder’s shipping postal code.                                           |
@@ -156,7 +156,7 @@ Endpoint URL: `/api/v1/server-to-server-interface/authorization`
     "billing_address": {
         "country": "<string>",
         "email": "<shipping_email>",
-        "phone": "<phone_number>",
+        "phone_number": "<phone_number>",
         "address1": "<string>",
         "city": "<string>",
         "state": "<string>",
@@ -165,7 +165,7 @@ Endpoint URL: `/api/v1/server-to-server-interface/authorization`
      "shipping_address": {
         "country": "<string>",
         "email": "<shipping_email>",
-        "phone": "<phone_number>",
+        "phone_number": "<phone_number>",
         "address1": "<string>",
         "city": "<string>",
         "state": "<string>",
@@ -208,7 +208,7 @@ Endpoint URL: `/api/v1/server-to-server-interface/authorization`
                 "country": "<string>",
                 "email": "<billing_email>",
                 "address1": "<string>",
-                "phone": "<phone_number>",
+                "phone_number": "<phone_number>",
                 "city": "<string>",
                 "state": "<string>",
                 "postal_code": "<string>"
@@ -217,7 +217,7 @@ Endpoint URL: `/api/v1/server-to-server-interface/authorization`
                 "country": "<string>",
                 "email": "<shipping_email>",
                 "address1": "<string>",
-                "phone": "<phone_number>",
+                "phone_number": "<phone_number>",
                 "city": "<string>",
                 "state": "<string>",
                 "postal_code": "<string>"
