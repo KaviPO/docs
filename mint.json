@@ -37,7 +37,7 @@
     {
       "name": "API Reference",
       "url": "JP/api-reference",
-      "version": "JP"
+      "version": "JP(日本)"
     }
   ],
  "anchors": [
@@ -117,7 +117,7 @@
               "JP/api-reference/hppgpay",
               "JP/api-reference/hppewallet"
           ],
-            "version": "JP"
+            "version": "JP(日本)"
           },
           "JP/api-reference/purchase",
           "JP/api-reference/authorisation",
@@ -138,17 +138,17 @@
               "JP/api-reference/resumesubscription",
               "JP/api-reference/cancelsubscription"
           ],
-            "version": "JP"
+            "version": "JP(日本)"
           }
         ],
-      "version": "JP"
+      "version": "JP(日本)"
     },
     {
       "group": "Endpoint Examples JP",
       "pages": [
         "JP/api-reference/endpoint/hpp"
       ],
-      "version": "JP"
+      "version": "JP(日本)"
     }
 
   ],
