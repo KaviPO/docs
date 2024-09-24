@@ -15,7 +15,7 @@
       "to": "#F18A00"
     }
   },
-"versions": ["EN","JP"],
+"versions": ["EN","JP(日本)"],
 
   "topbarLinks": [
     {
@@ -60,7 +60,7 @@
         "JP/authentication",
         "JP/merchantdetails"
       ],
-      "version": "JP"
+      "version": "JP(日本)"
     },
     {
       "group": "API Documentation",
