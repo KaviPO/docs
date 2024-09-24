@@ -22,16 +22,12 @@
       "name": "Support",
       "url": "mailto:support@paymentoptions.com"
     }
+    
   ],
-
-  "topbarCtaButton": [
-    {
+  "topbarCtaButton": {
     "name": "Dashboard",
     "url": "https://me.paymentoptions.com/"
-    }
-  ],
-  
-
+  },
 
   "tabs": [
     {
