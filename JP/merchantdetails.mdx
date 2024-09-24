@@ -1,23 +1,23 @@
 ---
-title: 'Merchant Details'
-description: 'Comprehensive Merchant Details for API Payload Configuration'
+title: 'マーチャントの詳細'
+description: 'APIペイロード設定のための包括的なマーチャント情報'
 ---
 
-## Purpose
-The Merchant Detail Page on the Gateway contains all the necessary information required to build the API payload for transactions. This includes crucial details such as the Merchant ID, Processing Currency, Scheme Type, and Transaction Type (3DS or Non-3DS).
+## 目的
+ゲートウェイ上のマーチャント詳細ページには、取引のAPIペイロードを構築するために必要なすべての情報が含まれています。これには、マーチャントID、処理通貨、スキームタイプ、トランザクションタイプ（3DSまたはNon-3DS）などの重要な詳細が含まれます。
 
-### Key Information Available on the Merchant Detail Page
-- **Merchant ID:** The unique identifier for the merchant, which must be included in API payloads.
-- **Processing Currency:** The currency in which the merchant processes payments.
-- **Scheme Type:** The type of payment scheme configured for the merchant (e.g., Visa, MasterCard).
+### マーチャント詳細ページで利用可能な主な情報
+- **マーチャントID:** APIペイロードに含める必要のある、マーチャント固有の識別子。
+- **処理通貨:** マーチャントが支払いを処理する通貨。
+- **スキームタイプ:** マーチャントに設定された支払いスキームの種類（例：Visa、MasterCard）。
 
-### Transaction Type
-- **3DS (3D Secure):** For enhanced security in online transactions.
-- **Non-3DS:** For simpler, non-secured transactions.
-- **Recurring:** For automated transactions that occur on a regular schedule (e.g., subscriptions).
-- **Tokenized:** For transactions that use a stored token, ensuring secure card-on-file payments without handling raw card details.
+### トランザクションタイプ
+- **3DS（3Dセキュア）:** オンライン取引のセキュリティを強化します。
+- **Non-3DS:** よりシンプルでセキュリティが不要な取引。
+- **定期支払い:** 定期的に自動的に発生する取引（例：サブスクリプション）。
+- **トークン化:** 保存されたトークンを使用する取引で、生カード情報を扱うことなく安全なカードオンファイル決済を実現。
 
-### Other Crucial Information
-- Merchant's payment configurations
-- Supported payment methods (e.g., Apple Pay, Google Pay, GCash)
-- Limits and restrictions for transaction processing
+### その他の重要な情報
+- マーチャントの支払い設定
+- サポートされる支払い方法（例：Apple Pay、Google Pay、GCash）
+- 取引処理の制限と制約
