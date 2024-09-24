@@ -20,6 +20,64 @@ Endpoint URL: `/api/v1/server-to-server-interface/transaction/status/{transactio
 |:-----------------------|:----------|:--------------|:---------------|:--------------------------------------------------------------------------------|
 | **transactionId**       | string    | yes           | 36             | The original transaction ID of the Pre-Auth, Capture, Refund, or Void transaction. |
 
+### Response Attribute
+
+| **Attributes**          | **Description**                                                                 |
+|:------------------------|:--------------------------------------------------------------------------------|
+| **success**             | true on successful transaction, false on failure.                               |
+| **status_code**         | The status code of the transaction.                                             |
+| **is_live**             | true if live transaction, false if test transaction.                            |
+| **transaction_type**    | The transaction type: PRE_AUTH for Authorised or CAPTURE for Purchase transaction|
+| **gateway_response**    | A JSON object containing the response from the gateway.                         |
+| ∟ **version**           | The version of the gateway.                                                     |
+| ∟ **type**              | Type of response, INFO for informative.                                         |
+| ∟ **message**           | The message response from the gateway.                                          |
+| ∟ **code**              | Message code of the response.                                                   |
+| **merchant_details**    | A JSON object containing the details of merchant.                               |
+| ∟ **legal_name**        | The merchant’s legal name.                                                      |
+| ∟ **mid**               | The merchant ID (DASMID).                                                       |
+| ∟ **merchant_txn_ref**  | The merchant transaction reference.                                             |
+| **payment_details**     | A JSON object containing the Payment details of the transaction.                |
+| ∟ **amount**            | The amount value of the transaction.                                            |
+| ∟ **response_code**     | The acquirer response code.                                                     |
+| ∟ **responseDescription**| The acquirer response description.                                              |
+| ∟ **auth_code**         | The acquirer authorisation code.                                                |
+| ∟ **currency**          | The currency of the transaction.                                                |
+| ∟ **payment_method**    | The payment card type: Credit Card or Debit Card.                               |
+| ∟ **scheme**            | The card brand scheme (VISA, MASTERCARD, or AMEX).                              |
+| ∟ **card**              | A JSON object containing details of card.                                       |
+| ∟ ∟ **name**            | The cardholders’ name on the card.                                              |
+| ∟ ∟ **number**          | The card number.                                                                |
+| ∟ ∟ **exp_month**       | The expiry month of the card. Eg. 12 for December.                              |
+| ∟ ∟ **exp_year**        | The expiry year of the card. Eg. 24 for year 2024.                              |
+| ∟ **additional_data**   | A JSON object containing additional data.                                       |
+| ∟ ∟ **payment_data_source** | A JSON object containing the payment data source.                           |
+| ∟ ∟ ∟ **type**          | The type of payment data source (e.g., Card, GooglePay, ApplePay, or Gcash).    |
+| **transaction_details** | A JSON object containing details of the transaction.                            |
+| ∟ **id**                | The Transaction ID of the transaction.                                          |
+| ∟ **ref**               | The Authorisation code of the transaction.                                      |
+| ∟ **timestamp**         | Date and Time of the transaction.                                               |
+| ∟ **billing_details**   | A JSON object containing the billing details.                                   |
+| ∟ ∟ **billing_address** | A JSON object containing the billing address.                                   |
+| ∟ ∟ ∟ **country**       | The cardholder’s billing country code.                                          |
+| ∟ ∟ ∟ **email**         | The cardholder’s billing email address.                                         |
+| ∟ ∟ ∟ **address1**      | The cardholder’s billing address line.                                          |
+| ∟ ∟ ∟ **phone_number**  | The cardholder’s billing phone number.                                          |
+| ∟ ∟ ∟ **city**          | The cardholder’s billing city.                                                  |
+| ∟ ∟ ∟ **state**         | The cardholder’s billing state.                                                 |
+| ∟ ∟ ∟ **postal_code**   | The cardholder’s postal code.                                                   |
+| ∟ ∟ **shipping_address**| A JSON object containing the shipping address.                                  |
+| ∟ ∟ ∟ **country**       | The cardholder’s shipping country code.                                         |
+| ∟ ∟ ∟ **email**         | The cardholder’s shipping email address.                                        |
+| ∟ ∟ ∟ **address1**      | The cardholder’s shipping address line.                                         |
+| ∟ ∟ ∟ **phone_number**  | The cardholder’s shipping phone number.                                         |
+| ∟ ∟ ∟ **city**          | The cardholder’s shipping city.                                                 |
+| ∟ ∟ ∟ **state**         | The cardholder’s shipping state.                                                |
+| ∟ ∟ ∟ **postal_code**   | The cardholder’s shipping postal code.                                          |
+| **risk_details**        | A JSON object containing details of risk.                                       |
+| ∟ **risk_score**        | The risk score.                                                                 |
+
+
 <ResponseExample>
 ``` json Response Example
 {
