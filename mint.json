@@ -25,20 +25,6 @@
     "name": "Dashboard",
     "url": "https://me.paymentoptions.com/"
   },
-  "languageSwitcher": {
-    "defaultLanguage": "en",
-    "languages": [
-      {
-        "name": "English",
-        "code": "en"
-      },
-      {
-        "name": "日本語",
-        "code": "jp"
-      }
-    ]
-  },
- 
   "anchors": [],
   "navigation": [
     {
@@ -87,6 +73,18 @@
       "pages": [
         "api-reference/endpoint/hpp"
       ]
+    }
+  ],
+  "languages": [
+    {
+      "label": "EN",
+      "icon": "/flags/gb.svg",
+      "path": "/"
+    },
+    {
+      "label": "JP",
+      "icon": "/flags/jp.svg",
+      "path": "/jp"
     }
   ],
   "footerSocials": {
