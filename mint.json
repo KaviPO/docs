@@ -105,7 +105,7 @@
           {
             "group": "Hosted Payment Page",
             "pages": [
-              "api-reference/hpp",
+              "JP/api-reference/hpp",
               "api-reference/hppgpay",
               "api-reference/hppewallet"
           ]
