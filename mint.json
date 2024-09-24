@@ -21,27 +21,16 @@
     {
       "name": "Support",
       "url": "mailto:support@paymentoptions.com",
-      "version": "EN"
-    },
-    {
-      "name": "サポート",
-      "url": "mailto:support@paymentoptions.com",
-      "version": "日本"
     }
-
   ],
+
   "topbarCtaButton": [
     {
     "name": "Dashboard",
     "url": "https://me.paymentoptions.com/",
-      "version": "EN"
-    },
-    {
-    "name": "ダッシュボード",
-    "url": "https://me.paymentoptions.com/jp/",
-      "version": "日本"
     }
   ],
+  
 
 
   "tabs": [
