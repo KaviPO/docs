@@ -27,6 +27,19 @@
     "name": "Dashboard",
     "url": "https://me.paymentoptions.com/"
   },
+  "languages": {
+    "default": "en",
+    "languages": [
+      {
+        "label": "English",
+        "code": "en"
+      },
+      {
+        "label": "日本語",
+        "code": "jp"
+      }
+    ]
+  },
   "tabs": [
     {
       "name": "API Reference",
