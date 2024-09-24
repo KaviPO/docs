@@ -42,6 +42,10 @@
     {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "Japanese",
+      "url": "/jp/"
     }
   ],
   "anchors": [],
