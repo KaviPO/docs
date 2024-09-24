@@ -20,8 +20,15 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:support@paymentoptions.com"
-    }
+      "url": "mailto:support@paymentoptions.com",
+      "version":"EN"
+    },
+    {
+      "name": "サポート",
+      "url": "mailto:support@paymentoptions.com",
+      "version":"日本"
+    },
+
     
   ],
   "topbarCtaButton": {
