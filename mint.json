@@ -16,22 +16,6 @@
     }
   },
 
- "languageSwitcher": {
-    "defaultLanguage": "EN",
-    "languages": [
-      {
-        "name": "English",
-        "code": "EN",
-        "url": "/"
-      },
-      {
-        "name": "日本語",
-        "code": "JP"
-        "url": "/JP"
-      }
-    ]
-  },
-
   "topbarLinks": [
     {
       "name": "Support",
@@ -49,8 +33,19 @@
       "url": "api-reference"
     }
   ],
- "anchors": [
-    
+"anchors": [
+    {
+      "name": "English",
+      "icon": "rectangle-terminal",
+      "color": "#f59f0b",
+      "url": "/"
+    },
+    {
+      "name": "Japanese",
+      "icon": "comments",
+      "color": "#2564eb",
+      "url": "/JP"
+    }
   ],
   "navigation": [
     {
