@@ -131,14 +131,7 @@
           ]
           }
         ],
-      "version": "EN"
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/hpp"
-      ],
-      "version": "EN"
+      "version": "JP"
     },
     {
       "group": "Endpoint Examples JP",
