@@ -20,14 +20,14 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:support@paymentoptions.com",
+      "url": "mailto:support@paymentoptions.com"
     }
   ],
 
   "topbarCtaButton": [
     {
     "name": "Dashboard",
-    "url": "https://me.paymentoptions.com/",
+    "url": "https://me.paymentoptions.com/"
     }
   ],
   
@@ -157,7 +157,6 @@
     }
 
   ],
-
 
   "footerSocials": {
     "website": "https://www.paymentoptions.com",
