@@ -88,15 +88,69 @@
               "api-reference/cancelsubscription"
           ]
           }
-        ]
+        ],
+      "version": "EN"
     },
     {
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/hpp"
-      ]
+      ],
+      "version": "EN"
+    },
+    {
+      "group": "API Documentation JP",
+      
+        "pages": [
+          {
+            "group": "Hosted Payment Page",
+            "pages": [
+              "api-reference/hpp",
+              "api-reference/hppgpay",
+              "api-reference/hppewallet"
+          ]
+          },
+          "api-reference/purchase",
+          "api-reference/authorisation",
+          "api-reference/voidauth",
+          "api-reference/capture",
+          "api-reference/refund",
+          "api-reference/webhook",
+          "api-reference/transaction",
+          "api-reference/generatetoken",
+          "api-reference/usetoken",
+          {
+            "group": "Subscriptions JP",
+            "pages": [
+              "api-reference/createsubscription",
+              "api-reference/listsubscription",
+              "api-reference/detailsubscription",
+              "api-reference/pausesubscription",
+              "api-reference/resumesubscription",
+              "api-reference/cancelsubscription"
+          ]
+          }
+        ],
+      "version": "EN"
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/hpp"
+      ],
+      "version": "EN"
+    },
+    {
+      "group": "Endpoint Examples JP",
+      "pages": [
+        "api-reference/endpoint/hpp"
+      ],
+      "version": "JP"
     }
+
   ],
+
+
   "footerSocials": {
     "website": "https://www.paymentoptions.com",
     "linkedin": "https://www.linkedin.com/company/payment-options/"
