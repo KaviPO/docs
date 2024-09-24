@@ -16,6 +16,20 @@
     }
   },
 
+ "languageSwitcher": {
+    "defaultLanguage": "EN",
+    "languages": [
+      {
+        "name": "English",
+        "code": "EN"
+      },
+      {
+        "name": "日本語",
+        "code": "JP"
+      }
+    ]
+  },
+
   "topbarLinks": [
     {
       "name": "Support",
