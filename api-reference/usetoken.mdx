@@ -4,9 +4,9 @@ description: 'The Card Token is used to securely complete a Purchase or Authoriz
 ---
 
 ### API Details
-HTTP Method: `POST`
-Endpoint URL (Purchase): `/api/v1/server-to-server-interface/payment`
-Endpoint URL (Authorisation): `/api/v1/server-to-server-interface/authorization`
+- HTTP Method: `POST`
+- Endpoint URL (Purchase): `/api/v1/server-to-server-interface/payment`
+- Endpoint URL (Authorisation): `/api/v1/server-to-server-interface/authorization`
 
 Key Points
 <Info>
@@ -55,7 +55,7 @@ The `stored_payment_method_id` is the token generated from the card tokenization
     "billing_address": {
         "country": "<string>",
         "email": "<shipping_email>",
-        "phone": "<phone_number>",
+        "phone_number": "<phone_number>",
         "address1": "<string>",
         "city": "<string>",
         "state": "<string>",
@@ -64,7 +64,7 @@ The `stored_payment_method_id` is the token generated from the card tokenization
     "shipping_address": {
         "country": "<string>",
         "email": "<shipping_email>",
-        "phone": "<phone_number>",
+        "phone_number": "<phone_number>",
         "address1": "<string>",
         "city": "<string>",
         "state": "<string>",
@@ -108,7 +108,7 @@ The `stored_payment_method_id` is the token generated from the card tokenization
                 "country": "<string>",
                 "email": "<billing_email>",
                 "address1": "<string>",
-                "phone": "<phone_number>",
+                "phone_number": "<phone_number>",
                 "city": "<string>",
                 "state": "<string>",
                 "postal_code": "<string>"
@@ -117,7 +117,7 @@ The `stored_payment_method_id` is the token generated from the card tokenization
                 "country": "<string>",
                 "email": "<shipping_email>",
                 "address1": "<string>",
-                "phone": "<phone_number>",
+                "phone_number": "<phone_number>",
                 "city": "<string>",
                 "state": "<string>",
                 "postal_code": "<string>"
@@ -231,7 +231,7 @@ The `stored_payment_method_id` is the token generated from the card tokenization
 | ∟∟ **country**       | The cardholder’s billing country code.                                           |
 | ∟∟ **email**         | The cardholder’s billing email address.                                          |
 | ∟∟ **address1**      | The cardholder’s billing address line.                                           |
-| ∟∟ **phone**         | The cardholder’s billing phone number.                                           |
+| ∟∟ **phone_number**         | The cardholder’s billing phone number.                                           |
 | ∟∟ **city**          | The cardholder’s billing city.                                                   |
 | ∟∟ **state**         | The cardholder’s billing state.                                                  |
 | ∟∟ **postal_code**   | The cardholder’s billing postal code.                                            |
@@ -239,7 +239,7 @@ The `stored_payment_method_id` is the token generated from the card tokenization
 | ∟ **country**        | The cardholder’s shipping country code.                                          |
 | ∟ **email**          | The cardholder’s shipping email address.                                         |
 | ∟ **address1**       | The cardholder’s shipping address line.                                          |
-| ∟ **phone**          | The cardholder’s shipping phone number.                                          |
+| ∟ **phone_number**          | The cardholder’s shipping phone number.                                          |
 | ∟ **city**           | The cardholder’s shipping city.                                                  |
 | ∟ **state**          | The cardholder’s shipping state.                                                 |
 | ∟ **postal_code**    | The cardholder’s shipping postal code.                                           |
