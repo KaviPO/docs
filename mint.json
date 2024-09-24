@@ -31,7 +31,13 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "api-reference"
+      "url": "api-reference",
+      "version": "EN"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference",
+      "version": "JP"
     }
   ],
  "anchors": [
