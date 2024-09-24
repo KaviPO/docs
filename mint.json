@@ -15,13 +15,19 @@
       "to": "#F18A00"
     }
   },
-
   "topbarLinks": [
     {
       "name": "Support",
       "url": "mailto:support@paymentoptions.com"
+    },
+    {
+      "name": "EN",
+      "url": "/"
+    },
+    {
+      "name": "JP",
+      "url": "/jp"
     }
-    
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
@@ -33,9 +39,7 @@
       "url": "api-reference"
     }
   ],
- "anchors": [
-    
-  ],
+  "anchors": [],
   "navigation": [
     {
       "group": "Get Started",
@@ -47,42 +51,88 @@
     },
     {
       "group": "API Documentation",
-      
-        "pages": [
-          {
-            "group": "Hosted Payment Page",
-            "pages": [
-              "api-reference/hpp",
-              "api-reference/hppgpay",
-              "api-reference/hppewallet"
+      "pages": [
+        {
+          "group": "Hosted Payment Page",
+          "pages": [
+            "api-reference/hpp",
+            "api-reference/hppgpay",
+            "api-reference/hppewallet"
           ]
-          },
-          "api-reference/purchase",
-          "api-reference/authorisation",
-          "api-reference/voidauth",
-          "api-reference/capture",
-          "api-reference/refund",
-          "api-reference/webhook",
-          "api-reference/transaction",
-          "api-reference/generatetoken",
-          "api-reference/usetoken",
-          {
-            "group": "Subscriptions",
-            "pages": [
-              "api-reference/createsubscription",
-              "api-reference/listsubscription",
-              "api-reference/detailsubscription",
-              "api-reference/pausesubscription",
-              "api-reference/resumesubscription",
-              "api-reference/cancelsubscription"
+        },
+        "api-reference/purchase",
+        "api-reference/authorisation",
+        "api-reference/voidauth",
+        "api-reference/capture",
+        "api-reference/refund",
+        "api-reference/webhook",
+        "api-reference/transaction",
+        "api-reference/generatetoken",
+        "api-reference/usetoken",
+        {
+          "group": "Subscriptions",
+          "pages": [
+            "api-reference/createsubscription",
+            "api-reference/listsubscription",
+            "api-reference/detailsubscription",
+            "api-reference/pausesubscription",
+            "api-reference/resumesubscription",
+            "api-reference/cancelsubscription"
           ]
-          }
-        ]
+        }
+      ]
     },
     {
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/hpp"
+      ]
+    },
+    {
+      "group": "Get Started (JP)",
+      "pages": [
+        "jp/introduction",
+        "jp/authentication",
+        "jp/merchantdetails"
+      ]
+    },
+    {
+      "group": "API Documentation (JP)",
+      "pages": [
+        {
+          "group": "ホステッド決済ページ",
+          "pages": [
+            "jp/api-reference/hpp",
+            "jp/api-reference/hppgpay",
+            "jp/api-reference/hppewallet"
+          ]
+        },
+        "jp/api-reference/purchase",
+        "jp/api-reference/authorisation",
+        "jp/api-reference/voidauth",
+        "jp/api-reference/capture",
+        "jp/api-reference/refund",
+        "jp/api-reference/webhook",
+        "jp/api-reference/transaction",
+        "jp/api-reference/generatetoken",
+        "jp/api-reference/usetoken",
+        {
+          "group": "サブスクリプション",
+          "pages": [
+            "jp/api-reference/createsubscription",
+            "jp/api-reference/listsubscription",
+            "jp/api-reference/detailsubscription",
+            "jp/api-reference/pausesubscription",
+            "jp/api-reference/resumesubscription",
+            "jp/api-reference/cancelsubscription"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "エンドポイント例",
+      "pages": [
+        "jp/api-reference/endpoint/hpp"
       ]
     }
   ],
@@ -90,5 +140,4 @@
     "website": "https://www.paymentoptions.com",
     "linkedin": "https://www.linkedin.com/company/payment-options/"
   }
-  
 }
