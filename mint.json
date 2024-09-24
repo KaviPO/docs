@@ -59,7 +59,7 @@
       "version": "EN"
     },
 {
-      "group": "Get Started JP",
+      "group": "はじめに",
       "pages": [
         "JP/introduction",
         "JP/authentication",
@@ -112,11 +112,11 @@
       "version": "EN"
     },
     {
-      "group": "API Documentation JP",
+      "group": "APIドキュメント",
       
         "pages": [
           {
-            "group": "Hosted Payment Page",
+            "group": "ホステッドペイメントページ",
             "pages": [
               "JP/api-reference/hpp",
               "JP/api-reference/hppgpay",
@@ -134,7 +134,7 @@
           "JP/api-reference/generatetoken",
           "JP/api-reference/usetoken",
           {
-            "group": "Subscriptions JP",
+            "group": "サブスクリプション",
             "pages": [
               "JP/api-reference/createsubscription",
               "JP/api-reference/listsubscription",
@@ -149,7 +149,7 @@
       "version": "日本"
     },
     {
-      "group": "Endpoint Examples JP",
+      "group": "エンドポイントの例",
       "pages": [
         "JP/api-reference/endpoint/hpp"
       ],
