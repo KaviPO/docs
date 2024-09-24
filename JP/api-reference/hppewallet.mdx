@@ -1,0 +1,41 @@
+---
+title: 'E-Wallet'
+description: 'When a merchant is configured for e.g GCash, the Hosted Payment Page (HPP) can generate an E-Wallet link that allows customers to complete their transaction using the GCash payment method.'
+---
+
+### API Details:
+- **HTTP Method:** `POST`
+- **Endpoint URL:** `/api/v1/server-to-server-interface/payment`
+
+
+### Key Points
+<Info>
+Merchant Configuration
+- The **Merchant ID** for GCash must be included in the payload along with the specific `payment_method` type set to `gcash`.
+- If the merchant is configured for GCash, the HPP will generate an E-Wallet payment link to enable customers to pay via GCash.
+
+E-Wallet Link
+- The HPP will display an option for customers to pay via GCash or generate an E-Wallet link for the customer to use.
+- This ensures a smooth process for customers using their GCash E-Wallet to complete transactions.
+</Info>
+
+### Payment Method Attributes
+
+| **Attributes**         | **Type**  | **Mandatory** | **Max Length** | **Description**                                                                 |
+|:-----------------------|:----------|:--------------|:---------------|:--------------------------------------------------------------------------------|
+| **payment_method**      | object    | no            | -              | A JSON object containing Payment Method                                         |
+| ∟ **type**             | string    | yes           | 128            | The Payment method type, for wallet ex: `gcash`  |
+
+
+<RequestExample>
+```json Request Example
+
+"payment_method": {
+        "type": "gcash"
+    },
+
+```
+</RequestExample>
+
+
+Go to [Hosted Payment Page](/api-reference/hpp)

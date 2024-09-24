@@ -1,0 +1,48 @@
+---
+title: 'Authentication'
+description: 'Overview of API Key Authentication and Header Requirements'
+---
+
+
+<img
+  className="block dark:hidden"
+  src="/images/api-key.png"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/api-key.png"
+/>
+
+## Purpose
+- The API key is essential for authorisation and authentication.
+- It determines whether the API will execute the request.-
+- Each merchant is provided with a LIVE API KEY and an encoded key via the PO Gateway Merchant Access.
+
+## HTTP Basic Authentication
+- The API uses HTTP Basic Authentication, where the API key is passed as credentials in the Authorisation header.
+- Encoding
+- - HTTP Basic Authentication expects credentials to be base64 encoded.
+- - Some HTTP clients automatically handle this encoding (e.g., using the -u flag with bash cURL).
+- - Others may require manual encoding (e.g., using CURLOPT_HTTPHEADER in PHP cURL).
+
+## API Headers
+
+- API headers provide additional metadata for each API call, including crucial information about the request and response.
+
+| **Header**       | **Description**                                                                 |
+|:-----------------|:--------------------------------------------------------------------------------|
+| `x-api-key`      | Provided along with credentials.                                                |
+| `Authorization`  | Live API Key obtained from merchant details on PO Gateway.                      |
+| `Content-Type`   | Indicates that all response attributes will be in JSON format (set to `application/json`). |
+
+
+
+<img
+  className="block dark:hidden"
+  src="/images/header.png"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/header.png"
+/>
+
