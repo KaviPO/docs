@@ -18,18 +18,18 @@
 
   "topbarLinks": [
     {
-      "name": "Support",
+      "name": "Support JP",
       "url": "mailto:support@paymentoptions.com"
     }
     
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
+    "name": "Dashboard JP",
     "url": "https://me.paymentoptions.com/"
   },
   "tabs": [
     {
-      "name": "API Reference",
+      "name": "API Reference JP",
       "url": "api-reference"
     }
   ],
@@ -38,7 +38,7 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Get Started JP",
       "pages": [
         "introduction",
         "authentication",
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "API Documentation JP",
       
         "pages": [
           {
