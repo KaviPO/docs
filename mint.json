@@ -31,10 +31,22 @@
 
     
   ],
-  "topbarCtaButton": {
+  "topbarCtaButton": [
+    {
     "name": "Dashboard",
-    "url": "https://me.paymentoptions.com/"
+    "url": "https://me.paymentoptions.com/",
+      "version":"EN"
+    },
+    {
+    "name": "ダッシュボード",
+    "url": "https://me.paymentoptions.com/jp/",
+      "version":"日本"
+    },
+    
+  ]
   },
+
+
   "tabs": [
     {
       "name": "API Reference",
