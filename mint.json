@@ -21,11 +21,13 @@
     "languages": [
       {
         "name": "English",
-        "code": "EN"
+        "code": "EN",
+        "url": "/"
       },
       {
         "name": "日本語",
         "code": "JP"
+        "url": "/JP"
       }
     ]
   },
