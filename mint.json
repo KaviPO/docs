@@ -19,6 +19,10 @@
     {
       "name": "Support",
       "url": "mailto:support@paymentoptions.com"
+    },
+    {
+      "name": "日本語 (JP)",
+      "url": "/jp"
     }
   ],
   "topbarCtaButton": {
@@ -73,18 +77,6 @@
       "pages": [
         "api-reference/endpoint/hpp"
       ]
-    }
-  ],
-  "languages": [
-    {
-      "label": "EN",
-      "icon": "/flags/gb.svg",
-      "path": "/"
-    },
-    {
-      "label": "JP",
-      "icon": "/flags/jp.svg",
-      "path": "/jp"
     }
   ],
   "footerSocials": {
