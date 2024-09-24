@@ -16,6 +16,7 @@
     }
   },
 "versions": ["EN", "JP"],
+
   "topbarLinks": [
     {
       "name": "Support",
@@ -43,14 +44,15 @@
         "introduction",
         "authentication",
         "merchantdetails"
-      ]
+      ],
+      "version": "EN"
     },
 {
       "group": "Get Started JP",
       "pages": [
-        "jp/introduction",
-        "jp/authentication",
-        "jp/merchantdetails"
+        "JP/introduction",
+        "JP/authentication",
+        "JP/merchantdetails"
       ],
       "version": "JP"
     },
