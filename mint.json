@@ -15,7 +15,7 @@
       "to": "#F18A00"
     }
   },
-"versions": ["EN","JP(日本)"],
+"versions": ["EN","日本"],
 
   "topbarLinks": [
     {
@@ -37,7 +37,7 @@
     {
       "name": "API Reference",
       "url": "JP/api-reference",
-      "version": "JP(日本)"
+      "version": "日本"
     }
   ],
  "anchors": [
@@ -60,7 +60,7 @@
         "JP/authentication",
         "JP/merchantdetails"
       ],
-      "version": "JP(日本)"
+      "version": "日本"
     },
     {
       "group": "API Documentation",
@@ -117,7 +117,7 @@
               "JP/api-reference/hppgpay",
               "JP/api-reference/hppewallet"
           ],
-            "version": "JP(日本)"
+            "version": "日本"
           },
           "JP/api-reference/purchase",
           "JP/api-reference/authorisation",
@@ -138,17 +138,17 @@
               "JP/api-reference/resumesubscription",
               "JP/api-reference/cancelsubscription"
           ],
-            "version": "JP(日本)"
+            "version": "日本"
           }
         ],
-      "version": "JP(日本)"
+      "version": "日本"
     },
     {
       "group": "Endpoint Examples JP",
       "pages": [
         "JP/api-reference/endpoint/hpp"
       ],
-      "version": "JP(日本)"
+      "version": "日本"
     }
 
   ],
