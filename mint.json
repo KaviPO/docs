@@ -106,29 +106,31 @@
             "group": "Hosted Payment Page",
             "pages": [
               "JP/api-reference/hpp",
-              "api-reference/hppgpay",
-              "api-reference/hppewallet"
-          ]
+              "JP/api-reference/hppgpay",
+              "JP/api-reference/hppewallet"
+          ],
+            "version": "JP"
           },
-          "api-reference/purchase",
-          "api-reference/authorisation",
-          "api-reference/voidauth",
-          "api-reference/capture",
-          "api-reference/refund",
-          "api-reference/webhook",
-          "api-reference/transaction",
-          "api-reference/generatetoken",
-          "api-reference/usetoken",
+          "JP/api-reference/purchase",
+          "JP/api-reference/authorisation",
+          "JP/api-reference/voidauth",
+          "JP/api-reference/capture",
+          "JP/api-reference/refund",
+          "JP/api-reference/webhook",
+          "JP/api-reference/transaction",
+          "JP/api-reference/generatetoken",
+          "JP/api-reference/usetoken",
           {
             "group": "Subscriptions JP",
             "pages": [
-              "api-reference/createsubscription",
-              "api-reference/listsubscription",
-              "api-reference/detailsubscription",
-              "api-reference/pausesubscription",
-              "api-reference/resumesubscription",
-              "api-reference/cancelsubscription"
-          ]
+              "JP/api-reference/createsubscription",
+              "JP/api-reference/listsubscription",
+              "JP/api-reference/detailsubscription",
+              "JP/api-reference/pausesubscription",
+              "JP/api-reference/resumesubscription",
+              "JP/api-reference/cancelsubscription"
+          ],
+            "version": "JP"
           }
         ],
       "version": "JP"
@@ -136,7 +138,7 @@
     {
       "group": "Endpoint Examples JP",
       "pages": [
-        "api-reference/endpoint/hpp"
+        "JP/api-reference/endpoint/hpp"
       ],
       "version": "JP"
     }
