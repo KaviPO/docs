@@ -33,7 +33,8 @@
     },
     {
       "name": "日本語 (JP)",
-      "url": "/jp"
+      "url": "/jp",
+      "icon": "/flags/flag_jp.svg"
     }
   ],
   "navigation": [
