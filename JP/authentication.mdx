@@ -1,9 +1,8 @@
 ---
-title: 'Authentication'
-description: 'Overview of API Key Authentication and Header Requirements'
+title: '認証'
+description: 'APIキー認証とヘッダー要件の概要'
 ---
 
-
 <img
   className="block dark:hidden"
   src="/images/api-key.png"
@@ -13,29 +12,27 @@ description: 'Overview of API Key Authentication and Header Requirements'
   src="/images/api-key.png"
 />
 
-## Purpose
-- The API key is essential for authorisation and authentication.
-- It determines whether the API will execute the request.-
-- Each merchant is provided with a LIVE API KEY and an encoded key via the PO Gateway Merchant Access.
+## 目的
+- APIキーは、認可と認証に不可欠です。
+- これにより、APIがリクエストを実行するかどうかが決まります。
+- 各マーチャントには、PO Gateway Merchant Access経由でLIVE APIキーとエンコードされたキーが提供されます。
 
-## HTTP Basic Authentication
-- The API uses HTTP Basic Authentication, where the API key is passed as credentials in the Authorisation header.
-- Encoding
-- - HTTP Basic Authentication expects credentials to be base64 encoded.
-- - Some HTTP clients automatically handle this encoding (e.g., using the -u flag with bash cURL).
-- - Others may require manual encoding (e.g., using CURLOPT_HTTPHEADER in PHP cURL).
+## HTTPベーシック認証
+- APIはHTTPベーシック認証を使用し、APIキーはAuthorisationヘッダーで資格情報として渡されます。
+- エンコーディング
+  - HTTPベーシック認証では、資格情報をbase64でエンコードすることが求められます。
+  - 一部のHTTPクライアントは、このエンコーディングを自動的に処理します（例：bash cURLで -u フラグを使用する場合）。
+  - 他のクライアントでは、手動でエンコードが必要な場合があります（例：PHP cURLでCURLOPT_HTTPHEADERを使用する場合）。
 
-## API Headers
+## APIヘッダー
 
-- API headers provide additional metadata for each API call, including crucial information about the request and response.
+- APIヘッダーは、各API呼び出しに関する追加のメタデータを提供し、リクエストおよびレスポンスに関する重要な情報を含みます。
 
-| **Header**       | **Description**                                                                 |
+| **ヘッダー**       | **説明**                                                                       |
 |:-----------------|:--------------------------------------------------------------------------------|
-| `x-api-key`      | Provided along with credentials.                                                |
-| `Authorization`  | Live API Key obtained from merchant details on PO Gateway.                      |
-| `Content-Type`   | Indicates that all response attributes will be in JSON format (set to `application/json`). |
-
-
+| `x-api-key`      | 資格情報と共に提供されます。                                                     |
+| `Authorization`  | PO Gatewayで取得されたライブAPIキー。                                             |
+| `Content-Type`   | 全てのレスポンス属性がJSON形式であることを示します（`application/json`に設定）。    |
 
 <img
   className="block dark:hidden"
@@ -45,4 +42,3 @@ description: 'Overview of API Key Authentication and Header Requirements'
   className="hidden dark:block"
   src="/images/header.png"
 />
-
