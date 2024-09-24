@@ -49,36 +49,9 @@
     {
       "group": "Get Started",
       "pages": [
-        {
-          "name": "Introduction",
-          "url": "introduction",
-          "language": "en"
-        },
-        {
-          "name": "Authentication",
-          "url": "authentication",
-          "language": "en"
-        },
-        {
-          "name": "Merchant Details",
-          "url": "merchantdetails",
-          "language": "en"
-        },
-        {
-          "name": "はじめに",
-          "url": "jp/introduction",
-          "language": "jp"
-        },
-        {
-          "name": "認証",
-          "url": "jp/authentication",
-          "language": "jp"
-        },
-        {
-          "name": "マーチャント詳細",
-          "url": "jp/merchantdetails",
-          "language": "jp"
-        }
+        "introduction",
+        "authentication",
+        "merchantdetails"
       ]
     },
     {
@@ -87,48 +60,37 @@
         {
           "group": "Hosted Payment Page",
           "pages": [
-            {
-              "name": "HPP",
-              "url": "api-reference/hpp",
-              "language": "en"
-            },
-            {
-              "name": "HPP GPay",
-              "url": "api-reference/hppgpay",
-              "language": "en"
-            },
-            {
-              "name": "HPP eWallet",
-              "url": "api-reference/hppewallet",
-              "language": "en"
-            },
-            {
-              "name": "ホスト型ペイメントページ",
-              "url": "jp/api-reference/hpp",
-              "language": "jp"
-            },
-            {
-              "name": "HPP GPay",
-              "url": "jp/api-reference/hppgpay",
-              "language": "jp"
-            },
-            {
-              "name": "HPP eWallet",
-              "url": "jp/api-reference/hppewallet",
-              "language": "jp"
-            }
+            "api-reference/hpp",
+            "api-reference/hppgpay",
+            "api-reference/hppewallet"
           ]
         },
+        "api-reference/purchase",
+        "api-reference/authorisation",
+        "api-reference/voidauth",
+        "api-reference/capture",
+        "api-reference/refund",
+        "api-reference/webhook",
+        "api-reference/transaction",
+        "api-reference/generatetoken",
+        "api-reference/usetoken",
         {
-          "name": "Purchase",
-          "url": "api-reference/purchase",
-          "language": "en"
-        },
-        {
-          "name": "購入",
-          "url": "jp/api-reference/purchase",
-          "language": "jp"
+          "group": "Subscriptions",
+          "pages": [
+            "api-reference/createsubscription",
+            "api-reference/listsubscription",
+            "api-reference/detailsubscription",
+            "api-reference/pausesubscription",
+            "api-reference/resumesubscription",
+            "api-reference/cancelsubscription"
+          ]
         }
+      ]
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/hpp"
       ]
     }
   ],
