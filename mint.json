@@ -33,20 +33,6 @@
       "url": "api-reference"
     }
   ],
-"anchors": [
-    {
-      "name": "English",
-      "icon": "rectangle-terminal",
-      "color": "#f59f0b",
-      "url": "/"
-    },
-    {
-      "name": "Japanese",
-      "icon": "comments",
-      "color": "#2564eb",
-      "url": "/JP/introduction"
-    }
-  ],
   "navigation": [
     {
       "group": "Get Started",
