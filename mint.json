@@ -15,16 +15,7 @@
       "to": "#F18A00"
     }
   },
-"versions": [
-  {
-    "name":"EN",
-    "icon":"flags/flag_en.svg"
-  },
-  {
-    "name":"JP",
-    "icon":"flags/flag_jp.svg"
-  }
-  ],
+"versions": ["EN","JP"],
 
   "topbarLinks": [
     {
