@@ -1,80 +1,79 @@
 ---
-title: 'Refund'
-description: 'The Refund API is used to return funds to the customer after a successful purchase or capture transaction.'
+title: '返金'
+description: 'Refund APIは、成功した購入またはキャプチャ取引後に、顧客に資金を返還するために使用されます。'
 ---
 
-### API Details:
-- HTTP Method: `POST`
-- Endpoint URL: `/api/v1/server-to-server-interface/refund`
+### APIの詳細:
+- HTTPメソッド: `POST`
+- エンドポイントURL: `/api/v1/server-to-server-interface/refund`
 
 
-### Key Points
+### 重要なポイント
 <Info>
-- The Refund API allows the merchant to reverse a transaction, sending the funds back to the customer’s payment method.
-- This API is typically used in scenarios such as order cancellations, product returns, or when a customer disputes a charge.
-- Refunds can be partial or full, depending on the amount specified in the refund request. If a partial amount is refunded, the remaining balance of the original transaction is still valid.
+- Refund APIは、取引を逆転させて、顧客の支払い方法に資金を返すためにマーチャントが使用できるものです。
+- このAPIは、注文のキャンセル、商品の返品、または顧客が請求に異議を唱えた場合などに通常使用されます。
+- 返金は、リクエストに指定された金額に応じて部分的または全額で行うことができます。部分返金が行われた場合、元の取引の残りの残高は引き続き有効です。
 </Info>
 
-### Request Attributes
+### リクエスト属性
 
-| **Attributes**         | **Type**  | **Mandatory** | **Max Length** | **Description**                                                                 |
-|:-----------------------|:----------|:--------------|:---------------|:--------------------------------------------------------------------------------|
-| **transactionId**       | string    | yes           | 36             | The original transaction ID of the authorized transaction.                      |
-| **amount**             | int/string| yes           | as per Bank    | The amount to be refunded. This should not exceed the amount captured/purchased. Amount limit depends on the bank. |
-| **merchant_id**         | string    | yes           | 10             | The merchant ID (DASMID).                                                       |
-| **notes**              | string    | no            | 128            | The reference of the refund transaction (optional).                             |
-| **browser_info**        | object    | no            | -              | A JSON object containing the browser info. This object is optional.             |
-| ∟ **acceptHeader**      | string    | no            | 45             | Information about the browser's accepted data formats.                          |
-| ∟ **screenColorDepth**  | int       | no            | 5              | Number of bits used to represent colors on the screen.                          |
-| ∟ **javaEnabled**       | boolean   | no            | 5              | Indicates whether Java is enabled in the browser.                               |
-| ∟ **language**          | string    | no            | 2              | The browser's language setting.                                                 |
-| ∟ **screenHeight**      | int       | no            | 5              | Height of the browser window in pixels.                                         |
-| ∟ **screenWidth**       | int       | no            | 5              | Width of the browser window in pixels.                                          |
-| ∟ **challengeWindow**   | int       | no            | 5              | Dimensions of the pop-up window used in challenge.                              |
-| ∟ **userAgent**         | string    | no            | 199            | String providing detailed information about the browser and operating system.   |
+| **属性**         | **タイプ**  | **必須**      | **最大長**    | **説明**                                                                           |
+|:-----------------------|:----------|:--------------|:--------------|:-----------------------------------------------------------------------------------|
+| **transactionId**       | string    | はい           | 36            | 承認された取引の元の取引ID。                                                        |
+| **amount**             | int/string| はい           | 銀行の規定に従う | 返金される金額。これはキャプチャ/購入された金額を超えてはいけません。金額の制限は銀行によります。 |
+| **merchant_id**         | string    | はい           | 10            | マーチャントID（DASMID）。                                                           |
+| **notes**              | string    | いいえ         | 128           | 返金取引の参照（オプション）。                                                     |
+| **browser_info**        | object    | いいえ         | -             | ブラウザ情報を含むJSONオブジェクト。このオブジェクトはオプションです。                  |
+| ∟ **acceptHeader**      | string    | いいえ         | 45            | ブラウザが受け入れるデータフォーマットに関する情報。                                   |
+| ∟ **screenColorDepth**  | int       | いいえ         | 5             | 画面上で色を表すために使用されるビット数。                                           |
+| ∟ **javaEnabled**       | boolean   | いいえ         | 5             | ブラウザでJavaが有効かどうかを示します。                                             |
+| ∟ **language**          | string    | いいえ         | 2             | ブラウザの言語設定。                                                                |
+| ∟ **screenHeight**      | int       | いいえ         | 5             | ブラウザウィンドウの高さ（ピクセル単位）。                                            |
+| ∟ **screenWidth**       | int       | いいえ         | 5             | ブラウザウィンドウの幅（ピクセル単位）。                                             |
+| ∟ **challengeWindow**   | int       | いいえ         | 5             | チャレンジで使用されるポップアップウィンドウの寸法。                                   |
+| ∟ **userAgent**         | string    | いいえ         | 199           | ブラウザやオペレーティングシステムに関する詳細な情報を提供する文字列。                   |
 
+### レスポンス属性
 
-### Response Attributes
-
-| **Attributes**         | **Description**                                                                 |
-|:-----------------------|:--------------------------------------------------------------------------------|
-| **success**            | `true` on successful transaction, `false` on failure.                           |
-| **status_code**        | The status code of the transaction.                                             |
-| **is_live**            | `true` if live transaction, `false` if test transaction.                        |
-| **transaction_type**   | The transaction type, e.g., REFUND for any Captured transaction.                |
-| **gateway_response**   | A JSON object containing the response from the gateway.                         |
-| ∟ **version**          | The version of the gateway.                                                     |
-| ∟ **type**             | Type of response, e.g., INFO for informative.                                   |
-| ∟ **message**          | The message response from the gateway.                                          |
-| ∟ **code**             | Message code of the response.                                                   |
-| **merchant_details**   | A JSON object containing the details of the merchant.                           |
-| ∟ **legal_name**       | The merchant’s legal name.                                                      |
-| ∟ **mid**              | The merchant ID (DASMID).                                                       |
-| ∟ **merchant_txn_ref** | The merchant transaction reference.                                             |
-| **payment_details**    | A JSON object containing the payment details of the transaction.                |
-| ∟ **amount**           | The amount value of the transaction.                                            |
-| ∟ **response_code**    | The acquirer response code.                                                     |
-| ∟ **auth_code**        | The acquirer authorization code.                                                |
-| ∟ **currency**         | The currency of the transaction.                                                |
-| ∟ **payment_method**   | The payment card type, e.g., Credit Card or Debit Card.                         |
-| ∟ **scheme**           | The card brand scheme, e.g., VISA, MASTERCARD, or AMEX.                         |
-| ∟ **card**             | A JSON object containing details of the card.                                   |
-| ∟∟ **name**            | The cardholder’s name on the card.                                               |
-| ∟∟ **number**          | The card number.                                                                 |
-| ∟∟ **exp_month**       | The expiry month of the card, e.g., 12 for December.                            |
-| ∟∟ **exp_year**        | The expiry year of the card, e.g., 24 for 2024.                                 |
-| **additional_data**    | A JSON object containing additional data.                                       |
-| ∟∟ **payment_data_source** | A JSON object containing payment data source.                              |
-| ∟∟∟ **type**           | The type of payment data source, e.g., Card, GooglePay, ApplePay, or Gcash.      |
-| **transaction_details**| A JSON object containing details of the transaction.                            |
-| ∟ **id**               | The transaction ID of the transaction.                                          |
-| ∟ **ref**              | The authorization code of the transaction.                                      |
-| ∟ **timestamp**        | Date and time of the transaction.                                               |
-| ∟ **merchant_txn_ref** | The merchant transaction reference ID.                                          |
+| **属性**         | **説明**                                                                           |
+|:-----------------------|:-----------------------------------------------------------------------------------|
+| **success**            | 取引が成功した場合は`true`、失敗した場合は`false`。                                   |
+| **status_code**        | 取引のステータスコード。                                                            |
+| **is_live**            | ライブ取引の場合は`true`、テスト取引の場合は`false`。                                  |
+| **transaction_type**   | 取引タイプ（例：キャプチャされた取引のREFUND）。                                       |
+| **gateway_response**   | ゲートウェイからのレスポンスを含むJSONオブジェクト。                                  |
+| ∟ **version**          | ゲートウェイのバージョン。                                                           |
+| ∟ **type**             | レスポンスタイプ（例：INFOは情報提供用）。                                              |
+| ∟ **message**          | ゲートウェイからのメッセージレスポンス。                                              |
+| ∟ **code**             | レスポンスのメッセージコード。                                                       |
+| **merchant_details**   | マーチャントの詳細を含むJSONオブジェクト。                                            |
+| ∟ **legal_name**       | マーチャントの正式名称。                                                             |
+| ∟ **mid**              | マーチャントID（DASMID）。                                                          |
+| ∟ **merchant_txn_ref** | マーチャントの取引参照。                                                            |
+| **payment_details**    | 取引の支払い詳細を含むJSONオブジェクト。                                             |
+| ∟ **amount**           | 取引の金額。                                                                        |
+| ∟ **response_code**    | アクワイアラのレスポンスコード。                                                      |
+| ∟ **auth_code**        | アクワイアラの承認コード。                                                          |
+| ∟ **currency**         | 取引の通貨。                                                                        |
+| ∟ **payment_method**   | 支払いカードの種類（例：クレジットカード、デビットカード）。                            |
+| ∟ **scheme**           | カードブランドのスキーム（例：VISA、MASTERCARD、AMEX）。                               |
+| ∟ **card**             | カードの詳細を含むJSONオブジェクト。                                                 |
+| ∟∟ **name**            | カード所有者の名前。                                                                 |
+| ∟∟ **number**          | カード番号。                                                                         |
+| ∟∟ **exp_month**       | カードの有効期限（月）（例：12は12月）。                                               |
+| ∟∟ **exp_year**        | カードの有効期限（年）（例：24は2024年）。                                            |
+| **additional_data**    | 追加データを含むJSONオブジェクト。                                                   |
+| ∟∟ **payment_data_source** | 支払いデータソースを含むJSONオブジェクト。                                         |
+| ∟∟∟ **type**           | 支払いデータソースの種類（例：カード、GooglePay、ApplePay、Gcash）。                    |
+| **transaction_details**| 取引の詳細を含むJSONオブジェクト。                                                   |
+| ∟ **id**               | 取引ID。                                                                            |
+| ∟ **ref**              | 取引の承認コード。                                                                  |
+| ∟ **timestamp**        | 取引の日付と時間。                                                                  |
+| ∟ **merchant_txn_ref** | マーチャントの取引参照ID。                                                          |
 
 
 <RequestExample>
-```json Request Example
+```json リクエスト例
 {
     "transactionId": "<transaction_id>",
     "amount": <float/string/int>,
@@ -95,7 +94,7 @@ description: 'The Refund API is used to return funds to the customer after a suc
 </RequestExample>
 
 <ResponseExample>
-```json Response Example
+```json レスポンス例
 {
     "success": true,
     "status_code": 201,
