@@ -31,14 +31,8 @@
 
 "primaryTab":[ 
   {
-    "name": "Documentation",
-    "version": "EN"
-  },
-   {
-    "name": "ドキュメント",
-    "version": "日本"
+    "name": "Documentation"
   }
-
 ],
 
   "tabs": [
@@ -48,7 +42,7 @@
       "version": "EN"
     },
     {
-      "name": "APIリファレンス",
+      "name": "API Reference",
       "url": "JP/api-reference",
       "version": "日本"
     }
