@@ -1,33 +1,35 @@
 ---
-title: ' Webhook Handler'
-description: 'The Webhook Handler is used to receive and process real-time notifications (webhooks) from the API when specific events occur, such as successful payments, refunds, or failed transactions.'
+title: 'Webhookハンドラー'
+description: 'Webhookハンドラーは、特定のイベント（例：支払い成功、返金、取引失敗）が発生した際に、APIからリアルタイムで通知（Webhook）を受信および処理するために使用されます。'
 ---
 
-### Webhook Events
-- The API can send notifications for various events such as:
-Payment Success
-Payment Failure
-- These events allow your system to react instantly to important changes in the transaction lifecycle.
-### Endpoint URL
-- You need to set up an endpoint URL that will receive `POST` requests from the API.
-- This endpoint should be publicly accessible to ensure the webhooks are delivered successfully.
-### Security Considerations
-- It’s important to verify that the incoming requests are from the API by checking the signature or token included in the webhook.
-- Use secure `HTTP` (HTTPS) to ensure that the data received is encrypted.
+### Webhookイベント
+- APIは、以下のようなさまざまなイベントについて通知を送信できます:
+支払い成功
+支払い失敗
+- これらのイベントにより、取引のライフサイクルにおける重要な変更に即座にシステムが対応できるようになります。 
 
-# Webhool URL Attributes in `return_url`
+### エンドポイントURL
+- APIからの`POST`リクエストを受信するために、エンドポイントURLを設定する必要があります。
+- このエンドポイントは、Webhookが正常に配信されるようにパブリックにアクセス可能である必要があります。
 
-| **Attributes**         | **Type**  | **Mandatory** | **Max Length** | **Description**                                                                 |
-|:-----------------------|:----------|:--------------|:---------------|:--------------------------------------------------------------------------------|
-| **return_url**          | object    | yes           | -              | A JSON object containing the Return URL.                                        |
-| ∟ **webhook_url**       | string    | no            | 255            | The webhook URL link.                                                           |
-| ∟ **success_url**       | string    | no            | 255            | The redirect URL link after payment is successful.                              |
-| ∟ **decline_url**       | string    | no            | 255            | The redirect URL link after payment fails.                                      |
-| ∟ **cancel_url**        | string    | no            | 255            | The cancel URL link after payment is cancelled.                                 |
+### セキュリティ上の考慮事項
+- Webhookに含まれる署名やトークンを確認して、受信するリクエストがAPIからのものであることを確認することが重要です。
+- 受信するデータが暗号化されていることを確認するために、安全な`HTTP`（HTTPS）を使用してください。
+
+# `return_url`内のWebhook URL属性
+
+| **属性**         | **タイプ**  | **必須**      | **最大長**    | **説明**                                                                           |
+|:-----------------------|:----------|:--------------|:--------------|:-----------------------------------------------------------------------------------|
+| **return_url**          | object    | はい           | -             | Return URLを含むJSONオブジェクト。                                                   |
+| ∟ **webhook_url**       | string    | いいえ         | 255           | Webhook URLリンク。                                                                 |
+| ∟ **success_url**       | string    | いいえ         | 255           | 支払いが成功した後のリダイレクトURLリンク。                                           |
+| ∟ **decline_url**       | string    | いいえ         | 255           | 支払いが失敗した後のリダイレクトURLリンク。                                           |
+| ∟ **cancel_url**        | string    | いいえ         | 255           | 支払いがキャンセルされた後のキャンセルURLリンク。                                      |
 
 
 <RequestExample>
-``` json Request Example in return_url
+``` json return_url内のリクエスト例
 "return_url": {
         "return_url": {
         "webhook_url": "http://webhook.site.com",
@@ -39,7 +41,7 @@ Payment Failure
 </RequestExample>
 
 <ResponseExample>
-```json Response Example of HPP with Webhook Url
+```json Webhook URLを含むHPPのレスポンス例
 {
     "id": "<transaction_id>",
     "url": "https://checkout.paymentoptions.com",
