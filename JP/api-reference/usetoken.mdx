@@ -1,39 +1,40 @@
 ---
-title: 'Use of Card Token'
-description: 'The Card Token is used to securely complete a Purchase or Authorization transaction without needing to re-enter sensitive card details. This tokenised approach improves security and user experience.'
+title: 'カードトークンの使用 (Use of Card Token)'
+description: 'カードトークンを使用して、機密カード情報を再入力することなく、安全に購入または承認取引を完了します。このトークン化されたアプローチは、セキュリティとユーザーエクスペリエンスを向上させます。'
 ---
 
-### API Details
-- HTTP Method: `POST`
-- Endpoint URL (Purchase): `/api/v1/server-to-server-interface/payment`
-- Endpoint URL (Authorisation): `/api/v1/server-to-server-interface/authorization`
+### APIの詳細
+- HTTPメソッド: `POST`
+- エンドポイントURL（購入）: `/api/v1/server-to-server-interface/payment`
+- エンドポイントURL（承認）: `/api/v1/server-to-server-interface/authorization`
 
-Key Points
+重要なポイント
 <Info>
-- Once a card token is generated, it can be used to execute Purchase or Authorization transactions.
-- The card token replaces the need for actual card details, ensuring that sensitive data is never exposed during the transaction.
-- This method is commonly used for:
-One-click payments,
-Recurring transactions (e.g., subscriptions),
-Stored customer payment details.
+- カードトークンが生成されると、それを使用して購入または承認取引を実行できます。
+- カードトークンは実際のカード情報の代わりとなり、取引中に機密データが公開されることはありません。
+- この方法は一般的に以下のような場合に使用されます:
+ワンクリック決済、
+定期的な取引（例: サブスクリプション）、
+保存された顧客の支払い情報。
 </Info>
 
-### Card Token
-Use the `stored_payment_method_id` (generated during token creation) in the payload to complete the transaction.
+### カードトークン
+トランザクションを完了するために、ペイロード内で`stored_payment_method_id`（トークン生成時に作成されたもの）を使用します。
 
-``` json Request Example
+```json Request Example
 {
   "payment_method": {
     "type": "scheme",
     "store_payment_method": "094db781-fabc-4c6d-8fcd-18bee06a527a"
   }
+}
 ```
-The `stored_payment_method_id` is the token generated from the card tokenization process and is used to securely complete subsequent transactions.
+stored_payment_method_idはカードトークン化プロセスから生成されたトークンであり、後続の取引を安全に完了するために使用されます。
 
 
 
 <RequestExample>
-```json Request Example
+```json リクエスト例
 {
     "amount": "<float/string/int>",
     "currency": "JPY",
@@ -86,7 +87,7 @@ The `stored_payment_method_id` is the token generated from the card tokenization
 </RequestExample>
 
 <ResponseExample>
-```json Response Example
+```json レスポンス例
 
 {
     "success": true,
@@ -162,110 +163,109 @@ The `stored_payment_method_id` is the token generated from the card tokenization
 ```
 </ResponseExample>
 
-### Request Attributes
+### リクエスト属性
 
-| **Attributes**         | **Type**            | **Mandatory** | **Max Length** | **Description**                                                                 |
-|:-----------------------|:--------------------|:--------------|:---------------|:--------------------------------------------------------------------------------|
-| **amount**               | float/string/int        | yes           | as per Bank    | The amount of the transaction. Amount limit depends on the bank.                                                                                                    |
-| **currency**             | string                 | yes           | 3              | The abbreviation of the processing currency of the product (ex. Japanese Yen: JPY).                                                                                 |
-| **payment_method**       | object                 | yes           |                | A JSON object containing Payment Method.                                                                                                                            |
-|  ∟ **type**              | string                 | yes           | 128            | The Payment method type. Example: "scheme" for credit cards or "gcash" for wallet payments.                                                                         |
-|  ∟ **store_payment_method** | boolean             | yes           | 5              | true to generate token, or false not to generate.                                                                                                                   |
-|  ∟ **stored_payment_method_id** | string          | yes           | 128            | The stored payment method ID (Token).                                                                                                                               |
-| **merchant_txn_ref**      | string                 | yes           | 45             | The merchant transaction reference ID.                                                                                                                              |
-| **customer_ip**           | string                 | yes           | 45             | The IP address of the cardholder.                                                                                                                                   |
-| **merchant_id**           | string                 | yes           | 128            | The merchant ID (DASMID).                                                                                                                                           |
-| **return_url**            | object                 | yes           |                | A JSON object containing the return URL.                                                                                                                            |
-|  ∟ **webhook_url**        | string                 | yes           | 255            | The webhook URL link for notifications.                                                                                                                             |
-|  ∟ **success_url**        | string                 | yes           | 255            | The redirect URL after payment is successful.                                                                                                                       |
-|  ∟ **decline_url**        | string                 | yes           | 255            | The redirect URL after payment fails.                                                                                                                               |
-|  ∟ **cancel_url**         | string                 | no            | 255            | The cancel URL after payment is cancelled.                                                                                                                          |
-| **billing_address**       | object                 | yes           |                | A JSON object containing the billing address of the cardholder.                                                                                                      |
-|  ∟ **country**            | string                 | yes           | 2              | The cardholder’s billing country code.                                                                                                                              |
-|  ∟ **email**              | string                 | yes           | 45             | The cardholder’s billing email address.                                                                                                                             |
-|  ∟ **address1**           | string                 | yes           | 199            | The cardholder’s billing address line.                                                                                                                              |
-|  ∟ **phone_number**       | string                 | yes           | 20             | The cardholder’s billing phone number.                                                                                                                              |
-|  ∟ **city**               | string                 | yes           | 65             | The cardholder’s billing city.                                                                                                                                      |
-|  ∟ **state**              | string                 | no            | 65             | The cardholder’s billing state.                                                                                                                                     |
-|  ∟ **postal_code**        | string                 | yes           | 45             | The cardholder’s billing postal code.                                                                                                                               |
-| **shipping_address**      | object                 | no            |                | A JSON object containing the shipping address of the cardholder. This is optional.                                                                                   |
-|  ∟ **country**            | string                 | no            | 2              | The cardholder’s shipping country code.                                                                                                                             |
-|  ∟ **email**              | string                 | no            | 45             | The cardholder’s shipping email address.                                                                                                                            |
-|  ∟ **address1**           | string                 | no            | 199            | The cardholder’s shipping address line.                                                                                                                             |
-|  ∟ **phone_number**       | string                 | no            | 20             | The cardholder’s shipping phone number.                                                                                                                             |
-|  ∟ **city**               | string                 | no            | 65             | The cardholder’s shipping city.                                                                                                                                     |
-|  ∟ **state**              | string                 | no            | 65             | The cardholder’s shipping state.                                                                                                                                    |
-|  ∟ **postal_code**        | string                 | no            | 45             | The cardholder’s shipping postal code.                                                                                                                              |
-| **browser_info**          | object                 | no            |                | A JSON object containing the browser info. This is optional.                                                                                                        |
-|  ∟ **acceptHeader**       | string                 | no            | 45             | Information about the browser's accepted data formats.                                                                                                              |
-|  ∟ **screenColorDepth**   | int                    | no            | 5              | Number of bits used to represent colors on the screen.                                                                                                              |
-|  ∟ **javaEnabled**        | boolean                | no            | 5              | Indicates whether Java is enabled in the browser.                                                                                                                   |
-|  ∟ **language**           | string                 | no            | 2              | The browser's language setting.                                                                                                                                    |
-|  ∟ **screenHeight**       | int                    | no            | 5              | Height of the browser window in pixels.                                                                                                                             |
-|  ∟ **screenWidth**        | int                    | no            | 5              | Width of the browser window in pixels.                                                                                                                              |
-|  ∟ **challengeWindow**    | int                    | no            | 5              | Dimensions of the pop-up window used in a challenge.                                                                                                                |
-|  ∟ **userAgent**          | string                 | no            | 199            | String providing detailed information about the browser and operating system.                                                                                       |
-| **time_zone**             | string                 | yes           | 128            | The country time zone of the transaction.                                                                                                                           |
+| **属性**         | **タイプ**            | **必須**      | **最大長**    | **説明**                                                                           |
+|:-----------------------|:--------------------|:--------------|:--------------|:-----------------------------------------------------------------------------------|
+| **amount**             | float/string/int    | はい           | 銀行の規定に従う | 取引の金額。金額の上限は銀行によって異なります。                                      |
+| **currency**           | string              | はい           | 3             | 商品の処理通貨の略称（例：日本円の場合はJPY）。                                        |
+| **payment_method**     | object              | はい           | -             | 支払い方法を含むJSONオブジェクト。                                                   |
+| ∟ **type**             | string              | はい           | 128           | 支払い方法の種類。例："scheme"はクレジットカード、"gcash"はウォレット決済。              |
+| ∟ **store_payment_method** | boolean         | はい           | 5             | トークンを生成するにはtrue、生成しない場合はfalse。                                    |
+| ∟ **stored_payment_method_id** | string      | はい           | 128           | 保存された支払い方法ID（トークン）。                                                  |
+| **merchant_txn_ref**   | string              | はい           | 45            | マーチャントの取引参照ID。                                                          |
+| **customer_ip**        | string              | はい           | 45            | カード所有者のIPアドレス。                                                          |
+| **merchant_id**        | string              | はい           | 128           | マーチャントID（DASMID）。                                                           |
+| **return_url**         | object              | はい           | -             | リターンURLを含むJSONオブジェクト。                                                  |
+| ∟ **webhook_url**      | string              | はい           | 255           | 通知用のWebhook URLリンク。                                                          |
+| ∟ **success_url**      | string              | はい           | 255           | 支払いが成功した後のリダイレクトURL。                                                |
+| ∟ **decline_url**      | string              | はい           | 255           | 支払いが失敗した後のリダイレクトURL。                                                |
+| ∟ **cancel_url**       | string              | いいえ         | 255           | 支払いがキャンセルされた後のURL。                                                    |
+| **billing_address**    | object              | はい           | -             | カード所有者の請求先住所を含むJSONオブジェクト。                                     |
+| ∟ **country**          | string              | はい           | 2             | カード所有者の請求先国コード。                                                      |
+| ∟ **email**            | string              | はい           | 45            | カード所有者の請求先メールアドレス。                                                |
+| ∟ **address1**         | string              | はい           | 199           | カード所有者の請求先住所行。                                                        |
+| ∟ **phone_number**     | string              | はい           | 20            | カード所有者の請求先電話番号。                                                      |
+| ∟ **city**             | string              | はい           | 65            | カード所有者の請求先市区町村。                                                      |
+| ∟ **state**            | string              | いいえ         | 65            | カード所有者の請求先州。                                                            |
+| ∟ **postal_code**      | string              | はい           | 45            | カード所有者の請求先郵便番号。                                                      |
+| **shipping_address**   | object              | いいえ         | -             | カード所有者の配送先住所を含むJSONオブジェクト。（オプション）                        |
+| ∟ **country**          | string              | いいえ         | 2             | カード所有者の配送先国コード。                                                      |
+| ∟ **email**            | string              | いいえ         | 45            | カード所有者の配送先メールアドレス。                                                |
+| ∟ **address1**         | string              | いいえ         | 199           | カード所有者の配送先住所行。                                                        |
+| ∟ **phone_number**     | string              | いいえ         | 20            | カード所有者の配送先電話番号。                                                      |
+| ∟ **city**             | string              | いいえ         | 65            | カード所有者の配送先市区町村。                                                      |
+| ∟ **state**            | string              | いいえ         | 65            | カード所有者の配送先州。                                                            |
+| ∟ **postal_code**      | string              | いいえ         | 45            | カード所有者の配送先郵便番号。                                                      |
+| **browser_info**       | object              | いいえ         | -             | ブラウザ情報を含むJSONオブジェクト。（オプション）                                    |
+| ∟ **acceptHeader**     | string              | いいえ         | 45            | ブラウザが受け入れるデータフォーマットに関する情報。                                 |
+| ∟ **screenColorDepth** | int                 | いいえ         | 5             | 画面上の色を表現するために使用されるビット数。                                      |
+| ∟ **javaEnabled**      | boolean             | いいえ         | 5             | ブラウザでJavaが有効かどうかを示します。                                            |
+| ∟ **language**         | string              | いいえ         | 2             | ブラウザの言語設定。                                                               |
+| ∟ **screenHeight**     | int                 | いいえ         | 5             | ブラウザウィンドウの高さ（ピクセル単位）。                                           |
+| ∟ **screenWidth**      | int                 | いいえ         | 5             | ブラウザウィンドウの幅（ピクセル単位）。                                             |
+| ∟ **challengeWindow**  | int                 | いいえ         | 5             | チャレンジで使用されるポップアップウィンドウの寸法。                                   |
+| ∟ **userAgent**        | string              | いいえ         | 199           | ブラウザやオペレーティングシステムに関する詳細な情報を提供する文字列。                  |
+| **time_zone**          | string              | はい           | 128           | 取引の国のタイムゾーン。                                                           |
 
 
+### レスポンス属性
 
-### Response Attributes
-
-| **Attributes**       | **Description**                                                                 |
-|:---------------------|:--------------------------------------------------------------------------------|
-| **success**          | `true` on successful transaction, `false` on failure.                           |
-| **status_code**      | The status code of the transaction.                                             |
-| **is_live**          | `true` if live transaction, `false` if test transaction.                        |
-| **transaction_type** | The transaction type, e.g., CAPTURE for authorized transaction.                 |
-| **gateway_response** | A JSON object containing the response from the gateway.                         |
-| ∟ **version**        | The version of the gateway.                                                     |
-| ∟ **type**           | Type of response, e.g., INFO for informative.                                   |
-| ∟ **message**        | The message response from the gateway.                                          |
-| ∟ **code**           | Message code of the response.                                                   |
-| **merchant_details** | A JSON object containing the details of the merchant.                           |
-| ∟ **legal_name**     | The merchant’s legal name.                                                      |
-| ∟ **mid**            | The merchant ID (DASMID).                                                       |
-| ∟ **merchant_txn_ref**| The merchant transaction reference.                                             |
-| **billing_details**  | A JSON object containing the billing details.                                   |
-| ∟ **billing_address**| A JSON object containing the billing address.                                   |
-| ∟∟ **country**       | The cardholder’s billing country code.                                           |
-| ∟∟ **email**         | The cardholder’s billing email address.                                          |
-| ∟∟ **address1**      | The cardholder’s billing address line.                                           |
-| ∟∟ **phone_number**         | The cardholder’s billing phone number.                                           |
-| ∟∟ **city**          | The cardholder’s billing city.                                                   |
-| ∟∟ **state**         | The cardholder’s billing state.                                                  |
-| ∟∟ **postal_code**   | The cardholder’s billing postal code.                                            |
-| **shipping_address** | A JSON object containing the shipping address.                                  |
-| ∟ **country**        | The cardholder’s shipping country code.                                          |
-| ∟ **email**          | The cardholder’s shipping email address.                                         |
-| ∟ **address1**       | The cardholder’s shipping address line.                                          |
-| ∟ **phone_number**          | The cardholder’s shipping phone number.                                          |
-| ∟ **city**           | The cardholder’s shipping city.                                                  |
-| ∟ **state**          | The cardholder’s shipping state.                                                 |
-| ∟ **postal_code**    | The cardholder’s shipping postal code.                                           |
-| **device_details**   | A JSON object containing the details of the device.                             |
-| ∟ **visited_ip**     | IP address of the payment page.                                                  |
-| ∟ **customer_ip**    | IP address of the cardholder.                                                    |
-| **payment_details**  | A JSON object containing the payment details of the transaction.                |
-| ∟ **amount**         | The amount value of the transaction.                                             |
-| ∟ **response_code**  | The acquirer response code.                                                      |
-| ∟ **auth_code**      | The acquirer authorization code.                                                 |
-| ∟ **currency**       | The currency of the transaction.                                                 |
-| ∟ **payment_method** | The payment card type, e.g., Credit Card or Debit Card.                          |
-| ∟ **scheme**         | The card brand scheme, e.g., VISA, MASTERCARD, or AMEX.                          |
-| ∟ **card**           | A JSON object containing details of the card.                                    |
-| ∟∟ **name**          | The cardholder's name on the card.                                               |
-| ∟∟ **number**        | The card number.                                                                 |
-| ∟∟ **exp_month**     | The expiry month of the card, e.g., 12 for December.                             |
-| ∟∟ **exp_year**      | The expiry year of the card, e.g., 24 for 2024.                                  |
-| **additional_data**  | A JSON object containing additional data.                                        |
-| ∟ **payment_data_source** | A JSON object containing the payment data source.                              |
-| ∟∟ **type**          | The type of payment data source, e.g., Card, GooglePay, ApplePay, or Gcash.       |
-| **transaction_details** | A JSON object containing details of the transaction.                            |
-| ∟ **id**             | The transaction ID.                                                              |
-| ∟ **ref**            | The authorization code of the transaction.                                       |
-| ∟ **timestamp**      | Date and time of the transaction.                                                |
-| ∟ **merchant_txn_ref** | The merchant transaction reference ID.                                          |
-| ∟ **stored_payment_method_id** | The stored payment method ID (Token).                                    |
-| **risk-details**     | A JSON object containing details of risk.                                        |
-| ∟ **risk_score**     | The risk score.                                                                  |
+| **属性**       | **説明**                                                                           |
+|:---------------------|:-----------------------------------------------------------------------------------|
+| **success**          | 取引が成功した場合は`true`、失敗した場合は`false`。                                    |
+| **status_code**      | 取引のステータスコード。                                                            |
+| **is_live**          | ライブ取引の場合は`true`、テスト取引の場合は`false`。                                  |
+| **transaction_type** | 取引タイプ（例：承認された取引の場合はCAPTURE）。                                    |
+| **gateway_response** | ゲートウェイからのレスポンスを含むJSONオブジェクト。                                  |
+| ∟ **version**        | ゲートウェイのバージョン。                                                           |
+| ∟ **type**           | レスポンスタイプ（例：INFOは情報提供用）。                                              |
+| ∟ **message**        | ゲートウェイからのメッセージレスポンス。                                              |
+| ∟ **code**           | レスポンスのメッセージコード。                                                       |
+| **merchant_details** | マーチャントの詳細を含むJSONオブジェクト。                                            |
+| ∟ **legal_name**     | マーチャントの正式名称。                                                             |
+| ∟ **mid**            | マーチャントID（DASMID）。                                                          |
+| ∟ **merchant_txn_ref**| マーチャントの取引参照。                                                            |
+| **billing_details**  | 請求先の詳細を含むJSONオブジェクト。                                                 |
+| ∟ **billing_address**| 請求先住所を含むJSONオブジェクト。                                                   |
+| ∟∟ **country**       | カード所有者の請求国コード。                                                         |
+| ∟∟ **email**         | カード所有者の請求先メールアドレス。                                                 |
+| ∟∟ **address1**      | カード所有者の請求先住所行。                                                         |
+| ∟∟ **phone_number**  | カード所有者の請求先電話番号。                                                       |
+| ∟∟ **city**          | カード所有者の請求先市区町村。                                                       |
+| ∟∟ **state**         | カード所有者の請求先州。                                                             |
+| ∟∟ **postal_code**   | カード所有者の郵便番号。                                                             |
+| **shipping_address** | 配送先住所を含むJSONオブジェクト。                                                   |
+| ∟ **country**        | カード所有者の配送国コード。                                                         |
+| ∟ **email**          | カード所有者の配送先メールアドレス。                                                 |
+| ∟ **address1**       | カード所有者の配送先住所行。                                                         |
+| ∟ **phone_number**   | カード所有者の配送先電話番号。                                                       |
+| ∟ **city**           | カード所有者の配送先市区町村。                                                       |
+| ∟ **state**          | カード所有者の配送先州。                                                             |
+| ∟ **postal_code**    | カード所有者の配送先郵便番号。                                                       |
+| **device_details**   | デバイスの詳細を含むJSONオブジェクト。                                               |
+| ∟ **visited_ip**     | 支払いページのIPアドレス。                                                           |
+| ∟ **customer_ip**    | カード所有者のIPアドレス。                                                          |
+| **payment_details**  | 取引の支払い詳細を含むJSONオブジェクト。                                             |
+| ∟ **amount**         | 取引の金額。                                                                        |
+| ∟ **response_code**  | アクワイアラのレスポンスコード。                                                      |
+| ∟ **auth_code**      | アクワイアラの承認コード。                                                          |
+| ∟ **currency**       | 取引の通貨。                                                                        |
+| ∟ **payment_method** | 支払いカードの種類（クレジットカードまたはデビットカード）。                            |
+| ∟ **scheme**         | カードブランドのスキーム（VISA、MASTERCARD、AMEX）。                                   |
+| ∟ **card**           | カードの詳細を含むJSONオブジェクト。                                                 |
+| ∟∟ **name**          | カード所有者の名前。                                                                 |
+| ∟∟ **number**        | カード番号。                                                                         |
+| ∟∟ **exp_month**     | カードの有効期限（月）（例：12は12月）。                                               |
+| ∟∟ **exp_year**      | カードの有効期限（年）（例：24は2024年）。                                            |
+| **additional_data**  | 追加データを含むJSONオブジェクト。                                                   |
+| ∟ **payment_data_source** | 支払いデータソースを含むJSONオブジェクト。                                         |
+| ∟∟ **type**          | 支払いデータソースの種類（例：カード、GooglePay、ApplePay、Gcash）。                    |
+| **transaction_details** | 取引の詳細を含むJSONオブジェクト。                                                   |
+| ∟ **id**             | 取引ID。                                                                            |
+| ∟ **ref**            | 取引の承認コード。                                                                  |
+| ∟ **timestamp**      | 取引の日付と時間。                                                                  |
+| ∟ **merchant_txn_ref** | マーチャントの取引参照ID。                                                         |
+| ∟ **stored_payment_method_id** | 保存された支払い方法ID（トークン）。                                         |
+| **risk-details**     | リスクの詳細を含むJSONオブジェクト。                                                 |
+| ∟ **risk_score**     | リスクスコア。                                                                      |
