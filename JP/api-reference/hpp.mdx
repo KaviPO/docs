@@ -1,92 +1,91 @@
 ---
-title: 'Hosted Payment Page JP'
-description: 'Generate a link to open the Hosted Payment Page (HPP) for capturing transactions.'
+title: 'ホステッドペイメントページ'
+description: 'トランザクションをキャプチャするためのホステッドペイメントページ（HPP）を開くリンクを生成します。'
 ---
 
 
-### API Details
-- HTTP Method: `POST`
-- Endpoint URL: `/api/v1/server-to-server-interface/hpp/generate/link`
+### APIの詳細
+- HTTPメソッド: `POST`
+- エンドポイントURL: `/api/v1/server-to-server-interface/hpp/generate/link`
 
-
-### Key Points
+### 重要なポイント
 <Info>
-- If the payload is pre-filled with data (e.g., amount, currency, customer details, return_url, payment method), these details will be reflected on the HPP, providing a streamlined user experience.
-- If the payload lacks certain data, the customer will need to manually enter the missing information on the HPP.
-- Ensure that the necessary headers and authentication details are included to successfully generate the HPP link.
+- ペイロードに事前にデータ（例：金額、通貨、顧客情報、return_url、支払い方法）が入力されている場合、これらの詳細はHPPに反映され、ユーザーエクスペリエンスが向上します。
+- ペイロードに特定のデータが欠けている場合、顧客はHPPで不足している情報を手動で入力する必要があります。
+- HPPリンクを正常に生成するために、必要なヘッダーと認証情報を含めてください。
 </Info>
 
-### Request Attributes
+### リクエスト属性
 
-| **Attributes**      | Type             | Mandatory | Max Length    | Description                                                                                  |
-|:--------------------|:-----------------|:----------|:--------------|:-------------------------------------------------------------------------------------------------|
-| **return_url**       | object           | yes       | -             | A JSON object containing the Return URL                                                          |
-| ∟ **webhook_url**    | string           | yes       | 255           | The webhook URL link                                                                             |
-| ∟ **success_url**    | string           | yes       | 255           | The redirect URL link after payment gets successful.                                             |
-| ∟ **decline_url**    | string           | yes       | 255           | The redirect URL link after payment gets failed.                                                 |
-| ∟ **cancel_url**     | string           | yes       | 255           | The cancel URL link after payment gets cancelled.                                                |
-| **amount**           | float/string/int | yes       | as per Bank   | The amount of the transaction. If passed "", the cardholder needs to enter the amount manually in the Hosted Payment Page. |
-| **currency**         | string           | yes       | 3             | The abbreviation of the processing currency (e.g., JPY for Japanese Yen).                        |
-| **merchant_id**      | string           | yes       | 128           | The merchant ID (DASMID).                                                                        |
-| **merchant_email**   | string           | yes       | 45            | The email address of the Merchant.                                                               |
-| **merchant_txn_ref** | string           | yes       | 45            | The merchant transaction reference ID.                                                           |
-| **payment_method**   | object           | no        | -             | A JSON object containing Payment Method.                                                         |
-| ∟ **type**           | string           | yes       | 128           | The payment method type, e.g., "scheme" for credit cards or wallet options like "gcash".         |
-| ∟ **store_payment_method** | boolean   | yes       | 5             | True to generate a token, or False not to generate one.                                          |
-| **billing_address**  | object           | no        | -             | A JSON object containing the billing address of the cardholder.                                  |
-| ∟ **country**        | string           | no        | 2             | The cardholder’s billing country code.                                                           |
-| ∟ **email**          | string           | no        | 45            | The cardholder’s billing email address.                                                          |
-| ∟ **phone_number**   | string           | no        | 15            | The cardholder’s billing phone number.                                                           |
-| ∟ **address1**       | string           | no        | 199           | The cardholder’s billing address line.                                                           |
-| ∟ **city**           | string           | no        | 65            | The cardholder’s billing city.                                                                   |
-| ∟ **postal_code**    | string           | no        | 45            | The cardholder’s billing postal code.                                                            |
-| **shipping_address** | object           | no        | -             | A JSON object containing the shipping address of the cardholder. This object is optional.         |
-| ∟ **country**        | string           | no        | 2             | The cardholder’s shipping country code.                                                          |
-| ∟ **email**          | string           | no        | 45            | The cardholder’s shipping email address.                                                         |
-| ∟ **phone_number**   | string           | no        | 20            | The cardholder’s shipping phone number.                                                          |
-| ∟ **address1**       | string           | no        | 199           | The cardholder’s shipping address line.                                                          |
-| ∟ **city**           | string           | no        | 65            | The cardholder’s shipping city.                                                                  |
-| ∟ **postal_code**    | string           | no        | 45            | The cardholder’s shipping postal code.                                                           |
-
-
+| **属性**      | タイプ             | 必須       | 最大桁数	    | 説明                                                                                              |
+|:--------------------|:-----------------|:-----------|:--------------|:-------------------------------------------------------------------------------------------------|
+| **return_url**       | object           | はい       | -             | Return URLを含むJSONオブジェクト。                                                                |
+| ∟ **webhook_url**    | string           | はい       | 255           | Webhook URLリンク。                                                                                |
+| ∟ **success_url**    | string           | はい       | 255           | 支払いが成功した後のリダイレクトURLリンク。                                                         |
+| ∟ **decline_url**    | string           | はい       | 255           | 支払いが失敗した後のリダイレクトURLリンク。                                                         |
+| ∟ **cancel_url**     | string           | はい       | 255           | 支払いがキャンセルされた後のキャンセルURLリンク。                                                    |
+| **amount**           | float/string/int | はい       | 銀行の規定に従う | 取引金額。"" を渡した場合、カード所有者がホステッドペイメントページで金額を手動で入力する必要があります。   |
+| **currency**         | string           | はい       | 3             | 処理通貨の略称（例：日本円の場合はJPY）。                                                           |
+| **merchant_id**      | string           | はい       | 128           | マーチャントID（DASMID）。                                                                         |
+| **merchant_email**   | string           | はい       | 45            | マーチャントのメールアドレス。                                                                     |
+| **merchant_txn_ref** | string           | はい       | 45            | マーチャントの取引参照ID。                                                                         |
+| **payment_method**   | object           | いいえ     | -             | 支払い方法を含むJSONオブジェクト。                                                                  |
+| ∟ **type**           | string           | はい       | 128           | 支払い方法のタイプ（例：クレジットカードは"scheme"、ウォレットオプションは"gcash"）。                 |
+| ∟ **store_payment_method** | boolean   | はい       | 5             | トークンを生成する場合はTrue、生成しない場合はFalse。                                                 |
+| **billing_address**  | object           | いいえ     | -             | カード所有者の請求先住所を含むJSONオブジェクト。                                                    |
+| ∟ **country**        | string           | いいえ     | 2             | カード所有者の請求国コード。                                                                        |
+| ∟ **email**          | string           | いいえ     | 45            | カード所有者の請求先メールアドレス。                                                                |
+| ∟ **phone_number**   | string           | いいえ     | 15            | カード所有者の請求先電話番号。                                                                      |
+| ∟ **address1**       | string           | いいえ     | 199           | カード所有者の請求先住所。                                                                          |
+| ∟ **city**           | string           | いいえ     | 65            | カード所有者の請求先市区町村。                                                                      |
+| ∟ **postal_code**    | string           | いいえ     | 45            | カード所有者の請求先郵便番号。                                                                      |
+| **shipping_address** | object           | いいえ     | -             | カード所有者の配送先住所を含むJSONオブジェクト。このオブジェクトはオプションです。                     |
+| ∟ **country**        | string           | いいえ     | 2             | カード所有者の配送国コード。                                                                        |
+| ∟ **email**          | string           | いいえ     | 45            | カード所有者の配送先メールアドレス。                                                                |
+| ∟ **phone_number**   | string           | いいえ     | 20            | カード所有者の配送先電話番号。                                                                      |
+| ∟ **address1**       | string           | いいえ     | 199           | カード所有者の配送先住所。                                                                          |
+| ∟ **city**           | string           | いいえ     | 65            | カード所有者の配送先市区町村。                                                                      |
+| ∟ **postal_code**    | string           | いいえ     | 45            | カード所有者の配送先郵便番号。                                                                      |
 
 
-### Response Attributes
 
-| **Attributes**        | **Description**                                                                 |
-|:----------------------|:--------------------------------------------------------------------------------|
-| **id**                | The transaction reference ID                                                    |
-| **url**               | The URL Link of the hosted payment page link generated                          |
-| **amount**            | The Amount of transaction                                                       |
-| **currency**          | The processing currency of the transaction                                      |
-| **merchant_txn_ref**  | The merchant transaction reference ID                                           |
-| **merchant_id**       | The DAS merchant ID of the transaction performed                                |
-| **merchant_email**    | The email address of the Merchant                                               |
-| **return_url**        | A JSON object containing the Return URL                                         |
-| ∟ **webhook_url**     | The webhook URL link                                                            |
-| ∟ **success_url**     | The redirect URL link after payment gets successful.                            |
-| ∟ **decline_url**     | The redirect URL link after payment gets failed.                                |
-| ∟ **cancel_url**      | The URL link of the cancellation page                                           |
-| **billing_address**   | A JSON object containing the billing address of the cardholder                  |
-| ∟ **city**            | The cardholder’s billing city                                                   |
-| ∟ **email**           | The cardholder’s billing email address                                          |
-| ∟ **phone_number**           | The cardholder’s billing phone number                                           |
-| ∟ **state**           | The cardholder’s billing state                                                  |
-| ∟ **country**         | The cardholder’s billing country code                                           |
-| ∟ **address1**        | The cardholder’s billing address line                                           |
-| ∟ **postal_code**     | The cardholder’s billing postal code                                            |
-| **shipping_address**  | A JSON object containing the shipping address of the cardholder                 |
-| ∟ **city**            | The cardholder’s shipping city                                                  |
-| ∟ **email**           | The cardholder’s shipping email address                                         |
-| ∟ **phone_number**           | The cardholder’s shipping phone number                                          |
-| ∟ **state**           | The cardholder’s shipping state                                                 |
-| ∟ **country**         | The cardholder’s shipping country code                                          |
-| ∟ **address1**        | The cardholder’s shipping address line                                          |
-| ∟ **postal_code**     | The cardholder’s shipping postal code                                           |
+
+### レスポンス属性
+
+| **属性**        | **説明**                                                                                 |
+|:----------------------|:-----------------------------------------------------------------------------------------|
+| **id**                | 取引参照ID                                                                               |
+| **url**               | 生成されたホステッドペイメントページリンクのURL                                            |
+| **amount**            | 取引の金額                                                                               |
+| **currency**          | 取引の処理通貨                                                                           |
+| **merchant_txn_ref**  | マーチャントの取引参照ID                                                                 |
+| **merchant_id**       | 取引が行われたDASマーチャントID                                                           |
+| **merchant_email**    | マーチャントのメールアドレス                                                             |
+| **return_url**        | Return URLを含むJSONオブジェクト                                                          |
+| ∟ **webhook_url**     | Webhook URLリンク                                                                         |
+| ∟ **success_url**     | 支払いが成功した後のリダイレクトURLリンク                                                  |
+| ∟ **decline_url**     | 支払いが失敗した後のリダイレクトURLリンク                                                  |
+| ∟ **cancel_url**      | キャンセルページのURLリンク                                                               |
+| **billing_address**   | カード所有者の請求先住所を含むJSONオブジェクト                                             |
+| ∟ **city**            | カード所有者の請求先市区町村                                                              |
+| ∟ **email**           | カード所有者の請求先メールアドレス                                                        |
+| ∟ **phone_number**    | カード所有者の請求先電話番号                                                              |
+| ∟ **state**           | カード所有者の請求先州                                                                    |
+| ∟ **country**         | カード所有者の請求先国コード                                                              |
+| ∟ **address1**        | カード所有者の請求先住所行                                                                |
+| ∟ **postal_code**     | カード所有者の請求先郵便番号                                                              |
+| **shipping_address**  | カード所有者の配送先住所を含むJSONオブジェクト                                             |
+| ∟ **city**            | カード所有者の配送先市区町村                                                              |
+| ∟ **email**           | カード所有者の配送先メールアドレス                                                        |
+| ∟ **phone_number**    | カード所有者の配送先電話番号                                                              |
+| ∟ **state**           | カード所有者の配送先州                                                                    |
+| ∟ **country**         | カード所有者の配送先国コード                                                              |
+| ∟ **address1**        | カード所有者の配送先住所行                                                                |
+| ∟ **postal_code**     | カード所有者の配送先郵便番号                                                              |
 
 
 <RequestExample>
-```json Request Example
+```json リクエスト例
 {
     "return_url": {
         "webhook_url": "http://webhook.site.com",
@@ -126,7 +125,7 @@ description: 'Generate a link to open the Hosted Payment Page (HPP) for capturin
 </RequestExample>
 
 <ResponseExample>
-```json Response Example
+```json レスポンス例
 {
     "id": "<transaction_id>",
     "url": "https://checkout.paymentoptions.com",
