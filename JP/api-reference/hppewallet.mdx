@@ -1,34 +1,32 @@
 ---
 title: 'E-Wallet'
-description: 'When a merchant is configured for e.g GCash, the Hosted Payment Page (HPP) can generate an E-Wallet link that allows customers to complete their transaction using the GCash payment method.'
+description: 'マーチャントがGCashなどに設定されている場合、ホステッドペイメントページ（HPP）は、GCash支払い方法を使用して顧客が取引を完了できるE-Walletリンクを生成できます。'
 ---
 
-### API Details:
-- **HTTP Method:** `POST`
-- **Endpoint URL:** `/api/v1/server-to-server-interface/payment`
+### APIの詳細:
+- **HTTPメソッド:** `POST`
+- **エンドポイントURL:** `/api/v1/server-to-server-interface/payment`
 
-
-### Key Points
+### 重要なポイント
 <Info>
-Merchant Configuration
-- The **Merchant ID** for GCash must be included in the payload along with the specific `payment_method` type set to `gcash`.
-- If the merchant is configured for GCash, the HPP will generate an E-Wallet payment link to enable customers to pay via GCash.
+マーチャントの設定
+- GCashの**マーチャントID**をペイロードに含め、`payment_method`のタイプを`gcash`に設定する必要があります。
+- マーチャントがGCashに設定されている場合、HPPはE-Wallet支払いリンクを生成し、顧客がGCash経由で支払うことを可能にします。
 
-E-Wallet Link
-- The HPP will display an option for customers to pay via GCash or generate an E-Wallet link for the customer to use.
-- This ensures a smooth process for customers using their GCash E-Wallet to complete transactions.
+E-Walletリンク
+- HPPは顧客がGCash経由で支払うオプションを表示するか、顧客が使用できるE-Walletリンクを生成します。
+- これにより、GCash E-Walletを使用する顧客にとって、スムーズな取引プロセスが確保されます。
 </Info>
 
-### Payment Method Attributes
+### 支払い方法属性
 
-| **Attributes**         | **Type**  | **Mandatory** | **Max Length** | **Description**                                                                 |
-|:-----------------------|:----------|:--------------|:---------------|:--------------------------------------------------------------------------------|
-| **payment_method**      | object    | no            | -              | A JSON object containing Payment Method                                         |
-| ∟ **type**             | string    | yes           | 128            | The Payment method type, for wallet ex: `gcash`  |
-
+| **属性**         | **タイプ**  | **必須**      | **最大長**      | **説明**                                                                      |
+|:-----------------------|:----------|:--------------|:----------------|:-------------------------------------------------------------------------------|
+| **payment_method**      | object    | いいえ        | -               | 支払い方法を含むJSONオブジェクト                                               |
+| ∟ **type**             | string    | はい          | 128             | 支払い方法のタイプ、例: `gcash`                                               |
 
 <RequestExample>
-```json Request Example
+```json リクエスト例
 
 "payment_method": {
         "type": "gcash"
@@ -38,4 +36,4 @@ E-Wallet Link
 </RequestExample>
 
 
-Go to [Hosted Payment Page](/api-reference/hpp)
+[ホステッドペイメントページへ](/api-reference/hpp)
