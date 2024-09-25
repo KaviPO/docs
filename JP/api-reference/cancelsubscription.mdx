@@ -1,76 +1,75 @@
 ---
-title: 'Cancel Subscription'
-description: 'The Cancel Subscription API allows merchants to permanently stop a customers subscription, preventing any future billing cycles and services.'
+title: 'サブスクリプションのキャンセル'
+description: 'サブスクリプションのキャンセルAPIを使用すると、マーチャントは顧客のサブスクリプションを永久に停止し、将来の請求サイクルおよびサービスを防ぐことができます。'
 ---
 
-### API Details
-- HTTP Method: `POST`
-- Endpoint URL: `/api/v1/server-to-server-interface/subscription/{subscription_id}/cancel`
+### APIの詳細
+- HTTPメソッド: `POST`
+- エンドポイントURL: `/api/v1/server-to-server-interface/subscription/{subscription_id}/cancel`
 
-### Key Points
+### 主なポイント
 <Info>
-### Cancel a Subscription
-- This API cancels a subscription, stopping all future billing and services for the customer. Once cancelled, the subscription cannot be resumed.
-- Canceling a subscription typically reflects the customer's request to terminate the service or end the billing agreement.
-### Subscription Status
-- After cancellation, the subscription status changes to cancelled.
-- The cancellation becomes effective immediately, and no further billing cycles will be processed.
-### Required Parameters
-- **Subscription ID:** The unique identifier of the subscription to be resumed.
+### サブスクリプションのキャンセル
+- このAPIはサブスクリプションをキャンセルし、顧客に対するすべての将来の請求およびサービスを停止します。キャンセルされたサブスクリプションは再開できません。
+- サブスクリプションのキャンセルは、通常、顧客のサービスの終了や請求契約の終了要求を反映します。
+### サブスクリプションのステータス
+- キャンセル後、サブスクリプションのステータスはキャンセル済みに変更されます。
+- キャンセルは即座に有効となり、将来の請求サイクルは処理されません。
+### 必須パラメータ
+- **サブスクリプションID:** キャンセルするサブスクリプションの一意の識別子。
 </Info>
 
-### Subscription ID Attribute in Endpoint URL
+### エンドポイントURL内のサブスクリプションID属性
 
-| **Attributes**         | **Type**            | **Mandatory** | **Max Length** | **Description**                                                                 |
-|:-----------------------|:--------------------|:--------------|:---------------|:--------------------------------------------------------------------------------|
-| **Subscription ID**    | string    | yes           | 36             | The Subscription ID of the subscription.                    |
+| **属性**         | **タイプ**       | **必須**      | **最大長**    | **説明**                                                                 |
+|:-----------------|:-----------------|:--------------|:---------------|:--------------------------------------------------------------------------------|
+| **サブスクリプションID**    | string    | yes           | 36             | サブスクリプションのID。                    |
 
-### Response Attributes
+### レスポンス属性
 
-| **Attributes**       | **Description**                                                                 |
+| **属性**       | **説明**                                                                 |
 |:---------------------|:--------------------------------------------------------------------------------|
-| **success**                       | `true` on successful transaction, `false` on failure.                                                                          |
-| **status_code**                   | The status code of the transaction.                                                                                            |
-| **is_live**                       | `true` if live transaction, `false` if test transaction.                                                                       |
-| **gateway_response**              | A JSON object containing the response from the gateway.                                                                        |
-|  ∟ **version**                    | The version of the gateway.                                                                                                    |
-|  ∟ **type**                       | Type of response (e.g., INFO for informative response).                                                                        |
-|  ∟ **message**                    | The message response from the gateway.                                                                                         |
-|  ∟ **code**                       | Message code of the response.                                                                                                  |
-| **subscription_details**          | A JSON object containing subscription details.                                                                                 |
-|  ∟ **id**                         | The Subscription ID.                                                                                                           |
-|  ∟ **type**                       | The Type of subscription (CYCLE or Unlimited).                                                                                 |
-|  ∟ **max_cycle_count**            | The number of maximum cycles.                                                                                                  |
-|  ∟ **status**                     | The status of the subscription.                                                                                                |
-|  ∟ **completed_payment_cycle**    | The number of completed payment cycles.                                                                                        |
-|  ∟ **next_payment_date**          | The next payment date of the subscription.                                                                                     |
-|  ∟ **next_payment_cycle**         | The next payment cycle number.                                                                                                 |
-|  ∟ **subscription_plan_details**  | A JSON object containing subscription plan details.                                                                            |
-|    ∟ **name**                     | The name of the subscription plan.                                                                                             |
-|    ∟ **desc**                     | The description of the subscription plan.                                                                                      |
-|    ∟ **billing_cycle_type**       | Type of cycle (DAYS or MONTHS).                                                                                                |
-|    ∟ **billing_cycle_interval**   | The number of cycle intervals.                                                                                                 |
-|    ∟ **amount**                   | The payment amount of the subscription plan.                                                                                   |
-|    ∟ **ccy**                      | The currency of the subscription transaction.                                                                                  |
-|    ∟ **trial_period_duration**    | Duration of Trial Period (if `has_trial_period`: true).                                                                        |
-|    ∟ **trial_period_duration_type** | Type of Trial Period (DAYS or MONTHS) (if `has_trial_period`: true).                                                           |
-|    ∟ **plan_discount_percentage** | The percentage of discount (if `has_discount`: true).                                                                          |
-|    ∟ **plan_discount_duration**   | The duration of discount (if `has_discount`: true).                                                                            |
-|  ∟ **subscription_transaction_details** | A JSON object containing subscription transaction details (can contain multiple subscription transactions).              |
-|    ∟ **id**                       | The Transaction ID of this subscription transaction.                                                                           |
-|    ∟ **ref**                      | The reference of the subscription transaction.                                                                                 |
-|    ∟ **cycle**                    | The number of payment cycles of the subscription.                                                                              |
-|    ∟ **status**                   | The status of the subscription transaction.                                                                                    |
-|    ∟ **transaction_date**         | The date of the subscription transaction.                                                                                      |
-|    ∟ **amount**                   | The payment amount of the subscription transaction.                                                                            |
-|    ∟ **ccy**                      | The currency of the subscription transaction.                                                                                  |
-|    ∟ **event**                    | The subscription transaction event.                                                                                           |
-
+| **success**                       | 取引が成功した場合は `true`、失敗した場合は `false`。                                                                 |
+| **status_code**                   | 取引のステータスコード。                                                                                            |
+| **is_live**                       | ライブ取引の場合は `true`、テスト取引の場合は `false`。                                                               |
+| **gateway_response**              | ゲートウェイからの応答を含むJSONオブジェクト。                                                                        |
+|  ∟ **version**                    | ゲートウェイのバージョン。                                                                                                    |
+|  ∟ **type**                       | 応答の種類（例: INFOで情報応答）。                                                                         |
+|  ∟ **message**                    | ゲートウェイからのメッセージ応答。                                                                                         |
+|  ∟ **code**                       | 応答のメッセージコード。                                                                                                  |
+| **subscription_details**          | サブスクリプションの詳細を含むJSONオブジェクト。                                                                                 |
+|  ∟ **id**                         | サブスクリプションID。                                                                                                           |
+|  ∟ **type**                       | サブスクリプションの種類（CYCLEまたはUnlimited）。                                                                                 |
+|  ∟ **max_cycle_count**            | 最大サイクル数。                                                                                                  |
+|  ∟ **status**                     | サブスクリプションのステータス。                                                                                                |
+|  ∟ **completed_payment_cycle**    | 完了した支払いサイクルの数。                                                                                        |
+|  ∟ **next_payment_date**          | 次の支払い日。                                                                                     |
+|  ∟ **next_payment_cycle**         | 次の支払いサイクル番号。                                                                                                 |
+|  ∟ **subscription_plan_details**  | サブスクリプションプランの詳細を含むJSONオブジェクト。                                                                            |
+|    ∟ **name**                     | サブスクリプションプランの名前。                                                                                             |
+|    ∟ **desc**                     | サブスクリプションプランの説明。                                                                                      |
+|    ∟ **billing_cycle_type**       | サイクルの種類（DAYSまたはMONTHS）。                                                                                                |
+|    ∟ **billing_cycle_interval**   | サイクル間隔の数。                                                                                                 |
+|    ∟ **amount**                   | サブスクリプションプランの支払い額。                                                                                   |
+|    ∟ **ccy**                      | サブスクリプション取引の通貨。                                                                                  |
+|    ∟ **trial_period_duration**    | トライアル期間の期間（`has_trial_period`: trueの場合）。                                                                        |
+|    ∟ **trial_period_duration_type** | トライアル期間のタイプ（DAYSまたはMONTHS）（`has_trial_period`: trueの場合）。                                                           |
+|    ∟ **plan_discount_percentage** | 割引率（`has_discount`: trueの場合）。                                                                          |
+|    ∟ **plan_discount_duration**   | 割引期間（`has_discount`: trueの場合）。                                                                            |
+|  ∟ **subscription_transaction_details** | サブスクリプション取引の詳細を含むJSONオブジェクト（複数のサブスクリプション取引を含むことができます）。              |
+|    ∟ **id**                       | このサブスクリプション取引の取引ID。                                                                           |
+|    ∟ **ref**                      | サブスクリプション取引の参照。                                                                                 |
+|    ∟ **cycle**                    | サブスクリプションの支払いサイクル数。                                                                              |
+|    ∟ **status**                   | サブスクリプション取引のステータス。                                                                                    |
+|    ∟ **transaction_date**         | サブスクリプション取引の日付。                                                                                      |
+|    ∟ **amount**                   | サブスクリプション取引の支払い額。                                                                            |
+|    ∟ **ccy**                      | サブスクリプション取引の通貨。                                                                                  |
+|    ∟ **event**                    | サブスクリプション取引のイベント。                                                                                           |
 
 
 
 <ResponseExample>
-```json Response Example
+```json レスポンス例
 {
     "success": true,
     "status_code": 200,
