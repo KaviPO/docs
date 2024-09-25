@@ -1,29 +1,30 @@
 ---
 title: 'ApplePay & GooglePay'
-description: 'When a merchant is configured for Apple Pay and Google Pay, the Hosted Payment Page (HPP) will display buttons for Google Pay and Apple Pay, allowing customers to complete payments through these methods.'
+description: 'マーチャントがApple PayとGoogle Payに設定されている場合、ホステッドペイメントページ（HPP）にGoogle PayとApple Payのボタンが表示され、顧客がこれらの方法で支払いを完了できるようになります。'
 ---
 
-### API Details:
-- **HTTP Method:** `POST`
-- **Endpoint URL:** `/api/v1/server-to-server-interface/payment`
+### APIの詳細:
+- **HTTPメソッド:** `POST`
+- **エンドポイントURL:** `/api/v1/server-to-server-interface/payment`
 
-### Key Points
+### 重要なポイント
 <Info>
-Merchant Configuration
-- The Merchant ID for either Apple Pay or Google Pay must be included in the HPP payload when making a request to generate the payment link.
-- These payment options will automatically appear on the HPP if the merchant is properly configured for them.
+マーチャントの設定
+- 支払いリンクを生成するためにリクエストを送信する際、Apple PayまたはGoogle PayのマーチャントIDをHPPペイロードに含める必要があります。
+- マーチャントが適切に設定されていれば、これらの支払いオプションがHPPに自動的に表示されます。
 
-Payment Buttons
-- The HPP will dynamically display Google Pay and Apple Pay buttons based on the availability and configuration of the merchant’s account.
-- Customers can seamlessly use either method to complete the transaction directly from the HPP.
+支払いボタン
+- HPPは、マーチャントのアカウントの設定と可用性に基づいて、Google PayおよびApple Payのボタンを動的に表示します。
+- 顧客は、HPPから直接どちらの方法でもシームレスに取引を完了することができます。
 </Info>
 
-## Merchant ID Attribute
+## マーチャントID属性
 
-| **Attributes**  | **Type** | **Mandatory** | **Max Length** | **Description**           |
-|:----------------|:---------|:--------------|:---------------|:--------------------------|
-| **merchant_id**  | string   | yes           | 128            | The merchant ID (DASMID) configured for GooglePay or Apple Pay  |
+| **属性**  | **タイプ** | **必須**      | **最大長**      | **説明**                                 |
+|:----------------|:---------|:--------------|:----------------|:-----------------------------------------|
+| **merchant_id**  | string   | はい          | 128             | Google PayまたはApple Payに設定されたマーチャントID（DASMID） |
 
-Go to [Hosted Payment Page](/api-reference/hpp)
+[ホステッドペイメントページへ](/api-reference/hpp)
+
 
 
