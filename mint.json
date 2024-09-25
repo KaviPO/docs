@@ -29,11 +29,9 @@
     "url": "https://me.paymentoptions.com/"
   },
 
-"primaryTab":[ 
-  {
+"primaryTab":{
     "name": "Documentation"
-  }
-],
+},
 
   "tabs": [
     {
