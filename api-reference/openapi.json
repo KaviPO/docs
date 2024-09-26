@@ -1,34 +1,23 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Payment Gateway API",
+    "title": "Payment Options API",
+    "description": "API for generating Hosted Payment Page (HPP) links.",
     "version": "1.0.0"
   },
-  "components": {
-    "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-API-KEY"
-      }
-    }
-  },
-  "security": [
+  "servers": [
     {
-      "ApiKeyAuth": []
+      "url": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev"
     }
   ],
   "paths": {
     "/api/v1/server-to-server-interface/hpp/generate/link": {
       "post": {
         "summary": "Generate HPP Link",
-        "description": "This endpoint generates a Hosted Payment Page (HPP) link.",
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ],
+        "description": "This endpoint allows you to generate a Hosted Payment Page (HPP) link.",
+        "operationId": "generateHppLink",
         "requestBody": {
+          "description": "The request payload to generate an HPP link.",
           "required": true,
           "content": {
             "application/json": {
@@ -37,73 +26,131 @@
                 "properties": {
                   "return_url": {
                     "type": "object",
-                    "description": "A JSON object containing the Return URL",
                     "properties": {
-                      "webhook_url": {
-                        "type": "string",
-                        "description": "The webhook URL link"
-                      },
-                      "success_url": {
-                        "type": "string",
-                        "description": "The redirect URL link after payment is successful"
-                      },
-                      "decline_url": {
-                        "type": "string",
-                        "description": "The redirect URL link after payment failed"
-                      },
-                      "cancel_url": {
-                        "type": "string",
-                        "description": "The cancel URL link after payment gets cancelled"
-                      }
+                      "webhook_url": { "type": "string", "example": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b" },
+                      "success_url": { "type": "string", "example": "http://www.bing.com/" },
+                      "decline_url": { "type": "string", "example": "http://www.google.com/" },
+                      "cancel_url": { "type": "string", "example": "http://tinkfactory.com/" }
                     }
                   },
-                  "amount": {
-                    "type": "number",
-                    "description": "The amount of the transaction"
-                  },
-                  "currency": {
-                    "type": "string",
-                    "description": "The processing currency"
-                  },
-                  "merchant_id": {
-                    "type": "string",
-                    "description": "The merchant ID"
-                  },
-                  "merchant_email": {
-                    "type": "string",
-                    "description": "The email address of the Merchant"
-                  },
-                  "merchant_txn_ref": {
-                    "type": "string",
-                    "description": "The merchant transaction reference ID"
-                  },
+                  "amount": { "type": "string", "example": "" },
+                  "currency": { "type": "string", "example": "JPY" },
+                  "merchant_id": { "type": "string", "example": "JP00000275" },
+                  "merchant_email": { "type": "string", "example": "info@tinkfactory.com" },
+                  "merchant_txn_ref": { "type": "string", "example": "2003089893366DTEST" },
                   "payment_method": {
                     "type": "object",
-                    "description": "A JSON object containing the payment method"
+                    "properties": {
+                      "type": { "type": "string", "example": "scheme" },
+                      "store_payment_method": { "type": "boolean", "example": false }
+                    }
+                  },
+                  "billing_address": {
+                    "type": "object",
+                    "properties": {
+                      "city": { "type": "string", "example": "Ebene" },
+                      "email": { "type": "string", "example": "kavi@ghunowa.com" },
+                      "state": { "type": "string", "example": "Rose-Hill" },
+                      "country": { "type": "string", "example": "" },
+                      "address1": { "type": "string", "example": "Ebene Junction" },
+                      "postal_code": { "type": "string", "example": "1234567" },
+                      "phone_number": { "type": "string", "example": "52553305" }
+                    }
+                  },
+                  "shipping_address": {
+                    "type": "object",
+                    "properties": {
+                      "city": { "type": "string", "example": "Ebene" },
+                      "email": { "type": "string", "example": "kavi@ghunowa.com" },
+                      "state": { "type": "string", "example": "Rose-Hill" },
+                      "country": { "type": "string", "example": "" },
+                      "address1": { "type": "string", "example": "Ebene Junction" },
+                      "postal_code": { "type": "string", "example": "1234567" },
+                      "phone_number": { "type": "string", "example": "52553305" }
+                    }
                   }
-                }
+                },
+                "required": ["return_url", "currency", "merchant_id", "merchant_email", "merchant_txn_ref", "payment_method", "billing_address", "shipping_address"]
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "HPP Link Generated",
+            "description": "HPP link generated successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "hpp_url": {
-                      "type": "string",
-                      "description": "The generated HPP link"
+                    "id": { "type": "string", "example": "6469eb3a-812a-4262-9f7c-2328a71b16c5" },
+                    "url": { "type": "string", "example": "https://checkout-dev.paymentoptions.com/jp/HostedPaymentPage/aPT5J_0d" },
+                    "amount": { "type": "string", "example": "" },
+                    "currency": { "type": "string", "example": "JPY" },
+                    "merchant_txn_ref": { "type": "string", "example": "2003089893366DTEST" },
+                    "merchant_id": { "type": "string", "example": "JP00000275" },
+                    "merchant_email": { "type": "string", "example": "info@tinkfactory.com" },
+                    "return_url": {
+                      "type": "object",
+                      "properties": {
+                        "webhook_url": { "type": "string", "example": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b" },
+                        "success_url": { "type": "string", "example": "http://www.bing.com/" },
+                        "decline_url": { "type": "string", "example": "http://www.google.com/" },
+                        "cancel_url": { "type": "string", "example": "http://tinkfactory.com/" }
+                      }
+                    },
+                    "billing_address": {
+                      "type": "object",
+                      "properties": {
+                        "city": { "type": "string", "example": "Ebene" },
+                        "email": { "type": "string", "example": "kavi@ghunowa.com" },
+                        "state": { "type": "string", "example": "Rose-Hill" },
+                        "country": { "type": "string", "example": "" },
+                        "address1": { "type": "string", "example": "Ebene Junction" },
+                        "postal_code": { "type": "string", "example": "1234567" },
+                        "phone_number": { "type": "string", "example": "52553305" }
+                      }
+                    },
+                    "shipping_address": {
+                      "type": "object",
+                      "properties": {
+                        "city": { "type": "string", "example": "Ebene" },
+                        "email": { "type": "string", "example": "kavi@ghunowa.com" },
+                        "state": { "type": "string", "example": "Rose-Hill" },
+                        "country": { "type": "string", "example": "" },
+                        "address1": { "type": "string", "example": "Ebene Junction" },
+                        "postal_code": { "type": "string", "example": "1234567" },
+                        "phone_number": { "type": "string", "example": "52553305" }
+                      }
                     }
                   }
                 }
               }
             }
+          },
+          "400": {
+            "description": "Invalid request"
           }
-        }
+        },
+        "security": [
+          {
+            "basicAuth": [],
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header"
       }
     }
   }
