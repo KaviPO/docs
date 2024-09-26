@@ -18,8 +18,8 @@
         "operationId": "generateHppLink",
         "parameters": [
           {
-            "in": "header",
-            "name": "authorization",
+            "in": "headers",
+            "name": "Authorization",
             "schema": {
               "type": "string",
               "example": "Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6"
@@ -27,7 +27,7 @@
             "required": true
           },
           {
-            "in": "header",
+            "in": "headers",
             "name": "x-api-key",
             "schema": {
               "type": "string",
@@ -36,7 +36,7 @@
             "required": true
           },
           {
-            "in": "header",
+            "in": "headers",
             "name": "content-type",
             "schema": {
               "type": "string",
