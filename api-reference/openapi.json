@@ -40,7 +40,7 @@
             "name": "content-type",
             "schema": {
               "type": "string",
-              "value": "application/json"
+              "example": "application/json"
             },
             "required": true
           }
