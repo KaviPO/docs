@@ -133,23 +133,23 @@
           }
         },
         "security": [
-    {
-      "CustomAuth": [],
-      "apiKeyAuth": []
-    }
-  ]
+          {
+            "CustomAuth": [],
+            "apiKeyAuth": []
+          }
+        ]
       }
     }
   },
   "components": {
     "securitySchemes": {
       "CustomAuth": {
-        "type": "apiKey",
+        "type": "Authorization",
         "name": "Authorization",
         "in": "header"
       },
       "apiKeyAuth": {
-        "type": "apiKey",
+        "type": "x-api-key",
         "name": "x-api-key",
         "in": "header"
       }
