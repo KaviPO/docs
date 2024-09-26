@@ -123,26 +123,29 @@
           }
         },
         "security": [
-          {
-            "apiKeyAuth": []
-          }
-        ]
+  {
+    "Authorization": [],
+    "xApiKeyAuth": []
+  }
+]
+
       }
     }
   },
   "components": {
-    "headers": {
-      "Authorization": {
-        "description": "Authorization token for the request",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "apiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "x-api-key"
-      }
+  "securitySchemes": {
+    "Authorization": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "Authorization token for the request"
+    },
+    "xApiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-api-key",
+      "description": "API Key required for the request"
     }
   }
+}
 }
