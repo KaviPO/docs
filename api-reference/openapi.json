@@ -134,29 +134,47 @@
         },
          "security": [
           {
+             "basicAuth": [],
             "apiKeyAuth": []
           }
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6"
-            }
-          }
-        ]
+        "parameters": {
+    "Authorization": {
+      "name": "Authorization",
+      "in": "header",
+      "required": true,
+      "schema": {
+        "type": "string",
+        "example": "Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6"
+      },
+      "description": "Pre-encoded Authorization header for Basic Auth."
+    },
+    "x-api-key": {
+      "name": "x-api-key",
+      "in": "header",
+      "required": true,
+      "schema": {
+        "type": "string",
+        "example": "bLm8c1C0fL3FtPzrjSr0"
+      },
+      "description": "API key for authentication."
+    }
+  }
       }
     }
   },
   "components": {
     "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Pre-encoded Basic Authorization header."
+      },
       "apiKeyAuth": {
         "type": "apiKey",
         "name": "x-api-key",
-        "in": "header"
+        "in": "header",
+        "description": "API key to authorize requests."
       }
     }
   }
