@@ -144,12 +144,12 @@
   "components": {
     "securitySchemes": {
       "apiKeyAuth": {
-        "type": "apiKey",
+        "type": "Key",
         "name": "Authorization",
         "in": "header"
       },
       "xApiKeyAuth": {
-        "type": "apiKey",
+        "type": "Key",
         "name": "x-api-key",
         "in": "header"
       }
