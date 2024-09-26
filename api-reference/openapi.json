@@ -6,7 +6,7 @@
     "description": "This API allows generating a Hosted Payment Page (HPP) link for server-to-server interaction."
   },
   "paths": {
-    "/api/v1/server-to-server-interface/hpp/generate/link": {
+    "/dev/api/v1/server-to-server-interface/hpp/generate/link": {
       "post": {
         "summary": "Generate HPP Link",
         "description": "This endpoint generates a link for the Hosted Payment Page (HPP).",
@@ -124,7 +124,6 @@
         },
         "security": [
           {
-            "basicAuth": [],
             "apiKeyAuth": []
           }
         ]
@@ -133,14 +132,18 @@
   },
   "components": {
     "securitySchemes": {
-      "basicAuth": {
-        "type": "http",
-        "scheme": "basic"
-      },
       "apiKeyAuth": {
         "type": "apiKey",
         "in": "header",
         "name": "x-api-key"
+      }
+    },
+    "headers": {
+      "Authorization": {
+        "description": "Authorization token for the request",
+        "schema": {
+          "type": "string"
+        }
       }
     }
   }
