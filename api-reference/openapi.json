@@ -131,19 +131,17 @@
     }
   },
   "components": {
-    "securitySchemes": {
-      "apiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "x-api-key"
-      }
-    },
     "headers": {
       "Authorization": {
         "description": "Authorization token for the request",
         "schema": {
           "type": "string"
         }
+      },
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
       }
     }
   }
