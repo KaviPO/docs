@@ -1,30 +1,39 @@
 ---
-title: 'Hosted Payment Page'
-openapi: 'POST /api/v1/server-to-server-interface/hpp/generate/link'
+title: Generate Hosted Payment Page Link
 ---
 
-<RequestExample>
-```json Request Example
-{
+# POST /api/v1/server-to-server-interface/hpp/generate/link
+
+This API endpoint allows you to generate a Hosted Payment Page (HPP) link for a transaction.
+
+### Example cURL Request
+
+```bash
+curl --location 'https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/server-to-server-interface/hpp/generate/link' \
+--header 'Authorization: Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6' \
+--header 'x-api-key: bLm8c1C0fL3FtPzrjSr0' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: reqid=dfeb2748-0b00-407d-bb23-2f9c8a6137eb' \
+--data-raw '{
     "return_url": {
         "webhook_url": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b",
         "success_url": "http://www.bing.com/",
         "decline_url": "http://www.google.com/",
         "cancel_url": "http://tinkfactory.com/"
     },
-    "amount": "",
+    "amount": "100.00",
     "currency": "JPY",
     "merchant_id": "JP00000275",
     "merchant_email": "info@tinkfactory.com",
     "merchant_txn_ref": "2003089893366DTEST",
     "payment_method": {
         "type": "scheme",
-        "store_payment_method": true
+        "store_payment_method": false
     },
     "billing_address": {
         "country": "JP",
         "email": "kavi@ghunowa.com",
-        "phone": "52553305",
+        "phone_number": "52553305",
         "address1": "Ebene Junction",
         "city": "Ebene",
         "state": "Rose-Hill",
@@ -33,48 +42,10 @@ openapi: 'POST /api/v1/server-to-server-interface/hpp/generate/link'
     "shipping_address": {
         "country": "JP",
         "email": "kavi@ghunowa.com",
-        "phone": "52553305",
+        "phone_number": "52553305",
         "address1": "Ebene Junction",
         "city": "Ebene",
         "state": "Rose-Hill",
         "postal_code": "1234567"
     }
-}
-```
-</RequestExample>
-
-<ResponseExample>
-```json Response Example
-{
-    "id": "8099279b-e499-464d-ad50-57eed0e4b309",
-    "url": "<Generated HPP Link>",
-    "amount": "",
-    "currency": "<currency>",
-    "merchant_txn_ref": "<ref>",
-    "merchant_id": "<DASMID>",
-    "merchant_email": "<merchant email>",
-    "return_url": {
-        "webhook_url": "",
-        "success_url": "",
-        "decline_url": "",
-        "cancel_url": ""
-    },
-    "billing_address": {
-        "city": "<city>",
-        "email": "<email>",
-        "phone": "<phone number>",
-        "country": "<country code>",
-        "address1": "<address line 1>",
-        "postal_code": "<postal code>"
-    },
-    "shipping_address": {
-        "city": "<city>",
-        "email": "<email>",
-        "phone": "<phone number>",
-        "country": "<country code>",
-        "address1": "<address line 1>",
-        "postal_code": "<postal code>"
-    }
-}
-```
-</ResponseExample>
+}'
