@@ -1,0 +1,147 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "HPP Link Generation API",
+    "version": "1.0.0",
+    "description": "This API allows generating a Hosted Payment Page (HPP) link for server-to-server interaction."
+  },
+  "paths": {
+    "/dev/api/v1/server-to-server-interface/hpp/generate/link": {
+      "post": {
+        "summary": "Generate HPP Link",
+        "description": "This endpoint generates a link for the Hosted Payment Page (HPP).",
+        "operationId": "generateHppLink",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "return_url": {
+                    "type": "object",
+                    "properties": {
+                      "webhook_url": { "type": "string", "format": "uri" },
+                      "success_url": { "type": "string", "format": "uri" },
+                      "decline_url": { "type": "string", "format": "uri" },
+                      "cancel_url": { "type": "string", "format": "uri" }
+                    }
+                  },
+                  "amount": { "type": "string" },
+                  "currency": { "type": "string" },
+                  "merchant_id": { "type": "string" },
+                  "merchant_email": { "type": "string", "format": "email" },
+                  "merchant_txn_ref": { "type": "string" },
+                  "payment_method": {
+                    "type": "object",
+                    "properties": {
+                      "type": { "type": "string" },
+                      "store_payment_method": { "type": "boolean" }
+                    }
+                  },
+                  "billing_address": {
+                    "type": "object",
+                    "properties": {
+                      "country": { "type": "string" },
+                      "email": { "type": "string", "format": "email" },
+                      "phone_number": { "type": "string" },
+                      "address1": { "type": "string" },
+                      "city": { "type": "string" },
+                      "state": { "type": "string" },
+                      "postal_code": { "type": "string" }
+                    }
+                  },
+                  "shipping_address": {
+                    "type": "object",
+                    "properties": {
+                      "country": { "type": "string" },
+                      "email": { "type": "string", "format": "email" },
+                      "phone_number": { "type": "string" },
+                      "address1": { "type": "string" },
+                      "city": { "type": "string" },
+                      "state": { "type": "string" },
+                      "postal_code": { "type": "string" }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "return_url": {
+                  "webhook_url": "https://webhook.site/3a0a9c01-cf27-40c7-ade4-28abdcba087b",
+                  "success_url": "http://www.bing.com/",
+                  "decline_url": "http://www.google.com/",
+                  "cancel_url": "http://tinkfactory.com/"
+                },
+                "amount": "",
+                "currency": "JPY",
+                "merchant_id": "JP00000275",
+                "merchant_email": "info@tinkfactory.com",
+                "merchant_txn_ref": "2003089893366DTEST",
+                "payment_method": {
+                  "type": "scheme",
+                  "store_payment_method": false
+                },
+                "billing_address": {
+                  "country": "",
+                  "email": "kavi@ghunowa.com",
+                  "phone_number": "52553305",
+                  "address1": "Ebene Junction",
+                  "city": "Ebene",
+                  "state": "Rose-Hill",
+                  "postal_code": "1234567"
+                },
+                "shipping_address": {
+                  "country": "",
+                  "email": "kavi@ghunowa.com",
+                  "phone_number": "52553305",
+                  "address1": "Ebene Junction",
+                  "city": "Ebene",
+                  "state": "Rose-Hill",
+                  "postal_code": "1234567"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "hpp_link": { "type": "string", "format": "uri" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [],
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      }
+    }
+  }
+}
