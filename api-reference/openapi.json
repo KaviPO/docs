@@ -132,26 +132,32 @@
             "description": "Invalid request"
           }
         },
-        "security": [
-          {
-            "apiKeyAuth": [],
-            "xApiKeyAuth": []
+        "headers": {
+          "Authorization": {
+            "description": "Live API Key from merchant details on DasGateway.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6"
+            }
+          },
+          "x-api-key": {
+            "description": "API key provided along with credentials.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "bLm8c1C0fL3FtPzrjSr0"
+            }
+          },
+          "Content-Type": {
+            "description": "Content type of the request body, which must be application/json.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
           }
-        ]
-      }
-    }
-  },
-  "components": {
-    "securitySchemes": {
-      "apiKeyAuth": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "xApiKeyAuth": {
-        "type": "apiKey",
-        "name": "x-api-key",
-        "in": "header"
+        }
       }
     }
   }
