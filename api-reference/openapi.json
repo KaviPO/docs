@@ -1,4 +1,11 @@
 {
+  "openapi": "3.0.0",
+  "info": {
+    "title": "HPP Link Generation API",
+    "version": "1.0.0",
+    "description": "This API allows generating a Hosted Payment Page (HPP) link for server-to-server interaction."
+  },
+  "paths": {
   "/api/v1/server-to-server-interface/hpp/generate/link": {
     "post": {
       "parameters": [
@@ -301,4 +308,5 @@
       }
     }
   }
+}
 }
