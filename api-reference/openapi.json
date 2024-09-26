@@ -10,6 +10,12 @@
       "url": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev"
     }
   ],
+  "security": [
+    {
+      "apiKeyAuth": [],
+      "xApiKeyAuth": []
+    }
+  ],
   "paths": {
     "/api/v1/server-to-server-interface/hpp/generate/link": {
       "post": {
@@ -131,13 +137,7 @@
           "400": {
             "description": "Invalid request"
           }
-        },
-        "security": [
-          {
-            "apiKeyAuth": [],
-            "xApiKeyAuth": []
-          }
-        ]
+        }
       }
     }
   },
