@@ -159,14 +159,24 @@
   ],
 
   
+
   "openapi": {
-    "baseUrl": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev/", 
-    "auth": {
-      "method": "Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6",
-      "name": "bLm8c1C0fL3FtPzrjSr0",
-      "in": "header"
-  }
-},
+    "baseUrl": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev/",
+    "auth": [
+      {
+        "method": "Basic",
+        "name": "Authorization",
+        "value": "Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6",
+        "in": "header"
+      },
+      {
+        "method": "apiKey",
+        "name": "x-api-key",
+        "value": "bLm8c1C0fL3FtPzrjSr0",
+        "in": "header"
+      }
+    ]
+  },
 
   "footerSocials": {
     "website": "https://www.paymentoptions.com",
