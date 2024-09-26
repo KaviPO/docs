@@ -40,16 +40,7 @@
             "name": "content-type",
             "schema": {
               "type": "string",
-              "example": "application/json"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "cookie",
-            "schema": {
-              "type": "string",
-              "example": "reqid=ae2e3055-2548-4bff-83b3-a555514d7874"
+              "value": "application/json"
             },
             "required": true
           }
