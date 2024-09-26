@@ -16,35 +16,6 @@
         "summary": "Generate HPP Link",
         "description": "This endpoint allows you to generate a Hosted Payment Page (HPP) link.",
         "operationId": "generateHppLink",
-        "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "schema": {
-              "type": "string",
-              "example": "Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-api-key",
-            "schema": {
-              "type": "string",
-              "example": "bLm8c1C0fL3FtPzrjSr0"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "content-type",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            },
-            "required": true
-          }
-        ],
         "requestBody": {
           "description": "The request payload to generate an HPP link.",
           "required": true,
@@ -160,7 +131,27 @@
           "400": {
             "description": "Invalid request"
           }
-        }
+        },
+        "security": [
+          {
+            "apiKeyAuth": [],
+            "xApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      },
+      "xApiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header"
       }
     }
   }
