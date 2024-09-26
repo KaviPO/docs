@@ -134,9 +134,7 @@
         },
         "security": [
           {
-            "basicAuth": []
-          },
-          {
+            "basicAuth": [],
             "apiKeyAuth": []
           }
         ]
