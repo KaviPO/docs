@@ -134,9 +134,7 @@
         },
         "security": [
     {
-      "CustomAuth": []
-    },
-    {
+      "CustomAuth": [],
       "apiKeyAuth": []
     }
   ]
