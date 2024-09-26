@@ -132,10 +132,20 @@
             "description": "Invalid request"
           }
         },
-        "security": [
+         "security": [
           {
-            "bearerAuth": [],
             "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6"
+            }
           }
         ]
       }
@@ -143,11 +153,6 @@
   },
   "components": {
     "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "Basic"
-      },
       "apiKeyAuth": {
         "type": "apiKey",
         "name": "x-api-key",
