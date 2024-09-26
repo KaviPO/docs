@@ -33,7 +33,7 @@
                       "cancel_url": { "type": "string", "example": "http://tinkfactory.com/" }
                     }
                   },
-                  "amount": { "type": "string", "example": "" },
+                  "amount": { "type": "string", "example": "100.00" },
                   "currency": { "type": "string", "example": "JPY" },
                   "merchant_id": { "type": "string", "example": "JP00000275" },
                   "merchant_email": { "type": "string", "example": "info@tinkfactory.com" },
@@ -85,7 +85,7 @@
                   "properties": {
                     "id": { "type": "string", "example": "6469eb3a-812a-4262-9f7c-2328a71b16c5" },
                     "url": { "type": "string", "example": "https://checkout-dev.paymentoptions.com/jp/HostedPaymentPage/aPT5J_0d" },
-                    "amount": { "type": "string", "example": "" },
+                    "amount": { "type": "string", "example": "100.00" },
                     "currency": { "type": "string", "example": "JPY" },
                     "merchant_txn_ref": { "type": "string", "example": "2003089893366DTEST" },
                     "merchant_id": { "type": "string", "example": "JP00000275" },
@@ -134,8 +134,8 @@
         },
         "security": [
           {
-            "CustomAuth": [],
-            "apiKeyAuth": []
+            "apiKeyAuth": [],
+            "xApiKeyAuth": []
           }
         ]
       }
@@ -143,13 +143,13 @@
   },
   "components": {
     "securitySchemes": {
-      "CustomAuth": {
-        "type": "Authorization",
+      "apiKeyAuth": {
+        "type": "apiKey",
         "name": "Authorization",
         "in": "header"
       },
-      "apiKeyAuth": {
-        "type": "x-api-key",
+      "xApiKeyAuth": {
+        "type": "apiKey",
         "name": "x-api-key",
         "in": "header"
       }
