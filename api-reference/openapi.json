@@ -134,9 +134,7 @@
         },
         "security": [
           {
-            "apiKeyAuth": []
-          },
-          {
+            "apiKeyAuth": [],
             "xApiKeyAuth": []
           }
         ]
