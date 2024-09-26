@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev/"
+      "url": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev"
     }
   ],
   "paths": {
@@ -134,8 +134,10 @@
         },
         "security": [
           {
-            "apiKeyAuth": [],
-            "xApiKeyAuth": []
+            "basicAuth": []
+          },
+          {
+            "apiKeyAuth": []
           }
         ]
       }
@@ -143,12 +145,11 @@
   },
   "components": {
     "securitySchemes": {
-      "apiKeyAuth": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
       },
-      "xApiKeyAuth": {
+      "apiKeyAuth": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header"
