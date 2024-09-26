@@ -133,10 +133,13 @@
           }
         },
         "security": [
-          {
-            "CustomAuth": []
-          }
-        ]
+    {
+      "basicAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ]
       }
     }
   },
