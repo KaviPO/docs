@@ -161,15 +161,7 @@
   
 
 
-  "openapi": {
-    "baseUrl": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev/",
-    "auth": {
-      "method": "apiKey",
-      "name": "x-api-key",
-      "value": "bLm8c1C0fL3FtPzrjSr0",
-      "in": "header"
-    }
-  },
+  "openapi": "api-reference/openapi.json",
 
   "footerSocials": {
     "website": "https://www.paymentoptions.com",
