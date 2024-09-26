@@ -159,7 +159,7 @@
   ],
 
   
-  "api": {
+  "openapi": {
     "baseUrl": "https://2d1uj551b4.execute-api.ap-southeast-1.amazonaws.com/dev/", 
     "auth": {
       "method": "Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6",
