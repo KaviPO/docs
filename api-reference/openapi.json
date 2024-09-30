@@ -140,6 +140,7 @@
         }
       }
     },
+
     "/api/v1/server-to-server-interface/payment": {
   "post": {
     "summary": "Process Payment",
