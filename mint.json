@@ -160,7 +160,8 @@
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/hpp"
+        "api-reference/endpoint/hpp",
+        "api-reference/endpoint/purchase"
       ],
       "version": "EN"
     },
