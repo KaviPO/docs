@@ -46,7 +46,7 @@
     },
     {
       "name": "Endpoints",
-      "url": "/api-reference/endpoint/",
+      "url": "api-reference/endpoint/",
       "version": "EN"
     },
     {
@@ -56,12 +56,12 @@
     },
     {
       "name": "Gateway Codes",
-      "url": "/error-codes/",
+      "url": "error-codes",
       "version": "EN"
     },
     {
       "name": "Gateway Codes",
-      "url": "JP/error-codes/",
+      "url": "JP/error-codes",
       "version": "日本"
     }
   ],
@@ -178,9 +178,9 @@
      {
       "group": "Gateway Codes",
       "pages": [
-        "/error-codes/HTTPResponse",
-        "/error-codes/ResponseCodes",
-        "/error-codes/GatewayErrorCodes"
+        "error-codes/HTTPResponse",
+        "error-codes/ResponseCodes",
+        "error-codes/GatewayErrorCodes"
       ],
       "version": "EN"
     },
