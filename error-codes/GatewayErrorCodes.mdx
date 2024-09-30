@@ -1,1 +1,21 @@
 
+---
+title: 'Gateway Error Codes'
+description: 'Error codes returned by the gateway.'
+---
+
+| Error Code | Applied Level  | Risk Rule       | Error Message                                                                      |
+| :---------- | :-------------- | :--------------- | :---------------------------------------------------------------------------------- |
+| Err3001    | Entity Level    | Blacklist       | "Card Country United States is found on Entity's blacklist"                         |
+| Err3002    | Entity Level    | IP Address      | "Customer IP 117.243.247.41 is found on Entity's blacklist"                         |
+| Err3003    | Entity Level    | BIN Blocking    | "Card BIN 512345 is found on Entity's blacklist"                                    |
+| Err3004    | Entity Level    | PAN Blocking    | "PAN 4000000000001000 is found on Entity's blacklist"                               |
+| Err3005    | Entity Level    | Blacklist       | "Card Country 'United Kingdom' is found on Issuing Country blacklist"               |
+| Err3006    | Product Level   | Threshold Amount| "Transaction amount '$ 26981' has exceeded the max threshold limit"                 |
+| Err3008    | Product Level   | PAN Limit       | "Velocity check - Same card number has been used more than 2 times in the last 10 minutes." |
+| Err3012    | Product Level   | IP Limit        | "Velocity check- Attempts from same IP Address exceeds 2 times over the last 5 minutes." |
+| Err3013    | Product Level   | IP Limit        | "Velocity check- Attempts from same IP Address exceeds 1 time over the last 60 hours." |
+| Err3015    | Product Level   | IP Limit        | "Velocity check- Attempts from same IP Address exceeds 2 times over the last 60 months." |
+| VAL0035    | Product Level   |                 | "Invalid card holder name."                                                        |
+| ERR0204    | Product Level   |                 | "You don't have balance amount for refund."                                         |
+
