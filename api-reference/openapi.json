@@ -140,7 +140,7 @@
         }
       }
     },
-    "api/v1/server-to-server-interface/payment": {
+    "/api/v1/server-to-server-interface/payment": {
   "post": {
     "summary": "Process Payment",
     "description": "This endpoint allows you to process a payment using card details.",
