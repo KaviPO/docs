@@ -54,6 +54,16 @@
       "url": "JP/api-reference/endpoint/",
       "version": "日本"
     }
+    {
+      "name": "Gateway Codes",
+      "url": "/error-codes/",
+      "version": "EN"
+    },
+    {
+      "name": "Gateway Codes",
+      "url": "JP/error-codes/",
+      "version": "日本"
+    }
   ],
  "anchors": [
     
@@ -162,6 +172,24 @@
       "group": "エンドポイントの例",
       "pages": [
         "JP/api-reference/endpoint/hpp"
+      ],
+      "version": "日本"
+    },
+     {
+      "group": "Gateway Codes",
+      "pages": [
+        "/error-codes/HTTPResponse",
+        "/error-codes/ResponseCodes",
+        "/error-codes/GatewayErrorCodes"
+      ],
+      "version": "EN"
+    },
+    {
+      "group": "Gateway Codes",
+      "pages": [
+        "JP/error-codes/HTTPResponse",
+        "JP/error-codes/ResponseCodes",
+        "JP/error-codes/GatewayErrorCodes"
       ],
       "version": "日本"
     }
