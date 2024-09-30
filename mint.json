@@ -160,14 +160,16 @@
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/hpp"
+        "api-reference/endpoint/hpp",
+        "api-reference/endpoint/purchase"
       ],
       "version": "EN"
     },
     {
       "group": "エンドポイントの例",
       "pages": [
-        "JP/api-reference/endpoint/hpp"
+        "JP/api-reference/endpoint/hpp",
+        "JP/api-reference/endpoint/purchase"
       ],
       "version": "日本"
     },
