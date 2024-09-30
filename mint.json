@@ -29,9 +29,16 @@
     "url": "https://me.paymentoptions.com/"
   },
 
-"primaryTab":{
-    "name": "Documentation"
-},
+"primaryTab":[
+  {
+    "name": "Documentation",
+    "version": "EN"
+  },
+  {
+    "name": "Documentation",
+    "version": "日本"
+  }
+],
 
   "tabs": [
     {
