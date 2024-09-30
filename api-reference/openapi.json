@@ -330,15 +330,11 @@
                         "id": { "type": "string", "example": "849effe0-eeea-4378-88e0-833f41625912" },
                         "ref": { "type": "integer", "example": 70178 },
                         "timestamp": { "type": "string", "example": "2024-09-30T20:58:58.000Z" },
-                        "merchant_txn_ref": { "type": "string", "example": "qwe" },
-                        "stored_payment_method_id": { "type": ["string", "null"], "example": null }
+                        "merchant_txn_ref": { "type": "string", "example": "qwe" }
                       }
                     },
                     "risk-details": {
-                      "type": "object",
-                      "properties": {
-                        "risk_score": { "type": ["integer", "null"], "example": null }
-                      }
+                      "type": "object"
                     }
                   }
                 }
@@ -367,3 +363,4 @@
     }
   }
 }
+

@@ -2,3 +2,24 @@
 title: 'Purchase'
 openapi: 'POST /api/v1/server-to-server-interface/payment'
 ---
+
+# Purchase API
+
+The **Purchase API** allows merchants to process payments using customer card details and other required information.
+
+## Endpoint
+
+`POST /api/v1/server-to-server-interface/payment`
+
+## Authentication
+
+You must include the following headers in your request:
+
+- `Authorization`: This should contain your API key encoded in Base64.
+- `x-api-key`: A unique API key for authorization.
+
+### Example Headers
+
+```http
+Authorization: Basic OUtPOTV6Znh0ZEdDb09DZC1jZ1hhMy1VWXNnQmEtdkI6
+x-api-key: bLm8c1C0fL3FtPzrjSr0
