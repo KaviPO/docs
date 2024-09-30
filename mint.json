@@ -115,13 +115,6 @@
       "version": "EN"
     },
     {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/hpp"
-      ],
-      "version": "EN"
-    },
-    {
       "group": "APIドキュメント",
       
         "pages": [
@@ -157,6 +150,13 @@
           }
         ],
       "version": "日本"
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/hpp"
+      ],
+      "version": "EN"
     },
     {
       "group": "エンドポイントの例",
