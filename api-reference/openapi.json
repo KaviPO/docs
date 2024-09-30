@@ -139,7 +139,120 @@
           }
         }
       }
+    },
+    "/api/v1/payment/process": {
+  "post": {
+    "summary": "Process Payment",
+    "description": "This endpoint allows you to process a payment for an order.",
+    "operationId": "processPayment",
+    "requestBody": {
+      "description": "The request payload to process a payment.",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "order_id": { 
+                "type": "string", 
+                "example": "ORD12345678" 
+              },
+              "amount": { 
+                "type": "string", 
+                "example": "500.00" 
+              },
+              "currency": { 
+                "type": "string", 
+                "example": "USD" 
+              },
+              "payment_method": {
+                "type": "object",
+                "properties": {
+                  "type": { 
+                    "type": "string", 
+                    "example": "credit_card" 
+                  },
+                  "card_number": { 
+                    "type": "string", 
+                    "example": "4111111111111111" 
+                  },
+                  "expiry_date": { 
+                    "type": "string", 
+                    "example": "12/25" 
+                  },
+                  "cvv": { 
+                    "type": "string", 
+                    "example": "123" 
+                  }
+                }
+              },
+              "billing_address": {
+                "type": "object",
+                "properties": {
+                  "address1": { 
+                    "type": "string", 
+                    "example": "123 Main St" 
+                  },
+                  "city": { 
+                    "type": "string", 
+                    "example": "New York" 
+                  },
+                  "state": { 
+                    "type": "string", 
+                    "example": "NY" 
+                  },
+                  "postal_code": { 
+                    "type": "string", 
+                    "example": "10001" 
+                  },
+                  "country": { 
+                    "type": "string", 
+                    "example": "US" 
+                  }
+                }
+              }
+            },
+            "required": ["order_id", "amount", "currency", "payment_method", "billing_address"]
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Payment processed successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": { 
+                  "type": "string", 
+                  "example": "success" 
+                },
+                "transaction_id": { 
+                  "type": "string", 
+                  "example": "TXN1234567890" 
+                },
+                "amount": { 
+                  "type": "string", 
+                  "example": "500.00" 
+                },
+                "currency": { 
+                  "type": "string", 
+                  "example": "USD" 
+                }
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Invalid request"
+      }
     }
+  }
+}
+
   },
   "components": {
     "securitySchemes": {
