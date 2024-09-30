@@ -41,16 +41,6 @@
       "version": "日本"
     },
     {
-      "name": "Endpoints",
-      "url": "api-reference/endpoint/",
-      "version": "EN"
-    },
-    {
-      "name": "Endpoints",
-      "url": "JP/api-reference/endpoint/",
-      "version": "日本"
-    },
-    {
       "name": "Gateway Codes",
       "url": "error-codes",
       "version": "EN"
@@ -58,6 +48,16 @@
     {
       "name": "Gateway Codes",
       "url": "JP/error-codes",
+      "version": "日本"
+    },
+    {
+      "name": "Endpoints",
+      "url": "api-reference/endpoint/",
+      "version": "EN"
+    },
+    {
+      "name": "Endpoints",
+      "url": "JP/api-reference/endpoint/",
       "version": "日本"
     }
   ],
