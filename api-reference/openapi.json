@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Payment Options API",
-    "description": "API for generating Hosted Payment Page (HPP) links.",
+    "description": "API Endpoints",
     "version": "1.0.0"
   },
   "servers": [
@@ -140,7 +140,6 @@
         }
       }
     },
-
     "/api/v1/server-to-server-interface/payment": {
   "post": {
     "summary": "Process Payment",
@@ -252,8 +251,8 @@
     }
   }
 }
-  
 },
+
   "components": {
     "securitySchemes": {
       "apiKeyAuth": {
