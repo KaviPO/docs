@@ -22,15 +22,6 @@ description: 'The Capture API is used to finalize a payment by transferring the 
 | **amount**             | int/string| yes           | as per Bank    | The amount to be captured. This should not exceed the amount authorized. Amount limit depends on the bank. |
 | **merchant_id**         | string    | yes           | 10             | The merchant ID (DASMID).                                                       |
 | **notes**              | string    | no            | 128            | The reference of the capture transaction (optional).                            |
-| **browser_info**        | object    | no            | -              | A JSON object containing the browser info. This object is optional.             |
-| ∟ **acceptHeader**      | string    | no            | 45             | Information about the browser's accepted data formats.                          |
-| ∟ **screenColorDepth**  | int       | no            | 5              | Number of bits used to represent colors on the screen.                          |
-| ∟ **javaEnabled**       | boolean   | no            | 5              | Indicates whether Java is enabled in the browser.                               |
-| ∟ **language**          | string    | no            | 2              | The browser's language setting.                                                 |
-| ∟ **screenHeight**      | int       | no            | 5              | Height of the browser window in pixels.                                         |
-| ∟ **screenWidth**       | int       | no            | 5              | Width of the browser window in pixels.                                          |
-| ∟ **challengeWindow**   | int       | no            | 5              | Dimensions of the pop-up window used in challenge.                              |
-| ∟ **userAgent**         | string    | no            | 199            | String providing detailed information about the browser and operating system.   |
 
 ### Response Attributes
 
@@ -77,17 +68,7 @@ description: 'The Capture API is used to finalize a payment by transferring the 
     "transactionId": "<transaction_id>",
     "amount": <float/string/int>,
     "merchant_id": "<DASMID>",
-    "notes": "<string>",
-    "browser_info": {
-        "acceptHeader": "text/html",
-        "screenColorDepth": "<int>",
-        "javaEnabled": <boolean>,
-        "language": "<string>",
-        "screenHeight": "<int>",
-        "screenWidth": "<int>",
-        "challengeWindow": "<int>",
-        "userAgent": "Mozilla/4.0 (MSIE 6.0; Windows NT 5.0)"
-    }
+    "notes": "<string>"
 }
 ```
 </RequestExample>
