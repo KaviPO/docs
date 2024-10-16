@@ -15,7 +15,7 @@
       "to": "#F18A00"
     }
   },
-"versions": ["EN","日本","FR"],
+"versions": ["EN","日本"],
 
   "topbarLinks": [
     {
@@ -34,11 +34,6 @@
       "name": "API Reference",
       "url": "api-reference",
       "version": "EN"
-    },
-     {
-      "name": "API Reference",
-      "url": "FR/api-reference",
-      "version": "FR"
     },
     {
       "name": "API Reference",
