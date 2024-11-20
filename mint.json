@@ -64,10 +64,6 @@
  "anchors": [
     
   ],
-
-"apiReference": {
-        "openapi": "api-reference/openapi.json"
-},
   "navigation": [
     {
       "group": "Get Started",
