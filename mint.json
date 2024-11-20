@@ -33,7 +33,6 @@
     {
       "name": "API Reference",
       "url": "api-reference",
-      "openapi": "api-reference/openapi.json",
       "version": "EN"
     },
     {
@@ -65,6 +64,10 @@
  "anchors": [
     
   ],
+
+"apiReference": {
+        "openapi": "api-reference/openapi.json"
+},
   "navigation": [
     {
       "group": "Get Started",
