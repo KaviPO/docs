@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1998 400">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 23.18px;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: ArialMT, Arial;
+      }
+
+      .cls-3 {
+        stroke: #00a99d;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-3, .cls-4 {
+        stroke-width: 5px;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        stroke: #ff931e;
+      }
+
+      .cls-4, .cls-5 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-7 {
+        font-family: Arial-BoldMT, Arial;
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .cls-8 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-5 {
+        stroke: #e6e6e6;
+      }
+
+      .cls-2 {
+        fill: #ff931e;
+        font-size: 25.2px;
+      }
+
+      .cls-10 {
+        fill: #f2f2f2;
+      }
+
+      .cls-10, .cls-11 {
+        stroke-width: 0px;
+      }
+
+      .cls-11 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect class="cls-11" width="1998" height="400"/>
+  <text class="cls-1" transform="translate(159.61 136.79)"><tspan x="0" y="0">KE</tspan><tspan class="cls-8" x="30.92" y="0">Y</tspan></text>
+  <text class="cls-1" transform="translate(657.61 136.79)"><tspan class="cls-9" x="0" y="0">V</tspan><tspan class="cls-6" x="13.74" y="0">ALUES</tspan></text>
+  <rect class="cls-10" x="44.23" y="154.01" width="54.27" height="54.18"/>
+  <text class="cls-7" transform="translate(155.5 188.8)"><tspan x="0" y="0">authorization</tspan></text>
+  <text class="cls-7" transform="translate(657.19 188.8)"><tspan x="0" y="0">Basic xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</tspan></text>
+  <rect class="cls-10" x="44.23" y="226.01" width="54.27" height="54.18"/>
+  <text class="cls-7" transform="translate(155.5 260.8)"><tspan x="0" y="0">x-api-key</tspan></text>
+  <text class="cls-7" transform="translate(657.19 260.8)"><tspan x="0" y="0">xxxxxxxxxxxxxxxxxxxxxxx</tspan></text>
+  <text class="cls-2" transform="translate(155.75 54.45)"><tspan x="0" y="0">API HEADERS</tspan></text>
+  <line class="cls-5" x1="134.41" y1="28.26" x2="134" y2="386"/>
+  <rect class="cls-4" x="19.46" y="88.34" width="1957.54" height="245.66"/>
+  <polyline class="cls-3" points="54.81 183.29 67.43 194.51 87.07 172.07"/>
+  <polyline class="cls-3" points="54.81 253.29 67.43 264.51 87.07 242.07"/>
+</svg>
