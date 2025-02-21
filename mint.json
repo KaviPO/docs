@@ -93,6 +93,16 @@
         "documentation/glossary"
       ]
     },
+     {
+      "group": "スタートガイド",
+      "pages": [
+        "documentation-jp/introduction",
+        "documentation-jp/createaccount",
+        "documentation-jp/checklist",
+        "documentation-jp/glossary"
+      ],
+       "version": "日本語"
+    },
    
     {
       "group": "Payments",
