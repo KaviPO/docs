@@ -1,0 +1,31 @@
+---
+title: 'HTTP Response'
+description: 'HTTP response codes provide information on the status of requests sent to the gateway. Each code indicates whether the request was successful or if there was an error, along with the nature of that error.'
+---
+
+| **HTTP Response** | **Description**                         | **Explanation**                                                                                   |
+| :---------------- | :-------------------------------------- | :------------------------------------------------------------------------------------------------ |
+| **200**           | Request Successful                     | The request was successfully received and processed.                                              |
+| **201**           | Resource Created                       | A new resource has been successfully created.                                                     |
+| **400**           | Bad Request                            | The server could not process the request due to a client error (e.g., malformed request syntax).   |
+| **401**           | Unauthorized                           | Authentication is required, or the provided credentials are invalid.                              |
+| **404**           | Not Found                              | The requested resource could not be found on the server.                                          |
+| **406**           | Not Acceptable (Invalid Card)          | The request’s content is not acceptable, often due to an invalid card or data format.             |
+| **412**           | Precondition Failed                    | The server does not meet one or more of the preconditions specified in the request.               |
+| **500**           | Server Error                           | An internal server error occurred. Try again later or contact support if the issue persists.      |
+| **502**           | Bad Gateway                            | The server, acting as a gateway, received an invalid response from an upstream server.            |
+| **504**           | Gateway Time-out                       | The server did not receive a timely response from an upstream server and timed out.               |
+
+---
+
+## **Additional Resources**
+
+<CardGroup>
+  <Card title="Frequently Asked Questions" icon="comments-question" href="/support/faqs">
+    Visit our FAQ section for answers to common questions about HTTP response codes and troubleshooting.
+  </Card>
+
+  <Card title="Contact Support" icon="life-ring" href="/support/contact">
+    Need assistance? Reach out to our support team for help with HTTP response code issues.
+  </Card>
+</CardGroup>

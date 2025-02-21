@@ -1,0 +1,41 @@
+---
+title: 'Hosted Payment Page'
+openapi: '/api-reference/en/open-api-config/hpp/generate-link.json POST /api/v1/server-to-server-interface/hpp/generate/link'
+description: Generate a link to open the Hosted Payment Page (HPP) for capturing transactions.
+---
+
+### Key Points
+
+<Info>
+  * If the payload is pre-filled with data (e.g., amount, currency, customer details, return\_url, payment method), these details will be reflected on the HPP, providing a streamlined user experience.
+
+  * If the payload lacks certain data, the customer will need to manually enter the missing information on the HPP.
+
+  * Ensure that the necessary headers and authentication details are included to successfully generate the HPP link.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-HPP.svg)
+
+## ApplePay & GooglePay
+
+When a merchant is configured for Apple Pay and Google Pay, the Hosted Payment Page (HPP) will display buttons for Google Pay and Apple Pay, allowing customers to complete payments through these methods
+
+### Key Points
+
+<Info>
+  Merchant Configuration
+
+  * The Merchant ID for either Apple Pay or Google Pay must be included in the HPP payload when making a request to generate the payment link.
+
+  * These payment options will automatically appear on the HPP if the merchant is properly configured for them.
+
+  Payment Buttons
+
+  * The HPP will dynamically display Google Pay and Apple Pay buttons based on the availability and configuration of the merchant’s account.
+
+  * Customers can seamlessly use either method to complete the transaction directly from the HPP.
+</Info>
+
+## Api Parameters

@@ -1,0 +1,60 @@
+---
+title: 'Gateway Error Codes'
+description: 'This page provides a list of error codes returned by the gateway, along with descriptions and suggested actions. Error codes are organized by Entity Level and Product Level to help identify where the error applies.'
+---
+
+## **Understanding Entity Level and Product Level**
+
+<CardGroup>
+  <Card title="Entity Level" icon="map-location-dot">
+    Entity-level rules apply to the merchant's operational region or country. These settings enforce restrictions and policies specific to geographical areas.  
+    **Example**: Blocking transactions originating from certain card countries or IP addresses based on merchant location.
+  </Card>
+
+  <Card title="Product Level" icon="folder-gear">
+    Product-level rules are specific to individual products or services within the gateway, like "Pay by Link" or "Subscription." These manage behaviors and restrictions tied to each product.  
+    **Example**: Setting refund velocity limits or transaction thresholds for a specific product.
+  </Card>
+</CardGroup>
+
+
+This distinction helps merchants and developers troubleshoot errors effectively and ensures that compliance and restrictions are properly managed across regions and products.
+
+| **Error Code** | **Applied Level** | **Risk Rule** | **Error Message** |
+| :------------- | :---------------- | :------------ | :-------------------------- |
+| **ERR3001**    | Entity            | Blacklist     | Transaction is restricted   |
+| **ERR3002**    | Entity            | IP Address    | Transaction is restricted   |
+| **ERR3003**    | Entity            | BIN Blocking  | Transaction is restricted   |
+| **ERR3004**    | Entity            | PAN Blocking  | Transaction is restricted   |
+| **ERR3005**    | Entity            | Blacklist     | Transaction is restricted   |
+| **ERR3006**    | Product           | Threshold Amount | Amount is outside the allowed range. |
+| **ERR3007**    | Product           | IP Address    | Transaction is restricted   |
+| **ERR3008**    | Product           | PAN Limit     | Transaction is restricted   |
+| **ERR3009**    | Product           | PAN Limit     | Risk rule decline           |
+| **ERR3010**    | Product           | PAN Limit     | Risk rule decline           |
+| **ERR3011**    | Product           | PAN Limit     | Risk rule decline           |
+| **ERR3012**    | Product           | IP Limit      | Risk rule decline           |
+| **ERR3013**    | Product           | IP Limit      | Risk rule decline           |
+| **ERR3014**    | Product           | IP Limit      | Risk rule decline           |
+| **ERR3015**    | Product           | IP Limit      | Risk rule decline           |
+| **ERR3016**    | Product           | Threshold Amount | Amount is outside the allowed range. |
+| **ERR3017**    | Product           | IP Address    | Transaction is restricted   |
+| **ERR3018**    | Product           | BIN           | Transaction is restricted   |
+| **ERR3019**    | Product           | Refund Limit  | Insufficient refund balance |
+| **ERR3020**    | Product           | Refund Volume | Insufficient refund balance |
+| **VAL0035**    | Product           |               |                             |
+| **ERR0204**    | Product           |               |                             |
+
+***
+
+## **Additional Resources**
+
+<CardGroup>
+  <Card title="Frequently Asked Questions" icon="comments-question" href="/support/faqs">
+    Visit our FAQ section for answers to common questions about error codes and handling.
+  </Card>
+
+  <Card title="Contact Support" icon="life-ring" href="/support/contact">
+    Need further assistance? Contact our support team for help with error code troubleshooting.
+  </Card>
+</CardGroup>

@@ -1,1 +1,789 @@
-
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Payment Options API",
+    "description": "API for generating Hosted Payment Page (HPP) links and processing payments.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api-dev.paymentoptions.com/api/v1"
+    }
+  ],
+  "security": [
+    {
+      "apiKeyAuth": [],
+      "xApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/api/v1/server-to-server-interface/subscription/payment": {
+      "post": {
+        "summary": "Process Subscription Payment",
+        "description": "Processes subscription payments using card and subscription details.",
+        "operationId": "processSubscriptionPayment",
+        "requestBody": {
+          "description": "Payload for processing subscription payments.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                 "additionalProperties": false,
+                "required": [
+                  "amount",
+                  "currency",
+                  "card",
+                  "payment_method",
+                  "merchant_id",
+                  "billing_address",
+                  "subscription"
+                ],
+                "properties": {
+                  "amount": {
+                    "type": "string",
+                    "description": "The transaction amount.",
+                    "maxLength": 15,
+                    "example": "1000"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "ISO currency code for the transaction (e.g., JPY).",
+                    "maxLength": 3,
+                    "example": "JPY"
+                  },
+                  "card": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "Details of the card used for the payment.",
+                    "required": [
+                      "cvc",
+                      "expiry_month",
+                      "expiry_year",
+                      "name",
+                      "number"
+                    ],
+                    "properties": {
+                      "cvc": {
+                        "type": "string",
+                        "description": "Card security code.",
+                        "maxLength": 4,
+                        "example": "112"
+                      },
+                      "expiry_month": {
+                        "type": "string",
+                        "description": "Card expiry month.",
+                        "maxLength": 2,
+                        "example": "12"
+                      },
+                      "expiry_year": {
+                        "type": "string",
+                        "description": "Card expiry year.",
+                        "maxLength": 2,
+                        "example": "24"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the cardholder.",
+                        "maxLength": 255,
+                        "example": "John Doe"
+                      },
+                      "number": {
+                        "type": "string",
+                        "description": "Card number.",
+                        "maxLength": 16,
+                        "example": "4000000000001091"
+                      }
+                    }
+                  },
+                  "payment_method": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "Payment method details.",
+                    "required": [
+                      "type",
+                      "store_payment_method"
+                    ],
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Payment method type (e.g., 'scheme' for card payments).",
+                        "maxLength": 128,
+                        "example": "scheme"
+                      },
+                      "store_payment_method": {
+                        "type": "boolean",
+                        "description": "Whether to store the payment method for future transactions.",
+                        "example": false
+                      }
+                    }
+                  },
+                  "merchant_txn_ref": {
+                    "type": "string",
+                    "description": "Unique merchant transaction reference ID.",
+                    "maxLength": 45,
+                    "example": "qwe"
+                  },
+                  "customer_ip": {
+                    "type": "string",
+                    "description": "IP address of the customer initiating the transaction.",
+                    "maxLength": 45,
+                    "example": "127.0.0.1"
+                  },
+                  "merchant_id": {
+                    "type": "string",
+                    "description": "Unique identifier of the merchant.",
+                    "maxLength": 128,
+                    "example": "< Merchant ID >"
+                  },
+                  "return_url": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "A JSON object containing the return URLs. (This field is mandatory for 3DS transactions.)",
+                    "properties": {
+                      "webhook_url": {
+                        "type": "string",
+                        "description": "URL for webhook notifications.",
+                        "maxLength": 255,
+                        "example": "< Webhook url >"
+                      },
+                      "success_url": {
+                        "type": "string",
+                        "description": "URL to redirect the user after a successful transaction.",
+                        "maxLength": 255,
+                        "example": "http://www.successurl.com/"
+                      },
+                      "decline_url": {
+                        "type": "string",
+                        "description": "URL to redirect the user after a declined transaction.",
+                        "maxLength": 255,
+                        "example": "http://www.declineurl.com/"
+                      }
+                    }
+                  },
+                  "billing_address": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "Details of the cardholder's billing address.",
+                    "required": [
+                      "country",
+                      "email",
+                      "phone_number",
+                      "address1",
+                      "city",
+                      postal_code
+                    ],
+                    "properties": {
+                      "country": {
+                        "type": "string",
+                        "description": "Billing country code (ISO 3166-1 alpha-2).",
+                        "maxLength": 2,
+                        "example": "JP"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "Billing email address.",
+                        "maxLength": 45,
+                        "example": "billing@testemail.com"
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "Billing phone number.",
+                        "maxLength": 20,
+                        "example": "8112345678"
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "Billing address line.",
+                        "maxLength": 199,
+                        "example": "1-2-3 Shinjuku"
+                      },
+                      "city": {
+                        "type": "string",
+                        "description": "Billing city.",
+                        "maxLength": 65,
+                        "example": "Shinjuku-ku"
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "Billing state (optional).",
+                        "maxLength": 65,
+                        "example": "Tokyo"
+                      },
+                      "postal_code": {
+                        "type": "string",
+                        "description": "Billing postal code.",
+                        "maxLength": 45,
+                        "example": "1600022"
+                      }
+                    }
+                  },
+                  "shipping_address": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "Details of the cardholder's shipping address.",
+                    "properties": {
+                      "country": {
+                        "type": "string",
+                        "description": "Shipping country code (ISO 3166-1 alpha-2).",
+                        "maxLength": 2,
+                        "example": "JP"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "Shipping email address.",
+                        "maxLength": 45,
+                        "example": "billing@testemail.com"
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "Shipping phone number.",
+                        "maxLength": 20,
+                        "example": "8112345678"
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "Shipping address line.",
+                        "maxLength": 199,
+                        "example": "1-2-3 Shinjuku"
+                      },
+                      "city": {
+                        "type": "string",
+                        "description": "Shipping city.",
+                        "maxLength": 65,
+                        "example": "Shinjuku-ku"
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "Shipping state (optional).",
+                        "maxLength": 65,
+                        "example": "Tokyo"
+                      },
+                      "postal_code": {
+                        "type": "string",
+                        "description": "Shipping postal code.",
+                        "maxLength": 45,
+                        "example": "1600022"
+                      }
+                    }
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "description": "Time zone of the transaction.",
+                    "maxLength": 128,
+                    "example": "Asia/Kuala_Lumpur"
+                  },
+                  "subscription": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "Details of the subscription being processed.",
+                    "required": [
+                      "plan_name",
+                      "plan_desc",
+                      "cycle_type",
+                      "subscription_end_type",
+                      "cycle_interval",
+                      "max_cycle_count",
+                      "has_trial_period",
+                      "has_discount",
+                      "discount_percentage",
+                      "discount_duration"
+                    ],
+                    "properties": {
+                      "plan_name": {
+                        "type": "string",
+                        "description": "Subscription plan name.",
+                        "maxLength": 100,
+                        "example": "Three weeks plan"
+                      },
+                      "plan_desc": {
+                        "type": "string",
+                        "description": "Subscription plan description.",
+                        "maxLength": 200,
+                        "example": "Billed every two days"
+                      },
+                      "cycle_type": {
+                        "type": "string",
+                        "description": "Type of subscription cycle (e.g., DAYS, MONTHS).",
+                        "example": "DAYS"
+                      },
+                      "subscription_end_type": {
+                        "type": "string",
+                        "description": "Subscription end type (e.g., CYCLE).",
+                        "example": "CYCLE"
+                      },
+                      "cycle_interval": {
+                        "type": "integer",
+                        "description": "Interval between billing cycles.",
+                        "example": 2
+                      },
+                      "max_cycle_count": {
+                        "type": "integer",
+                        "description": "Maximum number of billing cycles.",
+                        "example": 10
+                      },
+                      "has_trial_period": {
+                        "type": "boolean",
+                        "description": "Indicates if the subscription includes a trial period.",
+                        "example": false
+                      },
+                      "trial_period_duration_type": {
+                        "type": "string",
+                        "description": "Type of trial period duration (e.g., DAYS, MONTHS).",
+                        "example": "DAYS"
+                      },
+                      "trial_period_duration": {
+                        "type": "integer",
+                        "description": "Duration of the trial period.",
+                        "example": 14
+                      },
+                      "has_discount": {
+                        "type": "boolean",
+                        "description": "Indicates if the subscription includes a discount.",
+                        "example": true
+                      },
+                      "discount_percentage": {
+                        "type": "number",
+                        "description": "Discount percentage applied to the subscription.",
+                        "example": 10
+                      },
+                      "discount_duration": {
+                        "type": "integer",
+                        "description": "Duration of the discount in billing cycles.",
+                        "example": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Subscription payment processed successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Indicates whether the transaction was successful.",
+                      "example": true
+                    },
+                    "status_code": {
+                      "type": "integer",
+                      "description": "HTTP status code of the transaction.",
+                      "example": 201
+                    },
+                    "is_live": {
+                      "type": "boolean",
+                      "description": "Indicates whether the transaction was live or a test.",
+                      "example": false
+                    },
+                    "transaction_type": {
+                      "type": "string",
+                      "description": "Type of transaction performed (e.g., CAPTURE).",
+                      "example": "CAPTURE"
+                    },
+                    "gateway_response": {
+                      "type": "object",
+                      "description": "Response from the payment gateway.",
+                      "properties": {
+                        "version": {
+                          "type": "string",
+                          "description": "Version of the gateway response.",
+                          "example": "1"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Type of the gateway response.",
+                          "example": "INFO"
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "Message from the gateway response.",
+                          "example": "Payment Successful."
+                        },
+                        "code": {
+                          "type": "string",
+                          "description": "Response code from the gateway.",
+                          "example": "INFO0000"
+                        }
+                      }
+                    },
+                    "merchant_details": {
+                      "type": "object",
+                      "description": "Details about the merchant.",
+                      "properties": {
+                        "legal_name": {
+                          "type": "string",
+                          "description": "Legal name of the merchant.",
+                          "example": "Beck's Coffee Shop Pvt. Ltd."
+                        },
+                        "mid": {
+                          "type": "string",
+                          "description": "Merchant ID.",
+                          "example": "JP00000472"
+                        },
+                        "merchant_txn_ref": {
+                          "type": "string",
+                          "description": "Merchant's transaction reference ID.",
+                          "example": "qwe"
+                        },
+                        "billing_details": {
+                          "type": "object",
+                          "description": "Details of the billing and shipping addresses.",
+                          "properties": {
+                            "billing_address": {
+                              "type": "object",
+                              "description": "Billing address of the merchant.",
+                              "properties": {
+                                "country": {
+                                  "type": "string",
+                                  "description": "Country code.",
+                                  "example": "JP"
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "description": "Billing email address.",
+                                  "example": "billing@testemail.com"
+                                },
+                                "phone_number": {
+                                  "type": "string",
+                                  "description": "Billing phone number.",
+                                  "example": "8112345678"
+                                },
+                                "address1": {
+                                  "type": "string",
+                                  "description": "Billing address line.",
+                                  "example": "1-2-3 Shinjuku"
+                                },
+                                "city": {
+                                  "type": "string",
+                                  "description": "Billing city.",
+                                  "example": "Shinjuku-ku"
+                                },
+                                "state": {
+                                  "type": "string",
+                                  "description": "Billing state.",
+                                  "example": "Tokyo"
+                                },
+                                "postal_code": {
+                                  "type": "string",
+                                  "description": "Billing postal code.",
+                                  "example": "1600022"
+                                }
+                              }
+                            },
+                            "shipping_address": {
+                              "type": "object",
+                              "description": "Shipping address of the merchant.",
+                              "properties": {
+                                "country": {
+                                  "type": "string",
+                                  "description": "Country code.",
+                                  "example": "JP"
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "description": "Shipping email address.",
+                                  "example": "billing@testemail.com"
+                                },
+                                "phone_number": {
+                                  "type": "string",
+                                  "description": "Shipping phone number.",
+                                  "example": "8112345678"
+                                },
+                                "address1": {
+                                  "type": "string",
+                                  "description": "Shipping address line.",
+                                  "example": "1-2-3 Shinjuku"
+                                },
+                                "city": {
+                                  "type": "string",
+                                  "description": "Shipping city.",
+                                  "example": "Shinjuku-ku"
+                                },
+                                "state": {
+                                  "type": "string",
+                                  "description": "Shipping state.",
+                                  "example": "Tokyo"
+                                },
+                                "postal_code": {
+                                  "type": "string",
+                                  "description": "Shipping postal code.",
+                                  "example": "1600022"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "device_details": {
+                          "type": "object",
+                          "description": "Device details of the customer.",
+                          "properties": {
+                            "visited_ip": {
+                              "type": "string",
+                              "description": "IP address of the payment page visited.",
+                              "example": "127.0.0.1"
+                            },
+                            "customer_ip": {
+                              "type": "string",
+                              "description": "IP address of the customer.",
+                              "example": "127.0.0.1"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "payment_details": {
+                      "type": "object",
+                      "description": "Details of the payment transaction.",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "Amount of the transaction.",
+                          "example": 900
+                        },
+                        "response_code": {
+                          "type": "integer",
+                          "description": "Response code from the acquirer.",
+                          "example": 0
+                        },
+                        "auth_code": {
+                          "type": "string",
+                          "description": "Authorization code from the acquirer.",
+                          "example": "175438"
+                        },
+                        "currency": {
+                          "type": "string",
+                          "description": "Currency of the transaction.",
+                          "example": "JPY"
+                        },
+                        "payment_method": {
+                          "type": "string",
+                          "description": "Payment method used.",
+                          "example": "VISA_DEBIT-SSL"
+                        },
+                        "scheme": {
+                          "type": "string",
+                          "description": "Card scheme used.",
+                          "example": "VISA"
+                        },
+                        "card": {
+                          "type": "object",
+                          "description": "Details of the card used.",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "Cardholder's name.",
+                              "example": "John Doe"
+                            },
+                            "number": {
+                              "type": "string",
+                              "description": "Masked card number.",
+                              "example": "4000000000001091"
+                            },
+                            "exp_month": {
+                              "type": "string",
+                              "description": "Card expiry month.",
+                              "example": "12"
+                            },
+                            "exp_year": {
+                              "type": "string",
+                              "description": "Card expiry year.",
+                              "example": "24"
+                            }
+                          }
+                        },
+                        "additional_data": {
+                          "type": "object",
+                          "description": "Additional payment-related data.",
+                          "properties": {
+                            "payment_data_source": {
+                              "type": "object",
+                              "description": "Data source for the payment.",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "Type of payment data source.",
+                                  "example": "card"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "transaction_details": {
+                      "type": "object",
+                      "description": "Details of the transaction.",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Transaction ID.",
+                          "example": "359f39bd-673a-47b3-b9ec-cbd6cd313b8e"
+                        },
+                        "ref": {
+                          "type": "integer",
+                          "description": "Transaction reference number.",
+                          "example": 74860
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Timestamp of the transaction.",
+                          "example": "2024-11-26T01:31:29.000Z"
+                        },
+                        "merchant_txn_ref": {
+                          "type": "string",
+                          "description": "Merchant's transaction reference ID.",
+                          "example": "qwe"
+                        },
+                        "stored_payment_method_id": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Stored payment method ID (if applicable).",
+                          "example": null
+                        }
+                      }
+                    },
+                    "risk-details": {
+                      "type": "object",
+                      "description": "Risk assessment details.",
+                      "properties": {
+                        "risk_score": {
+                          "type": "number",
+                          "nullable": true,
+                          "description": "Risk score for the transaction.",
+                          "example": null
+                        }
+                      }
+                    },
+                    "subscription_details": {
+                      "type": "object",
+                      "description": "Details of the subscription.",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Subscription ID.",
+                          "example": "664dc930-88bd-4696-8807-5e0f1fedba0b"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Type of subscription (e.g., CYCLE).",
+                          "example": "CYCLE"
+                        },
+                        "max_cycle_count": {
+                          "type": "integer",
+                          "description": "Maximum number of billing cycles.",
+                          "example": 10
+                        },
+                        "status": {
+                          "type": "string",
+                          "description": "Status of the subscription.",
+                          "example": "ACTIVE"
+                        },
+                        "completed_payment_cycle": {
+                          "type": "integer",
+                          "description": "Number of completed payment cycles.",
+                          "example": 1
+                        },
+                        "next_payment_date": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Date of the next payment.",
+                          "example": "2024-11-28T01:31:29.154Z"
+                        },
+                        "next_payment_cycle": {
+                          "type": "integer",
+                          "description": "The next payment cycle number.",
+                          "example": 2
+                        },
+                        "subscription_plan_details": {
+                          "type": "object",
+                          "description": "Details of the subscription plan.",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "Name of the subscription plan.",
+                              "example": "Three weeks plan"
+                            },
+                            "desc": {
+                              "type": "string",
+                              "description": "Description of the subscription plan.",
+                              "example": "Billed every two days"
+                            },
+                            "billing_cycle_type": {
+                              "type": "string",
+                              "description": "Type of billing cycle (e.g., DAYS, MONTHS).",
+                              "example": "DAYS"
+                            },
+                            "billing_cycle_interval": {
+                              "type": "integer",
+                              "description": "Interval between billing cycles.",
+                              "example": 2
+                            },
+                            "amount": {
+                              "type": "number",
+                              "description": "Amount for each billing cycle.",
+                              "example": 1000
+                            },
+                            "ccy": {
+                              "type": "string",
+                              "description": "Currency code for the subscription.",
+                              "example": "JPY"
+                            },
+                            "trial_period_duration": {
+                              "type": "string",
+                              "nullable": true,
+                              "description": "Duration of the trial period.",
+                              "example": ""
+                            },
+                            "trial_period_duration_type": {
+                              "type": "string",
+                              "description": "Type of the trial period duration.",
+                              "example": "NONE"
+                            },
+                            "plan_discount_percentage": {
+                              "type": "number",
+                              "description": "Discount percentage applied to the subscription plan.",
+                              "example": 10
+                            },
+                            "plan_discount_duration": {
+                              "type": "integer",
+                              "description": "Duration of the discount in billing cycles.",
+                              "example": 2
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
+      },
+      "xApiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header",
+        "description": "API Key specific to x-api-key."
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+---
+title: 'Tokenization'
+openapi: '/api-reference/en/open-api-config/hpp/generate-link-token.json POST /api/v1/server-to-server-interface/hpp/generate/link'
+description: Generate a link to open the Hosted Payment Page (HPP) for capturing transactions.
+---
+
+### Key Points
+
+<Info>
+  * If the payload is pre-filled with data (e.g., amount, currency, customer details, return\_url, payment method), these details will be reflected on the HPP, providing a streamlined user experience.
+
+  * If the payload lacks certain data, the customer will need to manually enter the missing information on the HPP.
+
+  * Ensure that the necessary headers and authentication details are included to successfully generate the HPP link.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-Tokenization.svg)
+
+### Notes
+
+`store_payment_method`: Must be set to `true` in the payload to store the card token for future use.
+
+```json Request Example
+{
+  "payment_method": {
+    "type": "scheme",
+    "store_payment_method": true
+  }
+```
+
+Setting `store_payment_method` to `true` ensures that the card token is stored for future transactions without needing to re-enter card details.
+
+```json Response Example
+{
+  "transaction_details": {
+    "id": "<transaction_id>",
+    "ref": <ref>,
+    "timestamp": "yyyy-mm-ddThh:mm:ss.000Z",
+    "merchant_txn_ref": "<string>",
+    "stored_payment_method_id": "094db781-fabc-4c6d-8fcd-18bee06a527a"
+  }
+}
+```
+
+The `stored_payment_method_id` can be used in the Use of Card Token API for future transactions without needing to re-enter card details.
+
+## Api Parameters

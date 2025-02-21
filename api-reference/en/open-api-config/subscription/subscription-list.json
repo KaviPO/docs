@@ -1,1 +1,224 @@
-
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Payment Options API",
+    "description": "API for generating Hosted Payment Page (HPP) links and processing payments.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api-dev.paymentoptions.com/api/v1"
+    }
+  ],
+  "security": [
+    {
+      "apiKeyAuth": [],
+      "xApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/api/v1/server-to-server-interface/subscription/list": {
+      "get": {
+        "summary": "Retrieve Subscription List",
+        "description": "This endpoint retrieves a list of subscriptions and their details.",
+        "operationId": "getSubscriptionList",
+        "responses": {
+          "200": {
+            "description": "A successful response containing subscription details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Indicates whether the transaction was successful.",
+                      "example": true
+                    },
+                    "status_code": {
+                      "type": "integer",
+                      "description": "The HTTP status code of the response.",
+                      "example": 200
+                    },
+                    "is_live": {
+                      "type": "boolean",
+                      "description": "Indicates if the transaction is live or a test transaction.",
+                      "example": false
+                    },
+                    "subscription_details": {
+                      "type": "array",
+                      "description": "A list of subscription details.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The Subscription ID.",
+                            "example": "2048b01c-1512-45b9-98fc-27aac4deabce"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "The type of subscription (e.g., CYCLE or Unlimited).",
+                            "example": "CYCLE"
+                          },
+                          "max_cycle_count": {
+                            "type": "integer",
+                            "description": "The maximum number of billing cycles.",
+                            "example": 10
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The status of the subscription.",
+                            "example": "ACTIVE"
+                          },
+                          "completed_payment_cycle": {
+                            "type": "integer",
+                            "description": "The number of completed payment cycles.",
+                            "example": 1
+                          },
+                          "next_payment_date": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "The next payment date of the subscription.",
+                            "example": "2024-12-01T00:00:00.000Z"
+                          },
+                          "next_payment_cycle": {
+                            "type": "integer",
+                            "description": "The next payment cycle number.",
+                            "example": 2
+                          },
+                          "subscription_plan_details": {
+                            "type": "object",
+                            "description": "Details of the subscription plan.",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "The name of the subscription plan.",
+                                "example": "Three weeks plan"
+                              },
+                              "desc": {
+                                "type": "string",
+                                "description": "The description of the subscription plan.",
+                                "example": "Billed every two days"
+                              },
+                              "billing_cycle_type": {
+                                "type": "string",
+                                "description": "The type of billing cycle (e.g., DAYS or MONTHS).",
+                                "example": "DAYS"
+                              },
+                              "billing_cycle_interval": {
+                                "type": "integer",
+                                "description": "The interval between billing cycles.",
+                                "example": 2
+                              },
+                              "amount": {
+                                "type": "integer",
+                                "description": "The payment amount for the subscription plan.",
+                                "example": 1000
+                              },
+                              "ccy": {
+                                "type": "string",
+                                "description": "The currency of the subscription transaction.",
+                                "example": "JPY"
+                              },
+                              "trial_period_duration": {
+                                "type": "string",
+                                "description": "The duration of the trial period (if applicable).",
+                                "example": ""
+                              },
+                              "trial_period_duration_type": {
+                                "type": "string",
+                                "description": "The type of trial period duration (e.g., DAYS or MONTHS).",
+                                "example": "NONE"
+                              },
+                              "plan_discount_percentage": {
+                                "type": "number",
+                                "description": "The discount percentage for the subscription plan.",
+                                "example": 10
+                              },
+                              "plan_discount_duration": {
+                                "type": "integer",
+                                "description": "The duration of the discount in billing cycles.",
+                                "example": 2
+                              }
+                            }
+                          },
+                          "subscription_transaction_details": {
+                            "type": "array",
+                            "description": "A list of transaction details for the subscription.",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "The Transaction ID of this subscription transaction.",
+                                  "example": "00a33a30-be2d-4d5a-8d4f-659a6999d2ff"
+                                },
+                                "ref": {
+                                  "type": "integer",
+                                  "description": "The reference of the subscription transaction.",
+                                  "example": 69400
+                                },
+                                "cycle": {
+                                  "type": "integer",
+                                  "description": "The payment cycle number of the transaction.",
+                                  "example": 1
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "description": "The status of the subscription transaction.",
+                                  "example": "SUCCESSFUL"
+                                },
+                                "transaction_date": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "The date of the subscription transaction.",
+                                  "example": "2024-11-30T00:00:00.000Z"
+                                },
+                                "amount": {
+                                  "type": "integer",
+                                  "description": "The payment amount of the transaction.",
+                                  "example": 900
+                                },
+                                "ccy": {
+                                  "type": "string",
+                                  "description": "The currency of the transaction.",
+                                  "example": "JPY"
+                                },
+                                "event": {
+                                  "type": "string",
+                                  "description": "The event type for the transaction (e.g., CAPTURED).",
+                                  "example": "CAPTURED"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
+      },
+      "xApiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header",
+        "description": "API Key specific to x-api-key."
+      }
+    }
+  }
+}

@@ -1,0 +1,228 @@
+---
+title: 'Response Codes'
+description: 'Response codes returned by the gateway, indicating the status of the request.'
+---
+
+## **Overview**
+
+This page provides a comprehensive list of response codes returned by the gateway, each indicating the status of a specific request. Use this guide to understand and handle each response scenario effectively.
+
+| **Response Code** | **Description**                                                    |
+| :---------------- | :------------------------------------------------------------------ |
+| **-1**            | DAS Gateway Error                                                  |
+| **0**             | Payment Successful                                                 |
+| **1**             | Refer to card issuer OR Referred Call Authorization Center         |
+| **2**             | Refer to card issuer special condition                             |
+| **3**             | Invalid merchant OR Invalid merchant or service provider           |
+| **4**             | Capture card OR Declined Retain Card                               |
+| **5**             | Do not honour OR Declined                                          |
+| **6**             | Error                                                              |
+| **7**             | Failed Signature                                                   |
+| **8**             | Honour with ID OR Transaction approved with ID                     |
+| **10**            | Partial Approval                                                   |
+| **12**            | Invalid transaction                                                |
+| **13**            | Invalid amount OR Invalid amount (currency conversion overflow)     |
+| **14**            | Invalid card number OR Invalid account number (no such number)      |
+| **15**            | Invalid issuer                                                     |
+| **19**            | Re-enter transaction                                               |
+| **20**            | ERROR OR No action taken (unable to back out prior)                |
+| **25**            | Unable to locate record in file or account                         |
+| **28**            | File is temporarily unavailable                                    |
+| **30**            | Format error OR ERROR                                              |
+| **34**            | FRAUD SUSPICION                                                    |
+| **39**            | No credit account                                                  |
+| **41**            | Lost card OR Pickup card (lost card)                               |
+| **43**            | Stolen card OR Pickup card (stolen card)                           |
+| **51**            | Insufficient funds OR Insufficient funds/over credit limit         |
+| **52**            | No checking account                                                |
+| **53**            | No savings account                                                 |
+| **54**            | Expired card OR Declined Expired Card                              |
+| **55**            | Invalid PIN OR ERROR                                               |
+| **57**            | Transaction not permitted to issuer/cardholder                     |
+| **58**            | Transaction not permitted to acquirer/terminal                     |
+| **59**            | Suspected Fraud (Visa)                                             |
+| **61**            | Exceeds withdrawal amount limit                                    |
+| **62**            | Restricted card OR Restricted card (in Country Exclusion table)    |
+| **63**            | Unable to authorize OR ERROR                                       |
+| **64**            | Unable to authorize                                                |
+| **65**            | Exceeds withdrawal count limit OR Authentication requested         |
+| **68**            | Time out                                                           |
+| **70**            | Contact Card Issuer                                                |
+| **71**            | PIN Not Changed                                                    |
+| **75**            | Allowable number of PIN tries exceeded                             |
+| **76**            | Invalid/nonexistent OR Invalid/nonexistent specified               |
+| **77**            | Invalid/nonexistent OR Invalid/nonexistent specified               |
+| **78**            | Invalid/nonexistent account specified (general)                    |
+| **79**            | Already reversed (Visa) OR Lifecycle reasons (Mastercard)          |
+| **80**            | Visa transactions: credit issuer unavailable                       |
+| **82**            | Negative CAM dCVV iCVV or CVV results (Visa) OR Policy reasons (Mastercard) |
+| **83**            | STIP cannot approve (Visa) OR Fraud Security related reasons (Mastercard) |
+| **84**            | Invalid Authorization Life Cycle                                   |
+| **85**            | Not declined. Valid for AVS only balance Inq OR No reason to decline a request |
+| **86**            | Cannot Verify PIN                                                  |
+| **88**            | Unable to authorize                                                |
+| **89**            | Unacceptable PIN - Transaction Declined - Retry OR Ineligible to receive |
+| **91**            | Authorization System or issuer system inoperative                  |
+| **92**            | Unable to route transaction OR Destination cannot be found for routing |
+| **93**            | Transaction cannot be completed violation of law                   |
+| **94**            | Duplicate transmission detected                                    |
+| **96**            | System error OR Unable to authorize                                |
+| **98**            | ERROR                                                              |
+| **99**            | ERROR                                                              |
+| **397**           | Surcharge amount not permitted on Visa                             |
+| **398**           | Surcharge not supported                                            |
+| **442**           | Acquirer Institution Identification Code in the request message is not registered at CAFIS |
+| **443**           | CAFIS System Error. Try again                                      |
+| **444**           | The acquirer system is busy. Try again                             |
+| **445**           | Acquirer system error. Try again                                   |
+| **446**           | The acquirer system has closed. Try again                          |
+| **447**           | CAFIS System Error. Try again                                      |
+| **448**           | Illegal encoding format. Try again                                 |
+| **449**           | CAFIS System Error. Try again                                      |
+| **450**           | CAFIS System Error. Try again                                      |
+| **451**           | Advice message already received                                    |
+| **452**           | CAFIS detected a timeout when it sent the message to the acquirer. Try again |
+| **453**           | CAFIS System Error. Try again                                      |
+| **454**           | CAFIS System Error. Try again                                      |
+| **455**           | CAFIS System Error. Try again                                      |
+| **456**           | CAFIS System Error. Try again                                      |
+| **457**           | CAFIS System Error. Try again                                      |
+| **458**           | The acquirer does not support the service                          |
+| **459**           | CAFIS System Error. Try again                                      |
+| **460**           | CAFIS System Error. Try again                                      |
+| **577**           | The card is unusable                                               |
+| **578**           | The transaction is pending                                         |
+| **579**           | PIN is incorrect                                                   |
+| **580**           | Security Code is incorrect                                         |
+| **581**           | Security Code is not set                                           |
+| **582**           | JIS2 stripe information is invalid                                 |
+| **583**           | The card is maxed out for the day. (insufficient funds)            |
+| **584**           | The amount exceeds the limit for the day. (insufficient funds)     |
+| **586**           | The card is invalid. (MOD 10 check failed)                         |
+| **587**           | The card is invalid (lost/stolen)                                  |
+| **588**           | The card is invalid. (MOD 10 check failed)                         |
+| **589**           | Message element Primary Account Number value is invalid (MOD 10 check failed) |
+| **590**           | Message element Merchant Type value is invalid                     |
+| **591**           | Message element Transaction Amount value is invalid                |
+| **592**           | Message element Tax and Postage value is invalid                   |
+| **593**           | Bonus Count value is invalid                                       |
+| **594**           | Bonus Month value is invalid                                       |
+| **595**           | Bonus Amount value is invalid                                      |
+| **596**           | First Payment Month value is invalid                               |
+| **597**           | Instalment Count value is invalid                                  |
+| **598**           | Instalment Amount value is invalid                                 |
+| **599**           | First Payment Amount value is invalid                              |
+| **600**           | Message elements Service Code Business Code and Message Code value is invalid |
+| **601**           | Message element Payment Division value is invalid                  |
+| **602**           | Message element Inquiry Division value is invalid                  |
+| **603**           | Message element Cancel Division value is invalid                   |
+| **604**           | Message element Original Payment Division value is invalid         |
+| **605**           | The card is expired                                                |
+| **606**           | The card is not applicable to the service                          |
+| **607**           | The acquirer service is completed                                  |
+| **608**           | The invalid card (lost/stolen) has an error                        |
+| **609**           | The request message cannot be processed for some reason            |
+| **610**           | The request message for which a transaction is not supported is received |
+| **611**           | The request message from a centre which has not made the contact   |
+| **622**           | Message element Service Code setting error                         |
+| **623**           | Message element Business Code setting error                        |
+| **624**           | Message element Message Code setting error                         |
+| **625**           | Message element Processor Code setting error                       |
+| **626**           | Message element Merchant Code setting error                        |
+| **627**           | Message element Transaction Identifier setting error               |
+| **628**           | Message element Processor Transaction Date-Time setting error      |
+| **629**           | Message element Card Acceptor Terminal Identification setting error |
+| **630**           | Message element Encryption Method Code setting error               |
+| **631**           | Message element Key Encryption Key Index in Use setting error      |
+| **632**           | Message element Processor Authentication Key Index setting error   |
+| **633**           | Message element Message Encryption Key setting error               |
+| **634**           | Message element Message Authentication Code setting error          |
+| **635**           | Message element Acquirer Institution Identification Code setting error |
+| **636**           | Message element Primary Account Number setting error               |
+| **637**           | Message element Expiration Date setting error                      |
+| **638**           | Message element Track-2 Data setting error                         |
+| **639**           | Message element PIN Data setting error                             |
+| **640**           | Message element Merchant Type setting error                        |
+| **641**           | Message element Transaction Amount setting error                   |
+| **642**           | Message element Tax and Postage setting error                      |
+| **643**           | Message element Point of Service Data Code setting error           |
+| **645**           | Message element Cancel Division setting error                      |
+| **646**           | Message element Original Terminal Processing Serial Number setting error |
+| **647**           | Message element Original Payment Division setting error            |
+| **658**           | Message element Original Processor Transaction Date-Time setting error |
+| **659**           | Message element Original Transaction Identifier setting error      |
+| **660**           | Message element Free Field setting error                           |
+| **661**           | Message element Terminal Processing Serial Number setting error    |
+| **662**           | Message element Security Code setting error                        |
+| **663**           | Message element Electronic Commerce Indicator setting error        |
+| **664**           | Message element XID setting error                                  |
+| **665**           | Message element Accountholder Authentication Value setting error   |
+| **666**           | Message element Transaction Status setting error                   |
+| **667**           | Message element Message Version Number setting error               |
+| **668**           | Message element CAVV Algorithm setting error                       |
+| **669**           | Message element Recurring Flag setting error                       |
+| **670**           | Element Block (e.g. General Transaction Info setting error)        |
+| **671**           | Combination of message elements Service Code and Message Code setting is incorrect |
+| **672**           | Message element Processor Authentication Key Index setting error   |
+| **673**           | There is more than one original transaction to reverse. Unable to reverse the transaction |
+| **674**           | Combination of message elements Processor Code and Merchant Code setting is incorrect |
+| **675**           | Global GEAR System Error. Try Again                                |
+| **676**           | Global GEAR System Error. Transaction result is unclear            |
+| **677**           | Global GEAR System Error. Transaction result is unclear            |
+| **678**           | Global GEAR System Error. Try Again                                |
+| **679**           | Global GEAR System Error. Transaction result is unclear            |
+| **680**           | Global GEAR System Error. Transaction result is unclear            |
+| **681**           | Global GEAR System Error. Try Again                                |
+| **682**           | Global GEAR System Error. Transaction result is unclear            |
+| **683**           | Global GEAR System Error. Transaction result is unclear            |
+| **694**           | Global GEAR System Error. Transaction result is unclear            |
+| **695**           | Global GEAR System Error. Transaction result is unclear            |
+| **696**           | Global GEAR System Error. Transaction result is unclear            |
+| **697**           | Global GEAR System Error. Transaction result is unclear            |
+| **698**           | Global GEAR System Error. Transaction result is unclear            |
+| **699**           | Global GEAR System Error. Transaction result is unclear            |
+| **700**           | Global GEAR System Error. Transaction result is unclear            |
+| **701**           | Global GEAR System Error. Transaction result is unclear            |
+| **702**           | Global GEAR System Error. Transaction result is unclear            |
+| **703**           | Global GEAR System Error. Try Again                                |
+| **704**           | Global GEAR System Error. Transaction result is unclear            |
+| **705**           | Global GEAR System Error. Try Again                                |
+| **828**           | Unable to authorize                                                |
+| **831**           | Cash service not available                                         |
+| **832**           | Cash back request exceeds issuer limit                             |
+| **833**           | Resubmitted transaction over max days limit                        |
+| **835**           | Decline CVV2 failure                                               |
+| **836**           | Transaction amount greater than preauthorized                      |
+| **902**           | Invalid biller information                                         |
+| **905**           | Unable to authorize                                                |
+| **906**           | Unable to authorize                                                |
+| **937**           | Card Authentication failed                                         |
+| **972**           | Stop Payment Order                                                 |
+| **973**           | Revocation of Authorization Order                                  |
+| **975**           | Revocation of All Authorizations Order                             |
+| **1044**          | Approval keep first check                                          |
+| **1045**          | Check OK no conversion                                             |
+| **1046**          | Invalid RTTN                                                       |
+| **1047**          | Amount greater than limit                                          |
+| **1048**          | Unpaid items failed NEG                                            |
+| **1049**          | Duplicate check number                                             |
+| **1050**          | MICR error                                                         |
+| **1051**          | Too many checks                                                    |
+| **1198**          | Forward to issuer                                                  |
+| **1201**          | Forward to issuer                                                  |
+| **1263**          | Unable to authorize                                                |
+| **1295**          | Unknown                                                            |
+
+---
+
+## **Additional Resources**
+
+<CardGroup>
+  <Card title="Frequently Asked Questions" icon="comments-question" href="/support/faqs">
+    Visit our FAQ section for answers to common questions about response codes and troubleshooting.
+  </Card>
+
+  <Card title="Contact Support" icon="life-ring" href="/support/contact">
+    Need assistance? Reach out to our support team for help with response code issues.
+  </Card>
+</CardGroup>
