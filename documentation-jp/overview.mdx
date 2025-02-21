@@ -11,80 +11,81 @@ description: 'Payment Options API は、加盟店、開発者、および決済�
 
 * **詳細なガイド**: 統合プロセスを理解するためのステップバイステップの手順。
 
-* **Code Examples**: Ready-to-use code snippets in multiple programming languages for a smoother development experience.
+* **コード例**: 複数のプログラミング言語ですぐに使えるコード・スニペットで、よりスムーズな開発を実現。
 
-* **Interactive Features**: Postman collections to test and understand functionality in real-time.
-  Whether you are a beginner or an experienced developer, this documentation is crafted to provide all the resources and insights you need for a successful integration.
+* **インタラクティブ機能**: Postman コレクションを使用して、リアルタイムで機能をテストし、理解する。
 
-### Documentation Overview
+初心者から経験豊富な開発者まで、このドキュメントは、統合を成功させるために必要なすべてのリソースと洞察を提供するように作成されています。
+
+### ドキュメントの概要
 
 <CardGroup>
-  <Card title="Get Started" icon="rocket" href="./introduction">
-    Guides for account creation, onboarding, and go-live readiness.
+  <Card title="はじめに" icon="rocket" href="./introduction">
+    アカウント作成、オンボーディング、Go-Liveの準備に関するガイド。
   </Card>
 
-  <Card title="Payments" icon="credit-card" href="./payments/onlinepayment">
-    Learn how to implement online payments, Pay By Link, QR code payments, virtual terminal usage, subscription management, and more.
+  <Card title="決済" icon="credit-card" href="./payments/onlinepayment">
+    オンライン決済、Pay By Link、QRコード決済、バーチャル端末の使用、サブスクリプション管理などの実装方法を学ぶ。
   </Card>
 
-  <Card title="Payment Methods" icon="wallet" href="./paymentmethods/cardschemes">
-    Detailed information on the payment methods our gateway supports, including card schemes, e-wallets, and secure payments.
+  <Card title="決済方法" icon="wallet" href="./paymentmethods/cardschemes">
+    当ゲートウェイがサポートする決済方法に関する詳細情報（カードスキーム、電子ウォレット、セキュア決済など）。
   </Card>
 
-  <Card title="API References" icon="code" href="/api-reference/en/introduction">
-    Technical documentation for each API, including request/response formats and code samples for common use cases like authorization, capture, refunds, and tokenization.
+  <Card title="APIリファレンス" icon="code" href="/api-reference/en/introduction">
+    各APIの技術ドキュメント。認証、キャプチャ、払い戻し、トークン化などの一般的なユースケース向けのリクエスト/レスポンス形式およびコードサンプルを含む。
   </Card>
 
-  <Card title="Error Codes" icon="triangle-exclamation" href="/api-reference/en/error-and-reponse/httpresponse">
-    Troubleshooting section for error responses and HTTP status codes.
+  <Card title="エラーコード" icon="triangle-exclamation" href="/api-reference/en/error-and-reponse/httpresponse">
+    エラーレスポンスおよびHTTPステータスコードのトラブルシューティングセクション。
   </Card>
 
-  <Card title="Change Logs" icon="list-check" href="/logs/revisions">
-    Stay up to date with new features, enhancements, and updates.
+  <Card title="変更履歴" icon="list-check" href="/logs/revisions">
+    新機能、改善点、更新情報を確認。
   </Card>
 
-  <Card title="Support" icon="life-ring" href="/support/merchantguide">
-    Access our comprehensive user guides, FAQs, and contact our support team for further assistance.
+  <Card title="サポート" icon="life-ring" href="/support/merchantguide">
+    包括的なユーザーガイド、FAQ、サポートチームへの問い合わせ情報。
   </Card>
 </CardGroup>
 
-### Key Features
+### 主な機能
 
-**Multiple Payment Methods**:
-We are offering to our Merchants/customers a seamless checkout experience with a variety of payment options:
+**複数の決済方法**:
+加盟店/顧客に、さまざまな決済オプションを備えたシームレスなチェックアウト体験を提供:
 
-* Card Payments: Accept major credit and debit cards with ease.
+* **カード決済**: 主要なクレジットカードおよびデビットカードの受け入れが簡単に可能。
 
-* Pay By Link: Generate secure, shareable payment links for instant payments.
+* **Pay By Link**: 安全な支払いリンクを生成し、即時決済が可能。
 
-* QR Code Payments: Enable fast, contactless payments through QR codes.
+* **QRコード決済**: QRコードを使用した高速・非接触決済を有効化。
 
-* Digital Wallets: Support for popular wallets like Apple Pay and Google Pay for added convenience.
+* **デジタルウォレット**: Apple Pay や Google Pay などの人気ウォレットに対応。
 
-* Subscriptions: Effortlessly manage recurring billing for subscription-based services.
+* **サブスクリプション**: サブスクリプションベースのサービス向けの定期課金を簡単に管理可能。
 
-**Scalability**:
-Our API is capable of handling high transaction volumes without compromising performance:
+**拡張可能性**:
+当社のAPIは、高い取引量を処理しながらもパフォーマンスを損なわずに運用可能:
 
-* Ideal for start-ups to enterprise-level businesses.
+* スタートアップから大規模な企業まで対応可能。
 
-* Built to adapt to your business's expanding needs with no downtime.
+* ビジネスの拡大に合わせて、ダウンタイムなしで適応可能。
 
-**Security**:
+**セキュリティ**:
 
-* 3D Secure (3DS): Enhanced protection for online card transactions.
+* **3Dセキュア (3DS)**: オンラインカード取引の強化保護。
 
-* PCI DSS 4.0 Compliance: Adherence to the latest Payment Card Industry standards to safeguard sensitive data.
+* **PCI DSS 4.0準拠**: 最新の決済業界標準に準拠し、機密データを保護。
 
-* Real-time fraud detection and prevention tools like fraud wall to protect against threats.
+* **リアルタイムの不正検出および不正防止ツール**（Fraud Wallなど）。
 
-**Developer-Friendly**:
-Simplify the integration process with:
+**開発者フレンドリー**:
+統合プロセスを簡素化するために:
 
-* Comprehensive and well-documented API References for quick implementation.
+* 迅速な実装のための包括的かつ詳細なAPIリファレンス。
 
-* Pre-built Postman Collections to test and deploy API endpoints effortlessly.
+* APIエンドポイントのテストと展開を容易にするPre-built Postmanコレクション。
 
-* Sample code snippets in multiple programming languages to minimize development time.
+* 開発時間を最小限にするための複数のプログラミング言語によるサンプル・コード・スニペット。
 
-* Active Business support and community forums for seamless troubleshooting.
+* シームレスなトラブルシューティングのためのビジネスサポートとコミュニティフォーラム。
