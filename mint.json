@@ -15,6 +15,11 @@
       "to": "#F18A00"
     }
   },
+
+  "versions": [
+    "English",
+    "日本語"
+  ],
  
   "topbarLinks": [
     {
@@ -30,17 +35,36 @@
 
     {
       "name": "API Reference",
-      "url": "api-reference/en"
+      "url": "api-reference/en",
+      "version": "English"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference/jp",
+      "version": "日本語"
+    },
+    {
+      "name": "Change Logs",
+      "url": "releases",
+      "version": "English"
       
     },
     {
       "name": "Change Logs",
-      "url": "releases"
+      "url": "releases-jp",
+      "version": "日本語"
       
     },
     {
       "name": "Support",
-      "url": "support"
+      "url": "support",
+      "version": "English"
+     
+    },
+    {
+      "name": "Support",
+      "url": "support-jp",
+      "version": "日本語"
      
     }
   ],
@@ -49,7 +73,15 @@
       "group": "",
       "pages": [
         "documentation/overview"
-      ]
+      ],
+      "version": "English"
+    },
+    {
+      "group": "",
+      "pages": [
+        "documentation-jp/overview"
+      ],
+      "version": "日本語"
     },
      
     {
