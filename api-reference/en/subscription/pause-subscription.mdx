@@ -1,0 +1,31 @@
+---
+title: 'Pause Subscription API'
+openapi: '/api-reference/en/open-api-config/subscription/pause-subscription.json POST /api/v1/server-to-server-interface/subscription/{subscription_id}/pause'
+description: The Pause Subscription API allows merchants to temporarily pause a customer subscription, halting any upcoming billing cycles until the subscription is resumed.
+---
+
+## Key Points
+
+<Info>
+  ### Pause a Subscription
+
+  * Merchants can use this API to pause a subscription, which stops future billing for the customer until the subscription is resumed.
+
+  * During the paused period, the subscription remains active but will not trigger billing or provide services unless resumed.
+
+  ### Subscription Status
+
+  * The subscription will change to paused status in the system.
+
+  * No billing cycles will be processed while the subscription is paused, but the merchant retains control over when to resume the subscription.
+
+  ### Required Parameters
+
+  * Subscription ID: The unique identifier of the subscription to be paused.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-subs-pause.svg)
+
+## Api Parameters

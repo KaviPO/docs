@@ -1,0 +1,21 @@
+---
+title: 'Purchase API'
+openapi: '/api-reference/en/open-api-config/server-to-server/purchase.json POST /api/v1/server-to-server-interface/payment'
+description : The API captured amount immediately after authorization.
+---
+
+## Key Points
+
+<Info>
+  * The Purchase API processes and completes payments instantly by capturing and authorizing funds at the same time.
+
+  * This API is ideal for transactions where the amount is fixed, and the payment must be finalized instantly, such as online retail purchases or digital goods sales.
+
+  * After a successful purchase, the transaction can be refunded if necessary, allowing the merchant to return the funds to the customer.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-Purchase.svg)
+
+## Api Parameters

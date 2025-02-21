@@ -1,0 +1,53 @@
+---
+title: 'Create Subscription API'
+openapi: '/api-reference/en/open-api-config/subscription/create-subscription.json POST /api/v1/server-to-server-interface/subscription/payment'
+description: The Create Subscription API allows merchants to set up recurring billing for customers, offering flexible plans with various billing intervals, trials, and discounts.
+---
+
+### Request Example of Subscription Creation
+
+```json
+"subscription": {
+        "plan_name": "<string>",
+        "plan_desc": "<string>",
+        "cycle_type": "<DAYS/MONTHS>",
+        "subscription_end_type": "CYCLE",
+        "cycle_interval": <int>,
+        "max_cycle_count": <int>,
+        "has_trial_period": <boolean>,
+        "trial_period_duration_type": "DAYS",
+        "trial_period_duration": <int>,
+        "has_discount": <boolean>,
+        "discount_percentage": <int>,
+        "discount_duration": <int>
+    }
+```
+
+### Key Points
+
+<Info>
+  ### Subscription Creation
+
+  * This API enables the setup of subscription plans, allowing for automatic recurring payments. It supports various billing cycles and flexible configurations such as discounts and trial periods.
+
+  ### Subscription Configuration
+
+  * Merchants can define custom plans, including:
+    Plan Name and Description.
+
+  * Cycle Type: Billing can be based on days, weeks, months, etc.
+
+  * Cycle Interval: Defines the frequency of billing (e.g., every 2 days, every month).
+
+  * Max Cycle Count: Sets the maximum number of billing cycles.
+
+  * Trial Period: Option to offer a trial period before the subscription starts.
+
+  * Discounts: Ability to apply discounts for a set number of billing cycles.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-subs-create.svg)
+
+## Api Parameters

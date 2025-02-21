@@ -1,0 +1,21 @@
+---
+title: 'Capture API'
+openapi: '/api-reference/en/open-api-config/server-to-server/capture.json POST /api/v1/server-to-server-interface/capture'
+description: The Capture API is used to finalize a payment by transferring the funds that were previously authorised via the Authorsation API.
+---
+
+### Key Points
+
+<Info>
+  * The Capture API completes the payment process by moving the authorized funds from the customer’s account to the merchant’s account.
+
+  * This API is typically used after an authorisation when the final amount is confirmed, such as after goods are shipped or services are provided.
+
+  * Only the amount that was previously authorised can be captured. If the capture is for a lesser amount, the remaining funds will be released.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-capture.svg)
+
+## Api Parameters

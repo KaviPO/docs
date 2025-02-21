@@ -1,0 +1,163 @@
+---
+title: '3D Secure Integration'
+openapi: '/api-reference/en/open-api-config/server-to-server/purchase.json POST /api/v1/server-to-server-interface/paymentv2'
+description : Comprehensive guide to integrating 3D Secure authentication for enhanced transaction security. 
+---
+
+## **Integration Steps**
+
+### **Step 1: Send a 3D Request**
+To initiate the 3D Secure authentication, send a server-to-server request to the 3D Secure endpoint.
+
+---
+
+### **Step 2: Use the Redirect URL**
+Use the `redirect_url` from the response to open the 3D Secure page in the browser.
+
+---
+
+### **Step 3: After Completing the 3D Secure Authentication**
+
+After the cardholder completes the authentication, the issuer will approve or reject the request. Based on the outcome, the customer will be redirected to either a `success_url` or a `decline_url` that you provide.
+
+<CardGroup> <Card title="success_url" icon="shield-check"> Redirects the customer to the specified page if the 3DS authentication is successful. </Card> <Card title="decline_url" icon="circle-xmark"> Redirects the customer if the authentication is declined or fails.</Card> </CardGroup>
+
+---
+
+### **Step 4: Webhook Notification**
+In addition to the redirect response, the gateway will send a Webhook notification to your specified `webhook_url` to confirm the status of the transaction. This ensures the transaction result is reliably communicated, even if the customer does not return to your website after the 3DS process.
+
+#### **Webhook Sample Response**
+```json
+{
+  "success": true,
+  "status_code": 200,
+  "is_live": false,
+  "transaction_type": "CAPTURE",
+  "gateway_response": {
+    "version": "1",
+    "type": "INFO",
+    "message": "Payment Successful.",
+    "code": "INFO0000"
+  },
+  "merchant_details": {
+    "legal_name": "<merchant name>",
+    "mid": "DASMID",
+    "merchant_txn_ref": "<merchant_txn_ref>"
+  },
+  "payment_details": {
+    "amount": <amount>,
+    "response_code": 0,
+    "auth_code": null,
+    "currency": "<currency>",
+    "payment_method": "",
+    "scheme": "VISA",
+    "card": {
+      "name": "<cardholder’s name>",
+      "number": "<card number>",
+      "exp_month": "MM",
+      "exp_year": "YY"
+    },
+    "additional_data": {
+      "payment_data_source": {
+        "type": "card"
+      }
+    }
+  },
+  "transaction_details": {
+    "id": "<transaction ref Id>",
+    "ref": <ref>,
+    "timestamp": "YYYY-MM-DDTHH:MM:SS.000Z",
+    "merchant_txn_ref": "<merchant_txn_ref>"
+  },
+  "risk-details": {}
+}
+```
+
+---
+
+### **Step 5: Get the 3D Secure Transaction status**
+
+#### **Request Attributes**
+```curl
+
+curl --location '<base_URL>/api/v1/server-to-server-interface/transaction/status/<Transaction Ref ID>' \
+--header 'Authorization: Basic <API Key>' \
+--header 'x-api-key: <x-api-key>' \
+--header 'Content-Type: application/json'
+
+```
+
+#### **Response Attributes**
+```json
+{
+    "success": true,
+    "status_code": 200,
+    "is_live": false,
+    "transaction_type": "CAPTURE",
+    "gateway_response": {
+        "version": "1",
+        "type": "INFO",
+        "message": "Payment Successful.",
+        "code": "INFO0000"
+    },
+    "merchant_details": {
+        "legal_name": "<merchant name>",
+        "mid": "<DASMID>",
+        "merchant_txn_ref": "<merchant_txn_ref>"
+    },
+    "payment_details": {
+        "amount": <amount>,
+        "response_code": 0,
+        "responseDescription": "The transaction was completed successfully.",
+        "auth_code": null,
+        "currency": "<currency>",
+        "payment_method": null,
+        "scheme": "<scheme>",
+        "card": {
+            "name": "<cardholder name>",
+            "number": "<card_number>",
+            "exp_month": "MM",
+            "exp_year": "YY"
+        },
+        "additional_data": {
+            "payment_data_source": {
+                "type": "card"
+            }
+        }
+    },
+    "transaction_details": {
+        "id": "<Transaction Ref Id>",
+        "ref": <ref>,
+        "timestamp": "YYYY-MM-DDTHH:MM:SS.000Z",
+        "billing_details": {
+            "billing_address": {
+                "country": "<country code>",
+                "email": "<email>",
+                "address1": "<address1>",
+                "phone_number": "<phone_number>",
+                "city": "<city>",
+                "state": "<state>",
+                "postal_code": "<postal_code>"
+            },
+            "shipping_address": {
+                "country": "<country code>",
+                "email": "<email>",
+                "address1": "<address1>",
+                "phone_number": "<phone_number>",
+                "city": "<city>",
+                "state": "<state>",
+                "postal_code": "<postal_code>"
+            }
+        }
+    },
+    "risk_details": {
+        "risk_score": null
+    }
+}
+```
+
+---
+
+## Request Attributes
+

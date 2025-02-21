@@ -1,0 +1,23 @@
+---
+title: 'Authorization API'
+openapi: '/api-reference/en/open-api-config/server-to-server/authorization.json POST /api/v1/server-to-server-interface/authorization'
+description: Authorize a payment by securing funds for a transaction without capturing them immediately. 
+---
+
+### Key Points
+
+<Info>
+  * The Authorization API secures the specified amount on the customer's payment method, but the funds are not transferred until a capture is performed.
+
+  * **Capture**: Finalizes the transaction by transferring the authorized funds from the customer’s account.
+
+  * **Void**: Cancels the authorization, releasing the held funds back to the customer.
+
+  * Use cases for this API include scenarios where the exact final amount may vary, such as hotel bookings, car rentals, or pre-order situations.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-Authorisation.svg)
+
+## Api Parameters

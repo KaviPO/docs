@@ -1,0 +1,21 @@
+---
+title: 'Void Authorization API'
+openapi: '/api-reference/en/open-api-config/server-to-server/void-authorization.json POST /api/v1/server-to-server-interface/void'
+description: The Void Authorization API is used to cancel a previously authorized payment before the funds are captured, releasing the hold on the customer’s account.  
+---
+
+### Key Points
+
+<Info>
+  * The Void Authorization API is crucial when a decision is made not to proceed with a transaction that has been authorised but not yet captured.
+
+  * Once the authorization is voided, the funds that were held on the customer’s account are released, making them available to the customer again.
+
+  * This API is typically used in scenarios where an order is cancelled before fulfilment or if there’s a change in transaction details requiring re-authorisation.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-void.svg)
+
+## Api Parameters

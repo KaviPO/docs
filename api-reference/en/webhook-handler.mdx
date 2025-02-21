@@ -1,0 +1,63 @@
+---
+title: 'Webhook Handler'
+description: 'Webhooks enable real-time notifications from the Payment Options Gateway API, allowing your application to automatically respond to events such as completed payments, failed transactions, or refunds. By setting up a webhook handler, you can receive these notifications directly and act on them instantly.'
+---
+
+## **Purpose of Webhooks**
+
+Webhooks provide a mechanism for **event-driven** notifications, allowing you to integrate with Payment Options Gateway and receive updates as they happen. Instead of polling the API for transaction status or other updates, your server receives data automatically when certain events occur.
+
+***
+
+## **Configuring the Webhook URL**
+
+To receive webhook notifications, specify your webhook URL in the API request payload using the `return_url` parameter. This includes URLs for handling various outcomes, such as success, decline, and cancellation.
+
+### **Example: Adding the Webhook URL in the Payload**
+
+In the request payload, define the URLs as follows:
+
+```json
+"return_url": {
+        "webhook_url": "< Webhook url >",
+        "success_url": "http://www.successurl.com/",
+        "decline_url": "http://www.declineurl.com/",
+        "cancel_url": "http://cancelurl.com/"
+    }
+```
+
+## **Webhook URL Parameters**
+
+Define the following URLs within the `return_url` parameter in your API payload:
+
+* **webhook\_url**: The URL where webhook events will be sent.
+
+* **success\_url**: The URL customers are redirected to after a successful transaction.
+
+* **decline\_url**: The URL customers are redirected to if their transaction is declined.
+
+* **cancel\_url**: The URL customers are redirected to if they cancel the transaction.
+
+## **Setting Up Your Webhook Handler**
+
+To start receiving webhooks from PO Gateway, follow these steps:
+
+<Steps>
+  <Step title="Step 1: Define Your Webhook URL">
+    Specify the URL on your server where you want to receive webhook events. This URL should be publicly accessible over HTTPS for security.
+  </Step>
+
+  <Step title="Step 2: Register Your Webhook URL">
+    Include your webhook URL in the `return_url` parameter as shown in the example above. Ensure that it’s properly registered in the API request payload for each transaction.
+  </Step>
+
+  <Step title="Step 3: Secure Your Webhook">
+    Use a **secret key** or **signature verification** to authenticate incoming webhook requests. This helps ensure the requests originate from PO Gateway and have not been tampered with.
+  </Step>
+
+  <Step title="Step 4: Handle the Webhook Payload">
+    Write a function in your server-side application to process the incoming webhook payload. This function should parse the JSON payload, validate the signature (if provided), and respond with a 200 OK status to acknowledge receipt.
+  </Step>
+</Steps>
+
+<Card title="Test Your Webhook" emoji="hammer"> Use the sandbox environment or test mode to simulate webhook events and ensure your webhook handler works as expected before going live. </Card>

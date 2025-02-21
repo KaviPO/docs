@@ -1,0 +1,21 @@
+---
+title: 'Refund API'
+openapi: '/api-reference/en/open-api-config/server-to-server/refund.json POST /api/v1/server-to-server-interface/refund'
+description: The Refund API is used to return funds to the customer after a successful purchase or capture transaction. 
+---
+
+### Key Points
+
+<Info>
+  * The Refund API allows the merchant to reverse a transaction, sending the funds back to the customer’s payment method.
+
+  * This API is typically used in scenarios such as order cancellations, product returns, or when a customer disputes a charge.
+
+  * Refunds can be partial or full, depending on the amount specified in the refund request. If a partial amount is refunded, the remaining balance of the original transaction is still valid.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-refund.svg)
+
+## Api Parameters

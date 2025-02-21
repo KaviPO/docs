@@ -1,0 +1,31 @@
+---
+title: 'Cancel Subscription API'
+openapi: '/api-reference/en/open-api-config/subscription/cancel-subscription.json POST /api/v1/server-to-server-interface/subscription/{subscription_id}/cancel'
+description: The Cancel Subscription API allows merchants to permanently stop a customers subscription, preventing any future billing cycles and services.
+---
+
+### Key Points
+
+<Info>
+  ### Cancel a Subscription
+
+  * This API cancels a subscription, stopping all future billing and services for the customer. Once cancelled, the subscription cannot be resumed.
+
+  * Canceling a subscription typically reflects the customer's request to terminate the service or end the billing agreement.
+
+  ### Subscription Status
+
+  * After cancellation, the subscription status changes to cancelled.
+
+  * The cancellation becomes effective immediately, and no further billing cycles will be processed.
+
+  ### Required Parameters
+
+  * **Subscription ID:** The unique identifier of the subscription to be resumed.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-subs-cancel.svg)
+
+## Api Parameters

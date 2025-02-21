@@ -1,0 +1,38 @@
+---
+title: 'Use Token API'
+openapi: '/api-reference/en/open-api-config/tokenization/use-token.json POST /api/v1/server-to-server-interface/payment'
+description: The Card Token is used to securely complete a Purchase or Authorization transaction without needing to re-enter sensitive card details. This tokenised approach improves security and user experience. 
+---
+
+### Key Points
+
+<Info>
+  * Once a card token is generated, it can be used to execute Purchase or Authorization transactions.
+
+  * The card token replaces the need for actual card details, ensuring that sensitive data is never exposed during the transaction.
+
+  * This method is commonly used for:
+    One-click payments,
+    Recurring transactions (e.g., subscriptions),
+    Stored customer payment details.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-Purchase.svg)
+
+## Api Parameters
+
+### Card Token
+
+Use the `stored_payment_method_id` (generated during token creation) in the payload to complete the transaction.
+
+```json Request Example
+  "payment_method":{
+        "type":"scheme",
+        "store_payment_method":true,
+        "stored_payment_method_id": "094db781-fabc-4c6d-8fcd-18bee06a527a"
+    },  
+```
+
+The `stored_payment_method_id` is the token generated from the card tokenization process and is used to securely complete subsequent transactions.

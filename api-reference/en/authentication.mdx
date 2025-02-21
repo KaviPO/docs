@@ -1,0 +1,62 @@
+---
+title: 'Authentication'
+---
+
+Access to the API is authenticated using **HTTP Basic Auth** ([Learn More](https://en.wikipedia.org/wiki/Basic_access_authentication))
+along with the `x-api-key` header.
+
+### **Getting Started**
+
+Authentication information will be available after the account creation. Authentication can be used in the following ways:
+
+* **Using ‘LIVE API KEY’**:
+  The **LIVE API KEY** details are available on the website. Provide your LIVE API KEY as the Basic Auth username value. You do not need to provide a password.![Payment Options Documentation](/images/flows-authentication-encode.svg)
+
+* **Using Encoded ‘LIVE API KEY’**:
+  Encode the **LIVE API KEY** by using the **ENCODE BASE64** button available on the website.![Payment Options Documentation](/images/flows-authentication-decode.svg)
+
+After encoding the **LIVE API KEY**, attach the string **Basic** in front of the encoded key followed by a space, and provide this value in the `Authorization` header.
+
+```bash
+
+curl --location --request POST '<URL>' \
+--header 'Authorization: Basic <Encoded LIVE API KEY>'
+
+```
+
+## Authenticating API Calls
+
+To authenticate each API request, include both the Authorization and x-api-key headers.
+
+```bash
+
+curl --location --request POST '<URL>' \
+--header 'Authorization: Basic <Encoded LIVE API KEY>' \
+--header 'x-api-key: <x-api-key value>'
+
+```
+
+<Note> Always ensure that your **LIVE API KEY** is encoded securely and passed correctly in the headers for successful authentication. </Note>
+
+## **API Headers**
+
+API headers provide additional metadata for each API call, including crucial information about the request and response.
+
+| **Header**          | **Description**                  |
+| :------------------ | :------------------------------- |
+| **`x-api-key`**     | Provided along with credentials. |
+| **`Authorization`** | Basic `<Encoded LIVE API KEY>`.  |
+
+### **Important Note**
+
+If using plain LIVE API KEY for the **Authorization** header, include **"Basic"** before the base64-encoded API key to authenticate requests properly.
+
+<Info title="Example" emoji="information">
+  Authorization: Basic Encoded LIVE API KEY
+</Info>
+
+![Live API Key](/images/flows-APIheader.svg)
+
+<Card title="Need Help?" icon="life-ring" href="/support/contact">
+  If you need assistance or have questions regarding setting up your authentication, please [contact our support team](./support/contact) for further guidance.
+</Card>

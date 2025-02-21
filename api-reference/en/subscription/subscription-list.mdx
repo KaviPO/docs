@@ -1,0 +1,37 @@
+---
+title: 'Subscription List API'
+openapi: '/api-reference/en/open-api-config/subscription/subscription-list.json GET /api/v1/server-to-server-interface/subscription/list'
+description: The Subscription List API allows merchants to retrieve a list of all active, cancelled, or expired subscriptions, providing an overview of their customers subscription statuses.
+---
+
+### Notes
+
+There is no request payload required for this API. Simply ensure that the correct authentication details (API key, etc.) are included in the request headers.
+
+| **Header**      | **Description**                                                                            |
+| :-------------- | :----------------------------------------------------------------------------------------- |
+| `x-api-key`     | Provided along with credentials.                                                           |
+| `Authorization` | Live API Key obtained from merchant details on PO Gateway.                                 |
+| `Content-Type`  | Indicates that all response attributes will be in JSON format (set to `application/json`). |
+
+### Key Points
+
+<Info>
+  ### Retrieve Subscription Data
+
+  * The Subscription List API helps merchants track the status of all subscriptions plans, including active, cancelled, or expired subscriptions.
+
+  ### Subscription Data - Each subscription record includes
+
+  * Subscription ID
+
+  * Plan Name and Description
+
+  * Current Status (active, expired, or canceled)
+
+  * Start Date and End Date
+
+  * Cycle Interval and Next Billing Date
+
+  * Trial and Discount Information (if applicable).
+</Info>

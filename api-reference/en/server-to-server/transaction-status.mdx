@@ -1,0 +1,17 @@
+---
+title: 'Transaction Status API'
+openapi: '/api-reference/en/open-api-config/server-to-server/transaction-status.json GET /api/v1/server-to-server-interface/transaction/status/{transactionId}'
+description: The Transaction Status API is used to retrieve the current status of a specific transaction, including pre-authorization, capture, refund, or void transactions.
+---
+
+### Key Points
+
+<Info>
+  * The transactionId is required to query the status of the specific transaction.
+
+  * The API will return detailed information about the transaction, including its current status and any relevant error codes or messages.
+
+  * This API is essential for tracking and managing transaction lifecycles, ensuring that transactions are completed successfully or identifying any issues that require attention.
+</Info>
+
+## Api Parameters

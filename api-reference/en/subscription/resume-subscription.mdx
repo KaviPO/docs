@@ -1,0 +1,31 @@
+---
+title: 'Resume Subscription API'
+openapi: '/api-reference/en/open-api-config/subscription/resume-subscription.json  POST /api/v1/server-to-server-interface/subscription/{subscription_id}/resume'
+description: The Resume Subscription API allows merchants to reactivate a previously paused subscription, resuming the billing cycle and associated services for the customer.
+---
+
+### Key Points
+
+<Info>
+  ### Resume a Subscription
+
+  * Merchants can use this API to resume a subscription that was previously paused, restoring regular billing and service.
+
+  * Once resumed, the subscription will return to its active status, and future billing cycles will proceed as originally scheduled.
+
+  ### Billing Cycle and Status
+
+  * The subscription will be reinstated to the active status, and billing will pick up from where it left off. If the next billing cycle is due, it will be processed automatically.
+
+  * Any discounts or trial periods configured in the original subscription will continue as initially set.
+
+  ### Required Parameters
+
+  * Subscription ID: The unique identifier of the subscription to be resumed.
+</Info>
+
+## Flow diagram
+
+![Flow diagram image](/images/timeline-diagram/flows-API-subs-resume.svg)
+
+## Api Parameters

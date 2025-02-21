@@ -1,0 +1,110 @@
+---
+title: 'Merchant Details'
+description: 'The Merchant Detail Page on the Payment Options Gateway contains all the essential information required to configure API payloads for transaction processing. This includes unique identifiers, currency preferences, scheme types, transaction types, and other critical details. Understanding these parameters helps ensure that transactions are processed accurately and securely.'
+---
+
+## **Purpose**
+
+The **Merchant Detail Page** centralizes all the necessary configuration details for building API payloads, allowing merchants to interact with the Payment Options Gateway seamlessly. By accessing these details, developers can configure payloads that align with merchant-specific settings, enhancing compatibility and reducing transaction errors.
+
+![Product Information](/images/flows-productinfo.svg)
+
+## **Key Information Available on the Merchant Detail Page**
+
+The Merchant Detail Page provides the following key information, each essential for proper API configuration:
+
+### **Merchant ID**
+
+* The **Merchant ID** is a unique identifier assigned to each merchant.
+
+* **Required for API Payloads**: This ID must be included in API requests, as it identifies the merchant's account within the Payment Options Gateway.
+
+* **Consistency**: Ensures transactions are attributed to the correct merchant account, facilitating accurate processing and reporting.
+
+### **Processing Currency**
+
+* Defines the currency in which the merchant processes transactions.
+
+* **Currency Support**: The processing currency must align with the merchant's regional and operational requirements.
+
+* **Examples**: JPY (Japanese Yen), USD (U.S. Dollar), PHP (Philippine Peso).
+
+* **Configuration**: Configuring the correct currency is crucial for ensuring that customers are charged accurately, and it impacts currency conversion for international transactions.
+
+### **Scheme Type**
+
+* The payment schemes (e.g., **Visa**, **MasterCard**) configured for the merchant account.
+
+* **Scheme Configuration**: Determines the types of cards accepted by the merchant, impacting the scope of customer payments.
+
+* **Usage**: This setting should align with the merchant's target audience and preferred card networks.
+
+## **Transaction Type**
+
+The Merchant Detail Page also specifies transaction types that determine how payments are processed:
+
+<CardGroup>
+  <Card title="3DS (3D Secure)" icon="shield-check">
+    A security protocol for online transactions that requires additional customer verification. Recommended for enhanced security, it helps prevent fraud, especially in high-risk transactions.
+  </Card>
+
+  <Card title="Non-3DS" icon="lock-open">
+    Standard transactions that do not require 3DS verification. Commonly used for lower-risk transactions or where 3DS is not mandatory.
+  </Card>
+
+  <Card title="Recurring" icon="calendar">
+    For scheduled, automatic transactions such as subscriptions. The API triggers these transactions based on a predefined schedule, eliminating the need for manual customer input.
+  </Card>
+
+  <Card title="Tokenized" icon="key">
+    Secure transactions using a stored token instead of raw card details, allowing card-on-file payments while maintaining PCI compliance. Ideal for repeat customers or memberships.
+  </Card>
+</CardGroup>
+
+## **Other Crucial Information**
+
+In addition to the above key details, the Merchant Detail Page also provides other configuration information critical for the merchant's operational needs:
+
+### **Merchant's Payment Configurations**
+
+* Details specific payment settings that affect how transactions are processed.
+
+* **Configuration Options**: These may include options like default settlement times, preferred authorization settings, and other merchant-specific transaction preferences.
+
+### **Supported Payment Methods**
+
+* **Available Payment Methods**: The page lists all supported payment methods for the merchant, such as:
+
+  * **Apple Pay**
+
+  * **Google Pay**
+
+  * **GCash**
+
+* **Multi-Channel Support**: Having multiple payment methods ensures customers can use their preferred payment channel, increasing conversion rates.
+
+### **Limits and Restrictions**
+
+* Defines transaction limits and processing restrictions for the merchant.
+
+* **Transaction Limits**: The maximum amount that can be processed in a single transaction or daily limits.
+
+* **Restrictions**: May include geographical restrictions, maximum transaction frequencies, and card type limitations, ensuring compliance with regional or operational rules.
+
+## **Using Merchant Details for API Payload Configuration**
+
+By accessing and correctly implementing these details, merchants and developers can build accurate and efficient API payloads. This allows for:
+
+* **Improved Transaction Accuracy**: Ensures all transactions are routed and processed with the correct configurations.
+
+* **Enhanced Security and Compliance**: Transaction types like 3DS and tokenization add layers of security to reduce fraud and comply with regulatory standards.
+
+* **Customizable Customer Experience**: Supporting various payment methods and adhering to merchant-specific configurations improves the customer experience and encourages higher conversion rates.
+
+<Card title="Download Complete Merchant User Guide" icon="file-pdf" href="/support/merchantguide">
+  For a comprehensive guide on merchant operations and configurations, you can download our Merchant User Guide.
+</Card>
+
+<Card title="Need Assistance?" icon="life-ring" href="/support/contact">
+  If you need assistance or have questions regarding document submission, please contact our support team for further guidance.
+</Card>
