@@ -1,0 +1,114 @@
+---
+title: 'OpenCart'
+description: 'Installation Guide for Opencart 3.0.x.x – 3.1.x.x'
+---
+
+<Card title="OpenCart">
+  ![Opencart](/images/opencart.svg)
+
+  * **Description**: Enable Gateway payments for OpenCart.
+</Card>
+
+## **Mandatory requirements to be in the machine while installation**
+
+* PHP version 5.6+
+
+* cURL
+
+* OpenSSL
+
+* Opencart 3.0.x.x or 3.1.x.x
+
+* Installation can be done only through the cPanel/FTP/Admin Panel. This module may not support one-page checkout template
+
+## **SME Dasgateway payment module installation**
+
+Module Installation can be done through
+
+* FTP Server/cPanel OR
+
+* Admin Panel
+
+## **Module installation through FTP Server/cPanel**
+
+<Steps>
+  <Step>
+    Install Opencart 3.0.x.x or above on your server
+  </Step>
+
+  <Step>
+    Download the latest Source code zip file from the Payment Options GitHub
+    ( Use the download   Link : [https://github.com/paymentoptions/opencart-extension](https://github.com/paymentoptions/opencart-extension) )
+  </Step>
+
+  <Step>
+    Unzip “dasgatewayqr\_oc\_payment\_module\_3-0-x.ocmod.zip”
+  </Step>
+
+  <Step>
+    Upload the ‘admin’ and ‘catalogue’ folders into your Opencart route directory through the FTP client
+  </Step>
+</Steps>
+
+## **Module Installation through Admin Panel**
+
+<Steps>
+  <Step>
+    Login to the admin panel with credentials
+  </Step>
+
+  <Step>
+    Download the latest binary zip file from the Payment Options GitHub
+    ( Use the download Link : [https://github.com/paymentoptions/opencart-extension/releases](https://github.com/paymentoptions/opencart-extension/releases) )
+  </Step>
+
+  <Step>
+    Unzip “dasgatewayqr\_oc\_payment\_module\_3-0-x.ocmod.zip”
+    ![unzip image](/images/plugins/plugins-open-01.png)
+  </Step>
+
+  <Step title="After the installation by any of the methods given above, proceed with steps">
+    Go to your Opencart store admin using username and password, click on the extension option under the Extension menu and select the Payments option from the dropdown list at the top of the screen
+    ![extention image](/images/plugins/plugins-open-02.png)
+  </Step>
+
+  <Step>
+    Under the Payment List, you will find the “SME Dasgateway” Payment option
+  </Step>
+
+  <Step>
+    Install the “SME Dasgateway” Payment module by clicking the “+” option
+    ![extention image](/images/plugins/plugins-open-03.png)
+  </Step>
+
+  <Step>
+    From the list select the SME category
+    ![extention image](/images/plugins/plugins-open-04.png)
+  </Step>
+
+  <Step>
+    After completing the installation, click the edit button to open the “SME Dasgateway” configuration page
+  </Step>
+
+  <Step>
+    Access Token - Enter Your `Secret API Key` received from Payment Options
+  </Step>
+
+  <Step>
+    Merchant ID - Enter Your `Merchant ID` received from Payment Options
+  </Step>
+
+  <Step>
+    Toggle Live or Test to select the processing environment
+  </Step>
+
+  <Step>
+    Set sort order and enable the module to enable the payment option on the Payment Page
+    ![extention image](/images/plugins/plugins-open-05.png)
+  </Step>
+</Steps>
+
+
+<Card title="Need Assistance?" icon="life-ring" href="/support/contact">
+  If you need further assistance, please [reach out to our support team](./support/contact). Our team is here to help you troubleshoot and resolve any issues you may be experiencing.
+</Card>

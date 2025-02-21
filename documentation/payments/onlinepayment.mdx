@@ -1,0 +1,92 @@
+---
+title: 'Online Payment'
+description: 'Welcome to the Online Payment section, your gateway to seamlessly accepting payments through multiple channels. Whether you are integrating a simple Hosted Payment Page, leveraging APIs for custom solutions, or using website plugins for effortless setup, this section offers step-by-step guidance tailored to your needs.'
+---
+
+From detailed instructions on integration to tips for optimizing payment flows, you'll find everything you need to get started and succeed in managing online transactions effortlessly.
+
+Let us help you create a secure, reliable, and user-friendly payment environment for your customers!
+
+## **Accepting Payments**
+
+Payment Options offers a flexible and secure way to accept online payments. With multiple integration methods, you can easily choose the one that best suits your business:
+
+![Online payment](/images/flows-online.svg)
+
+* **Hosted Payment Page (HPP)**: A quick and secure way to accept payments without handling sensitive data directly.
+
+* **APIs**: For businesses that require deeper integration, our APIs for purchase and authorization give you complete control over the payment flow.
+
+* **Website Plugins**: Ready-to-use plugins designed for popular eCommerce platforms, making it easy to start accepting payments on your website.
+
+## **Hosted Payment Page (HPP)**
+
+Our **Hosted Payment Page** provides a secure and customizable checkout experience. This method allows you to redirect customers to a hosted page where they can enter their payment details, ensuring PCI compliance and data security.
+
+![Hosted Payment Page](/images/flows-hpp.svg)
+
+<CardGroup>
+  <Card title="Getting Started with HPP" icon="rocket">
+    Log in to your account to set up and customize your Hosted Payment Page. You can generate a unique HPP link directly from your product (HPP) to integrate into your website or app.
+  </Card>
+
+  <Card title="Benefits of HPP" icon="shield-check">
+    * PCI compliance is managed on your behalf.
+    * Customizable to align with your brand.
+    * Quick setup, minimal development required.
+  </Card>
+</CardGroup>
+
+Access the [Generate HPP Link Endpoint](/api-reference/en/hpp/generate-link) to try out creating your own HPP link.
+
+<Note> Use the HPP link to direct customers to a secure page for entering payment information. This method is ideal for businesses looking to reduce PCI compliance overhead.</Note>
+
+## **APIs for Online Payment**
+
+For full control over your payment process, use our APIs to integrate directly with your website or application. You can integrate directly with our **PURCHASE** and **AUTHORIZATION** APIs. These APIs provide flexibility in managing transactions and allow you to create custom payment experiences.
+
+![Payment API](/images/flows-online-API.svg)
+
+### **PURCHASE API**
+
+* **Purpose**: The PURCHASE API is used to initiate a one-time payment.
+
+* **Features**: Supports various payment methods, including card and digital wallets.
+
+* **Endpoint**: See the [Purchase API Documentation](/api-reference/en/server-to-server/purchase) for setup and usage guidelines.
+
+### **AUTHORIZATION API**
+
+* **Purpose**\*: The AUTHORIZATION API is used to place a hold on a specified amount without capturing it immediately, commonly used for pre-authorizations.
+
+* **Features**: Allows you to authorize funds and capture them at a later time.
+
+* **Endpoint**: Find details in the [Authorization API Documentation](/api-reference/en/server-to-server/authorization) for implementation instructions.
+
+<Tip>Tip: Use the PURCHASE API for direct payments and the AUTHORIZATION API for holding funds, such as in hotel reservations or car rentals.</Tip>
+
+## **Website Plugins (Ecommerce Websites)**
+
+For businesses using popular e-commerce platforms, we offer plugins that simplify online payment integration without extensive development. These plugins are available for platforms like:
+
+<CardGroup cols={2}>
+  <Card title="WooCommerce" icon="puzzle-piece-simple" href="/support/plugins-woocommerce">
+    Integrate payments seamlessly into your WooCommerce store with minimal setup.
+  </Card>
+
+  <Card title="Magento 2" icon="puzzle-piece-simple" href="/support/plugins-magento">
+    Add secure payment processing to your Magento 2 website with our plugin.
+  </Card>
+
+  <Card title="OpenCart" icon="puzzle-piece-simple" href="/support/plugins-opencart">
+    Get started quickly with OpenCart, adding secure payments to your e-commerce store.
+  </Card>
+</CardGroup>
+
+<Note>Each plugin includes setup instructions and is optimized for a smooth and secure payment experience. Contact our support team if you need assistance with installation.</Note>
+
+## **Next Steps**
+
+By using our online payment solutions, you can integrate flexible and secure payment options into your business. Select the option that best aligns with your requirements, whether it's a simple hosted payment page, an e-commerce plugin, or a fully customized API integration.
+
+Ready to start accepting online payments? Choose one of the methods above based on your business needs and integration capabilities. For additional information on setup or troubleshooting, please reach out to [Our Support Team](/support/contact)

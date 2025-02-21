@@ -1,0 +1,151 @@
+---
+title: 'Create Partner Account'
+description: 'To create a partner account with Payment Options, follow these steps to ensure a smooth onboarding experience. As a partner, you will be able to manage your account, onboard merchants on your behalf, and more. Refer to the checklist below to ensure all necessary details are provided during the onboarding process'
+---
+
+## **Features**
+
+**1. Localization**
+
+* Description: Provide the ability for partners to select their preferred language (English or Japanese) during the onboarding process.
+
+* Implementation Details:
+
+  * Display a language selection option at the beginning of the onboarding process.
+
+  * Ensure all steps, forms, and notifications are fully translated into the selected language.
+
+  * Allow partners to switch the language at any time without losing progress.
+
+**2. Partner Account & Password Creation**
+
+* Description: Enable partners to create a secure account with a unique username and password.
+
+* Implementation Details:
+
+  * Username: Ensure the username is unique and validate it for format and length.
+
+  * Password: Enforce strong password policies (e.g., minimum 12 characters, at least one uppercase letter, one number, and one special character).
+
+**3. Email Verification through OTP**
+
+* Description: Ensure the user’s email is valid by sending a one-time password (OTP) for verification.
+
+* Implementation Details:
+
+  * Send a unique OTP to the email provided during registration.
+
+  * Allow the user to input the OTP into a verification field.
+
+**4. Session Management**
+
+* Enable partners to log off and resume the registration process later.
+
+* Implementation Details:
+
+  * Store progress in real-time and allowing users to resume from where they left off.
+
+  * Implement a secure authentication mechanism for re-login.
+
+  * Provide a session timeout for inactive users to enhance security.
+
+**5. Terms of Usage**
+
+* Require partners to accept the Terms and Conditions and Privacy Policy.
+
+* Implementation Details :
+
+  * Present the Terms & Conditions in a scrollable, easy-to-read format.
+
+  * Include a mandatory checkbox to indicate acceptance.
+
+**6. Pending Application Deletion**
+
+* Description: Automatically delete incomplete partner applications after 7 days of inactivity.
+
+* Implementation Details:
+
+  * Automate deletion of data after 7 days if no action is taken.
+
+**7. Interactive Website Tour**
+
+* Offer a guided tutorial to familiarize new partners with system features.
+
+* Implementation Details:
+
+  * Implemented an interactive tour with tooltips and highlights for key features.
+
+  * Offer an option to skip the tour at any time.
+
+**8. Password Management**
+
+* Enable partners to change or reset their password at any time.
+
+* Implementation Details :
+
+  * The user has a feature to change his password any time.
+
+  * Provided a Forgot Password option with email-based recovery.
+
+**9. Account Approval Notification**
+
+* Notify partners once their application is approved, including their Partner ID and relevant credentials.
+
+* Implementation Details:
+
+  * Send an approval email with the Secret API Key securely embedded.
+    
+
+
+
+![Self Onboarding Process](/images/flows-createPAccount.svg)
+
+## **Steps to Create a Partner Account**
+
+Follow these steps to complete your partner account setup:
+
+<Steps>
+  <Step title="Partner Meeting with Sales Representative or Self-Onboarding">
+    Begin by meeting with a sales representative or self-onboard through the online portal.
+  </Step>
+
+  <Step title="Create Your Partner Account">
+    Set up your account with a unique username and password. You’ll receive an OTP to verify your email address.
+  </Step>
+
+  <Step title="About Your Business">
+    Provide essential details about your business, including name, address, and any relevant industry information.
+
+    Please note that documents proving **Company Registration**, **Certificate of Incorporation**, **Share Register**, or **Proof of Address** are required for this step.
+  </Step>
+
+  <Step title="About Your Stakeholders">
+    Add information about key stakeholders, including IDs and roles within the business.
+
+    * **Verify Your Identity**: To complete KYC (Know Your Customer), verify your identity through our secure identity verification process. This step is essential for compliance. Please refer to the [Partner Onboarding Checklist](./partnerchecklist) section to ensure you have all the necessary documents ready for verification.
+  </Step>
+
+  <Step title="Payout Details">
+    Enter your payout details to ensure seamless processing of funds. This includes providing your bank account information or other payment options for receiving payouts.
+
+    Please note that a **Bank Statement** or **Statement of Account** (dated within the last 3 months) is required for this step.
+  </Step>
+
+  <Step title="Final Step">
+    Review all entered information, agree to the Terms of Usage, and submit your application.
+  </Step>
+</Steps>
+
+***
+
+## **Final Steps**
+
+Please ensure all required information is provided and documents are submitted accordingly. After your application has been reviewed and approved, you will receive an email notification with a referral code and further instructions.
+
+<Card title="Create an Account" icon="rocket" href="https://me.paymentoptions.com/onboarding/choose-account">
+  Click here to create an account and start using Payment Options.
+</Card>
+
+<Card title="Need Help?" icon="life-ring" href="/support/contact">
+  If you need assistance or have questions regarding document submission, please [contact our support team](./support/contact) for further guidance.
+</Card>

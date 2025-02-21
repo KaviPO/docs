@@ -1,0 +1,173 @@
+---
+title: 'Subscription'
+description: 'The Subscription product enables seamless recurring payments through the gateway, offering a centralized solution to create, assign, and manage subscription plans efficiently.'
+---
+
+Merchants can set up multiple plans with customizable billing intervals and pricing catering to various customer needs and share subscription links through channels like email or WhatsApp.
+
+Customers can easily subscribe via a secure Hosted Payment Page (HPP) link which simplifies the process by allowing them to review plan details, enter payment information and automate future payments. This streamlined approach ensures efficient subscription management, enhances customer convenience and payment statuses, making it an ideal solution for businesses with recurring revenue models.
+
+## **How Subscription Works**
+
+With the Subscription product, you can create and manage multiple subscription plans, each with its own settings for recurring billing. Once a plan is created, you can send a link to your customer, allowing them to subscribe and enter their payment information.
+
+![Subscription Flow](/images/flows-subscription.svg)
+
+## **Features of Subscription**
+
+<CardGroup>
+  <Card title="Recurring Billing" icon="calendar">
+    Automate payments on a regular schedule with our recurring billing feature.
+  </Card>
+
+  <Card title="Flexible Plan Creation" icon="plus">
+    Create and manage as many subscription plans as you need, each with unique settings.
+  </Card>
+
+  <Card title="Customer Self-Enrollment" icon="link">
+    Share an HPP link, enabling customers to subscribe to plans directly and securely.
+  </Card>
+</CardGroup>
+
+## **Subscription Parameters**
+
+Here are the parameters you can use to configure and customize subscription plans:
+
+```json
+{
+  "subscription": {
+      "plan_name": "<string>",
+      "plan_desc": "<string>",
+      "cycle_type": "<DAYS/MONTHS>",
+      "subscription_end_type": "CYCLE",
+      "cycle_interval": <int>,
+      "max_cycle_count": <int>,
+      "has_trial_period": <boolean>,
+      "trial_period_duration_type": "DAYS",
+      "trial_period_duration": <int>,
+      "has_discount": <boolean>,
+      "discount_percentage": <int>,
+      "discount_duration": <int>
+  }
+}
+```
+
+## **Key Parameters**
+
+Here are the essential parameters for configuring your subscription plans:
+
+* **`plan_name`**: Name of the subscription plan.
+
+* **`plan_desc`**: Description of the subscription plan.
+
+* **`cycle_type`**: Frequency of recurrence (e.g., DAYS or MONTHS).
+
+* **`cycle_interval`**: Specifies how often the billing cycle repeats.
+
+* **`max_cycle_count`**: Maximum number of cycles for the subscription.
+
+* **`has_trial_period`**: Indicates if a trial period is included.
+
+* **`trial_period_duration_type`**: Unit for the trial period duration (e.g., DAYS).
+
+* **`trial_period_duration`**: Length of the trial period.
+
+* **`has_discount`**: Specifies whether a discount applies.
+
+* **`discount_percentage`**: Discount percentage on the subscription price.
+
+* **`discount_duration`**: Length of time the discount is applied.
+
+## **To configure recurring payments**
+
+<Steps>
+  <Step title="Login to DASGatway">
+    * Login to DASGateway and click on the Merchant detail screen.
+  </Step>
+
+  <Step title="Access the Subscription Product">
+    Navigate to your product list and select the Subscription product from the added product list.
+  </Step>
+
+  <Step title="Create a Subscription Plan">
+    Within the Subscription Product, create a new subscription plan by specifying details such as the plan name, billing frequency, and payment amount.
+  </Step>
+
+  <Step title="Manage Subscription Plans">
+    Once a subscription plan is created, subscription plans will appear in your list of available plan list. You can review, update, or duplicate plans as necessary.
+  </Step>
+
+  <Step title="Start a Subscription/ Add Subscriber to the plan">
+    To start a subscription, select a plan and assign it to a customer. Specify the link expiry date and plan start date, then click the submit button. A unique enrollment link will be generated.
+  </Step>
+
+  <Step title="Send the Subscription Link">
+    Share the generated (HPP) link with the customer. They can use the link to review the plan, enter payment information, and complete enrollment.
+  </Step>
+
+  <Step title="Manage Subscriber Information">
+    Once the customer subscribes, their details are saved in the subscriber management section. You can access and update subscriber information as required.
+  </Step>
+</Steps>
+
+## **Pause, Cancel, and Resume Active Subscription**
+
+Managing Active Subscriptions: Pause, Cancel, and Resume
+
+**1. Pause Subscription**
+
+Purpose: This will temporarily stop the subscription without permanently canceling it.
+
+Steps:
+* Click on the subscriber management section.
+* Select the active subscription you wish to pause.
+* Click the "Pause" option and confirm the action.
+
+Impact:
+* No further charges will be made while the subscription is paused.
+* The subscription can be resumed at any time by the merchant or user.
+
+**2. Cancel Subscription**
+
+Purpose: It will permanently stop the subscription and prevent any future billing.
+
+Steps:
+* Go to the subscriber management section.
+* Choose the subscription to be canceled.
+* Click the Cancel button and confirm the action.
+
+Impact:
+* The subscription is terminated immediately, or based on the end-of-billing-cycle option if supported.
+* Customers will no longer receive services under the canceled subscription.
+
+**3. Resume Subscription**
+
+Purpose: This will reactivate a paused subscription to continue billing and service.
+
+Process :
+* Locate the paused subscription in the subscriber management section.
+* Select the "Resume" option and confirm the action.
+
+Impact:
+* Billing resumes according to the original subscription terms.
+* Services are resumed for the customer.
+
+## **Best Practices for Subscription Management**
+
+* **Create Distinct Plan Names**: Use clear and specific names for subscription plans to make management easier.
+
+* **Set Appropriate Billing Intervals**: Ensure the billing frequency and amount match customer expectations to reduce churn.
+
+* **Review Subscriber Details Regularly**: Keep subscriber information updated and review subscription statuses periodically.
+
+## **Next Steps**
+
+To start managing subscriptions, log in to your account and access the Subscription product. For further assistance or support, feel free to contact our team.
+
+<Card title="Merchant User Guide" icon="store" href="/support/merchantguide">
+    For detailed information about all merchant features and functionalities, you can download our comprehensive Merchant User Guide.
+  </Card>
+
+<Card title="Need Assistance?" icon="life-ring" href="/support/contact">
+  If you need further assistance, please [reach out to our support team](./support/contact). Our team is here to help you troubleshoot and resolve any issues you may be experiencing.
+</Card>

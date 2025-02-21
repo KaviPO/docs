@@ -1,0 +1,129 @@
+---
+title: 'Magento 2'
+description: 'Integration Guide for Magento 2'
+---
+
+  <Card title="Magento 2">
+    ![Magento 2](/images/magento2.svg)
+
+    * **Description**: Seamlessly connect the Gateway with Magento 2.
+  </Card>
+
+## **Install Extension**
+
+<Steps>
+  <Step>
+    Download the latest Source code zip file from the Payment Options GitHub
+    ( Use the download Link : [https://github.com/paymentoptions/magento2-extension](https://github.com/paymentoptions/magento2-extension) ).
+  </Step>
+
+  <Step>
+    Extract the magento2-extension.zip.
+  </Step>
+
+  <Step>
+    Place the extracted files into `app/code/Agtech/Paymentoptions/` folder under Magento root path
+  </Step>
+
+  <Step>
+    Check your Magento Mode:
+    Run `php bin/magento deploy:mode:show` to find your mode
+    If your Magento mode is "production", please run the below commands:
+
+    * `php bin/magento cache:clean`
+
+    * `php bin/magento cache:flush`
+
+    * `php bin/magento setup:upgrade`
+
+    * `php bin/magento setup:di:compile`
+
+    * `php bin/magento setup:static-content:deploy`
+
+    If your Magento mode is "default" (or) "developer", please run the below commands:
+
+    * `php bin/magento setup:upgrade`
+
+    * `php bin/magento setup:di:compile`
+
+    * `php bin/magento setup:static-content:deploy -f`
+  </Step>
+</Steps>
+
+## **Configure  Extension**
+
+<Steps>
+  <Step>
+    Log in to your Magento Store Backend
+  </Step>
+
+  <Step>
+    Choose Stores on the Admin sidebar to the left. Now go to Settings > Configuration.
+  </Step>
+
+  <Step>
+    In the Configuration page, click on Sales on the left and choose Payment Methods
+  </Step>
+
+  <Step>
+    On the Payment Methods page, navigate to “Payment Options” Payment Section.
+
+    * Enabled - select yes to enable the “Payment Options” Payment Method
+
+    * Mode - select sandbox or live mode
+
+    * Title - This title will show under the payment methods section on the checkout page of Magento
+
+    * Access Token - Enter Your `Secret Key` received from Payment Options.
+
+    * Merchant ID - Enter Your `Merchant ID` received from Payment Options.
+
+    * Debug - select yes to enable the debug, this will log Payment Options API calls under var/log/debug.log file
+
+    * Countries - Allow all countries or select specific countries to access this payment method
+  </Step>
+
+  <Step>
+    Click Save Config.
+  </Step>
+
+  <Step>
+    Refresh Magento Cache.
+    ![Refresh image](/images/plugins/plugins-magento-01.png)
+  </Step>
+</Steps>
+
+## **Front View**
+
+<Steps>
+  <Step>
+    It will show on the checkout page under the payment Methods section
+  </Step>
+
+  <Step>
+    Select “Payment Options” payment option: It will show like below:
+    ![Front View](/images/plugins/plugins-magento-02.png)
+  </Step>
+
+  <Step>
+    Click on “Place Order” Button: It will redirect you on payment page
+    ![Front View](/images/plugins/plugins-magento-03.png)
+  </Step>
+
+  <Step>
+    Make payment using any of the options provided above.
+  </Step>
+
+  <Step>
+    After making a successful payment, it will redirect to the success page.
+    ![Front View](/images/plugins/plugins-magento-04.png)
+  </Step>
+</Steps>
+
+### Admin View
+
+![Admin View image](/images/plugins/plugins-magento-05.png)
+
+<Card title="Need Assistance?" icon="life-ring" href="/support/contact">
+  If you need further assistance, please [reach out to our support team](./support/contact). Our team is here to help you troubleshoot and resolve any issues you may be experiencing.
+</Card>

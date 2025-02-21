@@ -1,0 +1,77 @@
+---
+title: 'Card Schemes'
+description: 'This section provides an overview of the credit card schemes supported by our payment gateway. Understanding the various card schemes is essential for merchants as they integrate with our API and seek to accommodate diverse customer payment preferences.'
+---
+
+## **Supported Card Schemes**
+
+Our payment gateway supports a variety of major credit card schemes to ensure a seamless payment experience for your customers. For information on Apple Pay and Google Pay, please refer to the **E-Wallets** section.
+
+| Card Scheme          | Description                                                                                             | Supported Regions                                               |
+| :------------------- | :------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------- |
+| **Visa**             | One of the largest credit card networks globally, widely accepted for online and in-store transactions. | Worldwide                                                       |
+| **MasterCard**       | Another leading global card scheme known for its secure payment processing and wide acceptance.         | Worldwide                                                       |
+| **American Express** | Known for its premium services and rewards programs, often used for high-value transactions.            | Worldwide, but with more limited acceptance in some regions     |
+|                      |                                                                                                         |                                                                 |
+| **JCB**              | A Japan-based card scheme popular in Asia, particularly in Japan, with growing acceptance worldwide.    | Asia-Pacific and select global markets                          |
+
+## **Upcoming Card Schemes**
+
+We’re expanding our supported card schemes to offer even more payment options for your customers. Below are the upcoming schemes we are integrating into our platform.
+
+| Card Scheme         | Description                                                                                              | Supported Regions                                               |
+| :------------------ | :------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------- |
+| **Diners Club**     | Known for its travel and entertainment benefits, accepted at select merchants.                           | Limited acceptance, primarily in the U.S. and certain countries |
+| **Discover**        | A U.S.-based card scheme that offers cash-back rewards and is gaining international acceptance.          | Primarily in the U.S., expanding globally                      |
+
+***
+
+### **Merchant Eligibility for Card Schemes and E-Wallets**
+
+Merchants’ access to specific card schemes and e-wallets varies based on their account setup and region. To view your eligible payment options:
+
+* **Product Details**: Check the **product details** section for a detailed view of the supported card schemes and e-wallets specific to your region and business type.
+
+> You may refer to the screenshots provided for further guidance on navigating these sections in your account.
+
+***
+
+## **Key Features of Supported Card Schemes**
+
+<CardGroup>
+  <Card title="Security" icon="shield-check">
+    All supported card schemes comply with PCI DSS (Payment Card Industry Data Security Standard) to ensure secure transaction processing.
+  </Card>
+
+  <Card title="Transaction Types" icon="right-left">
+    Our payment gateway supports various transaction types, including:
+
+    * **Authorizations**
+
+    * **Captures**
+
+    * **Refunds**
+
+    * **Chargebacks**
+  </Card>
+
+  <Card title="Currency Support" icon="dollar-sign">
+    Transactions can be processed in multiple currencies depending on the card scheme and regional regulations.
+  </Card>
+</CardGroup>
+
+## **Implementation Notes**
+
+* **Identify Card Scheme**: Ensure that your integration correctly identifies the card scheme being used by the customer to facilitate proper transaction processing.
+
+* **Use Appropriate API Endpoints**: Utilize the appropriate API endpoints for each card scheme as detailed in the API documentation.
+
+* **Additional Requirements or Fees**: Be aware of any additional requirements or fees associated with specific card schemes, such as AMEX’s higher transaction fees.
+
+<Note>
+  Some card schemes may have specific compliance or fee requirements. Always refer to the latest documentation for updated information.
+</Note>
+
+<Card title="Need Assistance?" icon="life-ring" href="/support/contact">
+  If you need further assistance, please [reach out to our support team](./support/contact). Our team is here to help you troubleshoot and resolve any issues you may be experiencing.
+</Card>

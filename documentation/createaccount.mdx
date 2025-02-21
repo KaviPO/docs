@@ -1,0 +1,165 @@
+---
+title: 'Create An Account'
+description: 'Welcome to the Payment Options account creation page! This platform is designed to provide merchants with an intuitive and secure process for setting up their accounts. Whether you are a small business owner or a large-scale enterprise the account creation process ensures a smooth and hassle-free onboarding experience tailored to your needs.'
+---
+
+## **Why Choose Payment Options?**
+
+Our system combines ease of use, security, and versatility to make your registration process seamless.
+
+**1. Localization**
+
+* Description: Provide the ability for users to choose their preferred language (English or Japanese) during the onboarding process.
+
+* Implementation Details:
+
+  * Display a language selection option at the beginning of the onboarding process.
+
+  * Ensure all steps, forms, and notifications are fully translated into the selected language.
+
+  * Provide an option to switch the language at any point without losing progress.
+
+**2. Merchant Account & Password Creation**
+
+* Description: Allow users to create a secure merchant account with a unique username and password.
+
+* Implementation Details:
+
+  * Username: Ensure the username is unique and validate it for format and length.
+
+  * Password: Enforce strong password policies (e.g., minimum 8 characters, at least one uppercase letter, one number, and one special character).
+
+**3. Email Verification through OTP**
+
+* Description: Ensure the user’s email is valid by sending a one-time password (OTP) for verification.
+
+* Implementation Details:
+
+  * Send a unique OTP to the email provided during registration.
+
+  * Allow the user to input the OTP into a verification field.
+
+**4. Session Management**
+
+* Users are allowed to log off and continue the registration process at a later time.
+
+* Implementation Details:
+
+  * Store progress in real-time and allowing users to resume from where they left off.
+
+  * Implement a secure authentication mechanism for re-login.
+
+  * Provide a session timeout for inactive users to enhance security.
+
+**5. Terms of Usage**
+
+* Require users to review and accept the Privacy Policy, Terms and Conditions.
+
+* Implementation Details :
+
+  * Present the Terms & Conditions in a scrollable, easy-to-read format.
+
+  * Include a mandatory checkbox to indicate acceptance.
+
+**6. Pending Application Deletion**
+
+* Description: Remove incomplete applications that do not meet requirements within 7 days.
+
+* Implementation Details:
+
+  * Automate deletion of data after 7 days if no action is taken.
+
+**7. Interactive Website Tour**
+
+* Provided a guided tutorial for new users to understand system features.
+
+* Implementation Details:
+
+  * Implemented an interactive tour with tooltips and highlights for key features.
+
+  * Offer an option to skip the tour at any time.
+
+**8. Password Management**
+
+* Allow users to change or reset their password.
+
+* Implementation Details :
+
+  * The user has a feature to change his password any time.
+
+  * Provided a Forgot Password option with email-based recovery.
+
+**9. Account Approval Notification**
+
+* Notify merchants on their primary contact email once their application is approved and a Merchant product has been created in DAS system.
+
+* Implementation Details:
+
+  * Send an approval email with the Secret API Key securely embedded.
+
+# **Create an Account - Onboarding Steps**
+
+To successfully create your merchant account with Payment Options, please follow the detailed steps below. Our onboarding process is designed to be simple, intuitive, and efficient, offering the flexibility to self-onboard or work with a sales (sales@paymentoptions.com.sg) representative if needed.
+
+By following these steps, you will be able to set up your account, verify your details, and start using Payment Options seamlessly.
+
+Before beginning the registration process, it’s important to ensure you have all the necessary documents prepared. This checklist includes:
+
+* **Business Documentation**: Business license, registration certificate, and tax identification number.
+
+* **Stakeholder Details**: Information about business owners and shareholders.
+
+* **Payment Information**: Bank account details for payouts.
+
+* **Contact Information**: Valid email address and phone number for communication.
+  Having these documents ready will make the onboarding process faster and more efficient.
+
+![Self Onboarding Process](/images/flows-createMAccount.svg)
+
+## **Onboarding Steps**
+
+<Steps>
+  <Step title="Merchant Meeting with Sales Representative or Self-Onboarding">
+    You can choose to meet with a sales representative to guide you through the process or self-onboard using the [online onboarding form](https://me.paymentoptions.com/onboarding/sign-up).
+  </Step>
+
+  <Step title="Create Your Merchant Account">
+    Start by setting up your merchant account. You will be asked to provide a secure password and verify your email through OTP. Once verified, you can proceed with the registration process.
+  </Step>
+
+  <Step title="About Your Business">
+    In this section, enter key details about your business, including business name, address, and type of business. This information helps us understand your business structure.
+
+    Please note that documents proving **Company Registration**, **Business Certificate**, **Certificate of Incorporation**, **Share Register**, and **Proof of Address** are required for this step.
+  </Step>
+
+  <Step title="About Your Stakeholders">
+    Provide details about the main stakeholders in your business. This may include the business owner, partners, or other key individuals involved in operations.
+
+    * **Verify Your Identity**: To complete KYC (Know Your Customer), verify your identity through our secure identity verification process. This step is essential for compliance. Please refer to the [Onboarding Checklist](./checklist) section to ensure you have all the necessary documents ready for verification.
+  </Step>
+
+  <Step title="Payout Details">
+    Enter your payout details to ensure seamless processing of funds. This includes providing your bank account information or other payment options for receiving payouts.
+
+    Please note that a **Bank Statement** or **Statement of Account** (dated within the last 3 months) is required for this step.
+  </Step>
+
+  <Step title="Payment Methods">
+    Select the payment acceptance you want to enable for your business. You will need to provide a description of your products, processing website URL, and the countries where you plan to accept payments.
+  </Step>
+
+  <Step title="Final Step">
+    Review all the information provided to ensure accuracy. Accept the Terms & Conditions to complete your application. If not accepted within 7 days, the application will be flagged for deletion.
+
+    Once all steps are completed, you will receive an email notification regarding the status of your application. Upon approval and MID creation, a Secret API Key will be sent to you via email for secure integration.
+  </Step>
+</Steps>
+
+<Card title="Create an Account" icon="rocket" href="https://me.paymentoptions.com/onboarding/choose-account">
+  Click here to create an account and start using Payment Options.
+</Card>
+
+<Card title="Need Help?" icon="life-ring" href="/support/contact">
+  If you need assistance or have questions regarding document submission, please [contact our support team](./support/contact) for further guidance.
+</Card>

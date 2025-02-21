@@ -1,0 +1,86 @@
+---
+title: 'Secure Payment'
+description: 'The Secure Payment section provides guidelines on ensuring a safe and trustworthy payment experience for your customers. By following best practices in security, merchants can protect sensitive data, minimize fraud risks, and comply with industry regulations'
+---
+
+## **Key Security Features**
+
+<CardGroup>
+  <Card title="3D Secure (3DS)" icon="shield-check">
+    Enhance security with 3DS authentication, which adds an extra layer of protection for online transactions.
+  </Card>
+
+  <Card title="Tokenization" icon="key">
+    Replace sensitive card details with unique tokens to reduce the risk of data theft during transactions.
+  </Card>
+
+  <Card title="PCI DSS Compliance" icon="lock">
+    Our gateway complies with PCI DSS (Payment Card Industry Data Security Standard), ensuring secure processing and storage of payment information.
+  </Card>
+</CardGroup>
+
+***
+
+## **3D Secure (3DS) Authentication**
+
+3DS (3D Secure) authentication is a security protocol that protects merchants and customers by requiring additional verification during online payments. This process is commonly used to prevent fraud and validate the cardholder's identity.
+
+![Secure Payment](/images/flows-3DS.svg)
+
+<Card title="How 3DS Works" icon="lock">
+  When a customer initiates a transaction, 3DS triggers a verification step with the card issuer. Depending on the level of risk, the customer may be required to authenticate using a password, OTP, fingerprint, or face recognition. This extra step helps confirm the identity of the cardholder, providing added security.
+</Card>
+
+  <Card title="3D Secure Integration" icon="shield-check" href="/api-reference/en/server-to-server/3dsecure">
+    Explore the 3D Secure Integration process and steps and try it out.
+  </Card>
+
+### **Benefits of 3DS**
+
+* **Reduced Fraud**: 3DS helps reduce fraudulent transactions by requiring additional verification.
+
+* **Liability Shift**: Successful 3DS authentication can shift liability for fraud-related chargebacks from the merchant to the card issuer.
+
+* **Improved Customer Confidence**: The added security layer gives customers confidence when shopping online.
+
+## **Data Protection and Tokenization**
+
+**Tokenization** replaces sensitive card data with unique tokens that can only be used within our secure environment. This method ensures that customer card details are never exposed during payment processing.
+
+### **Why Tokenization Matters**
+
+* **Enhanced Security**: Sensitive data is replaced with a token, which reduces the risk of data theft.
+
+* **Regulatory Compliance**: Tokenization helps merchants meet data protection regulations by securing payment information.
+
+* **Improved User Experience**: Tokenization allows customers to save their payment information for future transactions safely.
+
+## **Compliance with PCI DSS**
+
+Our payment gateway complies with PCI DSS standards, which define strict security requirements for storing, processing, and transmitting payment information. Compliance with these standards ensures that our platform provides a secure environment for all transactions.
+
+<Steps>
+  <Step title="Data Encryption">
+    All payment data is encrypted both in transit and at rest to protect against unauthorized access.
+  </Step>
+
+  <Step title="Access Control">
+    Only authorized personnel have access to sensitive payment data, minimizing the risk of data breaches.
+  </Step>
+
+  <Step title="Regular Security Audits">
+    Our systems undergo regular security audits to identify and mitigate potential vulnerabilities.
+  </Step>
+</Steps>
+
+## **Best Practices for Secure Payments**
+
+* **Encourage 3DS Authentication**: Enable 3DS for high-risk transactions to enhance security.
+
+* **Review Transaction Logs**: Regularly monitor transaction logs to identify any suspicious activity.
+
+* **Educate Customers**: Encourage customers to keep their payment details safe and be vigilant against phishing attempts.
+
+<Card title="Need Assistance?" icon="life-ring" href="/support/contact">
+  If you need further assistance, please [reach out to our support team](./support/contact). Our team is here to help you troubleshoot and resolve any issues you may be experiencing.
+</Card>
