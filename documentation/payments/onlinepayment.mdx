@@ -1,92 +1,91 @@
+title: 'Online Payment'
+description: 'Welcome to the Online Payment section, your gateway to seamlessly accepting payments through multiple channels. Whether you are integrating a simple Hosted Payment Page, leveraging APIs for custom solutions, or using website plugins for effortless setup, this section offers step-by-step guidance tailored to your needs.'
 ---
-title: 'オンライン決済'
-description: 'オンライン決済セクションへようこそ。複数のチャネルを通じてスムーズに決済を受け入れるためのゲートウェイです。シンプルなホスト決済ページを統合する場合でも、カスタムソリューションのためにAPIを活用する場合でも、またはウェブサイトプラグインを使用して簡単にセットアップする場合でも、このセクションではニーズに合わせたステップバイステップのガイドを提供します。'
----
 
-統合に関する詳細な手順から、決済フローを最適化するためのヒントまで、オンライン取引をスムーズに管理するために必要なすべての情報が揃っています。
+From detailed instructions on integration to tips for optimizing payment flows, you'll find everything you need to get started and succeed in managing online transactions effortlessly.
 
-安全で信頼性が高く、使いやすい決済環境をお客様に提供できるようサポートいたします！
+Let us help you create a secure, reliable, and user-friendly payment environment for your customers!
 
-## **支払いの受け入れ**
+## **Accepting Payments**
 
-Payment Optionsは、柔軟かつ安全にオンライン決済を受け入れる方法を提供します。複数の統合方法から、ビジネスに最適なものを簡単に選択できます。
+Payment Options offers a flexible and secure way to accept online payments. With multiple integration methods, you can easily choose the one that best suits your business:
 
-![オンライン決済](/images/flows-online.svg)
+![Online payment](/images/flows-online.svg)
 
-* **ホスト決済ページ (HPP)**: 機密データを直接処理せずに、安全かつ迅速に支払いを受け入れる方法。
+* **Hosted Payment Page (HPP)**: A quick and secure way to accept payments without handling sensitive data directly.
 
-* **API**: より高度な統合を求めるビジネス向けに、購入および認可のためのAPIを提供し、支払いフローを完全に制御できます。
+* **APIs**: For businesses that require deeper integration, our APIs for purchase and authorization give you complete control over the payment flow.
 
-* **ウェブサイトプラグイン**: 人気のあるEコマースプラットフォーム向けに設計された、すぐに使用できるプラグインで、簡単に決済を開始できます。
+* **Website Plugins**: Ready-to-use plugins designed for popular eCommerce platforms, making it easy to start accepting payments on your website.
 
-## **ホスト型決済ページ (HPP)**
+## **Hosted Payment Page (HPP)**
 
-**ホスト型決済ページ**は、安全でカスタマイズ可能なチェックアウト体験を提供します。この方法では、顧客をホストされたページにリダイレクトし、そこで決済情報を入力できるため、PCI準拠とデータの安全性を確保できます。
+Our **Hosted Payment Page** provides a secure and customizable checkout experience. This method allows you to redirect customers to a hosted page where they can enter their payment details, ensuring PCI compliance and data security.
 
-![ホスト型決済ページ](/images/flows-hpp.svg)
+![Hosted Payment Page](/images/flows-hpp.svg)
 
 <CardGroup>
-  <Card title="HPPの始め方" icon="rocket">
-    アカウントにログインして、ホスト型決済ページを設定およびカスタマイズできます。製品 (HPP) から直接HPPリンクを生成し、ウェブサイトやアプリに統合できます。
+  <Card title="Getting Started with HPP" icon="rocket">
+    Log in to your account to set up and customize your Hosted Payment Page. You can generate a unique HPP link directly from your product (HPP) to integrate into your website or app.
   </Card>
 
-  <Card title="HPPの利点" icon="shield-check">
-    * PCI準拠を代行します。
-    * ブランドに合わせてカスタマイズ可能。
-    * 簡単なセットアップ、最小限の開発作業。
+  <Card title="Benefits of HPP" icon="shield-check">
+    * PCI compliance is managed on your behalf.
+    * Customizable to align with your brand.
+    * Quick setup, minimal development required.
   </Card>
 </CardGroup>
 
-[HPPリンク生成エンドポイント](/api-reference/en/hpp/generate-link) にアクセスして、独自のHPPリンクを作成してみてください。
+Access the [Generate HPP Link Endpoint](/api-reference/en/hpp/generate-link) to try out creating your own HPP link.
 
-<Note> HPPリンクを使用して、顧客を安全なページへ誘導し、支払い情報を入力させることができます。この方法は、PCI準拠の負担を軽減したい企業に最適です。</Note>
+<Note> Use the HPP link to direct customers to a secure page for entering payment information. This method is ideal for businesses looking to reduce PCI compliance overhead.</Note>
 
-## **オンライン決済のAPI**
+## **APIs for Online Payment**
 
-支払いプロセスを完全に制御するには、APIを使用してウェブサイトやアプリケーションに直接統合してください。 **PURCHASE** および **AUTHORIZATION** APIを直接統合することで、取引の管理に柔軟性を持たせ、カスタム決済体験を構築できます。
+For full control over your payment process, use our APIs to integrate directly with your website or application. You can integrate directly with our **PURCHASE** and **AUTHORIZATION** APIs. These APIs provide flexibility in managing transactions and allow you to create custom payment experiences.
 
-![決済API](/images/flows-online-API.svg)
+![Payment API](/images/flows-online-API.svg)
 
 ### **PURCHASE API**
 
-* **目的**: PURCHASE APIは、一回限りの支払いを開始するために使用されます。
+* **Purpose**: The PURCHASE API is used to initiate a one-time payment.
 
-* **機能**: カードやデジタルウォレットを含むさまざまな支払い方法をサポートします。
+* **Features**: Supports various payment methods, including card and digital wallets.
 
-* **エンドポイント**: セットアップと使用ガイドラインについては、[Purchase API Documentation](/api-reference/en/server-to-server/purchase) を参照してください。
+* **Endpoint**: See the [Purchase API Documentation](/api-reference/en/server-to-server/purchase) for setup and usage guidelines.
 
 ### **AUTHORIZATION API**
 
-* **目的**: AUTHORIZATION APIは、指定された金額を即時に取得せずに保持するために使用され、事前認可に一般的に使用されます。
+* **Purpose**\*: The AUTHORIZATION API is used to place a hold on a specified amount without capturing it immediately, commonly used for pre-authorizations.
 
-* **機能**: 資金を認可し、後で取得することができます。
+* **Features**: Allows you to authorize funds and capture them at a later time.
 
-* **エンドポイント**: 実装手順の詳細については、[Authorization API Documentation](/api-reference/en/server-to-server/authorization) をご確認ください。
+* **Endpoint**: Find details in the [Authorization API Documentation](/api-reference/en/server-to-server/authorization) for implementation instructions.
 
-<Tip> ヒント: 直接支払いにはPURCHASE APIを、ホテルの予約やレンタカーなどの資金保持にはAUTHORIZATION APIを使用してください。</Tip>
+<Tip>Tip: Use the PURCHASE API for direct payments and the AUTHORIZATION API for holding funds, such as in hotel reservations or car rentals.</Tip>
 
-## **ウェブサイトプラグイン（Eコマースサイト向け）**
+## **Website Plugins (Ecommerce Websites)**
 
-人気のEコマースプラットフォームを利用する企業向けに、大規模な開発なしでオンライン決済の統合を簡単にするプラグインを提供しています。これらのプラットフォーム向けに利用可能です：
+For businesses using popular e-commerce platforms, we offer plugins that simplify online payment integration without extensive development. These plugins are available for platforms like:
 
 <CardGroup cols={2}>
   <Card title="WooCommerce" icon="puzzle-piece-simple" href="/support/plugins-woocommerce">
-    最小限のセットアップで、WooCommerceストアにシームレスに決済を統合できます。
+    Integrate payments seamlessly into your WooCommerce store with minimal setup.
   </Card>
 
   <Card title="Magento 2" icon="puzzle-piece-simple" href="/support/plugins-magento">
-    プラグインを使用して、Magento 2サイトに安全な決済処理を追加できます。
+    Add secure payment processing to your Magento 2 website with our plugin.
   </Card>
 
   <Card title="OpenCart" icon="puzzle-piece-simple" href="/support/plugins-opencart">
-    OpenCartで簡単に始められ、安全な決済をEコマースストアに追加できます。
+    Get started quickly with OpenCart, adding secure payments to your e-commerce store.
   </Card>
 </CardGroup>
 
-<Note> 各プラグインにはセットアップ手順が含まれており、スムーズで安全な決済体験のために最適化されています。インストールに関するサポートが必要な場合は、当社のサポートチームにお問い合わせください。</Note>
+<Note>Each plugin includes setup instructions and is optimized for a smooth and secure payment experience. Contact our support team if you need assistance with installation.</Note>
 
-## **次のステップ**
+## **Next Steps**
 
-当社のオンライン決済ソリューションを活用することで、柔軟かつ安全な支払いオプションをビジネスに統合できます。ホスト型決済ページ、Eコマースプラグイン、または完全カスタマイズ可能なAPI統合の中から、要件に最も適したオプションを選択してください。
+By using our online payment solutions, you can integrate flexible and secure payment options into your business. Select the option that best aligns with your requirements, whether it's a simple hosted payment page, an e-commerce plugin, or a fully customized API integration.
 
-オンライン決済の受け入れを開始する準備はできましたか？ビジネスのニーズや統合の能力に基づいて、上記の方法のいずれかを選択してください。セットアップやトラブルシューティングの詳細については、[サポートチーム](/support/contact) までお問い合わせください。
+Ready to start accepting online payments? Choose one of the methods above based on your business needs and integration capabilities. For additional information on setup or troubleshooting, please reach out to [Our Support Team](/support/contact)
