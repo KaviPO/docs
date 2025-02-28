@@ -154,7 +154,16 @@
       "pages": [
         "documentation/partner/createpartner",
         "documentation/partner/partnerchecklist"
-      ]
+      ],
+       "version": "English"
+    },
+    {
+      "group": "パートナーアカウント",
+      "pages": [
+        "documentation-jp/partner/createpartner",
+        "documentation-jp/partner/partnerchecklist"
+      ],
+       "version": "日本語"
     },
    
     {
