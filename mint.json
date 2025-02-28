@@ -104,7 +104,6 @@
       ],
        "version": "日本語"
     },
-   
     {
       "group": "Payments",
       "pages": [
@@ -113,7 +112,19 @@
         "documentation/payments/qrcode",
         "documentation/payments/subscription",
         "documentation/payments/scheduler"
-      ]
+      ],
+      "version": "English"
+    },
+    {
+      "group": "決済",
+      "pages": [
+        "documentation-jp/payments/onlinepayment",
+        "documentation-jp/payments/paybylink",
+        "documentation-jp/payments/qrcode",
+        "documentation-jp/payments/subscription",
+        "documentation-jp/payments/scheduler"
+      ],
+      "version": "日本語"
     },
     
     {
