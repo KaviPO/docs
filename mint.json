@@ -126,7 +126,6 @@
       ],
       "version": "日本語"
     },
-    
     {
       "group": "Payment Methods",
       "pages": [
@@ -135,7 +134,19 @@
         "documentation/paymentmethods/ewallets",
         "documentation/paymentmethods/securepayment",
         "documentation/paymentmethods/testcards"
-      ]
+      ],
+       "version": "English"
+    },
+    {
+      "group": "決済方法",
+      "pages": [
+        "documentation-jp/paymentmethods/cardschemes",
+        "documentation-jp/paymentmethods/currency",
+        "documentation-jp/paymentmethods/ewallets",
+        "documentation-jp/paymentmethods/securepayment",
+        "documentation-jp/paymentmethods/testcards"
+      ],
+       "version": "日本語"
     },
    
     {
