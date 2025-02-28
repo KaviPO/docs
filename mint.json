@@ -39,7 +39,7 @@
       "version": "English"
     },
     {
-      "name": "API Reference",
+      "name": "APIリファレンス",
       "url": "api-reference/jp",
       "version": "日本語"
     },
@@ -50,7 +50,7 @@
       
     },
     {
-      "name": "Change Logs",
+      "name": "変更履歴",
       "url": "releases-jp",
       "version": "日本語"
       
@@ -62,7 +62,7 @@
      
     },
     {
-      "name": "Support",
+      "name": "サポート",
       "url": "support-jp",
       "version": "日本語"
      
@@ -172,7 +172,17 @@
         "api-reference/en/introduction",
         "api-reference/en/authentication",
         "api-reference/en/merchant-details"
-      ]
+      ],
+      "version": "English"
+    },
+    {
+      "group": "入門",
+      "pages": [
+        "api-reference/jp/introduction",
+        "api-reference/jp/authentication",
+        "api-reference/jp/merchant-details"
+      ],
+      "version": "日本語"
     },
     
     {
