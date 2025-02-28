@@ -1,0 +1,59 @@
+---
+title: '認証'
+---
+
+APIへのアクセスは、**HTTP Basic Auth**（[詳細はこちら](https://en.wikipedia.org/wiki/Basic_access_authentication)）と `x-api-key` ヘッダーを使用して認証されます。
+
+### **はじめに**
+
+認証情報は、アカウント作成後に利用可能になります。認証は次の方法で使用できます：
+
+* **「LIVE API KEY」の使用**：
+  **LIVE API KEY** の詳細はウェブサイトで確認できます。Basic Auth のユーザー名として LIVE API KEY を入力し、パスワードの入力は不要です。
+  ![Payment Options Documentation](/images/flows-authentication-encode.svg)
+
+* **エンコードされた「LIVE API KEY」の使用**：
+  **ENCODE BASE64** ボタンを使用して **LIVE API KEY** をエンコードしてください。
+  ![Payment Options Documentation](/images/flows-authentication-decode.svg)
+
+**LIVE API KEY** をエンコードした後、その前に **Basic** を追加し、スペースで区切った値を `Authorization` ヘッダーに設定します。
+
+```bash
+curl --location --request POST '<URL>' \
+--header 'Authorization: Basic <Encoded LIVE API KEY>'
+```
+
+## APIリクエストの認証
+
+各APIリクエストを認証するには、Authorization ヘッダーと x-api-key ヘッダーの両方を含めてください。
+
+```bash
+curl --location --request POST '<URL>' \
+--header 'Authorization: Basic <Encoded LIVE API KEY>' \
+--header 'x-api-key: <x-api-key value>'
+```
+
+<Note> **LIVE API KEY** を安全にエンコードし、ヘッダーに正しく設定することで、認証が成功するようにしてください。 </Note>
+
+## **APIヘッダー**
+
+APIヘッダーは、リクエストとレスポンスに関する重要な情報を含む、各APIリクエストの追加メタデータを提供します。
+
+| **ヘッダー**         | **説明**                          |
+| :------------------ | :-------------------------------- |
+| **`x-api-key`**     | 資格情報とともに提供されます。 |
+| **`Authorization`** | Basic `<エンコードされたLIVE APIキー>`。  |
+
+### **重要な注意事項**
+
+Authorization ヘッダーにプレーンな LIVE API KEY を使用する場合、認証を正しく行うために、**"Basic"** をベース64エンコードされたAPIキーの前に追加してください。
+
+<Info title="例" emoji="information">
+  認証: Basic エンコードされたLIVE APIキー
+</Info>
+
+![Live API Key](/images/flows-APIheader.svg)
+
+<Card title="サポートが必要ですか？" icon="life-ring" href="/support/contact">
+  認証設定に関してサポートが必要な場合や質問がある場合は、[サポートチーム](./support/contact)までお問い合わせください。
+</Card>
