@@ -1,0 +1,62 @@
+---
+title: 'Webhookハンドラー'
+description: 'Webhookは、Payment Options Gateway APIからのリアルタイム通知を可能にし、完了した支払い、失敗した取引、または返金などのイベントに対してアプリケーションが自動的に反応できるようにします。Webhookハンドラーを設定することにより、これらの通知を直接受信し、瞬時に対応することができます。'
+---
+
+## **Webhookの目的**
+
+Webhookは、イベント駆動型の通知メカニズムを提供し、Payment Options Gatewayとの統合を可能にし、イベントが発生するとリアルタイムで更新を受け取ることができます。取引状況やその他の更新をAPIでポーリングする代わりに、特定のイベントが発生した際にサーバーが自動的にデータを受信します。
+
+***
+
+## **Webhook URLの設定**
+
+Webhook通知を受信するには、APIリクエストのペイロードで`return_url`パラメーターを使用してWebhook URLを指定します。これには、成功、拒否、キャンセルなどのさまざまな結果を処理するためのURLが含まれます。
+
+### **例：ペイロードにWebhook URLを追加する**
+
+リクエストのペイロードで、URLを以下のように定義します：
+
+```json
+"return_url": {
+        "webhook_url": "< Webhook url >",
+        "success_url": "http://www.successurl.com/",
+        "decline_url": "http://www.declineurl.com/",
+        "cancel_url": "http://cancelurl.com/"
+    }
+```
+
+## **Webhook URLパラメーター**
+
+APIペイロード内で`return_url`パラメーターに以下のURLを定義します：
+
+* **webhook_url**: Webhookイベントが送信されるURLです。
+* **success_url**: 取引が成功した後に顧客がリダイレクトされるURLです。
+* **decline_url**: 顧客の取引が拒否された場合にリダイレクトされるURLです。
+* **cancel_url**: 顧客が取引をキャンセルした場合にリダイレクトされるURLです。
+
+## **Webhookハンドラーの設定**
+
+PO GatewayからWebhookを受信するためには、以下の手順に従ってください：
+
+<Steps>
+  <Step title="ステップ1: Webhook URLを定義する">
+    Webhookイベントを受信したいサーバー上のURLを指定してください。このURLはセキュリティのためにHTTPS経由で公開されている必要があります。
+  </Step>
+
+  <Step title="ステップ2: Webhook URLを登録する">
+    上記の例のように`return_url`パラメーターにWebhook URLを含めてください。各取引のAPIリクエストペイロードで正しく登録されていることを確認してください。
+  </Step>
+
+  <Step title="ステップ3: Webhookを保護する">
+    **シークレットキー**または**署名検証**を使用して、受信したWebhookリクエストを認証してください。これにより、リクエストがPO Gatewayから発生し、改ざんされていないことが確認できます。
+  </Step>
+
+  <Step title="ステップ4: Webhookペイロードを処理する">
+    サーバー側のアプリケーションで受信したWebhookペイロードを処理する関数を書いてください。この関数はJSONペイロードを解析し、署名を検証（提供されていれば）し、受信を確認するために200 OKのステータスで応答する必要があります。
+  </Step>
+</Steps>
+
+<Card title="Webhookをテストする" emoji="hammer"> 
+サンドボックス環境またはテストモードを使用してWebhookイベントをシミュレートし、本番環境に移行する前にWebhookハンドラーが期待通りに動作することを確認してください。
+</Card>
