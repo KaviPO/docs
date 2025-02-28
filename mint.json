@@ -240,16 +240,34 @@
     {
               "group": "Error and Response",
               "pages": [
-                "api-reference/en/error-and-reponse/httpresponse",
-                "api-reference/en/error-and-reponse/responsecodes",
-                "api-reference/en/error-and-reponse/gatewayerrors"
-              ]
+                "api-reference/en/error-and-response/httpresponse",
+                "api-reference/en/error-and-response/responsecodes",
+                "api-reference/en/error-and-response/gatewayerrors"
+              ],
+               "version": "English"
+            },
+    {
+              "group": "エラーとレスポンス",
+              "pages": [
+                "api-reference/jp/error-and-response/httpresponse",
+                "api-reference/jp/error-and-response/responsecodes",
+                "api-reference/jp/error-and-response/gatewayerrors"
+              ],
+               "version": "日本語"
             },
             {
               "group": "Webhook",
               "pages": [
                 "api-reference/en/webhook-handler"
-              ]
+              ],
+              "version": "English"
+            },
+           {
+              "group": "ウェブフック",
+              "pages": [
+                "api-reference/jp/webhook-handler"
+              ],
+              "version": "日本語"
             },
             
     {
