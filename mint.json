@@ -352,7 +352,16 @@
       "pages": [
         "support/merchantguide",
         "support/partnerguide"
-      ]
+      ],
+       "version": "English"
+    },
+    {
+      "group": "ガイド",
+      "pages": [
+        "support-jp/merchantguide",
+        "support-jp/partnerguide"
+      ],
+       "version": "日本語"
     },
     {
       "group": "Website Plugins",
@@ -360,9 +369,18 @@
         "support/plugins-woocommerce",
         "support/plugins-magento",
         "support/plugins-opencart"
-      ]
+      ],
+       "version": "English"
     },
-    
+    {
+      "group": "ウェブサイトプラグイン",
+      "pages": [
+        "support-jp/plugins-woocommerce",
+        "support-jp/plugins-magento",
+        "support-jp/plugins-opencart"
+      ],
+       "version": "日本語"
+    },
 
     {
       "group": "Support",
@@ -370,8 +388,20 @@
         "support/faqs",
         "support/aichat",
         "support/contact"
-      ]
+      ],
+       "version": "English"
+    },
+
+    {
+      "group": "サポート",
+      "pages": [
+        "support-jp/faqs",
+        "support-jp/aichat",
+        "support-jp/contact"
+      ],
+       "version": "日本語"
     }
+    
   ],
   "footerSocials": {
     "website": "https://www.paymentoptions.com",
