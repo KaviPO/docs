@@ -1,0 +1,31 @@
+---
+title: 'サブスクリプション再開API'
+openapi: '/api-reference/jp/open-api-config/subscription/resume-subscription.json  POST /api/v1/server-to-server-interface/subscription/{subscription_id}/resume'
+description: サブスクリプション再開APIは、加盟店が以前に一時停止されたサブスクリプションを再開し、顧客の請求サイクルと関連サービスを再開することを可能にします。
+---
+
+### 重要なポイント
+
+<Info>
+  ### サブスクリプションを再開
+
+  * 加盟店はこのAPIを使用して以前に一時停止されたサブスクリプションを再開し、通常の請求とサービスを回復させます。
+
+  * 再開後、サブスクリプションはアクティブな状態に戻り、今後の請求サイクルは元々予定されていた通りに進行します。
+
+  ### 請求サイクルと状態
+
+  * サブスクリプションはアクティブ状態に戻され、請求は中断した地点から再開されます。次の請求サイクルが到来している場合、自動的に処理されます。
+
+  * 元のサブスクリプションで設定された割引や試用期間は、最初に設定された通りに継続されます。
+
+  ### 必要なパラメータ
+
+  * サブスクリプションID：再開するサブスクリプションの一意の識別子。
+</Info>
+
+## フローダイアグラム
+
+![Flow diagram image](/images/timeline-diagram/flows-API-subs-resume.svg)
+
+## APIパラメータ
