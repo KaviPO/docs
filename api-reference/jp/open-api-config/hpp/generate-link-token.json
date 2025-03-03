@@ -1,1 +1,402 @@
-
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Payment Options API",
+    "description": "API for generating Hosted Payment Page (HPP) links and processing payments.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api-dev.paymentoptions.com/api/v1"
+    }
+  ],
+  "security": [
+    {
+      "apiKeyAuth": [],
+      "xApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/api/v1/server-to-server-interface/hpp/generate/link": {
+      "post": {
+        "summary": "Generate HPP Link",
+        "description": "This endpoint allows you to generate a Hosted Payment Page (HPP) link.",
+        "operationId": "generateHppLink",
+        "requestBody": {
+          "description": "The request payload to generate an HPP link.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                 "additionalProperties": false,
+                "properties": {
+                  "return_url": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "A JSON object containing the Return URLs.",
+                    "properties": {
+                      "webhook_url": {
+                        "type": "string",
+                        "description": "The webhook URL for asynchronous notifications.",
+                        "maxLength": 255,
+                        "example": "< Webhook url >"
+                      },
+                      "success_url": {
+                        "type": "string",
+                        "description": "The URL to redirect the user to after a successful payment.",
+                        "maxLength": 255,
+                        "example": "http://www.successurl.com/"
+                      },
+                      "decline_url": {
+                        "type": "string",
+                        "description": "The URL to redirect the user to after a failed payment.",
+                        "maxLength": 255,
+                        "example": "http://www.declineurl.com/"
+                      },
+                      "cancel_url": {
+                        "type": "string",
+                        "description": "The URL to redirect the user to if the payment is canceled.",
+                        "maxLength": 255,
+                        "example": "http://cancelurl.com/"
+                      }
+                    }
+                  },
+                  "amount": {
+                    "type": "number",
+                    "description": "The amount of the transaction.",
+                    "example": 1000
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "The processing currency (e.g., JPY).",
+                    "maxLength": 3,
+                    "example": "JPY"
+                  },
+                  "merchant_id": {
+                    "type": "string",
+                    "description": "The merchant ID (DASMID).",
+                    "maxLength": 128,
+                    "example": "< Merchant ID >"
+                  },
+                  "merchant_email": {
+                    "type": "string",
+                    "description": "The email address of the Merchant.",
+                    "maxLength": 45,
+                    "example": "merchant@testemail.com"
+                  },
+                  "merchant_txn_ref": {
+                    "type": "string",
+                    "description": "The merchant transaction reference ID.",
+                    "maxLength": 45,
+                    "example": "2003089893366DTEST"
+                  },
+                  "payment_method": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "A JSON object containing Payment Method.",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "The payment method type (e.g., 'scheme').",
+                        "maxLength": 128,
+                        "example": "scheme"
+                      },
+                      "store_payment_method": {
+                        "type": "boolean",
+                        "description": "True to generate a token, or False not to generate one.",
+                        "example": true
+                      }
+                    }
+                  },
+                  "billing_address": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "A JSON object containing the billing address of the cardholder.",
+                    "properties": {
+                      "country": {
+                        "type": "string",
+                        "description": "The cardholder’s billing country code.",
+                        "maxLength": 2,
+                        "example": "JP"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "The cardholder’s billing email address.",
+                        "maxLength": 45,
+                        "example": "billing@testemail.com"
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "The cardholder’s billing phone number.",
+                        "maxLength": 15,
+                        "example": "8112345678"
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "The cardholder’s billing address line.",
+                        "maxLength": 199,
+                        "example": "1-2-3 Shinjuku"
+                      },
+                      "city": {
+                        "type": "string",
+                        "description": "The cardholder’s billing city.",
+                        "maxLength": 65,
+                        "example": "Shinjuku-ku"
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "The cardholder’s billing state.",
+                        "maxLength": 65,
+                        "example": "Tokyo"
+                      },
+                      "postal_code": {
+                        "type": "string",
+                        "description": "The cardholder’s billing postal code.",
+                        "maxLength": 45,
+                        "example": "1600022"
+                      }
+                    }
+                  },
+                  "shipping_address": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "A JSON object containing the shipping address of the cardholder.",
+                    "properties": {
+                      "country": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping country code.",
+                        "maxLength": 2,
+                        "example": "JP"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping email address.",
+                        "maxLength": 45,
+                        "example": "shipping@testemail.com"
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping phone number.",
+                        "maxLength": 20,
+                        "example": "8112345678"
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping address line.",
+                        "maxLength": 199,
+                        "example": "1-2-3 Shinjuku"
+                      },
+                      "city": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping city.",
+                        "maxLength": 65,
+                        "example": "Shinjuku-ku"
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping state.",
+                        "maxLength": 65,
+                        "example": "Tokyo"
+                      },
+                      "postal_code": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping postal code.",
+                        "maxLength": 45,
+                        "example": "1600022"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "return_url",
+                  "currency",
+                  "merchant_id",
+                  "merchant_email",
+                  "payment_method",
+                  "billing_address"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "HPP link generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The transaction reference ID.",
+                      "example": "f49173ce-4916-445c-a831-3c1468acf14e"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "The URL Link of the hosted payment page link generated.",
+                      "example": "https://checkout-dev.paymentoptions.com/jp/HostedPaymentPage/hKJsdByR"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "description": "The amount of the transaction.",
+                      "example": 1000
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "The processing currency of the transaction.",
+                      "example": "JPY"
+                    },
+                    "merchant_txn_ref": {
+                      "type": "string",
+                      "description": "The merchant transaction reference ID.",
+                      "example": "2003089893366DTEST"
+                    },
+                    "merchant_id": {
+                      "type": "string",
+                      "description": "The DAS merchant ID of the transaction performed.",
+                      "example": "< Merchant ID >"
+                    },
+                    "merchant_email": {
+                      "type": "string",
+                      "description": "The email address of the Merchant.",
+                      "example": "merchant@testemail.com"
+                    },
+                    "return_url": {
+                      "type": "object",
+                       "additionalProperties": false,
+                      "description": "A JSON object containing the Return URL.",
+                      "properties": {
+                        "webhook_url": {
+                          "type": "string",
+                          "description": "The webhook URL for asynchronous notifications.",
+                          "example": "< Webhook url >"
+                        },
+                        "success_url": {
+                          "type": "string",
+                          "description": "The URL to redirect the user to after a successful payment.",
+                          "example": "http://www.successurl.com/"
+                        },
+                        "decline_url": {
+                          "type": "string",
+                          "description": "The URL to redirect the user to after a failed payment.",
+                          "example": "http://www.declineurl.com/"
+                        },
+                        "cancel_url": {
+                          "type": "string",
+                          "description": "The URL to redirect the user to if the payment is canceled.",
+                          "example": "http://cancelurl.com/"
+                        }
+                      }
+                    },
+                    "billing_address": {
+                      "type": "object",
+                       "additionalProperties": false,
+                      "description": "A JSON object containing the billing address of the cardholder.",
+                      "properties": {
+                        "city": {
+                          "type": "string",
+                          "description": "The cardholder’s billing city.",
+                          "example": "Shinjuku-ku"
+                        },
+                        "email": {
+                          "type": "string",
+                          "description": "The cardholder’s billing email address.",
+                          "example": "billing@testemail.com"
+                        },
+                        "phone_number": {
+                          "type": "string",
+                          "description": "The cardholder’s billing phone number.",
+                          "example": "8112345678"
+                        },
+                        "state": {
+                          "type": "string",
+                          "description": "The cardholder’s billing state.",
+                          "example": "Tokyo"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "The cardholder’s billing country code.",
+                          "example": "JP"
+                        },
+                        "address1": {
+                          "type": "string",
+                          "description": "The cardholder’s billing address line.",
+                          "example": "1-2-3 Shinjuku"
+                        },
+                        "postal_code": {
+                          "type": "string",
+                          "description": "The cardholder’s billing postal code.",
+                          "example": "1600022"
+                        }
+                      }
+                    },
+                    "shipping_address": {
+                      "type": "object",
+                       "additionalProperties": false,
+                      "description": "A JSON object containing the shipping address of the cardholder.",
+                      "properties": {
+                        "city": {
+                          "type": "string",
+                          "description": "The cardholder’s shipping city.",
+                          "example": "Shinjuku-ku"
+                        },
+                        "email": {
+                          "type": "string",
+                          "description": "The cardholder’s shipping email address.",
+                          "example": "shipping@testemail.com"
+                        },
+                        "phone_number": {
+                          "type": "string",
+                          "description": "The cardholder’s shipping phone number.",
+                          "example": "8112345678"
+                        },
+                        "state": {
+                          "type": "string",
+                          "description": "The cardholder’s shipping state.",
+                          "example": "Tokyo"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "The cardholder’s shipping country code.",
+                          "example": "JP"
+                        },
+                        "address1": {
+                          "type": "string",
+                          "description": "The cardholder’s shipping address line.",
+                          "example": "1-2-3 Shinjuku"
+                        },
+                        "postal_code": {
+                          "type": "string",
+                          "description": "The cardholder’s shipping postal code.",
+                          "example": "1600022"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
+      },
+      "xApiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header",
+        "description": "API Key specific to x-api-key."
+      }
+    }
+  }
+}
