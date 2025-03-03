@@ -198,7 +198,21 @@
             "api-reference/en/server-to-server/void-authorization",
             "api-reference/en/server-to-server/transaction-status",
             "api-reference/en/server-to-server/3dsecure"
-          ]
+          ],
+           "version": "English"
+        },
+        {
+          "group": "サーバー間通信",
+          "pages": [
+            "api-reference/jp/server-to-server/purchase",
+            "api-reference/jp/server-to-server/authorization",
+            "api-reference/jp/server-to-server/capture",
+            "api-reference/jp/server-to-server/refund",
+            "api-reference/jp/server-to-server/void-authorization",
+            "api-reference/jp/server-to-server/transaction-status",
+            "api-reference/jp/server-to-server/3dsecure"
+          ],
+          "version": "日本語"
         },
         
         {
@@ -206,7 +220,16 @@
           "pages": [
             "api-reference/en/tokenization/generate-token",
             "api-reference/en/tokenization/use-token"
-          ]
+          ],
+           "version": "English"
+        },
+        {
+          "group": "トークン化",
+          "pages": [
+            "api-reference/jp/tokenization/generate-token",
+            "api-reference/jp/tokenization/use-token"
+          ],
+          "version": "日本語"
         },
         
         {
@@ -218,14 +241,36 @@
             "api-reference/en/subscription/resume-subscription",
             "api-reference/en/subscription/subscription-list",
             "api-reference/en/subscription/subscription-details"
-          ]
+          ],
+           "version": "English"
+        },
+        
+         {
+          "group": "サブスクリプション",
+          "pages": [
+            "api-reference/jp/subscription/create-subscription",
+            "api-reference/jp/subscription/cancel-subscription",
+            "api-reference/jp/subscription/pause-subscription",
+            "api-reference/jp/subscription/resume-subscription",
+            "api-reference/jp/subscription/subscription-list",
+            "api-reference/jp/subscription/subscription-details"
+          ],
+          "version": "日本語"
         },
         
         {
           "group": "Wallet",
           "pages": [
             "api-reference/en/wallet/wallet"
-          ]
+          ],
+           "version": "English"
+        },
+        {
+          "group": "ウォレット",
+          "pages": [
+            "api-reference/jp/wallet/wallet"
+          ],
+          "version": "日本語"
         },
                 
         {
@@ -233,8 +278,17 @@
           "pages": [ 
             "api-reference/en/hpp/generate-link",
             "api-reference/en/hpp/generate-link-tokenization"
-          ]
-        }     
+          ],
+           "version": "English"
+        },
+        {
+          "group": "ホスト決済ページ",
+          "pages": [ 
+            "api-reference/jp/hpp/generate-link",
+            "api-reference/jp/hpp/generate-link-tokenization"
+          ],
+          "version": "日本語"
+        }  
       ]
     },
     {
