@@ -529,13 +529,13 @@
         "type": "apiKey",
         "name": "Authorization",
         "in": "header",
-        "description": "認証のためのAPIキー。形式：'Basic YOUR_API_KEY_HERE'"
+        "description": "認証のためのAPIキー。フォーマット: 'Basic YOUR_API_KEY_HERE'"
       },
       "xApiKeyAuth": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header",
-        "description": "x-api-key専用のAPIキー"
+        "description": "x-api-key専用のAPIキー。"
       }
     }
   }
