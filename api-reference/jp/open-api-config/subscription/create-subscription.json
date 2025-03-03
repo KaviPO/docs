@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Payment Options API",
-    "description": "API for generating Hosted Payment Page (HPP) links and processing payments.",
+    "description": "ホストされた決済ページ（HPP）リンクを生成し、決済を処理するためのAPI。",
     "version": "1.0.0"
   },
   "servers": [
@@ -19,17 +19,17 @@
   "paths": {
     "/api/v1/server-to-server-interface/subscription/payment": {
       "post": {
-        "summary": "Process Subscription Payment",
-        "description": "Processes subscription payments using card and subscription details.",
+        "summary": "サブスクリプション支払いを処理",
+        "description": "カードおよびサブスクリプションの詳細を使用して定期支払いを処理します。",
         "operationId": "processSubscriptionPayment",
         "requestBody": {
-          "description": "Payload for processing subscription payments.",
+          "description": "サブスクリプション支払いを処理するためのペイロード。",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                 "additionalProperties": false,
+                "additionalProperties": false,
                 "required": [
                   "amount",
                   "currency",
@@ -42,20 +42,20 @@
                 "properties": {
                   "amount": {
                     "type": "string",
-                    "description": "The transaction amount.",
+                    "description": "取引金額。",
                     "maxLength": 15,
                     "example": "1000"
                   },
                   "currency": {
                     "type": "string",
-                    "description": "ISO currency code for the transaction (e.g., JPY).",
+                    "description": "取引のISO通貨コード（例：JPY）。",
                     "maxLength": 3,
                     "example": "JPY"
                   },
                   "card": {
                     "type": "object",
-                     "additionalProperties": false,
-                    "description": "Details of the card used for the payment.",
+                    "additionalProperties": false,
+                    "description": "支払いに使用するカードの詳細。",
                     "required": [
                       "cvc",
                       "expiry_month",
@@ -66,31 +66,31 @@
                     "properties": {
                       "cvc": {
                         "type": "string",
-                        "description": "Card security code.",
+                        "description": "カードのセキュリティコード。",
                         "maxLength": 4,
                         "example": "112"
                       },
                       "expiry_month": {
                         "type": "string",
-                        "description": "Card expiry month.",
+                        "description": "カードの有効期限（月）。",
                         "maxLength": 2,
                         "example": "12"
                       },
                       "expiry_year": {
                         "type": "string",
-                        "description": "Card expiry year.",
+                        "description": "カードの有効期限（年）。",
                         "maxLength": 2,
                         "example": "24"
                       },
                       "name": {
                         "type": "string",
-                        "description": "Name of the cardholder.",
+                        "description": "カード所有者の名前。",
                         "maxLength": 255,
                         "example": "John Doe"
                       },
                       "number": {
                         "type": "string",
-                        "description": "Card number.",
+                        "description": "カード番号。",
                         "maxLength": 16,
                         "example": "4000000000001091"
                       }
@@ -98,8 +98,8 @@
                   },
                   "payment_method": {
                     "type": "object",
-                     "additionalProperties": false,
-                    "description": "Payment method details.",
+                    "additionalProperties": false,
+                    "description": "決済方法の詳細。",
                     "required": [
                       "type",
                       "store_payment_method"
@@ -107,55 +107,55 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "description": "Payment method type (e.g., 'scheme' for card payments).",
+                        "description": "決済方法の種類（例：カード決済の場合は 'scheme'）。",
                         "maxLength": 128,
                         "example": "scheme"
                       },
                       "store_payment_method": {
                         "type": "boolean",
-                        "description": "Whether to store the payment method for future transactions.",
+                        "description": "将来の取引のために支払い方法を保存するかどうか。",
                         "example": false
                       }
                     }
                   },
                   "merchant_txn_ref": {
                     "type": "string",
-                    "description": "Unique merchant transaction reference ID.",
+                    "description": "一意の決済取引参照ID。",
                     "maxLength": 45,
                     "example": "qwe"
                   },
                   "customer_ip": {
                     "type": "string",
-                    "description": "IP address of the customer initiating the transaction.",
+                    "description": "取引を開始した顧客のIPアドレス。",
                     "maxLength": 45,
                     "example": "127.0.0.1"
                   },
                   "merchant_id": {
                     "type": "string",
-                    "description": "Unique identifier of the merchant.",
+                    "description": "加盟店の一意識別子。",
                     "maxLength": 128,
                     "example": "< Merchant ID >"
                   },
                   "return_url": {
                     "type": "object",
-                     "additionalProperties": false,
-                    "description": "A JSON object containing the return URLs. (This field is mandatory for 3DS transactions.)",
+                    "additionalProperties": false,
+                    "description": "リターンURLを含むJSONオブジェクト。（3DS取引では必須）",
                     "properties": {
                       "webhook_url": {
                         "type": "string",
-                        "description": "URL for webhook notifications.",
+                        "description": "Webhook通知のためのURL。",
                         "maxLength": 255,
                         "example": "< Webhook url >"
                       },
                       "success_url": {
                         "type": "string",
-                        "description": "URL to redirect the user after a successful transaction.",
+                        "description": "取引成功後のリダイレクトURL。",
                         "maxLength": 255,
                         "example": "http://www.successurl.com/"
                       },
                       "decline_url": {
                         "type": "string",
-                        "description": "URL to redirect the user after a declined transaction.",
+                        "description": "取引が拒否された場合のリダイレクトURL。",
                         "maxLength": 255,
                         "example": "http://www.declineurl.com/"
                       }
@@ -163,56 +163,56 @@
                   },
                   "billing_address": {
                     "type": "object",
-                     "additionalProperties": false,
-                    "description": "Details of the cardholder's billing address.",
+                    "additionalProperties": false,
+                    "description": "カード所有者の請求先住所の詳細。",
                     "required": [
                       "country",
                       "email",
                       "phone_number",
                       "address1",
                       "city",
-                      postal_code
+                      "postal_code"
                     ],
                     "properties": {
                       "country": {
                         "type": "string",
-                        "description": "Billing country code (ISO 3166-1 alpha-2).",
+                        "description": "請求先の国コード（ISO 3166-1 alpha-2）。",
                         "maxLength": 2,
                         "example": "JP"
                       },
                       "email": {
                         "type": "string",
-                        "description": "Billing email address.",
+                        "description": "請求先メールアドレス。",
                         "maxLength": 45,
                         "example": "billing@testemail.com"
                       },
                       "phone_number": {
                         "type": "string",
-                        "description": "Billing phone number.",
+                        "description": "請求先電話番号。",
                         "maxLength": 20,
                         "example": "8112345678"
                       },
                       "address1": {
                         "type": "string",
-                        "description": "Billing address line.",
+                        "description": "請求先住所。",
                         "maxLength": 199,
                         "example": "1-2-3 Shinjuku"
                       },
                       "city": {
                         "type": "string",
-                        "description": "Billing city.",
+                        "description": "請求先市区町村。",
                         "maxLength": 65,
                         "example": "Shinjuku-ku"
                       },
                       "state": {
                         "type": "string",
-                        "description": "Billing state (optional).",
+                        "description": "請求先の州（任意）。",
                         "maxLength": 65,
                         "example": "Tokyo"
                       },
                       "postal_code": {
                         "type": "string",
-                        "description": "Billing postal code.",
+                        "description": "請求先郵便番号。",
                         "maxLength": 45,
                         "example": "1600022"
                       }
@@ -220,48 +220,48 @@
                   },
                   "shipping_address": {
                     "type": "object",
-                     "additionalProperties": false,
-                    "description": "Details of the cardholder's shipping address.",
+                    "additionalProperties": false,
+                    "description": "カード所有者の配送先住所の詳細。",
                     "properties": {
                       "country": {
                         "type": "string",
-                        "description": "Shipping country code (ISO 3166-1 alpha-2).",
+                        "description": "配送先の国コード（ISO 3166-1 alpha-2）。",
                         "maxLength": 2,
                         "example": "JP"
                       },
                       "email": {
                         "type": "string",
-                        "description": "Shipping email address.",
+                        "description": "配送先メールアドレス。",
                         "maxLength": 45,
                         "example": "billing@testemail.com"
                       },
                       "phone_number": {
                         "type": "string",
-                        "description": "Shipping phone number.",
+                        "description": "配送先電話番号。",
                         "maxLength": 20,
                         "example": "8112345678"
                       },
                       "address1": {
                         "type": "string",
-                        "description": "Shipping address line.",
+                        "description": "配送先住所。",
                         "maxLength": 199,
                         "example": "1-2-3 Shinjuku"
                       },
                       "city": {
                         "type": "string",
-                        "description": "Shipping city.",
+                        "description": "配送先市区町村。",
                         "maxLength": 65,
                         "example": "Shinjuku-ku"
                       },
                       "state": {
                         "type": "string",
-                        "description": "Shipping state (optional).",
+                        "description": "配送先の州（任意）。",
                         "maxLength": 65,
                         "example": "Tokyo"
                       },
                       "postal_code": {
                         "type": "string",
-                        "description": "Shipping postal code.",
+                        "description": "配送先郵便番号。",
                         "maxLength": 45,
                         "example": "1600022"
                       }
@@ -269,14 +269,14 @@
                   },
                   "time_zone": {
                     "type": "string",
-                    "description": "Time zone of the transaction.",
+                    "description": "取引のタイムゾーン。",
                     "maxLength": 128,
                     "example": "Asia/Kuala_Lumpur"
                   },
                   "subscription": {
                     "type": "object",
-                     "additionalProperties": false,
-                    "description": "Details of the subscription being processed.",
+                    "additionalProperties": false,
+                    "description": "処理されるサブスクリプションの詳細。",
                     "required": [
                       "plan_name",
                       "plan_desc",
@@ -292,64 +292,64 @@
                     "properties": {
                       "plan_name": {
                         "type": "string",
-                        "description": "Subscription plan name.",
+                        "description": "サブスクリプションプラン名。",
                         "maxLength": 100,
                         "example": "Three weeks plan"
                       },
                       "plan_desc": {
                         "type": "string",
-                        "description": "Subscription plan description.",
+                        "description": "サブスクリプションプランの説明。",
                         "maxLength": 200,
                         "example": "Billed every two days"
                       },
                       "cycle_type": {
                         "type": "string",
-                        "description": "Type of subscription cycle (e.g., DAYS, MONTHS).",
+                        "description": "サブスクリプションのサイクルタイプ（例：DAYS, MONTHS）。",
                         "example": "DAYS"
                       },
                       "subscription_end_type": {
                         "type": "string",
-                        "description": "Subscription end type (e.g., CYCLE).",
+                        "description": "サブスクリプションの終了タイプ（例：CYCLE）。",
                         "example": "CYCLE"
                       },
                       "cycle_interval": {
                         "type": "integer",
-                        "description": "Interval between billing cycles.",
+                        "description": "請求サイクル間の間隔。",
                         "example": 2
                       },
                       "max_cycle_count": {
                         "type": "integer",
-                        "description": "Maximum number of billing cycles.",
+                        "description": "最大請求サイクル数。",
                         "example": 10
                       },
                       "has_trial_period": {
                         "type": "boolean",
-                        "description": "Indicates if the subscription includes a trial period.",
+                        "description": "サブスクリプションに試用期間が含まれるかどうかを示します。",
                         "example": false
                       },
                       "trial_period_duration_type": {
                         "type": "string",
-                        "description": "Type of trial period duration (e.g., DAYS, MONTHS).",
+                        "description": "試用期間の期間タイプ（例：DAYS, MONTHS）。",
                         "example": "DAYS"
                       },
                       "trial_period_duration": {
                         "type": "integer",
-                        "description": "Duration of the trial period.",
+                        "description": "試用期間の長さ。",
                         "example": 14
                       },
                       "has_discount": {
                         "type": "boolean",
-                        "description": "Indicates if the subscription includes a discount.",
+                        "description": "サブスクリプションに割引が適用されているかどうかを示します。",
                         "example": true
                       },
                       "discount_percentage": {
                         "type": "number",
-                        "description": "Discount percentage applied to the subscription.",
+                        "description": "サブスクリプションに適用される割引率。",
                         "example": 10
                       },
                       "discount_duration": {
                         "type": "integer",
-                        "description": "Duration of the discount in billing cycles.",
+                        "description": "請求サイクル単位での割引の期間。",
                         "example": 2
                       }
                     }
@@ -361,7 +361,7 @@
         },
         "responses": {
           "201": {
-            "description": "Subscription payment processed successfully.",
+            "description": "サブスクリプション支払いが正常に処理されました。",
             "content": {
               "application/json": {
                 "schema": {
@@ -369,151 +369,151 @@
                   "properties": {
                     "success": {
                       "type": "boolean",
-                      "description": "Indicates whether the transaction was successful.",
+                      "description": "取引が成功したかどうかを示します。",
                       "example": true
                     },
                     "status_code": {
                       "type": "integer",
-                      "description": "HTTP status code of the transaction.",
+                      "description": "取引のHTTPステータスコード。",
                       "example": 201
                     },
                     "is_live": {
                       "type": "boolean",
-                      "description": "Indicates whether the transaction was live or a test.",
+                      "description": "取引が本番環境のものかテスト環境のものかを示します。",
                       "example": false
                     },
                     "transaction_type": {
                       "type": "string",
-                      "description": "Type of transaction performed (e.g., CAPTURE).",
+                      "description": "実行された取引の種類（例：CAPTURE）。",
                       "example": "CAPTURE"
                     },
                     "gateway_response": {
                       "type": "object",
-                      "description": "Response from the payment gateway.",
+                      "description": "決済ゲートウェイからの応答。",
                       "properties": {
                         "version": {
                           "type": "string",
-                          "description": "Version of the gateway response.",
+                          "description": "ゲートウェイ応答のバージョン。",
                           "example": "1"
                         },
                         "type": {
                           "type": "string",
-                          "description": "Type of the gateway response.",
+                          "description": "ゲートウェイ応答のタイプ。",
                           "example": "INFO"
                         },
                         "message": {
                           "type": "string",
-                          "description": "Message from the gateway response.",
+                          "description": "ゲートウェイからのメッセージ。",
                           "example": "Payment Successful."
                         },
                         "code": {
                           "type": "string",
-                          "description": "Response code from the gateway.",
+                          "description": "ゲートウェイからの応答コード。",
                           "example": "INFO0000"
                         }
                       }
                     },
                     "merchant_details": {
                       "type": "object",
-                      "description": "Details about the merchant.",
+                      "description": "加盟店に関する詳細情報。",
                       "properties": {
                         "legal_name": {
                           "type": "string",
-                          "description": "Legal name of the merchant.",
+                          "description": "加盟店の正式名称。",
                           "example": "Beck's Coffee Shop Pvt. Ltd."
                         },
                         "mid": {
                           "type": "string",
-                          "description": "Merchant ID.",
+                          "description": "加盟店ID。",
                           "example": "JP00000472"
                         },
                         "merchant_txn_ref": {
                           "type": "string",
-                          "description": "Merchant's transaction reference ID.",
+                          "description": "加盟店の取引参照ID。",
                           "example": "qwe"
                         },
                         "billing_details": {
                           "type": "object",
-                          "description": "Details of the billing and shipping addresses.",
+                          "description": "請求先および配送先住所の詳細。",
                           "properties": {
                             "billing_address": {
                               "type": "object",
-                              "description": "Billing address of the merchant.",
+                              "description": "加盟店の請求先住所。",
                               "properties": {
                                 "country": {
                                   "type": "string",
-                                  "description": "Country code.",
+                                  "description": "国コード。",
                                   "example": "JP"
                                 },
                                 "email": {
                                   "type": "string",
-                                  "description": "Billing email address.",
+                                  "description": "請求先メールアドレス。",
                                   "example": "billing@testemail.com"
                                 },
                                 "phone_number": {
                                   "type": "string",
-                                  "description": "Billing phone number.",
+                                  "description": "請求先電話番号。",
                                   "example": "8112345678"
                                 },
                                 "address1": {
                                   "type": "string",
-                                  "description": "Billing address line.",
+                                  "description": "請求先住所。",
                                   "example": "1-2-3 Shinjuku"
                                 },
                                 "city": {
                                   "type": "string",
-                                  "description": "Billing city.",
+                                  "description": "請求先の市区町村。",
                                   "example": "Shinjuku-ku"
                                 },
                                 "state": {
                                   "type": "string",
-                                  "description": "Billing state.",
+                                  "description": "請求先の都道府県。",
                                   "example": "Tokyo"
                                 },
                                 "postal_code": {
                                   "type": "string",
-                                  "description": "Billing postal code.",
+                                  "description": "請求先の郵便番号。",
                                   "example": "1600022"
                                 }
                               }
                             },
                             "shipping_address": {
                               "type": "object",
-                              "description": "Shipping address of the merchant.",
+                              "description": "加盟店の配送先住所。",
                               "properties": {
                                 "country": {
                                   "type": "string",
-                                  "description": "Country code.",
+                                  "description": "国コード。",
                                   "example": "JP"
                                 },
                                 "email": {
                                   "type": "string",
-                                  "description": "Shipping email address.",
+                                  "description": "配送先メールアドレス。",
                                   "example": "billing@testemail.com"
                                 },
                                 "phone_number": {
                                   "type": "string",
-                                  "description": "Shipping phone number.",
+                                  "description": "配送先電話番号。",
                                   "example": "8112345678"
                                 },
                                 "address1": {
                                   "type": "string",
-                                  "description": "Shipping address line.",
+                                  "description": "配送先住所。",
                                   "example": "1-2-3 Shinjuku"
                                 },
                                 "city": {
                                   "type": "string",
-                                  "description": "Shipping city.",
+                                  "description": "配送先の市区町村。",
                                   "example": "Shinjuku-ku"
                                 },
                                 "state": {
                                   "type": "string",
-                                  "description": "Shipping state.",
+                                  "description": "配送先の都道府県。",
                                   "example": "Tokyo"
                                 },
                                 "postal_code": {
                                   "type": "string",
-                                  "description": "Shipping postal code.",
+                                  "description": "配送先の郵便番号。",
                                   "example": "1600022"
                                 }
                               }
@@ -522,16 +522,16 @@
                         },
                         "device_details": {
                           "type": "object",
-                          "description": "Device details of the customer.",
+                          "description": "顧客のデバイス詳細。",
                           "properties": {
                             "visited_ip": {
                               "type": "string",
-                              "description": "IP address of the payment page visited.",
+                              "description": "訪問された決済ページのIPアドレス。",
                               "example": "127.0.0.1"
                             },
                             "customer_ip": {
                               "type": "string",
-                              "description": "IP address of the customer.",
+                              "description": "顧客のIPアドレス。",
                               "example": "127.0.0.1"
                             }
                           }
@@ -540,75 +540,75 @@
                     },
                     "payment_details": {
                       "type": "object",
-                      "description": "Details of the payment transaction.",
+                      "description": "決済取引の詳細。",
                       "properties": {
                         "amount": {
                           "type": "number",
-                          "description": "Amount of the transaction.",
+                          "description": "取引金額。",
                           "example": 900
                         },
                         "response_code": {
                           "type": "integer",
-                          "description": "Response code from the acquirer.",
+                          "description": "アクワイアラーからの応答コード。",
                           "example": 0
                         },
                         "auth_code": {
                           "type": "string",
-                          "description": "Authorization code from the acquirer.",
+                          "description": "アクワイアラーからの認証コード。",
                           "example": "175438"
                         },
                         "currency": {
                           "type": "string",
-                          "description": "Currency of the transaction.",
+                          "description": "取引通貨。",
                           "example": "JPY"
                         },
                         "payment_method": {
                           "type": "string",
-                          "description": "Payment method used.",
+                          "description": "使用された支払い方法。",
                           "example": "VISA_DEBIT-SSL"
                         },
                         "scheme": {
                           "type": "string",
-                          "description": "Card scheme used.",
+                          "description": "使用されたカードスキーム。",
                           "example": "VISA"
                         },
                         "card": {
                           "type": "object",
-                          "description": "Details of the card used.",
+                          "description": "使用されたカードの詳細。",
                           "properties": {
                             "name": {
                               "type": "string",
-                              "description": "Cardholder's name.",
+                              "description": "カード所有者の名前。",
                               "example": "John Doe"
                             },
                             "number": {
                               "type": "string",
-                              "description": "Masked card number.",
+                              "description": "マスクされたカード番号。",
                               "example": "4000000000001091"
                             },
                             "exp_month": {
                               "type": "string",
-                              "description": "Card expiry month.",
+                              "description": "カードの有効期限（月）。",
                               "example": "12"
                             },
                             "exp_year": {
                               "type": "string",
-                              "description": "Card expiry year.",
+                              "description": "カードの有効期限（年）。",
                               "example": "24"
                             }
                           }
                         },
                         "additional_data": {
                           "type": "object",
-                          "description": "Additional payment-related data.",
+                          "description": "追加の決済関連データ。",
                           "properties": {
                             "payment_data_source": {
                               "type": "object",
-                              "description": "Data source for the payment.",
+                              "description": "決済のデータソース。",
                               "properties": {
                                 "type": {
                                   "type": "string",
-                                  "description": "Type of payment data source.",
+                                  "description": "決済データソースの種類。",
                                   "example": "card"
                                 }
                               }
@@ -619,142 +619,142 @@
                     },
                     "transaction_details": {
                       "type": "object",
-                      "description": "Details of the transaction.",
+                      "description": "取引の詳細。",
                       "properties": {
                         "id": {
                           "type": "string",
-                          "description": "Transaction ID.",
+                          "description": "取引ID。",
                           "example": "359f39bd-673a-47b3-b9ec-cbd6cd313b8e"
                         },
                         "ref": {
                           "type": "integer",
-                          "description": "Transaction reference number.",
+                          "description": "取引参照番号。",
                           "example": 74860
                         },
                         "timestamp": {
                           "type": "string",
                           "format": "date-time",
-                          "description": "Timestamp of the transaction.",
+                          "description": "取引のタイムスタンプ。",
                           "example": "2024-11-26T01:31:29.000Z"
                         },
                         "merchant_txn_ref": {
                           "type": "string",
-                          "description": "Merchant's transaction reference ID.",
+                          "description": "加盟店の取引参照ID。",
                           "example": "qwe"
                         },
                         "stored_payment_method_id": {
                           "type": "string",
                           "nullable": true,
-                          "description": "Stored payment method ID (if applicable).",
+                          "description": "保存された決済方法ID（該当する場合）。",
                           "example": null
                         }
                       }
                     },
                     "risk-details": {
                       "type": "object",
-                      "description": "Risk assessment details.",
+                      "description": "リスク評価の詳細。",
                       "properties": {
                         "risk_score": {
                           "type": "number",
                           "nullable": true,
-                          "description": "Risk score for the transaction.",
+                          "description": "取引のリスクスコア。",
                           "example": null
                         }
                       }
                     },
                     "subscription_details": {
                       "type": "object",
-                      "description": "Details of the subscription.",
+                      "description": "サブスクリプションの詳細。",
                       "properties": {
                         "id": {
                           "type": "string",
-                          "description": "Subscription ID.",
+                          "description": "サブスクリプションID。",
                           "example": "664dc930-88bd-4696-8807-5e0f1fedba0b"
                         },
                         "type": {
                           "type": "string",
-                          "description": "Type of subscription (e.g., CYCLE).",
+                          "description": "サブスクリプションの種類（例：CYCLE）。",
                           "example": "CYCLE"
                         },
                         "max_cycle_count": {
                           "type": "integer",
-                          "description": "Maximum number of billing cycles.",
+                          "description": "最大請求サイクル数。",
                           "example": 10
                         },
                         "status": {
                           "type": "string",
-                          "description": "Status of the subscription.",
+                          "description": "サブスクリプションのステータス。",
                           "example": "ACTIVE"
                         },
                         "completed_payment_cycle": {
                           "type": "integer",
-                          "description": "Number of completed payment cycles.",
+                          "description": "完了した支払いサイクルの数。",
                           "example": 1
                         },
                         "next_payment_date": {
                           "type": "string",
                           "format": "date-time",
-                          "description": "Date of the next payment.",
+                          "description": "次回の支払い日。",
                           "example": "2024-11-28T01:31:29.154Z"
                         },
                         "next_payment_cycle": {
                           "type": "integer",
-                          "description": "The next payment cycle number.",
+                          "description": "次の支払いサイクル番号。",
                           "example": 2
                         },
                         "subscription_plan_details": {
                           "type": "object",
-                          "description": "Details of the subscription plan.",
+                          "description": "サブスクリプションプランの詳細。",
                           "properties": {
                             "name": {
                               "type": "string",
-                              "description": "Name of the subscription plan.",
+                              "description": "サブスクリプションプランの名前。",
                               "example": "Three weeks plan"
                             },
                             "desc": {
                               "type": "string",
-                              "description": "Description of the subscription plan.",
+                              "description": "サブスクリプションプランの説明。",
                               "example": "Billed every two days"
                             },
                             "billing_cycle_type": {
                               "type": "string",
-                              "description": "Type of billing cycle (e.g., DAYS, MONTHS).",
+                              "description": "請求サイクルの種類（例：DAYS、MONTHS）。",
                               "example": "DAYS"
                             },
                             "billing_cycle_interval": {
                               "type": "integer",
-                              "description": "Interval between billing cycles.",
+                              "description": "請求サイクル間の間隔。",
                               "example": 2
                             },
                             "amount": {
                               "type": "number",
-                              "description": "Amount for each billing cycle.",
+                              "description": "各請求サイクルの金額。",
                               "example": 1000
                             },
                             "ccy": {
                               "type": "string",
-                              "description": "Currency code for the subscription.",
+                              "description": "サブスクリプションの通貨コード。",
                               "example": "JPY"
                             },
                             "trial_period_duration": {
                               "type": "string",
                               "nullable": true,
-                              "description": "Duration of the trial period.",
+                              "description": "試用期間の期間。",
                               "example": ""
                             },
                             "trial_period_duration_type": {
                               "type": "string",
-                              "description": "Type of the trial period duration.",
+                              "description": "試用期間の種類。",
                               "example": "NONE"
                             },
                             "plan_discount_percentage": {
                               "type": "number",
-                              "description": "Discount percentage applied to the subscription plan.",
+                              "description": "サブスクリプションプランに適用される割引率。",
                               "example": 10
                             },
                             "plan_discount_duration": {
                               "type": "integer",
-                              "description": "Duration of the discount in billing cycles.",
+                              "description": "割引の適用期間（請求サイクル数）。",
                               "example": 2
                             }
                           }
@@ -776,13 +776,13 @@
         "type": "apiKey",
         "name": "Authorization",
         "in": "header",
-        "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
+        "description": "認証用のAPIキー。フォーマット：「Basic YOUR_API_KEY_HERE」"
       },
       "xApiKeyAuth": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header",
-        "description": "API Key specific to x-api-key."
+        "description": "x-api-key専用のAPIキー。"
       }
     }
   }
