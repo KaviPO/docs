@@ -1,1 +1,510 @@
-
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Payment Options API",
+    "description": "API for generating Hosted Payment Page (HPP) links and processing payments.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api-dev.paymentoptions.com/api/v1"
+    }
+  ],
+  "security": [
+    {
+      "apiKeyAuth": [],
+      "xApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/api/v1/server-to-server-interface/payment": {
+      "post": {
+        "operationId": "usetoken",
+        "requestBody": {
+          "description": "The request payload to process a payment transaction.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                 "additionalProperties": false,
+                "properties": {
+                  "amount": {
+                    "type": "string",
+                    "description": "The amount of the transaction.",
+                    "example": "1000"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "The abbreviation of the processing currency (e.g., JPY).",
+                    "example": "JPY",
+                    "maxLength": 3
+                  },
+                  "payment_method": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "A JSON object containing the payment method.",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "The payment method type (e.g., 'scheme').",
+                        "example": "scheme",
+                        "maxLength": 128
+                      },
+                      "store_payment_method": {
+                        "type": "boolean",
+                        "description": "True to store the payment method or False not to store (for tokenization).",
+                        "example": true
+                      },
+                      "store_payment_method_id": {
+                        "type": "string",
+                        "description": "True to store the payment method or False not to store (for tokenization).",
+                        "example": "094db781-fabc-4c6d-8fcd-18bee06a527a",
+                          "maxLength": 128
+                      }
+                    }
+                  },
+                  "merchant_txn_ref": {
+                    "type": "string",
+                    "description": "The merchant transaction reference ID.",
+                    "example": "qwe",
+                    "maxLength": 45
+                  },
+                  "customer_ip": {
+                    "type": "string",
+                    "description": "The IP address of the cardholder.",
+                    "example": "127.0.0.1",
+                    "maxLength": 45
+                  },
+                  "merchant_id": {
+                    "type": "string",
+                    "description": "The merchant ID (DASMID).",
+                    "example": "< Merchant ID >",
+                    "maxLength": 128
+                  },
+                  "return_url": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "A JSON object containing the return URLs. (This field is mandatory for 3DS transactions.)",
+                    "properties": {
+                      "webhook_url": {
+                        "type": "string",
+                        "description": "The webhook URL link.",
+                        "example": "< Webhook url >",
+                        "maxLength": 255
+                      },
+                      "success_url": {
+                        "type": "string",
+                        "description": "The redirect URL after successful payment.",
+                        "example": "http://www.successurl.com/",
+                        "maxLength": 255
+                      },
+                      "decline_url": {
+                        "type": "string",
+                        "description": "The redirect URL after failed payment.",
+                        "example": "http://www.declineurl.com/",
+                        "maxLength": 255
+                      }
+                    }
+                  },
+                  "billing_address": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "A JSON object containing the billing address of the cardholder.",
+                    "properties": {
+                      "country": {
+                        "type": "string",
+                        "description": "The cardholder’s billing country code.",
+                        "example": "JP",
+                        "maxLength": 2
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "The cardholder’s billing email address.",
+                        "example": "billing@testemail.com",
+                        "maxLength": 45
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "The cardholder’s billing phone number.",
+                        "example": "8112345678",
+                        "maxLength": 20
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "The cardholder’s billing address line.",
+                        "example": "1-2-3 Shinjuku",
+                        "maxLength": 199
+                      },
+                      "city": {
+                        "type": "string",
+                        "description": "The cardholder’s billing city.",
+                        "example": "Shinjuku-ku",
+                        "maxLength": 65
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "The cardholder’s billing state.",
+                        "example": "Tokyo",
+                        "maxLength": 65
+                      },
+                      "postal_code": {
+                        "type": "string",
+                        "description": "The cardholder’s billing postal code.",
+                        "example": "1600022",
+                        "maxLength": 45
+                      }
+                    }
+                  },
+                  "shipping_address": {
+                    "type": "object",
+                     "additionalProperties": false,
+                    "description": "A JSON object containing the shipping address of the cardholder (optional).",
+                    "properties": {
+                      "country": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping country code.",
+                        "example": "JP",
+                        "maxLength": 2
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping email address.",
+                        "example": "shipping@testemail.com",
+                        "maxLength": 45
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping phone number.",
+                        "example": "8112345678",
+                        "maxLength": 20
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping address line.",
+                        "example": "1-2-3 Shinjuku",
+                        "maxLength": 199
+                      },
+                      "city": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping city.",
+                        "example": "Shinjuku-ku",
+                        "maxLength": 65
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping state.",
+                        "example": "Tokyo",
+                        "maxLength": 65
+                      },
+                      "postal_code": {
+                        "type": "string",
+                        "description": "The cardholder’s shipping postal code.",
+                        "example": "1600022",
+                        "maxLength": 45
+                      }
+                    }
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "description": "The country time zone of the transaction.",
+                    "example": "Asia/Kuala_Lumpur",
+                    "maxLength": 128
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "payment_method",
+                  "merchant_id",
+                  "billing_address"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Payment processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "True on successful transaction, false on failure.",
+                      "example": true
+                    },
+                    "status_code": {
+                      "type": "integer",
+                      "description": "The status code of the transaction.",
+                      "example": 201
+                    },
+                    "is_live": {
+                      "type": "boolean",
+                      "description": "True if live transaction, false if test transaction.",
+                      "example": false
+                    },
+                    "transaction_type": {
+                      "type": "string",
+                      "description": "The transaction type (e.g., CAPTURE).",
+                      "example": "CAPTURE"
+                    },
+                    "gateway_response": {
+                      "type": "object",
+                      "description": "A JSON object containing the response from the gateway.",
+                      "properties": {
+                        "version": {
+                          "type": "string",
+                          "description": "The version of the gateway.",
+                          "example": "1"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Type of response (e.g., INFO).",
+                          "example": "INFO"
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "The message response from the gateway.",
+                          "example": "Payment Successful."
+                        },
+                        "code": {
+                          "type": "string",
+                          "description": "Message code of the response.",
+                          "example": "INFO0000"
+                        }
+                      }
+                    },
+                    "merchant_details": {
+                      "type": "object",
+                      "description": "A JSON object containing the details of the merchant.",
+                      "properties": {
+                        "legal_name": {
+                          "type": "string",
+                          "description": "The merchant’s legal name.",
+                          "example": "アイベック株式会社"
+                        },
+                        "mid": {
+                          "type": "string",
+                          "description": "The merchant ID (DASMID).",
+                          "example": "< Merchant ID >"
+                        },
+                        "merchant_txn_ref": {
+                          "type": "string",
+                          "description": "The merchant transaction reference ID.",
+                          "example": "qwe"
+                        },
+                        "billing_details": {
+                          "type": "object",
+                          "description": "A JSON object containing the billing details.",
+                          "properties": {
+                            "billing_address": {
+                              "type": "object",
+                              "description": "A JSON object containing the billing address.",
+                              "properties": {
+                                "country": {
+                                  "type": "string",
+                                  "description": "The cardholder’s billing country code.",
+                                  "example": "JP"
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "description": "The cardholder’s billing email address.",
+                                  "example": "billing@testemail.com"
+                                },
+                                "phone_number": {
+                                  "type": "string",
+                                  "description": "The cardholder’s billing phone number.",
+                                  "example": "8112345678"
+                                },
+                                "address1": {
+                                  "type": "string",
+                                  "description": "The cardholder’s billing address line.",
+                                  "example": "1-2-3 Shinjuku"
+                                },
+                                "city": {
+                                  "type": "string",
+                                  "description": "The cardholder’s billing city.",
+                                  "example": "Shinjuku-ku"
+                                },
+                                "state": {
+                                  "type": "string",
+                                  "description": "The cardholder’s billing state.",
+                                  "example": "Tokyo"
+                                },
+                                "postal_code": {
+                                  "type": "string",
+                                  "description": "The cardholder’s billing postal code.",
+                                  "example": "1600022"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "device_details": {
+                          "type": "object",
+                          "description": "A JSON object containing the device details.",
+                          "properties": {
+                            "visited_ip": {
+                              "type": "string",
+                              "description": "IP address of the payment page.",
+                              "example": "127.0.0.1"
+                            },
+                            "customer_ip": {
+                              "type": "string",
+                              "description": "IP address of the cardholder.",
+                              "example": "127.0.0.1"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "payment_details": {
+                      "type": "object",
+                      "description": "A JSON object containing the payment details.",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "The amount value of the transaction.",
+                          "example": 1000
+                        },
+                        "response_code": {
+                          "type": "integer",
+                          "description": "The acquirer response code.",
+                          "example": 0
+                        },
+                        "auth_code": {
+                          "type": "string",
+                          "description": "The acquirer authorization code.",
+                          "example": "268004"
+                        },
+                        "currency": {
+                          "type": "string",
+                          "description": "The currency of the transaction.",
+                          "example": "JPY"
+                        },
+                        "payment_method": {
+                          "type": "string",
+                          "description": "The payment card type (e.g., Credit Card).",
+                          "example": "ECMC-SSL"
+                        },
+                        "scheme": {
+                          "type": "string",
+                          "description": "The card brand scheme (e.g., MASTERCARD).",
+                          "example": "MASTERCARD"
+                        },
+                        "card": {
+                          "type": "object",
+                          "description": "A JSON object containing details of the card.",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The cardholder’s name on the card.",
+                              "example": "John Doe"
+                            },
+                            "number": {
+                              "type": "string",
+                              "description": "The card number (masked).",
+                              "example": "4000000000001091"
+                            },
+                            "exp_month": {
+                              "type": "string",
+                              "description": "The expiry month of the card.",
+                              "example": "12"
+                            },
+                            "exp_year": {
+                              "type": "string",
+                              "description": "The expiry year of the card.",
+                              "example": "24"
+                            }
+                          }
+                        },
+                        "additional_data": {
+                          "type": "object",
+                          "description": "A JSON object containing additional data.",
+                          "properties": {
+                            "payment_data_source": {
+                              "type": "object",
+                              "description": "A JSON object containing the payment data source.",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "The type of payment data source.",
+                                  "example": "card"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "transaction_details": {
+                      "type": "object",
+                      "description": "A JSON object containing details of the transaction.",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "The transaction ID.",
+                          "example": "0db1fac1-e064-4644-a387-08d143960c8f"
+                        },
+                        "ref": {
+                          "type": "integer",
+                          "description": "The authorization code of the transaction.",
+                          "example": 74811
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "description": "Date and time of the transaction.",
+                          "example": "2024-11-25T08:24:36.000Z"
+                        },
+                        "merchant_txn_ref": {
+                          "type": "string",
+                          "description": "The merchant transaction reference ID.",
+                          "example": "qwe"
+                        },
+                        "stored_payment_method_id": {
+                          "type": "string",
+                          "description": "The stored payment method ID (if applicable).",
+                          "example": "094db781-fabc-4c6d-8fcd-18bee06a527a"
+                        }
+                      }
+                    },
+                    "risk-details": {
+                      "type": "object",
+                      "description": "A JSON object containing details of risk.",
+                      "properties": {
+                        "risk_score": {
+                          "type": "string",
+                          "description": "The risk score (if applicable).",
+                          "example": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
+      },
+      "xApiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header",
+        "description": "API Key specific to x-api-key."
+      }
+    }
+  }
+}
