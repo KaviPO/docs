@@ -19,12 +19,12 @@
   "paths": {
     "/api/v1/server-to-server-interface/subscription/list": {
       "get": {
-        "summary": "Retrieve Subscription List",
-        "description": "This endpoint retrieves a list of subscriptions and their details.",
+        "summary": "サブスクリプション一覧を取得",
+        "description": "このエンドポイントは、サブスクリプションの一覧とその詳細を取得します。",
         "operationId": "getSubscriptionList",
         "responses": {
           "200": {
-            "description": "A successful response containing subscription details.",
+            "description": "サブスクリプションの詳細を含む成功した応答。",
             "content": {
               "application/json": {
                 "schema": {
@@ -32,162 +32,162 @@
                   "properties": {
                     "success": {
                       "type": "boolean",
-                      "description": "Indicates whether the transaction was successful.",
+                      "description": "取引が成功したかどうかを示します。",
                       "example": true
                     },
                     "status_code": {
                       "type": "integer",
-                      "description": "The HTTP status code of the response.",
+                      "description": "応答のHTTPステータスコード。",
                       "example": 200
                     },
                     "is_live": {
                       "type": "boolean",
-                      "description": "Indicates if the transaction is live or a test transaction.",
+                      "description": "取引が本番環境かテスト環境かを示します。",
                       "example": false
                     },
                     "subscription_details": {
                       "type": "array",
-                      "description": "A list of subscription details.",
+                      "description": "サブスクリプションの詳細の一覧。",
                       "items": {
                         "type": "object",
                         "properties": {
                           "id": {
                             "type": "string",
-                            "description": "The Subscription ID.",
+                            "description": "サブスクリプションID。",
                             "example": "2048b01c-1512-45b9-98fc-27aac4deabce"
                           },
                           "type": {
                             "type": "string",
-                            "description": "The type of subscription (e.g., CYCLE or Unlimited).",
+                            "description": "サブスクリプションの種類（例：CYCLE または Unlimited）。",
                             "example": "CYCLE"
                           },
                           "max_cycle_count": {
                             "type": "integer",
-                            "description": "The maximum number of billing cycles.",
+                            "description": "最大請求サイクル数。",
                             "example": 10
                           },
                           "status": {
                             "type": "string",
-                            "description": "The status of the subscription.",
+                            "description": "サブスクリプションのステータス。",
                             "example": "ACTIVE"
                           },
                           "completed_payment_cycle": {
                             "type": "integer",
-                            "description": "The number of completed payment cycles.",
+                            "description": "完了した支払いサイクルの数。",
                             "example": 1
                           },
                           "next_payment_date": {
                             "type": "string",
                             "format": "date-time",
-                            "description": "The next payment date of the subscription.",
+                            "description": "サブスクリプションの次回支払い日。",
                             "example": "2024-12-01T00:00:00.000Z"
                           },
                           "next_payment_cycle": {
                             "type": "integer",
-                            "description": "The next payment cycle number.",
+                            "description": "次回の支払いサイクル番号。",
                             "example": 2
                           },
                           "subscription_plan_details": {
                             "type": "object",
-                            "description": "Details of the subscription plan.",
+                            "description": "サブスクリプションプランの詳細。",
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "description": "The name of the subscription plan.",
+                                "description": "サブスクリプションプランの名前。",
                                 "example": "Three weeks plan"
                               },
                               "desc": {
                                 "type": "string",
-                                "description": "The description of the subscription plan.",
+                                "description": "サブスクリプションプランの説明。",
                                 "example": "Billed every two days"
                               },
                               "billing_cycle_type": {
                                 "type": "string",
-                                "description": "The type of billing cycle (e.g., DAYS or MONTHS).",
+                                "description": "請求サイクルの種類（例：DAYS または MONTHS）。",
                                 "example": "DAYS"
                               },
                               "billing_cycle_interval": {
                                 "type": "integer",
-                                "description": "The interval between billing cycles.",
+                                "description": "請求サイクルの間隔。",
                                 "example": 2
                               },
                               "amount": {
                                 "type": "integer",
-                                "description": "The payment amount for the subscription plan.",
+                                "description": "サブスクリプションプランの支払い金額。",
                                 "example": 1000
                               },
                               "ccy": {
                                 "type": "string",
-                                "description": "The currency of the subscription transaction.",
+                                "description": "サブスクリプション取引の通貨。",
                                 "example": "JPY"
                               },
                               "trial_period_duration": {
                                 "type": "string",
-                                "description": "The duration of the trial period (if applicable).",
+                                "description": "トライアル期間の長さ（該当する場合）。",
                                 "example": ""
                               },
                               "trial_period_duration_type": {
                                 "type": "string",
-                                "description": "The type of trial period duration (e.g., DAYS or MONTHS).",
+                                "description": "トライアル期間の種類（例：DAYS または MONTHS）。",
                                 "example": "NONE"
                               },
                               "plan_discount_percentage": {
                                 "type": "number",
-                                "description": "The discount percentage for the subscription plan.",
+                                "description": "サブスクリプションプランの割引率。",
                                 "example": 10
                               },
                               "plan_discount_duration": {
                                 "type": "integer",
-                                "description": "The duration of the discount in billing cycles.",
+                                "description": "割引が適用される請求サイクルの期間。",
                                 "example": 2
                               }
                             }
                           },
                           "subscription_transaction_details": {
                             "type": "array",
-                            "description": "A list of transaction details for the subscription.",
+                            "description": "サブスクリプションの取引詳細の一覧。",
                             "items": {
                               "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "string",
-                                  "description": "The Transaction ID of this subscription transaction.",
+                                  "description": "このサブスクリプション取引の取引ID。",
                                   "example": "00a33a30-be2d-4d5a-8d4f-659a6999d2ff"
                                 },
                                 "ref": {
                                   "type": "integer",
-                                  "description": "The reference of the subscription transaction.",
+                                  "description": "サブスクリプション取引の参照番号。",
                                   "example": 69400
                                 },
                                 "cycle": {
                                   "type": "integer",
-                                  "description": "The payment cycle number of the transaction.",
+                                  "description": "取引の支払いサイクル番号。",
                                   "example": 1
                                 },
                                 "status": {
                                   "type": "string",
-                                  "description": "The status of the subscription transaction.",
+                                  "description": "サブスクリプション取引のステータス。",
                                   "example": "SUCCESSFUL"
                                 },
                                 "transaction_date": {
                                   "type": "string",
                                   "format": "date-time",
-                                  "description": "The date of the subscription transaction.",
+                                  "description": "サブスクリプション取引の日付。",
                                   "example": "2024-11-30T00:00:00.000Z"
                                 },
                                 "amount": {
                                   "type": "integer",
-                                  "description": "The payment amount of the transaction.",
+                                  "description": "取引の支払い金額。",
                                   "example": 900
                                 },
                                 "ccy": {
                                   "type": "string",
-                                  "description": "The currency of the transaction.",
+                                  "description": "取引の通貨。",
                                   "example": "JPY"
                                 },
                                 "event": {
                                   "type": "string",
-                                  "description": "The event type for the transaction (e.g., CAPTURED).",
+                                  "description": "取引のイベントタイプ（例：CAPTURED）。",
                                   "example": "CAPTURED"
                                 }
                               }
@@ -211,13 +211,13 @@
         "type": "apiKey",
         "name": "Authorization",
         "in": "header",
-        "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
+        "description": "認証のためのAPIキー。形式：'Basic YOUR_API_KEY_HERE'"
       },
       "xApiKeyAuth": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header",
-        "description": "API Key specific to x-api-key."
+        "description": "x-api-key専用のAPIキー。"
       }
     }
   }
