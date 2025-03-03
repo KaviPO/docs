@@ -202,20 +202,6 @@
            "version": "English"
         },
         {
-          "group": "サーバー間通信",
-          "pages": [
-            "api-reference/jp/server-to-server/purchase",
-            "api-reference/jp/server-to-server/authorization",
-            "api-reference/jp/server-to-server/capture",
-            "api-reference/jp/server-to-server/refund",
-            "api-reference/jp/server-to-server/void-authorization",
-            "api-reference/jp/server-to-server/transaction-status",
-            "api-reference/jp/server-to-server/3dsecure"
-          ],
-          "version": "日本語"
-        },
-        
-        {
           "group": "Tokenization",
           "pages": [
             "api-reference/en/tokenization/generate-token",
@@ -223,15 +209,6 @@
           ],
            "version": "English"
         },
-        {
-          "group": "トークン化",
-          "pages": [
-            "api-reference/jp/tokenization/generate-token",
-            "api-reference/jp/tokenization/use-token"
-          ],
-          "version": "日本語"
-        },
-        
         {
           "group": "Subscriptions",
           "pages": [
@@ -244,7 +221,49 @@
           ],
            "version": "English"
         },
-        
+        {
+          "group": "Wallet",
+          "pages": [
+            "api-reference/en/wallet/wallet"
+          ],
+           "version": "English"
+        },        
+        {
+          "group": "Hosted Payment Page",
+          "pages": [ 
+            "api-reference/en/hpp/generate-link",
+            "api-reference/en/hpp/generate-link-tokenization"
+          ],
+           "version": "English"
+        }
+      ],
+      "version": "English"
+    },
+
+ {
+      "group": "APIエンドポイント",
+      "pages": [
+        {
+          "group": "サーバー間通信",
+          "pages": [
+            "api-reference/jp/server-to-server/purchase",
+            "api-reference/jp/server-to-server/authorization",
+            "api-reference/jp/server-to-server/capture",
+            "api-reference/jp/server-to-server/refund",
+            "api-reference/jp/server-to-server/void-authorization",
+            "api-reference/jp/server-to-server/transaction-status",
+            "api-reference/jp/server-to-server/3dsecure"
+          ],
+          "version": "日本語"
+        },
+        {
+          "group": "トークン化",
+          "pages": [
+            "api-reference/jp/tokenization/generate-token",
+            "api-reference/jp/tokenization/use-token"
+          ],
+          "version": "日本語"
+        },  
          {
           "group": "サブスクリプション",
           "pages": [
@@ -257,29 +276,12 @@
           ],
           "version": "日本語"
         },
-        
-        {
-          "group": "Wallet",
-          "pages": [
-            "api-reference/en/wallet/wallet"
-          ],
-           "version": "English"
-        },
         {
           "group": "ウォレット",
           "pages": [
             "api-reference/jp/wallet/wallet"
           ],
           "version": "日本語"
-        },
-                
-        {
-          "group": "Hosted Payment Page",
-          "pages": [ 
-            "api-reference/en/hpp/generate-link",
-            "api-reference/en/hpp/generate-link-tokenization"
-          ],
-           "version": "English"
         },
         {
           "group": "ホスト決済ページ",
@@ -289,8 +291,10 @@
           ],
           "version": "日本語"
         }  
-      ]
+      ],
+    "version": "日本語"
     },
+    
     {
               "group": "Error and Response",
               "pages": [
