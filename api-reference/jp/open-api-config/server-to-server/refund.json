@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Payment Options API",
-    "description": "API for generating Hosted Payment Page (HPP) links and processing payments.",
+    "description": "ホストされた支払いページ（HPP）リンクを生成し、支払いを処理するためのAPI。",
     "version": "1.0.0"
   },
   "servers": [
@@ -19,38 +19,38 @@
   "paths": {
     "/api/v1/server-to-server-interface/refund": {
       "post": {
-        "summary": "Refund a Transaction",
-        "description": "This endpoint allows merchants to refund a captured or purchased transaction amount.",
+        "summary": "取引を払い戻す",
+        "description": "このエンドポイントは、加盟店がキャプチャまたは購入した取引金額を払い戻すことを可能にします。",
         "operationId": "refundTransaction",
         "requestBody": {
-          "description": "The request payload to refund a transaction.",
+          "description": "取引を払い戻すためのリクエストペイロード。",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                 "additionalProperties": false,
+                "additionalProperties": false,
                 "properties": {
                   "transactionId": {
                     "type": "string",
-                    "description": "The original transaction ID of the authorized transaction.",
+                    "description": "承認された取引の元の取引ID。",
                     "example": "9dfd39ec-eb4a-4f8b-a526-17abf140a717",
                     "maxLength": 36
                   },
                   "amount": {
                     "type": "integer",
-                    "description": "The amount to be refunded. This should not exceed the amount captured or purchased. Amount limit depends on the bank.",
+                    "description": "払い戻される金額。これはキャプチャまたは購入した金額を超えてはいけません。金額の制限は銀行によって異なります。",
                     "example": 1000
                   },
                   "merchant_id": {
                     "type": "string",
-                    "description": "The merchant ID (DASMID).",
+                    "description": "加盟店ID（DASMID）。",
                     "example": "< Merchant ID >",
                     "maxLength": 10
                   },
                   "notes": {
                     "type": "string",
-                    "description": "The reference of the refund transaction (optional).",
+                    "description": "払い戻し取引の参照（オプション）。",
                     "example": "Refund amout captured/purchased",
                     "maxLength": 128
                   }
@@ -66,7 +66,7 @@
         },
         "responses": {
           "201": {
-            "description": "Transaction refunded successfully",
+            "description": "取引が正常に払い戻されました。",
             "content": {
               "application/json": {
                 "schema": {
@@ -74,142 +74,142 @@
                   "properties": {
                     "success": {
                       "type": "boolean",
-                      "description": "True on successful transaction, false on failure.",
+                      "description": "取引が成功した場合はtrue、失敗した場合はfalse。",
                       "example": true
                     },
                     "status_code": {
                       "type": "integer",
-                      "description": "The status code of the transaction.",
+                      "description": "取引のステータスコード。",
                       "example": 201
                     },
                     "is_live": {
                       "type": "boolean",
-                      "description": "True if live transaction, false if test transaction.",
+                      "description": "本番取引の場合はtrue、テスト取引の場合はfalse。",
                       "example": false
                     },
                     "transaction_type": {
                       "type": "string",
-                      "description": "The transaction type (e.g., REFUND).",
+                      "description": "取引タイプ（例：REFUND）。",
                       "example": "REFUND"
                     },
                     "gateway_response": {
                       "type": "object",
-                      "description": "A JSON object containing the response from the gateway.",
+                      "description": "ゲートウェイからの応答を含むJSONオブジェクト。",
                       "properties": {
                         "version": {
                           "type": "string",
-                          "description": "The version of the gateway.",
+                          "description": "ゲートウェイのバージョン。",
                           "example": "1"
                         },
                         "type": {
                           "type": "string",
-                          "description": "Type of response (e.g., INFO).",
+                          "description": "応答のタイプ（例：INFO）。",
                           "example": "INFO"
                         },
                         "message": {
                           "type": "string",
-                          "description": "The message response from the gateway.",
-                          "example": "Amount successfully refunded."
+                          "description": "ゲートウェイからのメッセージ応答。",
+                          "example": "金額が正常に払い戻されました。"
                         },
                         "code": {
                           "type": "string",
-                          "description": "Message code of the response.",
+                          "description": "応答のメッセージコード。",
                           "example": "INFO0002"
                         }
                       }
                     },
                     "merchant_details": {
                       "type": "object",
-                      "description": "A JSON object containing the details of the merchant.",
+                      "description": "加盟店の詳細を含むJSONオブジェクト。",
                       "properties": {
                         "legal_name": {
                           "type": "string",
-                          "description": "The merchant’s legal name.",
+                          "description": "加盟店の正式名称。",
                           "example": "Tink15 Factory"
                         },
                         "mid": {
                           "type": "string",
-                          "description": "The merchant ID (DASMID).",
+                          "description": "加盟店ID（DASMID）。",
                           "example": "< Merchant ID >"
                         },
                         "merchant_txn_ref": {
                           "type": "string",
-                          "description": "The merchant transaction reference.",
+                          "description": "加盟店の取引参照。",
                           "example": "qwe"
                         }
                       }
                     },
                     "payment_details": {
                       "type": "object",
-                      "description": "A JSON object containing the payment details of the transaction.",
+                      "description": "取引の支払い詳細を含むJSONオブジェクト。",
                       "properties": {
                         "amount": {
                           "type": "number",
-                          "description": "The amount value of the transaction.",
+                          "description": "取引の金額。",
                           "example": 1000
                         },
                         "response_code": {
                           "type": "integer",
-                          "description": "The acquirer response code.",
+                          "description": "アクワイアラー応答コード。",
                           "example": 0
                         },
                         "auth_code": {
                           "type": "string",
-                          "description": "The acquirer authorization code.",
+                          "description": "アクワイアラーの認証コード。",
                           "example": "264302"
                         },
                         "currency": {
                           "type": "string",
-                          "description": "The currency of the transaction.",
+                          "description": "取引の通貨。",
                           "example": "JPY"
                         },
                         "payment_method": {
                           "type": "string",
-                          "description": "The payment card type (e.g., Credit Card or Debit Card).",
+                          "description": "支払いカードの種類（例：クレジットカードまたはデビットカード）。",
                           "example": "ECMC-SSL"
                         },
                         "scheme": {
                           "type": "string",
-                          "description": "The card brand scheme (e.g., MASTERCARD).",
+                          "description": "カードブランドのスキーム（例：MASTERCARD）。",
                           "example": "MASTERCARD"
                         },
                         "card": {
                           "type": "object",
-                          "description": "A JSON object containing details of the card.",
+                          "description": "カードの詳細を含むJSONオブジェクト。",
                           "properties": {
                             "name": {
                               "type": "string",
-                              "description": "The cardholder’s name on the card.",
+                              "description": "カード所有者の名前。",
                               "example": "John Doe"
                             },
                             "number": {
                               "type": "string",
-                              "description": "The card number (masked).",
+                              "description": "カード番号（マスク済み）。",
                               "example": "5200000000001005"
                             },
                             "exp_month": {
                               "type": "string",
-                              "description": "The expiry month of the card.",
+                              "description": "カードの有効期限の月。",
                               "example": "12"
                             },
                             "exp_year": {
                               "type": "string",
-                              "description": "The expiry year of the card.",
+                              "description": "カードの有効期限の年。",
                               "example": "24"
                             }
                           }
                         },
                         "additional_data": {
                           "type": "object",
-                          "description": "A JSON object containing additional data.",
+                          "description": "追加データを含むJSONオブジェクト。",
                           "properties": {
                             "payment_data_source": {
                               "type": "object",
-                              "description": "A JSON object containing payment data source.",
+                              "description": "支払いデータソースを含むJSONオブジェクト。",
                               "properties": {
                                 "type": {
                                   "type": "string",
-                                  "description": "The type of payment data source (e.g., Card, GooglePay, ApplePay).",
+                                  "description": "支払いデータソースの種類（例：カード、GooglePay、ApplePay）。",
                                   "example": "card"
                                 }
                               }
@@ -220,26 +220,26 @@
                     },
                     "transaction_details": {
                       "type": "object",
-                      "description": "A JSON object containing details of the transaction.",
+                      "description": "取引の詳細を含むJSONオブジェクト。",
                       "properties": {
                         "id": {
                           "type": "string",
-                          "description": "The transaction ID of the transaction.",
+                          "description": "取引のトランザクションID。",
                           "example": "626fa81d-9819-4947-bb9b-b0f11e00a50e"
                         },
                         "ref": {
                           "type": "integer",
-                          "description": "The authorization code of the transaction.",
+                          "description": "取引の認証コード。",
                           "example": 74824
                         },
                         "timestamp": {
                           "type": "string",
-                          "description": "Date and time of the transaction.",
+                          "description": "取引の日付と時刻。",
                           "example": "2024-11-25T08:51:52.000Z"
                         },
                         "merchant_txn_ref": {
                           "type": "string",
-                          "description": "The merchant transaction reference ID.",
+                          "description": "加盟店の取引参照ID。",
                           "example": "qwe"
                         }
                       }
@@ -259,13 +259,13 @@
         "type": "apiKey",
         "name": "Authorization",
         "in": "header",
-        "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
+        "description": "認証のためのAPIキー。形式：'Basic YOUR_API_KEY_HERE'"
       },
       "xApiKeyAuth": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header",
-        "description": "API Key specific to x-api-key."
+        "description": "x-api-key専用のAPIキー。"
       }
     }
   }
