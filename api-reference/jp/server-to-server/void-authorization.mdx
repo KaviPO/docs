@@ -1,0 +1,21 @@
+---
+title: '認証無効化API'
+openapi: '/api-reference/jp/open-api-config/server-to-server/void-authorization.json POST /api/v1/server-to-server-interface/void'
+description: 認証無効化APIは、資金がキャプチャされる前に、以前に認証された支払いをキャンセルし、顧客のアカウントでの保留を解除するために使用されます。
+---
+
+### 重要なポイント
+
+<Info>
+  * 認証無効化APIは、認証されたがまだキャプチャされていない取引を進めない決定がなされた場合に非常に重要です。
+
+  * 認証が無効化されると、顧客のアカウントで保留されていた資金が解放され、再び顧客が使用できるようになります。
+
+  * このAPIは、注文が履行前にキャンセルされた場合や、取引詳細の変更により再認証が必要な場合に一般的に使用されます。
+</Info>
+
+## フローダイアグラム
+
+![フローダイアグラム画像](/images/timeline-diagram/flows-API-void.svg)
+
+## APIパラメータ

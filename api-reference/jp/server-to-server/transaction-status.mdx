@@ -1,0 +1,18 @@
+---
+title: '取引ステータスAPI'
+openapi: '/api-reference/jp/open-api-config/server-to-server/transaction-status.json GET /api/v1/server-to-server-interface/transaction/status/{transactionId}'
+description: 取引ステータスAPIは、特定の取引の現在のステータスを取得するために使用され、事前認証、キャプチャ、返金、または無効化された取引を含みます。
+---
+
+### 重要なポイント
+
+<Info>
+  * 取引IDは、特定の取引のステータスを問い合わせるために必要です。
+
+  * APIは、取引の現在のステータスと関連するエラーコードやメッセージを含む詳細情報を返します。
+
+  * このAPIは、取引ライフサイクルの追跡と管理に不可欠で、取引が正常に完了したことを確認するか、対応が必要な問題を特定します。
+</Info>
+
+## APIパラメータ
+

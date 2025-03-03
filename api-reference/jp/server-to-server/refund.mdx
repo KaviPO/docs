@@ -1,0 +1,21 @@
+---
+title: '返金API'
+openapi: '/api-reference/jp/open-api-config/server-to-server/refund.json POST /api/v1/server-to-server-interface/refund'
+description: 返金APIは、成功した購入またはキャプチャ取引後に顧客に資金を返金するために使用されます。
+---
+
+### 重要なポイント
+
+<Info>
+  * 返金APIは、加盟店が取引を取り消し、資金を顧客の支払い方法に返金することを可能にします。
+
+  * このAPIは、注文キャンセル、商品返品、または顧客が請求に異議を唱える場合などのシナリオで一般的に使用されます。
+
+  * 返金は、返金リクエストに指定された金額に応じて部分的または全額で行うことができます。部分的に返金された場合でも、元の取引の残高は有効です。
+</Info>
+
+## フローダイアグラム
+
+![フローダイアグラム](/images/timeline-diagram/flows-API-refund.svg)
+
+## APIパラメータ

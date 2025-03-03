@@ -1,0 +1,52 @@
+---
+title: 'サブスクリプション作成API'
+openapi: '/api-reference/jp/open-api-config/subscription/create-subscription.json POST /api/v1/server-to-server-interface/subscription/payment'
+description: サブスクリプション作成APIは、加盟店が顧客向けに定期的な請求を設定できるようにし、さまざまな請求間隔、試用期間、割引を備えた柔軟なプランを提供します。
+---
+
+### サブスクリプション作成のリクエスト例
+
+```json
+"subscription": {
+        "plan_name": "<string>",
+        "plan_desc": "<string>",
+        "cycle_type": "<DAYS/MONTHS>",
+        "subscription_end_type": "CYCLE",
+        "cycle_interval": <int>,
+        "max_cycle_count": <int>,
+        "has_trial_period": <boolean>,
+        "trial_period_duration_type": "DAYS",
+        "trial_period_duration": <int>,
+        "has_discount": <boolean>,
+        "discount_percentage": <int>,
+        "discount_duration": <int>
+    }
+```
+
+### 重要なポイント
+
+<Info>
+  ### サブスクリプション作成
+
+  * このAPIは、サブスクリプションプランの設定を可能にし、自動的な定期支払いを提供します。さまざまな請求サイクルや割引、試用期間などの柔軟な設定をサポートしています。
+
+  ### サブスクリプション設定
+
+  * 加盟店は、カスタムプランを定義できます。これには、プラン名と説明が含まれます。
+
+  * サイクルタイプ：請求は日、週、月などに基づいて行えます。
+
+  * サイクル間隔：請求の頻度を定義します（例：2日ごと、毎月）。
+
+  * 最大サイクル数：請求サイクルの最大数を設定します。
+
+  * 試用期間：サブスクリプション開始前に試用期間を提供するオプション。
+
+  * 割引：定められた請求サイクル数に対して割引を適用する機能。
+</Info>
+
+## フローダイアグラム
+
+![フローダイアグラム画像](/images/timeline-diagram/flows-API-subs-create.svg)
+
+## APIパラメータ

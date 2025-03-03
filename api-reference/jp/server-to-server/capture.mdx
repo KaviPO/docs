@@ -1,0 +1,21 @@
+---
+title: 'キャプチャAPI'
+openapi: '/api-reference/jp/open-api-config/server-to-server/capture.json POST /api/v1/server-to-server-interface/capture'
+description: キャプチャAPIは、以前に認証APIを通じて認可された資金を転送することにより、支払いを完了させます。
+---
+
+### 重要なポイント
+
+<Info>
+  * キャプチャAPIは、顧客のアカウントから加盟店のアカウントに認可された資金を移動させることにより、決済プロセスを完了させます。
+
+  * このAPIは通常、認証後に最終金額が確認された後（商品発送後やサービス提供後など）に使用されます。
+
+  * 以前に認可された金額のみがキャプチャできます。キャプチャ金額が少ない場合、残りの資金は返金されます。
+</Info>
+
+## フローダイアグラム
+
+![フローダイアグラム画像](/images/timeline-diagram/flows-API-capture.svg)
+
+## APIパラメータ
