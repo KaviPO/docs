@@ -334,7 +334,17 @@
         "releases/revisions",
         "releases/apiupdate",
         "releases/releasenotes"
-      ]
+      ],
+       "version": "English"
+    },
+    {
+      "group": "ログ",
+      "pages": [
+        "releases-jp/revisions",
+        "releases-jp/apiupdate",
+        "releases-jp/releasenotes"
+      ],
+       "version": "日本語"
     },
     
     {
