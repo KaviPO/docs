@@ -1,0 +1,113 @@
+---
+title: 'OpenCart'
+description: 'Opencart 3.0.x.x – 3.1.x.xのインストールガイド'
+---
+
+<Card title="OpenCart">
+  ![Opencart](/images/opencart.svg)
+
+  * **説明**: OpenCartでゲートウェイ決済を有効にする。
+</Card>
+
+## **インストール時に必要なマシンの要件**
+
+* PHPバージョン5.6以上
+
+* cURL
+
+* OpenSSL
+
+* OpenCart 3.0.x.xまたは3.1.x.x
+
+* インストールはcPanel/FTP/管理パネルを通じてのみ行うことができます。このモジュールはワンページチェックアウトテンプレートに対応していない場合があります。
+
+## **SME Dasgateway決済モジュールのインストール**
+
+モジュールインストールは以下の方法で行えます
+
+* FTPサーバー/cPanel または
+
+* 管理パネル
+
+## **FTPサーバー/cPanelを通じたモジュールインストール**
+
+<Steps>
+  <Step>
+    サーバーにOpenCart 3.0.x.x以上をインストールします。
+  </Step>
+
+  <Step>
+    Payment OptionsのGitHubから最新のソースコードzipファイルをダウンロードします
+    （ダウンロードリンクを使用: [https://github.com/paymentoptions/opencart-extension](https://github.com/paymentoptions/opencart-extension) ）
+  </Step>
+
+  <Step>
+    「dasgatewayqr\_oc\_payment\_module\_3-0-x.ocmod.zip」を解凍します。
+  </Step>
+
+  <Step>
+    FTPクライアントを使って、‘admin’ と ‘catalogue’ フォルダをOpenCartのルートディレクトリにアップロードします。
+  </Step>
+</Steps>
+
+## **管理パネルを通じたモジュールインストール**
+
+<Steps>
+  <Step>
+    管理パネルに資格情報でログインします。
+  </Step>
+
+  <Step>
+    Payment OptionsのGitHubから最新のバイナリzipファイルをダウンロードします
+    （ダウンロードリンクを使用: [https://github.com/paymentoptions/opencart-extension/releases](https://github.com/paymentoptions/opencart-extension/releases) ）
+  </Step>
+
+  <Step>
+    「dasgatewayqr\_oc\_payment\_module\_3-0-x.ocmod.zip」を解凍します。
+    ![unzip image](/images/plugins/plugins-open-01.png)
+  </Step>
+
+  <Step title="上記のいずれかの方法でインストール後、次の手順に進んでください">
+    ユーザー名とパスワードでOpenCartストア管理にアクセスし、「拡張機能」メニューの下の「拡張機能」オプションをクリックし、画面上部のドロップダウンリストから「支払い」オプションを選択します。
+    ![extention image](/images/plugins/plugins-open-02.png)
+  </Step>
+
+  <Step>
+    支払いリストの中に「SME Dasgateway」決済オプションが表示されます。
+  </Step>
+
+  <Step>
+    「+」オプションをクリックして「SME Dasgateway」支払いモジュールをインストールします。
+    ![extention image](/images/plugins/plugins-open-03.png)
+  </Step>
+
+  <Step>
+    リストからSMEカテゴリーを選択します。
+    ![extention image](/images/plugins/plugins-open-04.png)
+  </Step>
+
+  <Step>
+    インストール完了後、「SME Dasgateway」の設定ページを開くために編集ボタンをクリックします。
+  </Step>
+
+  <Step>
+    アクセストークン - Payment Optionsから受け取った「Secret API Key」を入力します。
+  </Step>
+
+  <Step>
+    加盟店ID - Payment Optionsから受け取った「加盟店ID」を入力します。
+  </Step>
+
+  <Step>
+    「ライブ」または「テスト」を切り替えて処理環境を選択します。
+  </Step>
+
+  <Step>
+    並べ替え順序を設定し、モジュールを有効にして支払いページで支払いオプションを有効にします。
+    ![extention image](/images/plugins/plugins-open-05.png)
+  </Step>
+</Steps>
+
+<Card title="サポートが必要ですか？" icon="life-ring" href="/support/contact">
+  さらなるサポートが必要な場合は、[サポートチームにお問い合わせください](./support/contact)。私たちのチームは、問題解決をお手伝いします。
+</Card>

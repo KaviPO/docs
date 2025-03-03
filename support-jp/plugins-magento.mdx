@@ -1,0 +1,129 @@
+---
+title: 'Magento 2'
+description: 'Magento 2の統合ガイド'
+---
+
+  <Card title="Magento 2">
+    ![Magento 2](/images/magento2.svg)
+
+    * **説明**: ゲートウェイをMagento 2とシームレスに接続します。
+  </Card>
+
+## **拡張機能のインストール**
+
+<Steps>
+  <Step>
+    最新のソースコードzipファイルをPayment OptionsのGitHubからダウンロードします
+    （ダウンロードリンクを使用してください: [https://github.com/paymentoptions/magento2-extension](https://github.com/paymentoptions/magento2-extension)）。
+  </Step>
+
+  <Step>
+    magento2-extension.zipを解凍します。
+  </Step>
+
+  <Step>
+    解凍したファイルをMagentoのルートパス下の `app/code/Agtech/Paymentoptions/` フォルダに配置します。
+  </Step>
+
+  <Step>
+    Magentoモードを確認します:
+    `php bin/magento deploy:mode:show` を実行してモードを確認します。
+    Magentoモードが「production」の場合は、以下のコマンドを実行してください:
+
+    * `php bin/magento cache:clean`
+
+    * `php bin/magento cache:flush`
+
+    * `php bin/magento setup:upgrade`
+
+    * `php bin/magento setup:di:compile`
+
+    * `php bin/magento setup:static-content:deploy`
+
+    Magentoモードが「default」または「developer」の場合は、以下のコマンドを実行してください:
+
+    * `php bin/magento setup:upgrade`
+
+    * `php bin/magento setup:di:compile`
+
+    * `php bin/magento setup:static-content:deploy -f`
+  </Step>
+</Steps>
+
+## **拡張機能の設定**
+
+<Steps>
+  <Step>
+    Magentoストアのバックエンドにログインします。
+  </Step>
+
+  <Step>
+    管理者サイドバーの「Stores」を選択し、「設定」>「構成」に進みます。
+  </Step>
+
+  <Step>
+    設定ページで、左側の「Sales」をクリックし、「Payment Methods」を選択します。
+  </Step>
+
+  <Step>
+    決済方法ページで、「Payment Options」の支払いセクションに移動します。
+
+    * 有効化 - 「Payment Options」決済方法を有効にするには「はい」を選択します。
+
+    * モード - サンドボックスモードまたはライブモードを選択します。
+
+    * タイトル - このタイトルはMagentoのチェックアウトページの支払い方法セクションに表示されます。
+
+    * アクセストークン - Payment Optionsから受け取った`Secret Key`を入力します。
+
+    * 加盟店ID - Payment Optionsから受け取った`Merchant ID`を入力します。
+
+    * デバッグ - 「はい」を選択してデバッグを有効にします。これにより、Payment Options APIの呼び出しが`var/log/debug.log`ファイルに記録されます。
+
+    * 国 - すべての国を許可するか、特定の国を選択してこの支払い方法を利用できるようにします。
+  </Step>
+
+  <Step>
+    「設定を保存」ボタンをクリックします。
+  </Step>
+
+  <Step>
+    Magentoキャッシュをリフレッシュします。
+    ![Refresh image](/images/plugins/plugins-magento-01.png)
+  </Step>
+</Steps>
+
+## **フロントビュー**
+
+<Steps>
+  <Step>
+    チェックアウトページの決済方法セクションに表示されます。
+  </Step>
+
+  <Step>
+    「Payment Options」決済オプションを選択すると、以下のように表示されます。
+    ![Front View](/images/plugins/plugins-magento-02.png)
+  </Step>
+
+  <Step>
+    「注文を確定」ボタンをクリックすると、決済ページにリダイレクトされます。
+    ![Front View](/images/plugins/plugins-magento-03.png)
+  </Step>
+
+  <Step>
+    上記のオプションのいずれかを使用して支払いを行います。
+  </Step>
+
+  <Step>
+    決済が成功した後、成功ページにリダイレクトされます。
+    ![Front View](/images/plugins/plugins-magento-04.png)
+  </Step>
+</Steps>
+
+### 管理者ビュー
+
+![Admin View image](/images/plugins/plugins-magento-05.png)
+
+<Card title="サポートが必要ですか？" icon="life-ring" href="/support/contact">
+  さらなるサポートが必要な場合は、[サポートチームにお問い合わせください](./support/contact)。私たちのチームは、問題解決をお手伝いします。
+</Card>
