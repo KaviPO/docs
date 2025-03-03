@@ -1,0 +1,23 @@
+---
+title: '認証API'
+openapi: '/api-reference/jp/open-api-config/server-to-server/authorization.json POST /api/v1/server-to-server-interface/authorization'
+description: 取引の資金を確保し、すぐにキャプチャせずに支払いを認証します。
+---
+
+### 重要なポイント
+
+<Info>
+  * 認証APIは、顧客の支払い方法で指定された金額を確保しますが、キャプチャが行われるまで資金は転送されません。
+
+  * **キャプチャ**: 顧客のアカウントから認証された資金を転送して取引を完了します。
+
+  * **無効**: 認証をキャンセルし、保留された資金を顧客に返金します。
+
+  * このAPIの使用例には、最終的な金額が変動する可能性のある状況（ホテルの予約、車のレンタル、事前注文など）が含まれます。
+</Info>
+
+## フローダイアグラム
+
+![Flow diagram image](/images/timeline-diagram/flows-API-Authorisation.svg)
+
+## APIパラメータ
