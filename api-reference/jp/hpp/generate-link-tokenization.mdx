@@ -1,0 +1,49 @@
+---
+title: 'トークン化'
+openapi: '/api-reference/jp/open-api-config/hpp/generate-link-token.json POST /api/v1/server-to-server-interface/hpp/generate/link'
+description: 取引をキャプチャするためのホスト型決済ページ（HPP）を開くリンクを生成します。
+---
+
+### 重要なポイント
+
+<Info>
+  * ペイロードにデータ（例：金額、通貨、顧客詳細、return\_url、決済方法）が事前入力されている場合、これらの詳細はHPPに反映され、スムーズなユーザー体験を提供します。
+
+  * ペイロードに必要なデータが欠けている場合、顧客はHPPで不足している情報を手動で入力する必要があります。
+
+  * 必要なヘッダーと認証詳細が含まれていることを確認し、HPPリンクを正常に生成します。
+</Info>
+
+## フローダイアグラム
+
+![Flow diagram image](/images/timeline-diagram/flows-API-Tokenization.svg)
+
+### ノート
+
+`store_payment_method`: 将来の使用のためにカードトークンを保存するには、ペイロードで`true`に設定する必要があります。
+
+```json リクエスト例
+{
+  "payment_method": {
+    "type": "scheme",
+    "store_payment_method": true
+  }
+```
+
+`store_payment_method` を `true` に設定すると、カードトークンが保存され、今後の取引でカード詳細を再入力する必要がなくなります。
+
+```json レスポンス例
+{
+  "transaction_details": {
+    "id": "<transaction_id>",
+    "ref": <ref>,
+    "timestamp": "yyyy-mm-ddThh:mm:ss.000Z",
+    "merchant_txn_ref": "<string>",
+    "stored_payment_method_id": "094db781-fabc-4c6d-8fcd-18bee06a527a"
+  }
+}
+```
+
+`stored_payment_method_id` は、カード詳細を再入力することなく、今後の取引でカードトークンAPIを使用するために利用できます。
+
+## APIパラメータ
