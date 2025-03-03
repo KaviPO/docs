@@ -1,0 +1,161 @@
+---
+title: '3Dセキュア統合'
+openapi: '/api-reference/jp/open-api-config/server-to-server/purchase.json POST /api/v1/server-to-server-interface/paymentv2'
+description : トランザクションセキュリティを強化するための3Dセキュア認証統合の包括的ガイド。
+---
+
+## **統合手順**
+
+### **ステップ1: 3Dリクエストを送信**
+3Dセキュア認証を開始するには、サーバーからサーバーへのリクエストを3Dセキュアエンドポイントに送信します。
+
+---
+
+### **ステップ2: リダイレクトURLを使用**
+レスポンスから `redirect_url` を使用して、ブラウザで3Dセキュアページを開きます。
+
+---
+
+### **ステップ3: 3Dセキュア認証完了後**
+
+カード保有者が認証を完了した後、発行者はリクエストを承認または拒否します。結果に基づいて、顧客は提供された `success_url` または `decline_url` にリダイレクトされます。
+
+<CardGroup> <Card title="success_url" icon="shield-check"> 3DS認証が成功した場合、顧客を指定されたページにリダイレクトします。 </Card> <Card title="decline_url" icon="circle-xmark"> 認証が拒否されたり失敗した場合、顧客をリダイレクトします。</Card> </CardGroup>
+
+---
+
+### **ステップ4: Webhook通知**
+リダイレクトレスポンスに加えて、ゲートウェイは取引のステータスを確認するために指定した `webhook_url` にWebhook通知を送信します。これにより、顧客が3DSプロセス後にウェブサイトに戻らなくても、取引結果が確実に伝達されます。
+
+#### **Webhookサンプルレスポンス**
+```json
+{
+  "success": true,
+  "status_code": 200,
+  "is_live": false,
+  "transaction_type": "CAPTURE",
+  "gateway_response": {
+    "version": "1",
+    "type": "INFO",
+    "message": "Payment Successful.",
+    "code": "INFO0000"
+  },
+  "merchant_details": {
+    "legal_name": "<merchant name>",
+    "mid": "DASMID",
+    "merchant_txn_ref": "<merchant_txn_ref>"
+  },
+  "payment_details": {
+    "amount": <amount>,
+    "response_code": 0,
+    "auth_code": null,
+    "currency": "<currency>",
+    "payment_method": "",
+    "scheme": "VISA",
+    "card": {
+      "name": "<cardholder’s name>",
+      "number": "<card number>",
+      "exp_month": "MM",
+      "exp_year": "YY"
+    },
+    "additional_data": {
+      "payment_data_source": {
+        "type": "card"
+      }
+    }
+  },
+  "transaction_details": {
+    "id": "<transaction ref Id>",
+    "ref": <ref>,
+    "timestamp": "YYYY-MM-DDTHH:MM:SS.000Z",
+    "merchant_txn_ref": "<merchant_txn_ref>"
+  },
+  "risk-details": {}
+}
+```
+
+---
+
+### **ステップ5: 3Dセキュア取引ステータスの取得**
+
+#### **リクエスト属性**
+```curl
+curl --location '<base_URL>/api/v1/server-to-server-interface/transaction/status/<Transaction Ref ID>' \
+--header 'Authorization: Basic <API Key>' \
+--header 'x-api-key: <x-api-key>' \
+--header 'Content-Type: application/json'
+```
+
+#### **レスポンス属性**
+```json
+{
+    "success": true,
+    "status_code": 200,
+    "is_live": false,
+    "transaction_type": "CAPTURE",
+    "gateway_response": {
+        "version": "1",
+        "type": "INFO",
+        "message": "Payment Successful.",
+        "code": "INFO0000"
+    },
+    "merchant_details": {
+        "legal_name": "<merchant name>",
+        "mid": "<DASMID>",
+        "merchant_txn_ref": "<merchant_txn_ref>"
+    },
+    "payment_details": {
+        "amount": <amount>,
+        "response_code": 0,
+        "responseDescription": "The transaction was completed successfully.",
+        "auth_code": null,
+        "currency": "<currency>",
+        "payment_method": null,
+        "scheme": "<scheme>",
+        "card": {
+            "name": "<cardholder name>",
+            "number": "<card_number>",
+            "exp_month": "MM",
+            "exp_year": "YY"
+        },
+        "additional_data": {
+            "payment_data_source": {
+                "type": "card"
+            }
+        }
+    },
+    "transaction_details": {
+        "id": "<Transaction Ref Id>",
+        "ref": <ref>,
+        "timestamp": "YYYY-MM-DDTHH:MM:SS.000Z",
+        "billing_details": {
+            "billing_address": {
+                "country": "<country code>",
+                "email": "<email>",
+                "address1": "<address1>",
+                "phone_number": "<phone_number>",
+                "city": "<city>",
+                "state": "<state>",
+                "postal_code": "<postal_code>"
+            },
+            "shipping_address": {
+                "country": "<country code>",
+                "email": "<email>",
+                "address1": "<address1>",
+                "phone_number": "<phone_number>",
+                "city": "<city>",
+                "state": "<state>",
+                "postal_code": "<postal_code>"
+            }
+        }
+    },
+    "risk_details": {
+        "risk_score": null
+    }
+}
+```
+
+---
+
+## リクエスト属性
+
