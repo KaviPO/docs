@@ -1,0 +1,263 @@
+---
+title: 'よくある質問とトラブルシューティング'
+description: 'ゲートウェイを使用する加盟店向けのよくある質問とトラブルシューティングガイド。'
+---
+
+**よくある質問とトラブルシューティング** セクションへようこそ。ここでは、よくある質問への回答と、ゲートウェイ使用中に遭遇する可能性のある一般的な問題への解決策を見つけることができます。このセクションは、製品を最大限に活用し、問題を迅速に解決できるように設計されています。
+
+## **よくある質問**
+
+<Accordion title="はじめに">
+<Accordion title="加盟店アカウントの作成方法は？">
+  <p>加盟店アカウントの設定方法については、<a href="/documentation/createaccount">アカウント作成ページ</a>をご覧ください。</p>
+</Accordion>
+
+<Accordion title="加盟店としてオンボードするために必要な書類は？">
+  <p>必要な書類のリストについては、<a href="/documentation/checklist">オンボーディングチェックリスト</a>をご覧ください。</p>
+</Accordion>
+
+<Accordion title="アカウントに商品を追加するにはどうすればよいですか？">
+  <p>アカウントが設定されたら、<strong>商品</strong>タブに移動し、有効にしたい商品を選択します。各商品ガイドには詳細な情報が記載されています。</p>
+</Accordion>
+
+<Accordion title="MIDとは？">
+  <p>支払いMID（加盟店識別番号）は、Payment Optionsからビジネスに割り当てられるユニークな識別番号です。この番号は、加盟店によって行われた取引を追跡および認証するために使用され、支払いが正しいビジネスアカウントに処理および決済されることを保証します。</p>
+</Accordion>
+
+<Accordion title="アクワイアラーとは？">
+  <p>アクワイアラー（アクワイアリングバンク、アクワイアリング金融機関、または加盟店バンクとも呼ばれる）は、加盟店と提携してクレジットカード、デビットカード、その他の電子決済を受け入れ可能にする金融機関または決済処理業者です。アクワイアラーは、加盟店に加盟店アカウントを提供し、加盟店と顧客の銀行（発行者）間での取引の認証、処理、決済を促進します。</p>
+</Accordion>
+
+<Accordion title="加盟店とは？">
+  <p>Payment Optionsを決済ゲートウェイとして使用する顧客は、加盟店です。</p>
+</Accordion>
+
+<Accordion title="パートナー（リセラー）とは？">
+  <p>他の加盟店をPayment Optionsのゲートウェイサービスにオンボードする顧客はパートナーです。</p>
+</Accordion>
+
+<Accordion title="APIとは？">
+  <p>API（アプリケーションプログラミングインターフェース）は、異なるソフトウェアアプリケーションが相互に通信し、やり取りするためのルール、プロトコル、ツールのセットです。アプリケーションが情報を要求し、交換するために使用できる方法とデータ形式を定義します。詳細については、<a href="https://en.wikipedia.org/wiki/API">こちら</a>をクリックしてください。</p>
+</Accordion>
+
+<Accordion title="イシュアーとは？">
+  <p>イシュアーは、クレジットカード、デビットカード、またはその他の支払いカードを消費者（カード保持者）に提供する銀行または金融機関です。イシュアーは、カード保持者の申請を承認し、アカウントを管理し、購入または引き出しに必要な資金が利用可能であることを確認する責任があります。</p>
+</Accordion>
+
+<Accordion title="Dasgatewayとは？">
+  <p>Dasgatewayは、私たちの決済ゲートウェイプラットフォームの名前です。Dasgatewayにアクセスするには、<a href="https://me.paymentoptions.com/login">こちら</a>から加盟店またはパートナーアカウントにログインしてください。</p>
+</Accordion>
+
+  <Accordion title="決済ゲートウェイとは？">
+    決済ゲートウェイは、オンラインおよび店舗での取引のために支払いを承認し、処理するサービスです。顧客、加盟店、銀行の間で支払い情報を安全に転送します。
+  </Accordion>
+
+  <Accordion title="決済ゲートウェイはどのように機能しますか？">
+    決済ゲートウェイは、機密性の高い支払い情報を暗号化し、取引詳細を確認し、支払いを承認するために銀行と通信します。その後、取引のステータス（承認/拒否）を返します。
+  </Accordion>
+
+  <Accordion title="Payment Optionsのゲートウェイを使用して、どのような支払い方法を受け入れることができますか？">
+    当社の決済ゲートウェイは、クレジットカード/デビットカード、デジタルウォレット、Google Pay、Apple Pay、PayPayなどその他支払い方法をサポートしています。詳細については、[支払い方法](/documentation/paymentmethods/cardschemes)セクションをご参照ください。
+  </Accordion>
+
+  <Accordion title="決済プロセスは安全ですか？">
+    はい、当社の決済ゲートウェイは、SSL暗号化、トークン化、PCI-DSS準拠などの業界標準のセキュリティプロトコルを使用して、取引が安全で確実であることを保証します。
+  </Accordion>
+
+  <Accordion title="ウェブサイトに決済ゲートウェイを統合する方法は？">
+    当社の決済ゲートウェイは、APIまたはWooCommerce、Shopify、Magentoなどの人気プラットフォーム用の事前構築されたプラグインを使用して統合できます。統合プロセスについては、[ガイド](/support/merchantguide)セクションで詳細なドキュメントと開発者サポートを提供しています。
+  </Accordion>
+
+  <Accordion title="決済ゲートウェイを使用するための設定料金はありますか？">
+    設定料金は選択するプランによって異なる場合があります。[料金ページ](https://www.paymentoptions.com/ja/pricing/)をご参照ください。
+  </Accordion>
+
+  <Accordion title="決済処理にはどのくらい時間がかかりますか？">
+     ほとんどの取引はリアルタイムで処理され、支払いは即座に承認され確認されます。
+  </Accordion>
+
+  <Accordion title="決済が失敗した場合、どうなりますか？">
+    決済が失敗した場合、決済ゲートウェイは顧客と加盟店の両方に通知します。顧客は支払い情報を再入力するか、別の支払い方法を使用できます。
+  </Accordion>
+
+  <Accordion title="定期支払いまたはサブスクリプションには対応していますか？">
+    はい、当社の決済ゲートウェイは定期的な請求およびサブスクリプション支払いに対応しています。詳細については、[サブスクリプション](/api-reference/en/subscription/create-subscription)ページをご参照ください。
+  </Accordion>
+
+  <Accordion title="国際的な決済を処理できますか？">
+    はい、当社の決済ゲートウェイは国際的な決済をサポートしており、複数の通貨での決済を受け付けることができます。詳細は[サポート](/support/contact)にお問い合わせください。
+  </Accordion>
+
+  <Accordion title="決済ゲートウェイを使用する際に発生する料金は？">
+    取引量や使用される支払い方法によって異なる取引手数料を請求します。[料金ページ](https://www.paymentoptions.com/ja/pricing/)をご参照ください。
+  </Accordion>
+
+  <Accordion title="取引履歴を確認するにはどうすればよいですか？">
+    加盟店ダッシュボードを通じて取引履歴にアクセスできます。成功した取引、保留中の取引、失敗した取引の詳細を見ることができます。
+  </Accordion>
+
+  <Accordion title="決済に問題がある場合、どのようなサポートがありますか？">
+    [サポート](/support/contact)チームはメールおよび電話で対応しています。また、トラブルシューティングガイド、FAQ、チュートリアルを備えた包括的なヘルプセンターもあります。
+  </Accordion>
+
+  <Accordion title="決済ゲートウェイを通じて返金を行うことは可能ですか？">
+    はい、当社の決済ゲートウェイでは、完全または部分的な返金を加盟店ダッシュボードから直接行うことができます。
+  </Accordion>
+
+  <Accordion title="顧客の支払いが安全であるかどうかをどのように確認できますか？">
+    当社は、高度な不正防止ツールと3Dセキュア認証を使用して、不正取引を防止します。また、疑わしい活動があった場合にはアラートを受け取ることができます。
+  </Accordion>
+
+  <Accordion title="ウェブサイトの支払いフォームをカスタマイズできますか？">
+    はい、APIを使用して支払いフォームの外観と操作感をブランドのアイデンティティに合わせてカスタマイズできます。
+  </Accordion>
+
+  <Accordion title="PCI準拠とは何ですか、そしてそれを心配する必要はありますか？">
+    PCI（Payment Card Industry）準拠は、カード保持者のデータを安全に取り扱うためのセキュリティ基準のセットです。当社の決済ゲートウェイはPCI-DSS準拠ですので、心配する必要はありません。
+  </Accordion>
+
+  <Accordion title="モバイルアプリで支払いを受け付けることはできますか？">
+    はい、当社の決済ゲートウェイはモバイルアプリに完全に対応していますが、開発用のSDKは提供していません。
+  </Accordion>
+
+  <Accordion title="支払い設定やアカウント情報を更新するにはどうすればよいですか？">
+    支払い設定、銀行情報、およびアカウント情報は、[サポート](/support/contact)チームに連絡することで更新できます。
+  </Accordion>
+
+  <Accordion title="加盟店ダッシュボードに複数ユーザーアクセスを提供していますか？">
+    はい、サブユーザー機能がありますので、新しいサブユーザーを設定するには[サポート](/support/contact)チームにお問い合わせください。
+  </Accordion>
+
+  <Accordion title="ライブでの運用前に決済ゲートウェイをテストすることはできますか？">
+    はい、[サポート](/support/contact)チームに連絡してください。サンドボックス環境やテスト環境を提供しており、実際の取引を処理する前に支払いをシミュレートできます。
+  </Accordion>
+</Accordion>
+
+<Accordion title="支払い処理">
+  <Accordion title="ゲートウェイはどの支払い方法をサポートしていますか？">
+    当社のゲートウェイは、クレジットカード、電子ウォレット、QRコードなど複数の支払い方法をサポートしています。詳細については、[サポートされているカードスキーム](/documentation/paymentmethods/cardschemes) および [電子ウォレット](/documentation/paymentmethods/ewallets) セクションをご確認ください。
+  </Accordion>
+
+  <Accordion title="3Dセキュア（3DS）取引を有効にする方法は？">
+    3Dセキュアは製品レベルで有効化されます。取引のセキュリティ強化のために3DSを構成する方法については、**セキュアペイメント** セクションをご覧ください。
+  </Accordion>
+
+  <Accordion title="複数通貨での支払いを処理できますか？">
+    はい、当社のゲートウェイは複数通貨に対応しています。サポートされている通貨のリストについては、[通貨ガイド](/documentation/paymentmethods/currency) をご参照ください。
+  </Accordion>
+
+  <Accordion title="チャージバックとは何ですか？">
+    チャージバックは、顧客が請求に異議を唱えた後、クレジットカードまたはデビットカード取引がカード保持者の銀行（イシュアー）によって取り消されるプロセスです。実質的には、取引が不正、誤り、またはその他の問題があったと顧客が信じる場合に、チャージバックは顧客に返金を許可します。
+  </Accordion>
+
+  <Accordion title="返金とは何ですか？">
+    返金は、顧客が商品またはサービスに対して支払った後に返金されることです。通常、顧客が購入に不満がある場合や、商品やサービスに問題があった場合です。返金は、顧客が自分の銀行を通じて開始するチャージバックとは異なり、加盟店（または販売者）の自発的な行動です。
+  </Accordion>
+</Accordion>
+
+<Accordion title="技術統合">
+  <Accordion title="HPP（ホステッド・ペイメント・ページ）リンクはどのように生成しますか？">
+    HPPリンクは、HPP製品ダッシュボードから直接生成できます。詳細については、[HPPガイド](/api-reference/jp/hpp/generate-link)を参照してください。
+  </Accordion>
+
+  <Accordion title="API呼び出しの認証要件は何ですか？">
+    当社のAPIは、`Authorization` ヘッダーにAPIキーを含むHTTP基本認証を使用しています。詳細については、[API認証](/api-reference/jp/authentication)ページを参照してください。
+  </Accordion>
+
+  <Accordion title="eCommerceプラグインはどこでダウンロードできますか？">
+    WooCommerce、Magento、Shopifyなどのプラットフォーム用プラグインは、[ウェブサイトプラグイン](/support/plugins-woocommerce)ページからダウンロードできます。
+  </Accordion>
+
+  <Accordion title="APIはどの通貨をサポートしていますか？">
+    APIはJPY、PHP、USDをサポートしています。完全なリストについては、ドキュメント内の[通貨](/documentation/paymentmethods/currency)セクションを参照してください。
+  </Accordion>
+
+  <Accordion title="APIの更新や変更情報はどこで確認できますか？">
+    [変更履歴](/logs/apiupdate)を参照してください。
+  </Accordion>
+
+  <Accordion title="APIはWebhookをサポートしていますか？">
+    はい、[Webhookハンドラーページ](/api-reference/jp/webhook-handler)を参照してください。
+  </Accordion>
+</Accordion>
+<Accordion title="ゲートウェイ">
+  <Accordion title="明細はいつ発行されますか？">
+    <strong>週次明細:</strong>
+    週次明細は月曜日から日曜日までの期間をカバーし、次週の月曜日に発行されます。
+
+    <strong>月次明細:</strong>
+    月次明細は1日から月末までの期間をカバーし、翌月の第2月曜日に発行されます。
+    <strong>注意:</strong> 予定されている月曜日が祝日と重なる場合、ステートメントは次の営業日に発行されます。
+  </Accordion>
+
+  <Accordion title="取引はリアルタイムで確認できますか？">
+    はい、[Dasgateway](https://me.paymentoptions.com/login)ページでリアルタイムで確認できます。
+  </Accordion>
+
+  <Accordion title="ゲートウェイに追加の項目を設定するにはどうすればよいですか？">
+    取引ページで、左上の「追加欄」ボタンを押して、追加したいフィールドを選択してください。
+  </Accordion>
+
+  <Accordion title="アカウントを解約するにはどうすればよいですか？">
+    営業担当に連絡するか、追加の質問や懸念がある場合は、[カスタマーサポートチーム](/support/contact)にご連絡ください。アカウント終了の手続きのお手伝いをさせていただきます。
+
+    <strong>注意:</strong> アカウントが終了すると、それに関連するすべてのデータは永久に削除され、そのアカウントに関連するサービスへのアクセスができなくなります。
+  </Accordion>
+</Accordion>
+
+<Accordion title="開発者向けツールとリソース">
+  <Accordion title="統合のためのサンプルコードはどこで見つけられますか？">
+    以下を参照してください: [HPPの生成](/api-reference/ja/hpp/generate-link)
+  </Accordion>
+</Accordion>
+
+***
+## **トラブルシューティングガイド**
+
+このセクションでは、ユーザーが直面する一般的な問題に対処します。特定の問題が発生している場合は、以下の解決策を確認してください。
+
+<Accordion title="アカウントの問題">
+  <Accordion title="パスワードを忘れました。どうやってリセットできますか？">
+    ログインページに移動し、**パスワードを忘れた** をクリックしてください。指示に従って、メールでパスワードをリセットします。
+  </Accordion>
+
+  <Accordion title="なぜ「ログイン失敗」のエラーが表示されるのですか？">
+    ユーザー名とパスワードを再確認してください。アカウントに関連付けられた正しい認証情報を使用していることを確認します。問題が解決しない場合は、サポートに連絡してください。
+  </Accordion>
+</Accordion>
+
+<Accordion title="支払いエラー">
+  <Accordion title="「残高不足」エラーとは何ですか？">
+    このエラーは、カード所有者のアカウントに十分な残高がない場合に発生します。顧客に別のカードを試すか、銀行に連絡するように伝えてください。
+  </Accordion>
+
+  <Accordion title="「3DS認証失敗」エラーを解決する方法は？">
+    顧客が3Dセキュア認証ステップを完了していることを確認してください。3DSの詳細については、[セキュアペイメント](/documentation/paymentmethods/securepayment)ページをご覧ください。
+  </Accordion>
+
+  <Accordion title="取引が理由なしで拒否されました。どうすればよいですか？">
+    [レスポンスコード](/api-reference/en/error-and-reponse/responsecodes)ページで拒否コードに関する情報を確認してください。問題が解決しない場合はサポートに連絡してください。
+  </Accordion>
+</Accordion>
+
+<Accordion title="技術的な問題">
+  <Accordion title="APIリクエストが「401 Unauthorized」エラーを返します。これは何を意味しますか？">
+    このエラーは、API認証情報が誤っていることを示しています。リクエスト内の`Authorization`ヘッダーを確認し、APIキーが正しくフォーマットされていることを確認してください。
+  </Accordion>
+
+  <Accordion title="プラグインのインストールに失敗しました。どうすれば修正できますか？">
+    使用しているeコマースプラットフォームに対応したプラグインのバージョンを確認してください。関連する[インストールガイド](/support/plugins-woocommerce)の手順に従ってください。
+  </Accordion>
+
+  <Accordion title="Webhookイベントが受信されません。何を確認すべきですか？">
+    Webhook URLが公開されており、APIペイロードに正しく登録されていることを確認してください。[Webhook Handler設定](/api-reference/en/webhook-handler)で設定手順を参照してください。
+  </Accordion>
+</Accordion>
+
+***
+
+## **もっとサポートが必要ですか？**
+
+<Card title="サポートに問い合わせる" icon="life-ring" href="/support/contact">
+  さらなるサポートが必要な場合は、[サポートチーム](/support/contact) にお問い合わせください。当社のチームが、発生している問題のトラブルシューティングや解決をサポートいたします。
+</Card>
