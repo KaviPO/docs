@@ -1,0 +1,38 @@
+---
+title: 'トークン使用API'
+openapi: '/api-reference/jp/open-api-config/tokenization/use-token.json POST /api/v1/server-to-server-interface/payment'
+description: カードトークンは、敏感なカード詳細を再入力することなく、購入または認証取引を安全に完了するために使用されます。このトークン化アプローチは、セキュリティとユーザー体験を向上させます。
+---
+
+### 重要なポイント
+
+<Info>
+  * 一度カードトークンが生成されると、それを使用して購入または認証取引を実行できます。
+
+  * カードトークンは実際のカード詳細の必要性を置き換え、取引中に敏感なデータが決して公開されないことを保証します。
+
+  * この方法は通常、次の目的で使用されます：
+    ワンクリック決済、
+    定期的な取引（例：サブスクリプション）、
+    保存された顧客の支払い詳細。
+</Info>
+
+## フローダイアグラム
+
+![フローダイアグラム](/images/timeline-diagram/flows-API-Purchase.svg)
+
+## APIパラメータ
+
+### カードトークン
+
+`stored_payment_method_id`（トークン作成時に生成される）をペイロードに使用して取引を完了します。
+
+```json リクエスト例
+  "payment_method":{
+        "type":"scheme",
+        "store_payment_method":true,
+        "stored_payment_method_id": "094db781-fabc-4c6d-8fcd-18bee06a527a"
+    },  
+```
+
+`stored_payment_method_id` はカードトークン化プロセスから生成されたトークンであり、今後の取引を安全に完了させるために使用されます。

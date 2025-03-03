@@ -1,0 +1,49 @@
+---
+title: 'トークンAPIの生成'
+openapi: '/api-reference/jp/open-api-config/tokenization/generate-token.json POST /api/v1/server-to-server-interface/payment'
+description: カードトークン生成APIは、購入または認証プロセス中に敏感なカード情報をトークン化し、実際のカード詳細を公開せずに安全な取引を可能にします。
+---
+
+### 重要なポイント
+
+<Info>
+  * カードをトークン化することで、カード詳細を再入力することなく繰り返し取引を行うことができ、セキュリティとユーザー体験の向上が図れます。
+
+  * 生成されたトークンは、購入と認証の両方の取引で使用でき、さまざまな支払いタイプに対応する柔軟性を提供します。
+
+  * 重要なパラメータには通常、カード番号、有効期限、CVV、顧客情報が含まれます。
+</Info>
+
+## フローダイアグラム
+
+![フローダイアグラム画像](/images/timeline-diagram/flows-API-Purchase.svg)
+
+### ノート
+
+`store_payment_method`: 将来の使用のためにカードトークンを保存するには、ペイロードで `true` に設定する必要があります。
+
+```json リクエスト例
+{
+  "payment_method": {
+    "type": "scheme",
+    "store_payment_method": true
+  }
+```
+
+`store_payment_method` を `true` に設定することで、カード詳細を再入力することなく、カードトークンが今後の取引のために保存されます。
+
+```json レスポンス例
+{
+  "transaction_details": {
+    "id": "<transaction_id>",
+    "ref": <ref>,
+    "timestamp": "yyyy-mm-ddThh:mm:ss.000Z",
+    "merchant_txn_ref": "<string>",
+    "stored_payment_method_id": "094db781-fabc-4c6d-8fcd-18bee06a527a"
+  }
+}
+```
+
+`stored_payment_method_id` は、カード詳細を再入力することなく、今後の取引でカードトークンAPIを使用するために利用できます。
+
+## APIパラメータ

@@ -1,0 +1,21 @@
+---
+title: '電子ウォレット'
+openapi: '/api-reference/jp/open-api-config/wallet/e-wallet.json POST /api/v1/server-to-server-interface/hpp/generate/link'
+description: 加盟店が例えばGCashに設定されている場合、ホスト型決済ページ（HPP）は、GCash支払い方法を使用して顧客が取引を完了できるようにEウォレットリンクを生成します。
+---
+
+### 重要なポイント
+
+<Info>
+  加盟店設定
+
+  * **GCashの加盟店ID** は、ペイロードに含め、`payment_method` タイプを `gcash` に設定する必要があります。
+
+  * 加盟店がGCashに設定されている場合、HPPはEウォレット決済リンクを生成し、顧客がGCashを通じて支払いを完了できるようにします。[サポートされているEウォレットのすべてを表示...](/documentation/paymentmethods/ewallets)
+
+  Eウォレットリンク
+
+  * HPPは、顧客がGCashを通じて支払うオプションを表示するか、顧客が使用できるEウォレットリンクを生成して提供します。
+
+  * これにより、GCash Eウォレットを使用して取引を完了する顧客にとってスムーズなプロセスが確保されます。
+</Info>
