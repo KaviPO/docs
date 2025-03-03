@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Payment Options API",
-    "description": "ホスト型決済ページ（HPP）リンクの生成と支払い処理のためのAPI",
+    "description": "ホスト型決済ページ（HPP）リンクを生成し、決済を処理するためのAPI。",
     "version": "1.0.0"
   },
   "servers": [
@@ -98,7 +98,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "description": "支払い方法タイプ（例：'scheme'）。",
+                        "description": "支払い方法の種類（例：「scheme」）。",
                         "maxLength": 128,
                         "example": "scheme"
                       },
@@ -235,7 +235,7 @@
                     },
                     "url": {
                       "type": "string",
-                      "description": "生成されたホスト型決済ページのURLリンク。",
+                      "description": "生成されたホスト型決済ページ（HPP）リンクのURL。",
                       "example": "https://checkout-dev.paymentoptions.com/jp/HostedPaymentPage/hKJsdByR"
                     },
                     "amount": {
@@ -322,7 +322,7 @@
                         },
                         "address1": {
                           "type": "string",
-                          "description": "カード所有者の請求先住所の詳細。",
+                          "description": "カード所有者の請求先住所行。",
                           "example": "1-2-3 Shinjuku"
                         },
                         "postal_code": {
@@ -364,7 +364,7 @@
                         },
                         "address1": {
                           "type": "string",
-                          "description": "カード所有者の配送先住所の詳細。",
+                          "description": "カード所有者の配送先住所行。",
                           "example": "1-2-3 Shinjuku"
                         },
                         "postal_code": {
@@ -389,7 +389,7 @@
         "type": "apiKey",
         "name": "Authorization",
         "in": "header",
-        "description": "認証のためのAPIキー。形式：'Basic YOUR_API_KEY_HERE'"
+        "description": "認証のためのAPIキー。フォーマット: 'Basic YOUR_API_KEY_HERE'"
       },
       "xApiKeyAuth": {
         "type": "apiKey",
