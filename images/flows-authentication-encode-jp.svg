@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1997 833">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        font-family: ArialMT, Arial;
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14 {
+        font-family: KozGoPr6N-Regular-83pv-RKSJ-H, 'Kozuka Gothic Pr6N';
+      }
+
+      .cls-4, .cls-15, .cls-16 {
+        font-size: 23.18px;
+      }
+
+      .cls-5 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-5, .cls-7, .cls-2, .cls-3, .cls-10, .cls-14 {
+        font-size: 25.2px;
+      }
+
+      .cls-5, .cls-7, .cls-2, .cls-10, .cls-14 {
+        fill: #ff931e;
+      }
+
+      .cls-17 {
+        stroke-width: 6px;
+      }
+
+      .cls-17, .cls-18, .cls-19, .cls-20, .cls-21 {
+        fill: none;
+      }
+
+      .cls-17, .cls-18, .cls-20, .cls-21 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-17, .cls-20 {
+        stroke: #808082;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-22 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-22, .cls-23 {
+        font-family: Arial-Black, 'Arial Black';
+        font-weight: 800;
+      }
+
+      .cls-24 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-24, .cls-15, .cls-25 {
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.13em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-10 {
+        letter-spacing: 0em;
+      }
+
+      .cls-18 {
+        stroke-width: 5px;
+      }
+
+      .cls-18, .cls-19 {
+        stroke: #ff931e;
+      }
+
+      .cls-11 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-12 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-19 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-19, .cls-20 {
+        stroke-width: 2px;
+      }
+
+      .cls-26 {
+        fill: #1b1464;
+        font-size: 26px;
+      }
+
+      .cls-21 {
+        stroke: #e6e6e6;
+      }
+
+      .cls-13 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-27 {
+        fill: #f2f2f2;
+      }
+
+      .cls-27, .cls-28, .cls-29, .cls-30, .cls-31 {
+        stroke-width: 0px;
+      }
+
+      .cls-28 {
+        fill: #b9bbbd;
+      }
+
+      .cls-29 {
+        fill: #fff;
+      }
+
+      .cls-30 {
+        fill: #eff0f0;
+      }
+
+      .cls-31 {
+        fill: #00a99d;
+      }
+    </style>
+  </defs>
+  <rect class="cls-29" width="1997" height="833"/>
+  <rect class="cls-30" x="40.35" y="39.98" width="1937.4" height="62.65"/>
+  <g>
+    <circle class="cls-28" cx="73.06" cy="73.09" r="7.99"/>
+    <circle class="cls-28" cx="95" cy="73.09" r="7.99"/>
+    <path class="cls-28" d="M124.94,73.09c0,4.41-3.58,7.99-7.99,7.99s-7.99-3.58-7.99-7.99,3.58-7.99,7.99-7.99,7.99,3.58,7.99,7.99Z"/>
+  </g>
+  <rect class="cls-20" x="40.43" y="35.5" width="1936.89" height="771.11"/>
+  <text class="cls-3" transform="translate(138.84 80.76)"><tspan x="0" y="0">https://me.paymentoptions.com/accounts/merchant-details/</tspan></text>
+  <text class="cls-4" transform="translate(159.61 241.79)"><tspan x="0" y="0">加盟店詳細</tspan></text>
+  <text class="cls-16" transform="translate(167.67 448.4)"><tspan class="cls-1" x="0" y="0">API</tspan><tspan class="cls-12" x="37.13" y="0">キ</tspan><tspan class="cls-6" x="59.85" y="0">ー</tspan></text>
+  <rect class="cls-27" x="159.23" y="259.01" width="398.47" height="54.18"/>
+  <rect class="cls-27" x="159.23" y="328.55" width="398.47" height="54.18"/>
+  <rect class="cls-27" x="607.72" y="259.01" width="398.47" height="54.18"/>
+  <rect class="cls-27" x="607.72" y="328.55" width="398.47" height="54.18"/>
+  <rect class="cls-27" x="1066.29" y="259.01" width="398.47" height="54.18"/>
+  <rect class="cls-27" x="1066.29" y="328.55" width="398.47" height="54.18"/>
+  <rect class="cls-27" x="1514.78" y="259.01" width="398.47" height="54.18"/>
+  <rect class="cls-27" x="1514.78" y="328.55" width="398.47" height="54.18"/>
+  <text class="cls-16" transform="translate(167.5 513.8)"><tspan class="cls-25" x="0" y="0">LIVE</tspan><tspan class="cls-24" x="51.52" y="0"> </tspan><tspan class="cls-25" x="57.1" y="0">API</tspan><tspan class="cls-12" x="95.51" y="0">キ</tspan><tspan class="cls-6" x="118.23" y="0">ー</tspan></text>
+  <text class="cls-15" transform="translate(513.19 513.8)"><tspan x="0" y="0">xxxxxxxxxxxxxxxxxxxxxxxxxxxx</tspan></text>
+  <text class="cls-26" transform="translate(1637.43 521.86)"><tspan class="cls-22" x="0" y="0">B</tspan><tspan class="cls-23" x="19.78" y="0">ASE64</tspan><tspan class="cls-13" x="111.98" y="0">エン</tspan><tspan class="cls-9" x="160.86" y="0">コ</tspan><tspan class="cls-8" x="186.08" y="0">ー</tspan><tspan class="cls-11" x="208.7" y="0">ド</tspan></text>
+  <text class="cls-4" transform="translate(169.51 621.64)"><tspan x="0" y="0">製品情報</tspan></text>
+  <rect class="cls-27" x="166.09" y="657.9" width="1741.11" height="54.18"/>
+  <rect class="cls-27" x="60.83" y="152.98" width="54.44" height="54.18"/>
+  <rect class="cls-27" x="60.83" y="241.67" width="54.44" height="54.18"/>
+  <rect class="cls-27" x="60.83" y="330.36" width="54.44" height="54.18"/>
+  <g>
+    <path class="cls-28" d="M1955.36,66.52c0,1.03-.83,1.86-1.86,1.86h-18.47c-1.03,0-1.86-.83-1.86-1.86h0c0-1.03.83-1.86,1.86-1.86h18.47c1.03,0,1.86.83,1.86,1.86h0Z"/>
+    <path class="cls-28" d="M1955.36,72.65c0,1.03-.83,1.86-1.86,1.86h-18.47c-1.03,0-1.86-.83-1.86-1.86h0c0-1.03.83-1.86,1.86-1.86h18.47c1.03,0,1.86.83,1.86,1.86h0Z"/>
+    <path class="cls-28" d="M1955.36,78.79c0,1.03-.83,1.86-1.86,1.86h-18.47c-1.03,0-1.86-.83-1.86-1.86h0c0-1.03.83-1.86,1.86-1.86h18.47c1.03,0,1.86.83,1.86,1.86h0Z"/>
+  </g>
+  <rect class="cls-17" x="40.68" y="35.5" width="1937.07" height="67.53"/>
+  <text transform="translate(155.75 159.45)"><tspan><tspan class="cls-10" x="0" y="0">ホ</tspan><tspan class="cls-7" x="24.94" y="0">ー</tspan><tspan class="cls-5" x="49.38" y="0">ム</tspan><tspan class="cls-14" x="74.08" y="0"> </tspan><tspan class="cls-2" x="79.95" y="0">/ </tspan><tspan class="cls-14" x="93.95" y="0">加盟店 </tspan><tspan class="cls-2" x="175.41" y="0">/ </tspan><tspan class="cls-4" x="189.41" y="0">加盟店詳細</tspan></tspan></text>
+  <g>
+    <path class="cls-19" d="M97.53,262.19c0,2.61-2.04,4.73-4.56,4.73s-4.56-2.12-4.56-4.73v-2.7c0-2.61,2.04-4.73,4.56-4.73s4.56,2.12,4.56,4.73v2.7Z"/>
+    <circle class="cls-19" cx="80.81" cy="259.32" r="3.8"/>
+    <path class="cls-19" d="M84.64,271.7c-1.5-1.09-3.35-1.73-5.35-1.73-4.44,0-8.13,3.18-8.95,7.37-.18.91.58,1.75,1.5,1.75h7.45"/>
+    <path class="cls-19" d="M92.97,271.48h0c-6.13,0-11.2,4.54-12.04,10.43-.13.91.6,1.73,1.52,1.73h21.04c.92,0,1.65-.82,1.52-1.73-.84-5.9-5.91-10.43-12.04-10.43Z"/>
+  </g>
+  <line class="cls-21" x1="134.41" y1="133.26" x2="134.41" y2="774.25"/>
+  <g>
+    <polygon class="cls-31" points="100.41 474.6 81.93 474.6 107.05 505.45 81.93 536.3 100.41 536.3 125.53 505.45 100.41 474.6"/>
+    <rect class="cls-31" x="17.5" y="492.27" width="91.45" height="26.36"/>
+  </g>
+  <rect class="cls-18" x="140.46" y="465.34" width="1792.45" height="96.75"/>
+</svg>
