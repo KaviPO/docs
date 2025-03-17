@@ -8,54 +8,54 @@
     "dark": "#F18A00"
   },
   "favicon": "/favicon.svg",
-  "languages": [
-    {
-      "language": "en",
-      "default": true,
-      "href": "/documentation",
-      "navigation": {
+  "navigation": {
+    "languages": [
+      {
+        "language": "en",
+        "default": true,
+        "href": "/",
         "tabs": [
           {
             "tab": "Documentation",
             "groups": [
               {
                 "group": "",
-                "pages": ["overview"]
+                "pages": ["documentation/overview"]
               },
               {
                 "group": "Get Started",
                 "pages": [
-                  "introduction",
-                  "createaccount",
-                  "checklist",
-                  "glossary"
+                  "documentation/introduction",
+                  "documentation/createaccount",
+                  "documentation/checklist",
+                  "documentation/glossary"
                 ]
               },
               {
                 "group": "Payments",
                 "pages": [
-                  "payments/onlinepayment",
-                  "payments/paybylink",
-                  "payments/qrcode",
-                  "payments/subscription",
-                  "payments/scheduler"
+                  "documentation/payments/onlinepayment",
+                  "documentation/payments/paybylink",
+                  "documentation/payments/qrcode",
+                  "documentation/payments/subscription",
+                  "documentation/payments/scheduler"
                 ]
               },
               {
                 "group": "Payment Methods",
                 "pages": [
-                  "paymentmethods/cardschemes",
-                  "paymentmethods/currency",
-                  "paymentmethods/ewallets",
-                  "paymentmethods/securepayment",
-                  "paymentmethods/testcards"
+                  "documentation/paymentmethods/cardschemes",
+                  "documentation/paymentmethods/currency",
+                  "documentation/paymentmethods/ewallets",
+                  "documentation/paymentmethods/securepayment",
+                  "documentation/paymentmethods/testcards"
                 ]
               },
               {
                 "group": "Partner Account",
                 "pages": [
-                  "partner/createpartner",
-                  "partner/partnerchecklist"
+                  "documentation/partner/createpartner",
+                  "documentation/partner/partnerchecklist"
                 ]
               }
             ]
@@ -66,9 +66,9 @@
               {
                 "group": "Getting Started",
                 "pages": [
-                  "../api-reference/en/introduction",
-                  "../api-reference/en/authentication",
-                  "../api-reference/en/merchant-details"
+                  "api-reference/en/introduction",
+                  "api-reference/en/authentication",
+                  "api-reference/en/merchant-details"
                 ]
               },
               {
@@ -77,44 +77,42 @@
                   {
                     "group": "Server To Server",
                     "pages": [
-                      "../api-reference/en/server-to-server/purchase",
-                      "../api-reference/en/server-to-server/authorization",
-                      "../api-reference/en/server-to-server/capture",
-                      "../api-reference/en/server-to-server/refund",
-                      "../api-reference/en/server-to-server/void-authorization",
-                      "../api-reference/en/server-to-server/transaction-status",
-                      "../api-reference/en/server-to-server/3dsecure"
+                      "api-reference/en/server-to-server/purchase",
+                      "api-reference/en/server-to-server/authorization",
+                      "api-reference/en/server-to-server/capture",
+                      "api-reference/en/server-to-server/refund",
+                      "api-reference/en/server-to-server/void-authorization",
+                      "api-reference/en/server-to-server/transaction-status",
+                      "api-reference/en/server-to-server/3dsecure"
                     ]
                   },
                   {
                     "group": "Tokenization",
                     "pages": [
-                      "../api-reference/en/tokenization/generate-token",
-                      "../api-reference/en/tokenization/use-token"
+                      "api-reference/en/tokenization/generate-token",
+                      "api-reference/en/tokenization/use-token"
                     ]
                   },
                   {
                     "group": "Subscriptions",
                     "pages": [
-                      "../api-reference/en/subscription/create-subscription",
-                      "../api-reference/en/subscription/cancel-subscription",
-                      "../api-reference/en/subscription/pause-subscription",
-                      "../api-reference/en/subscription/resume-subscription",
-                      "../api-reference/en/subscription/subscription-list",
-                      "../api-reference/en/subscription/subscription-details"
+                      "api-reference/en/subscription/create-subscription",
+                      "api-reference/en/subscription/cancel-subscription",
+                      "api-reference/en/subscription/pause-subscription",
+                      "api-reference/en/subscription/resume-subscription",
+                      "api-reference/en/subscription/subscription-list",
+                      "api-reference/en/subscription/subscription-details"
                     ]
                   },
                   {
                     "group": "Wallet",
-                    "pages": [
-                      "../api-reference/en/wallet/wallet"
-                    ]
+                    "pages": ["api-reference/en/wallet/wallet"]
                   },
                   {
                     "group": "Hosted Payment Page",
                     "pages": [
-                      "../api-reference/en/hpp/generate-link",
-                      "../api-reference/en/hpp/generate-link-tokenization"
+                      "api-reference/en/hpp/generate-link",
+                      "api-reference/en/hpp/generate-link-tokenization"
                     ]
                   }
                 ]
@@ -122,16 +120,14 @@
               {
                 "group": "Error and Response",
                 "pages": [
-                  "../api-reference/en/error-and-response/httpresponse",
-                  "../api-reference/en/error-and-response/responsecodes",
-                  "../api-reference/en/error-and-response/gatewayerrors"
+                  "api-reference/en/error-and-response/httpresponse",
+                  "api-reference/en/error-and-response/responsecodes",
+                  "api-reference/en/error-and-response/gatewayerrors"
                 ]
               },
               {
                 "group": "Webhook",
-                "pages": [
-                  "../api-reference/en/webhook-handler"
-                ]
+                "pages": ["api-reference/en/webhook-handler"]
               }
             ]
           },
@@ -141,9 +137,9 @@
               {
                 "group": "Logs",
                 "pages": [
-                  "../releases/revisions",
-                  "../releases/apiupdate",
-                  "../releases/releasenotes"
+                  "releases/revisions",
+                  "releases/apiupdate",
+                  "releases/releasenotes"
                 ]
               }
             ]
@@ -177,54 +173,52 @@
             ]
           }
         ]
-      }
-    },
-    {
-      "language": "jp",
-      "href": "/documentation-jp",
-      "navigation": {
+      },
+      {
+        "language": "jp",
+        "href": "/",
         "tabs": [
           {
             "tab": "ドキュメント",
             "groups": [
               {
                 "group": "",
-                "pages": ["overview"]
+                "pages": ["documentation-jp/overview"]
               },
               {
                 "group": "スタートガイド",
                 "pages": [
-                  "introduction",
-                  "createaccount",
-                  "checklist",
-                  "glossary"
+                  "documentation-jp/introduction",
+                  "documentation-jp/createaccount",
+                  "documentation-jp/checklist",
+                  "documentation-jp/glossary"
                 ]
               },
               {
                 "group": "決済",
                 "pages": [
-                  "payments/onlinepayment",
-                  "payments/paybylink",
-                  "payments/qrcode",
-                  "payments/subscription",
-                  "payments/scheduler"
+                  "documentation-jp/payments/onlinepayment",
+                  "documentation-jp/payments/paybylink",
+                  "documentation-jp/payments/qrcode",
+                  "documentation-jp/payments/subscription",
+                  "documentation-jp/payments/scheduler"
                 ]
               },
               {
                 "group": "決済方法",
                 "pages": [
-                  "paymentmethods/cardschemes",
-                  "paymentmethods/currency",
-                  "paymentmethods/ewallets",
-                  "paymentmethods/securepayment",
-                  "paymentmethods/testcards"
+                  "documentation-jp/paymentmethods/cardschemes",
+                  "documentation-jp/paymentmethods/currency",
+                  "documentation-jp/paymentmethods/ewallets",
+                  "documentation-jp/paymentmethods/securepayment",
+                  "documentation-jp/paymentmethods/testcards"
                 ]
               },
               {
                 "group": "パートナーアカウント",
                 "pages": [
-                  "partner/createpartner",
-                  "partner/partnerchecklist"
+                  "documentation-jp/partner/createpartner",
+                  "documentation-jp/partner/partnerchecklist"
                 ]
               }
             ]
@@ -235,9 +229,9 @@
               {
                 "group": "入門",
                 "pages": [
-                  "../api-reference/jp/introduction",
-                  "../api-reference/jp/authentication",
-                  "../api-reference/jp/merchant-details"
+                  "api-reference/jp/introduction",
+                  "api-reference/jp/authentication",
+                  "api-reference/jp/merchant-details"
                 ]
               },
               {
@@ -246,44 +240,42 @@
                   {
                     "group": "サーバー間通信",
                     "pages": [
-                      "../api-reference/jp/server-to-server/purchase",
-                      "../api-reference/jp/server-to-server/authorization",
-                      "../api-reference/jp/server-to-server/capture",
-                      "../api-reference/jp/server-to-server/refund",
-                      "../api-reference/jp/server-to-server/void-authorization",
-                      "../api-reference/jp/server-to-server/transaction-status",
-                      "../api-reference/jp/server-to-server/3dsecure"
+                      "api-reference/jp/server-to-server/purchase",
+                      "api-reference/jp/server-to-server/authorization",
+                      "api-reference/jp/server-to-server/capture",
+                      "api-reference/jp/server-to-server/refund",
+                      "api-reference/jp/server-to-server/void-authorization",
+                      "api-reference/jp/server-to-server/transaction-status",
+                      "api-reference/jp/server-to-server/3dsecure"
                     ]
                   },
                   {
                     "group": "トークン化",
                     "pages": [
-                      "../api-reference/jp/tokenization/generate-token",
-                      "../api-reference/jp/tokenization/use-token"
+                      "api-reference/jp/tokenization/generate-token",
+                      "api-reference/jp/tokenization/use-token"
                     ]
                   },
                   {
                     "group": "サブスクリプション",
                     "pages": [
-                      "../api-reference/jp/subscription/create-subscription",
-                      "../api-reference/jp/subscription/cancel-subscription",
-                      "../api-reference/jp/subscription/pause-subscription",
-                      "../api-reference/jp/subscription/resume-subscription",
-                      "../api-reference/jp/subscription/subscription-list",
-                      "../api-reference/jp/subscription/subscription-details"
+                      "api-reference/jp/subscription/create-subscription",
+                      "api-reference/jp/subscription/cancel-subscription",
+                      "api-reference/jp/subscription/pause-subscription",
+                      "api-reference/jp/subscription/resume-subscription",
+                      "api-reference/jp/subscription/subscription-list",
+                      "api-reference/jp/subscription/subscription-details"
                     ]
                   },
                   {
                     "group": "ウォレット",
-                    "pages": [
-                      "../api-reference/jp/wallet/wallet"
-                    ]
+                    "pages": ["api-reference/jp/wallet/wallet"]
                   },
                   {
                     "group": "ホスト決済ページ",
                     "pages": [
-                      "../api-reference/jp/hpp/generate-link",
-                      "../api-reference/jp/hpp/generate-link-tokenization"
+                      "api-reference/jp/hpp/generate-link",
+                      "api-reference/jp/hpp/generate-link-tokenization"
                     ]
                   }
                 ]
@@ -291,16 +283,14 @@
               {
                 "group": "エラーとレスポンス",
                 "pages": [
-                  "../api-reference/jp/error-and-response/httpresponse",
-                  "../api-reference/jp/error-and-response/responsecodes",
-                  "../api-reference/jp/error-and-response/gatewayerrors"
+                  "api-reference/jp/error-and-response/httpresponse",
+                  "api-reference/jp/error-and-response/responsecodes",
+                  "api-reference/jp/error-and-response/gatewayerrors"
                 ]
               },
               {
                 "group": "ウェブフック",
-                "pages": [
-                  "../api-reference/jp/webhook-handler"
-                ]
+                "pages": ["api-reference/jp/webhook-handler"]
               }
             ]
           },
@@ -310,9 +300,9 @@
               {
                 "group": "ログ",
                 "pages": [
-                  "../releases-jp/revisions",
-                  "../releases-jp/apiupdate",
-                  "../releases-jp/releasenotes"
+                  "releases-jp/revisions",
+                  "releases-jp/apiupdate",
+                  "releases-jp/releasenotes"
                 ]
               }
             ]
@@ -347,8 +337,8 @@
           }
         ]
       }
-    }
-  ],
+    ]
+  },
   "logo": {
     "light": "/logo/logo_light.svg",
     "dark": "/logo/logo_dark.svg"
