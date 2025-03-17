@@ -19,7 +19,7 @@
             "tab": "Documentation",
             "groups": [
               {
-                "group": "",
+                "group": " ",
                 "pages": ["documentation/overview"]
               },
               {
@@ -182,7 +182,7 @@
             "tab": "ドキュメント",
             "groups": [
               {
-                "group": "",
+                "group": " ",
                 "pages": ["documentation-jp/overview"]
               },
               {
