@@ -361,7 +361,7 @@
         "navbar": {
           "links": [
             {
-              "label": "Create an Account",
+              "label": "アカウント作成",
               "href": "https://me.paymentoptions.com/onboarding/choose-account"
             }
           ],
