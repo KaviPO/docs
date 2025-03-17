@@ -177,6 +177,7 @@
             ]
           }
         ]
+      },
       {
         "version": "日本語",
         "tabs": [
@@ -354,6 +355,19 @@
   "appearance": {
     "default": "light",
     "strict": true
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Create an Account",
+        "href": "https://me.paymentoptions.com/onboarding/choose-account"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Sign in",
+      "href": "https://me.paymentoptions.com"
+    }
   },
   "footer": {
     "socials": {
