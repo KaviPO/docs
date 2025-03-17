@@ -176,21 +176,7 @@
               }
             ]
           }
-        ],
-        "navbar": {
-          "links": [
-            {
-              "label": "Create an Account",
-              "href": "https://me.paymentoptions.com/onboarding/choose-account"
-            }
-          ],
-          "primary": {
-            "type": "button",
-            "label": "Sign in",
-            "href": "https://me.paymentoptions.com"
-          }
-        }
-      },
+        ]
       {
         "version": "日本語",
         "tabs": [
@@ -357,23 +343,42 @@
               }
             ]
           }
-        ],
-        "navbar": {
-          "links": [
-            {
-              "label": "アカウントを作成する",
-              "href": "https://me.paymentoptions.com/onboarding/choose-account"
-            }
-          ],
-          "primary": {
-            "type": "button",
-            "label": "サインイン",
-            "href": "https://me.paymentoptions.com"
-          }
-        }
+        ]
       }
     ]
   },
+  "navbar": {
+  "versions": [
+    {
+      "version": "English",
+      "links": [
+        {
+          "label": "Create an Account",
+          "href": "https://me.paymentoptions.com/onboarding/choose-account"
+        }
+      ],
+      "primary": {
+        "type": "button",
+        "label": "Sign in",
+        "href": "https://me.paymentoptions.com"
+      }
+    },
+    {
+      "version": "日本語",
+      "links": [
+        {
+          "label": "アカウントを作成",
+          "href": "https://me.paymentoptions.com/onboarding/choose-account"
+        }
+      ],
+      "primary": {
+        "type": "button",
+        "label": "ログイン",
+        "href": "https://me.paymentoptions.com"
+      }
+    }
+  ]
+},
   "logo": {
     "light": "/logo/logo_light.svg",
     "dark": "/logo/logo_dark.svg"
