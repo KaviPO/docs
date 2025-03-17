@@ -348,37 +348,37 @@
     ]
   },
   "navbar": {
-  "versions": [
-    {
-      "version": "English",
-      "links": [
-        {
-          "label": "Create an Account",
-          "href": "https://me.paymentoptions.com/onboarding/choose-account"
+    "versions": [
+      {
+        "version": "English",
+        "links": [
+          {
+            "label": "Create an Account",
+            "href": "https://me.paymentoptions.com/onboarding/choose-account"
+          }
+        ],
+        "primary": {
+          "type": "button",
+          "label": "Sign in",
+          "href": "https://me.paymentoptions.com"
         }
-      ],
-      "primary": {
-        "type": "button",
-        "label": "Sign in",
-        "href": "https://me.paymentoptions.com"
-      }
-    },
-    {
-      "version": "日本語",
-      "links": [
-        {
-          "label": "アカウントを作成",
-          "href": "https://me.paymentoptions.com/onboarding/choose-account"
+      },
+      {
+        "version": "日本語",
+        "links": [
+          {
+            "label": "アカウントを作成",
+            "href": "https://me.paymentoptions.com/onboarding/choose-account"
+          }
+        ],
+        "primary": {
+          "type": "button",
+          "label": "ログイン",
+          "href": "https://me.paymentoptions.com"
         }
-      ],
-      "primary": {
-        "type": "button",
-        "label": "ログイン",
-        "href": "https://me.paymentoptions.com"
       }
-    }
-  ]
-},
+    ]
+  },
   "logo": {
     "light": "/logo/logo_light.svg",
     "dark": "/logo/logo_dark.svg"
