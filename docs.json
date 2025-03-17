@@ -2,16 +2,6 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "DAS Gateway Documentation",
-  "languages": [
-    {
-      "label": "English",
-      "code": "en"
-    },
-    {
-      "label": "日本語",
-      "code": "jp"
-    }
-  ],
   "colors": {
     "primary": "#FFAB31",
     "light": "#FFAB31",
@@ -19,106 +9,340 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "versions": [
       {
-        "tab": {
-          "en": "Documentation",
-          "jp": "ドキュメント"
-        },
-        "groups": [
+        "version": "English",
+        "tabs": [
           {
-            "group": " ",
-            "pages": {
-              "en": ["documentation/overview"],
-              "jp": ["documentation-jp/overview"]
-            }
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "",
+                "pages": [
+                  "documentation/overview"
+                ]
+              },
+              {
+                "group": "Get Started",
+                "pages": [
+                  "documentation/introduction",
+                  "documentation/createaccount",
+                  "documentation/checklist",
+                  "documentation/glossary"
+                ]
+              },
+              {
+                "group": "Payments",
+                "pages": [
+                  "documentation/payments/onlinepayment",
+                  "documentation/payments/paybylink",
+                  "documentation/payments/qrcode",
+                  "documentation/payments/subscription",
+                  "documentation/payments/scheduler"
+                ]
+              },
+              {
+                "group": "Payment Methods",
+                "pages": [
+                  "documentation/paymentmethods/cardschemes",
+                  "documentation/paymentmethods/currency",
+                  "documentation/paymentmethods/ewallets",
+                  "documentation/paymentmethods/securepayment",
+                  "documentation/paymentmethods/testcards"
+                ]
+              },
+              {
+                "group": "Partner Account",
+                "pages": [
+                  "documentation/partner/createpartner",
+                  "documentation/partner/partnerchecklist"
+                ]
+              }
+            ]
           },
           {
-            "group": {
-              "en": "Get Started",
-              "jp": "スタートガイド"
-            },
-            "pages": {
-              "en": [
-                "documentation/introduction",
-                "documentation/createaccount",
-                "documentation/checklist",
-                "documentation/glossary"
-              ],
-              "jp": [
-                "documentation-jp/introduction",
-                "documentation-jp/createaccount",
-                "documentation-jp/checklist",
-                "documentation-jp/glossary"
-              ]
-            }
+            "tab": "API Reference",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "api-reference/en/introduction",
+                  "api-reference/en/authentication",
+                  "api-reference/en/merchant-details"
+                ]
+              },
+              {
+                "group": "API Endpoints",
+                "pages": [
+                  {
+                    "group": "Server To Server",
+                    "pages": [
+                      "api-reference/en/server-to-server/purchase",
+                      "api-reference/en/server-to-server/authorization",
+                      "api-reference/en/server-to-server/capture",
+                      "api-reference/en/server-to-server/refund",
+                      "api-reference/en/server-to-server/void-authorization",
+                      "api-reference/en/server-to-server/transaction-status",
+                      "api-reference/en/server-to-server/3dsecure"
+                    ]
+                  },
+                  {
+                    "group": "Tokenization",
+                    "pages": [
+                      "api-reference/en/tokenization/generate-token",
+                      "api-reference/en/tokenization/use-token"
+                    ]
+                  },
+                  {
+                    "group": "Subscriptions",
+                    "pages": [
+                      "api-reference/en/subscription/create-subscription",
+                      "api-reference/en/subscription/cancel-subscription",
+                      "api-reference/en/subscription/pause-subscription",
+                      "api-reference/en/subscription/resume-subscription",
+                      "api-reference/en/subscription/subscription-list",
+                      "api-reference/en/subscription/subscription-details"
+                    ]
+                  },
+                  {
+                    "group": "Wallet",
+                    "pages": [
+                      "api-reference/en/wallet/wallet"
+                    ]
+                  },
+                  {
+                    "group": "Hosted Payment Page",
+                    "pages": [
+                      "api-reference/en/hpp/generate-link",
+                      "api-reference/en/hpp/generate-link-tokenization"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Error and Response",
+                "pages": [
+                  "api-reference/en/error-and-response/httpresponse",
+                  "api-reference/en/error-and-response/responsecodes",
+                  "api-reference/en/error-and-response/gatewayerrors"
+                ]
+              },
+              {
+                "group": "Webhook",
+                "pages": [
+                  "api-reference/en/webhook-handler"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Change Logs",
+            "groups": [
+              {
+                "group": "Logs",
+                "pages": [
+                  "releases/revisions",
+                  "releases/apiupdate",
+                  "releases/releasenotes"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Support",
+            "groups": [
+              {
+                "group": "Guide",
+                "pages": [
+                  "support/merchantguide",
+                  "support/partnerguide"
+                ]
+              },
+              {
+                "group": "Website Plugins",
+                "pages": [
+                  "support/plugins-woocommerce",
+                  "support/plugins-magento",
+                  "support/plugins-opencart"
+                ]
+              },
+              {
+                "group": "Support",
+                "pages": [
+                  "support/faqs",
+                  "support/aichat",
+                  "support/contact"
+                ]
+              }
+            ]
           }
         ]
       },
       {
-        "tab": {
-          "en": "API Reference",
-          "jp": "APIリファレンス"
-        },
-        "groups": [
+        "version": "日本語",
+        "tabs": [
           {
-            "group": {
-              "en": "Getting Started",
-              "jp": "入門"
-            },
-            "pages": {
-              "en": [
-                "api-reference/en/introduction",
-                "api-reference/en/authentication",
-                "api-reference/en/merchant-details"
-              ],
-              "jp": [
-                "api-reference/jp/introduction",
-                "api-reference/jp/authentication",
-                "api-reference/jp/merchant-details"
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "tab": {
-          "en": "Change Logs",
-          "jp": "変更履歴"
-        },
-        "groups": [
+            "tab": "ドキュメント",
+            "groups": [
+              {
+                "group": "",
+                "pages": [
+                  "documentation-jp/overview"
+                ]
+              },
+              {
+                "group": "スタートガイド",
+                "pages": [
+                  "documentation-jp/introduction",
+                  "documentation-jp/createaccount",
+                  "documentation-jp/checklist",
+                  "documentation-jp/glossary"
+                ]
+              },
+              {
+                "group": "決済",
+                "pages": [
+                  "documentation-jp/payments/onlinepayment",
+                  "documentation-jp/payments/paybylink",
+                  "documentation-jp/payments/qrcode",
+                  "documentation-jp/payments/subscription",
+                  "documentation-jp/payments/scheduler"
+                ]
+              },
+              {
+                "group": "決済方法",
+                "pages": [
+                  "documentation-jp/paymentmethods/cardschemes",
+                  "documentation-jp/paymentmethods/currency",
+                  "documentation-jp/paymentmethods/ewallets",
+                  "documentation-jp/paymentmethods/securepayment",
+                  "documentation-jp/paymentmethods/testcards"
+                ]
+              },
+              {
+                "group": "パートナーアカウント",
+                "pages": [
+                  "documentation-jp/partner/createpartner",
+                  "documentation-jp/partner/partnerchecklist"
+                ]
+              }
+            ]
+          },
           {
-            "group": "Logs",
-            "pages": {
-              "en": [
-                "releases/revisions",
-                "releases/apiupdate",
-                "releases/releasenotes"
-              ],
-              "jp": [
-                "releases-jp/revisions",
-                "releases-jp/apiupdate",
-                "releases-jp/releasenotes"
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "tab": {
-          "en": "Support",
-          "jp": "サポート"
-        },
-        "groups": [
+            "tab": "APIリファレンス",
+            "groups": [
+              {
+                "group": "入門",
+                "pages": [
+                  "api-reference/jp/introduction",
+                  "api-reference/jp/authentication",
+                  "api-reference/jp/merchant-details"
+                ]
+              },
+              {
+                "group": "APIエンドポイント",
+                "pages": [
+                  {
+                    "group": "サーバー間通信",
+                    "pages": [
+                      "api-reference/jp/server-to-server/purchase",
+                      "api-reference/jp/server-to-server/authorization",
+                      "api-reference/jp/server-to-server/capture",
+                      "api-reference/jp/server-to-server/refund",
+                      "api-reference/jp/server-to-server/void-authorization",
+                      "api-reference/jp/server-to-server/transaction-status",
+                      "api-reference/jp/server-to-server/3dsecure"
+                    ]
+                  },
+                  {
+                    "group": "トークン化",
+                    "pages": [
+                      "api-reference/jp/tokenization/generate-token",
+                      "api-reference/jp/tokenization/use-token"
+                    ]
+                  },
+                  {
+                    "group": "サブスクリプション",
+                    "pages": [
+                      "api-reference/jp/subscription/create-subscription",
+                      "api-reference/jp/subscription/cancel-subscription",
+                      "api-reference/jp/subscription/pause-subscription",
+                      "api-reference/jp/subscription/resume-subscription",
+                      "api-reference/jp/subscription/subscription-list",
+                      "api-reference/jp/subscription/subscription-details"
+                    ]
+                  },
+                  {
+                    "group": "ウォレット",
+                    "pages": [
+                      "api-reference/jp/wallet/wallet"
+                    ]
+                  },
+                  {
+                    "group": "ホスト決済ページ",
+                    "pages": [
+                      "api-reference/jp/hpp/generate-link",
+                      "api-reference/jp/hpp/generate-link-tokenization"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "エラーとレスポンス",
+                "pages": [
+                  "api-reference/jp/error-and-response/httpresponse",
+                  "api-reference/jp/error-and-response/responsecodes",
+                  "api-reference/jp/error-and-response/gatewayerrors"
+                ]
+              },
+              {
+                "group": "ウェブフック",
+                "pages": [
+                  "api-reference/jp/webhook-handler"
+                ]
+              }
+            ]
+          },
           {
-            "group": {
-              "en": "Guide",
-              "jp": "ガイド"
-            },
-            "pages": {
-              "en": ["support/merchantguide", "support/partnerguide"],
-              "jp": ["support-jp/merchantguide", "support-jp/partnerguide"]
-            }
+            "tab": "変更履歴",
+            "groups": [
+              {
+                "group": "ログ",
+                "pages": [
+                  "releases-jp/revisions",
+                  "releases-jp/apiupdate",
+                  "releases-jp/releasenotes"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "サポート",
+            "groups": [
+              {
+                "group": "ガイド",
+                "pages": [
+                  "support-jp/merchantguide",
+                  "support-jp/partnerguide"
+                ]
+              },
+              {
+                "group": "ウェブサイトプラグイン",
+                "pages": [
+                  "support-jp/plugins-woocommerce",
+                  "support-jp/plugins-magento",
+                  "support-jp/plugins-opencart"
+                ]
+              },
+              {
+                "group": "サポート",
+                "pages": [
+                  "support-jp/faqs",
+                  "support-jp/aichat",
+                  "support-jp/contact"
+                ]
+              }
+            ]
           }
         ]
       }
@@ -135,19 +359,13 @@
   "navbar": {
     "links": [
       {
-        "label": {
-          "en": "Create an Account",
-          "jp": "アカウントを作成"
-        },
+        "label": "Create an Account",
         "href": "https://me.paymentoptions.com/onboarding/choose-account"
       }
     ],
     "primary": {
       "type": "button",
-      "label": {
-        "en": "Sign in",
-        "jp": "ログイン"
-      },
+      "label": "Sign in",
       "href": "https://me.paymentoptions.com"
     }
   },
