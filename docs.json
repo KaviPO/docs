@@ -17,7 +17,7 @@
             "tab": "Documentation",
             "groups": [
               {
-                "group": "",
+                "group": "test",
                 "pages": [
                   "documentation/overview"
                 ]
