@@ -347,45 +347,35 @@
     "default": "light",
     "strict": true
   },
-  "navbar": {
-    "languages": [
-      {
-        "language": "en",
-        "default": true,
-        "href": "/",
-        "navbar": {
-          "links": [
-            {
-              "label": "Create an Account",
-              "href": "https://me.paymentoptions.com/onboarding/choose-account"
-            }
-          ],
-          "primary": {
-            "type": "button",
-            "label": "Sign in",
-            "href": "https://me.paymentoptions.com"
-          }
-        }
-      },
-      {
-        "language": "jp",
-        "href": "/",
-        "navbar": {
-          "links": [
-            {
-              "label": "アカウント作成",
-              "href": "https://me.paymentoptions.com/onboarding/choose-account"
-            }
-          ],
-          "primary": {
-            "type": "button",
-            "label": "Sign in",
-            "href": "https://me.paymentoptions.com"
-          }
-        }
+"navbar": {
+  "links": [
+    {
+      "label": "Create an Account",
+      "href": "https://me.paymentoptions.com/onboarding/choose-account",
+      "translations": {
+        "jp": "アカウント作成"
       }
-    ]
+    }
+  ],
+  "primary": {
+    "type": "button",
+    "label": "Sign in",
+    "href": "https://me.paymentoptions.com",
+    "translations": {
+      "jp": "ログイン"
+    }
   },
+  "translations": {
+    "en": {
+      "label": "English",
+      "shortLabel": "EN"
+    },
+    "jp": {
+      "label": "日本語",
+      "shortLabel": "JP"
+    }
+  }
+},
   
   "footer": {
     "socials": {
