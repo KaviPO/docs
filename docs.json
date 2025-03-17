@@ -353,9 +353,12 @@
     "dark": "/logo/logo_dark.svg"
   },
   "navbar": {
-          "links": [
+    "versions": [
+      {
+        "version": "English",
+         "links": [
             {
-              "label": "アカウント作成",
+              "label": "Create An Account",
               "href": "https://me.paymentoptions.com/onboarding/choose-account"
             }
           ],
@@ -364,7 +367,23 @@
             "label": "Sign in",
             "href": "https://me.paymentoptions.com"
           }
-        },
+      },
+      {
+        "version": "日本語",
+         "links": [
+            {
+              "label": "アカウント作成",
+              "href": "https://me.paymentoptions.com/onboarding/choose-account"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "ログイン",
+            "href": "https://me.paymentoptions.com"
+          }
+      }
+    ]
+  },
   "appearance": {
     "default": "light",
     "strict": true
