@@ -359,7 +359,8 @@
       "type": "button",
       "label": "Sign in",
       "href": "https://me.paymentoptions.com"
-    },
+    }
+},
   
   
   "footer": {
