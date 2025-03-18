@@ -349,9 +349,7 @@
   },
   
 "navbar": {
-  "languages": [
-    {
-      "language": "en",
+  
       "links": [
         {
           "label": "Create an Account",
@@ -363,23 +361,6 @@
         "label": "Sign in",
         "href": "https://me.paymentoptions.com"
       }
-      
-    },
-    {
-       "language": "jp",
-       "links": [
-         {
-           "label": "アカウント作成",
-           "href": "https://me.paymentoptions.com/onboarding/choose-account"
-         }
-          ],
-        "primary": {
-           "type": "button",
-           "label": "Sign in",
-           "href": "https://me.paymentoptions.com"
-          } 
-      }
-  ]
 },
   
   "footer": {
