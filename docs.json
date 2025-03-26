@@ -34,6 +34,7 @@
               {
                 "group": "Payments",
                 "pages": [
+                  "documentation/payments/paymentintro",
                   "documentation/payments/onlinepayment",
                   "documentation/payments/paybylink",
                   "documentation/payments/qrcode",
@@ -197,6 +198,7 @@
               {
                 "group": "決済",
                 "pages": [
+                  "documentation-jp/payments/paymentintro",
                   "documentation-jp/payments/onlinepayment",
                   "documentation-jp/payments/paybylink",
                   "documentation-jp/payments/qrcode",
