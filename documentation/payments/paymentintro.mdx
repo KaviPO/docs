@@ -28,7 +28,7 @@ Before we get into the technical details, let’s first understand the roles inv
     A business or service provider that sells goods or services and accepts payments through our gateway.
   </Card>
 
-  <Card title="Issuer" icon="bank">
+  <Card title="Issuer" icon="building-columns">
     The bank or financial institution that provides the cardholder with their payment card and authorizes transactions on their behalf.
   </Card>
 
@@ -45,7 +45,7 @@ Before we get into the technical details, let’s first understand the roles inv
 > Card schemes license issuers and acquirers to operate on their networks. Issuers manage the cardholder’s accounts, and acquirers provide services and payment acceptance to merchants.
 
 <Note>
-You'll find these terms and more in our [Glossary](/docs/get-started/glossary).
+You'll find these terms and more in our [Glossary](/documentation/glossary).
 </Note>
 
 ---
@@ -74,7 +74,6 @@ You can integrate this flow using our:
 
 - **Hosted Payment Page (HPP)**  
 - **Server-to-Server APIs**  
-- **Mobile SDKs**  
 - **Plugin-based integrations** (WooCommerce, Magento, OpenCart)
 
 Each of these methods ensures secure transmission of card data, 3D Secure support, and real-time feedback for transaction approvals or declines.
@@ -87,7 +86,7 @@ Once a payment is authorized, merchants need to receive their funds. This proces
 
 -- Settlement Flow Diagram --
 
-Our system supports both **automatic capture** and **manual capture** flows, depending on how you configure your transactions. Captured payments are sent in batches to the acquirer, processed by the card schemes, and the final settled amount is deposited into your account, minus applicable fees.
+Our system supports both **automatic capture (Purchase)** and **manual capture (Authorisation)** flows, depending on how you configure your transactions. Captured payments are sent in batches to the acquirer, processed by the card schemes, and the final settled amount is deposited into your account, minus applicable fees.
 
 ---
 
@@ -106,12 +105,11 @@ We offer a wide range of tools, products, and integration methods to support you
 - **Digital Wallets** – Apple Pay, Google Pay, and more  
 - **Server-to-Server Integration** – Full control of your payment logic
 
-### Merchant Tools
+### Merchant & Partner Tools
 
-- **Transaction Dashboard** – Track, refund, or cancel payments  
-- **Virtual Terminal** – Enter card details manually for over-the-phone orders  
-- **Reports** – Understand your performance with advanced reporting  
-- **Fraud Management** – Built-in risk scoring and validation  
+- **Transaction** – Track, refund, or cancel payments  
+- **Statements** – View/Download settlement statements and reconcile your payouts  
+- **Dispute Management** – Monitor and respond to chargebacks and customer disputes  
 - **Partner Account Management** – Onboard and manage your network of merchants
 
 ---
@@ -120,8 +118,8 @@ We offer a wide range of tools, products, and integration methods to support you
 
 Ready to get started? Head over to these next steps:
 
-- [Create an Account](/docs/get-started/create-an-account)  
-- [Explore Our APIs](/reference/introduction)  
-- [Set Up Your First Payment](/docs/payments/online-payment)
+- [Create an Account](/documentation/createaccount)  
+- [Explore Our APIs](/api-reference/en/introduction)  
+- [Set Up Your First Payment](/api-reference/en/server-to-server/purchase)
 
-Still have questions? Visit our [FAQs](/support/faqs-and-troubleshooting) or reach out via [Contact Support](/support/contact-support).
+Still have questions? Visit our [FAQs](/support/faqs) or reach out via [Contact Support](/support/contact).
