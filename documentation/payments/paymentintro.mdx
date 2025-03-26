@@ -3,8 +3,6 @@ title: 'Introduction to Payments'
 description: 'Learn how the card payment process works and how our platform fits into it.'
 ---
 
-# Introduction to Payments
-
 Whether you're new to the world of payments or just exploring how to integrate with our platform, this guide will walk you through the fundamentals of card transactions, introduce you to the key participants, and explain how we help simplify the process for merchants and partners.
 
 ## What You’ll Learn
@@ -21,11 +19,28 @@ Whether you're new to the world of payments or just exploring how to integrate w
 
 Before we get into the technical details, let’s first understand the roles involved in every card transaction:
 
-- **Cardholder** – The customer making a purchase with their card.  
-- **Merchant** – The business offering goods or services.  
-- **Issuer** – The cardholder’s bank that issued the card.  
-- **Acquirer** – The financial institution that enables the merchant to accept card payments.  
-- **Card Scheme** – Organizations like Visa, Mastercard, etc., that route and facilitate transactions.
+<CardGroup>
+  <Card title="Cardholder" icon="credit-card">
+    The individual who owns a payment card and uses it to make purchases online or in person. They initiate the payment process.
+  </Card>
+
+  <Card title="Merchant" icon="store">
+    A business or service provider that sells goods or services and accepts payments through our gateway.
+  </Card>
+
+  <Card title="Issuer" icon="university">
+    The bank or financial institution that provides the cardholder with their payment card and authorizes transactions on their behalf.
+  </Card>
+
+  <Card title="Acquirer" icon="building-columns">
+    The financial institution or processor that enables merchants to accept card payments and routes transactions to the relevant card schemes.
+  </Card>
+
+  <Card title="Card Scheme" icon="network-wired">
+    Global networks like Visa, Mastercard, and others that facilitate communication and transaction processing between issuers and acquirers.
+  </Card>
+</CardGroup>
+
 
 > Card schemes license issuers and acquirers to operate on their networks. Issuers manage the cardholder’s accounts, and acquirers provide services and payment acceptance to merchants.
 
@@ -53,7 +68,7 @@ These include:
 
 Let’s look at a typical payment flow when a customer makes a purchase using a card. This process includes authentication (if required), authorization, and confirmation of payment.
 
--- Insert your own Payment Flow Diagram here --
+-- Payment Flow Diagram  --
 
 You can integrate this flow using our:
 
@@ -70,7 +85,7 @@ Each of these methods ensures secure transmission of card data, 3D Secure suppor
 
 Once a payment is authorized, merchants need to receive their funds. This process is called settlement.
 
--- Insert your own Settlement Flow Diagram here --
+-- Settlement Flow Diagram --
 
 Our system supports both **automatic capture** and **manual capture** flows, depending on how you configure your transactions. Captured payments are sent in batches to the acquirer, processed by the card schemes, and the final settled amount is deposited into your account, minus applicable fees.
 
