@@ -43,7 +43,7 @@ Before we get into the technical details, Every card transaction involves a few 
 
 > These participants are connected through defined relationships. The issuer gives cards to customers. The acquirer allows merchants to accept card payments. Card schemes ensure secure communication between all parties.
 
-![Key Participants](/images/flows-introPayment.svg)
+![Key Participants](/images/flows-introPayment-01.svg)
 
 <Note>
 You'll find these terms and more in our [Glossary](/documentation/glossary).
@@ -84,7 +84,7 @@ These include:
 
 Let’s look at a typical payment flow when a customer makes a purchase using a card. This process includes authentication (if required), authorization, and confirmation of payment.
 
--- Payment Flow Diagram  --
+![Payment Flow](/images/flows-introPayment-02.svg)
 
 You can integrate this flow using our:
 
@@ -109,7 +109,7 @@ Each of these methods ensures secure transmission of card data, 3D Secure suppor
 
 Once a transaction is successfully authorized, the merchant needs to receive the funds. Here's how the settlement process works through our platform:
 
--- Settlement Flow Diagram --
+![Settlement Flow](/images/flows-introPayment-03.svg)
 
 1. We batch captured transactions and send them to the acquirer.
 2. The acquirer clears them through the card network.
