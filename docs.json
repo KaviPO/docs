@@ -82,7 +82,8 @@
                         "group": "Purchase",
                          "pages": [
                            "api-reference/en/server-to-server/purchase",
-                           "api-reference/en/server-to-server/purchasev2"
+                           "api-reference/en/server-to-server/purchasev2",
+                           "api-reference/en/server-to-server/3dsecure"
                          ]
                       },
                       {
@@ -95,8 +96,7 @@
                       "api-reference/en/server-to-server/capture",
                       "api-reference/en/server-to-server/refund",
                       "api-reference/en/server-to-server/void-authorization",
-                      "api-reference/en/server-to-server/transaction-status",
-                      "api-reference/en/server-to-server/3dsecure"
+                      "api-reference/en/server-to-server/transaction-status"
                     ]
                   },
                   {
