@@ -82,14 +82,14 @@
                         "group": "Purchase",
                          "pages": [
                            "api-reference/en/server-to-server/purchase",
-                           "api-reference/en/server-to-server/purchase"
+                           "api-reference/en/server-to-server/purchasev2"
                          ]
                       },
                       {
                         "group": "Authorisation",
                          "pages": [
                            "api-reference/en/server-to-server/authorization",
-                            "api-reference/en/server-to-server/authorization"
+                            "api-reference/en/server-to-server/authorizationv2"
                          ]
                       },
                       "api-reference/en/server-to-server/capture",
