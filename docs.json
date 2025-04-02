@@ -81,17 +81,17 @@
                       {
                         "group": "Purchase",
                          "pages": [
+                           "api-reference/en/server-to-server/purchase",
                            "api-reference/en/server-to-server/purchase"
                          ]
                       },
                       {
                         "group": "Authorisation",
                          "pages": [
-                           "api-reference/en/server-to-server/authorization"
+                           "api-reference/en/server-to-server/authorization",
+                            "api-reference/en/server-to-server/authorization"
                          ]
                       },
-                      "api-reference/en/server-to-server/purchase",
-                      "api-reference/en/server-to-server/authorization",
                       "api-reference/en/server-to-server/capture",
                       "api-reference/en/server-to-server/refund",
                       "api-reference/en/server-to-server/void-authorization",
