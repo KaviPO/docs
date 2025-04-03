@@ -1,0 +1,580 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Payment Options API",
+    "description": "ホストされた支払いページ（HPP）リンクを生成し、支払いを処理するためのAPI。",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api-dev.paymentoptions.com/api/v1"
+    }
+  ],
+  "security": [
+    {
+      "apiKeyAuth": [],
+      "xApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/api/v1/server-to-server-interface/authorizationv2": {
+      "post": {
+        "summary": "支払いを承認する",
+        "description": "このエンドポイントは、加盟店が支払い取引を承認することを可能にします。",
+        "operationId": "authorizePayment",
+        "requestBody": {
+          "description": "支払い取引を承認するためのリクエストペイロード。",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "amount": {
+                    "type": "string",
+                    "description": "取引の金額。",
+                    "example": "1000"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "商品の処理通貨の略称（例：JPY）。",
+                    "example": "JPY",
+                    "maxLength": 3
+                  },
+                  "card": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "description": "カードの詳細を含むJSONオブジェクト。",
+                    "properties": {
+                      "cvc": {
+                        "type": "string",
+                        "description": "カードのセキュリティコード（ほとんどは3桁、AMEXは4桁）。",
+                        "example": "100",
+                        "maxLength": 4
+                      },
+                      "expiry_month": {
+                        "type": "string",
+                        "description": "カードの有効期限の月（例：12月の場合は12）。",
+                        "example": "12",
+                        "maxLength": 2
+                      },
+                      "expiry_year": {
+                        "type": "string",
+                        "description": "カードの有効期限の年（例：2024年の場合は24）。",
+                        "example": "24",
+                        "maxLength": 2
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "カードに記載されたカード所有者の名前。",
+                        "example": "John Doe",
+                        "maxLength": 255
+                      },
+                      "number": {
+                        "type": "string",
+                        "description": "カード番号。",
+                        "example": "5200000000001005",
+                        "maxLength": 16
+                      }
+                    }
+                  },
+                  "merchant_txn_ref": {
+                    "type": "string",
+                    "description": "加盟店の取引参照ID。",
+                    "example": "qwe",
+                    "maxLength": 45
+                  },
+                  "customer_ip": {
+                    "type": "string",
+                    "description": "カード所有者のIPアドレス。",
+                    "example": "127.0.0.1",
+                    "maxLength": 45
+                  },
+                  "merchant_id": {
+                    "type": "string",
+                    "description": "加盟店ID（DASMID）。",
+                    "example": "< Merchant ID >",
+                    "maxLength": 128
+                  },
+                  "return_url": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "description": "返却URLを含むJSONオブジェクト。（このフィールドは3DS取引で必須です。）",
+                    "properties": {
+                      "webhook_url": {
+                        "type": "string",
+                        "description": "WebhookのURLリンク。",
+                        "example": "< Webhook url >",
+                        "maxLength": 255
+                      },
+                      "success_url": {
+                        "type": "string",
+                        "description": "支払い成功後のリダイレクトURL。",
+                        "example": "http://www.successurl.com/",
+                        "maxLength": 255
+                      },
+                      "decline_url": {
+                        "type": "string",
+                        "description": "支払い失敗後のリダイレクトURL。",
+                        "example": "http://www.declineurl.com/",
+                        "maxLength": 255
+                      }
+                    }
+                  },
+                  "billing_address": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "description": "カード所有者の請求先住所を含むJSONオブジェクト。",
+                    "properties": {
+                      "country": {
+                        "type": "string",
+                        "description": "カード所有者の請求先国コード。",
+                        "example": "JP",
+                        "maxLength": 2
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "カード所有者の請求先メールアドレス。",
+                        "example": "billing@testemail.com",
+                        "maxLength": 45
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "カード所有者の請求先電話番号。",
+                        "example": "8112345678",
+                        "maxLength": 20
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "カード所有者の請求先住所。",
+                        "example": "1-2-3 Shinjuku",
+                        "maxLength": 199
+                      },
+                      "city": {
+                        "type": "string",
+                        "description": "カード所有者の請求先市区町村。",
+                        "example": "Shinjuku-ku",
+                        "maxLength": 65
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "カード所有者の請求先都道府県。",
+                        "example": "Tokyo",
+                        "maxLength": 65
+                      },
+                      "postal_code": {
+                        "type": "string",
+                        "description": "カード所有者の請求先郵便番号。",
+                        "example": "1600022",
+                        "maxLength": 45
+                      }
+                    }
+                  },
+                  "shipping_address": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "description": "カード所有者の配送先住所を含むJSONオブジェクト（オプション）。",
+                    "properties": {
+                      "country": {
+                        "type": "string",
+                        "description": "カード所有者の配送先国コード。",
+                        "example": "JP",
+                        "maxLength": 2
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "カード所有者の配送先メールアドレス。",
+                        "example": "shipping@testemail.com",
+                        "maxLength": 45
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "カード所有者の配送先電話番号。",
+                        "example": "8112345678",
+                        "maxLength": 20
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "カード所有者の配送先住所。",
+                        "example": "1-2-3 Shinjuku",
+                        "maxLength": 199
+                      },
+                      "city": {
+                        "type": "string",
+                        "description": "カード所有者の配送先市区町村。",
+                        "example": "Shinjuku-ku",
+                        "maxLength": 65
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "カード所有者の配送先都道府県。",
+                        "example": "Tokyo",
+                        "maxLength": 65
+                      },
+                      "postal_code": {
+                        "type": "string",
+                        "description": "カード所有者の配送先郵便番号。",
+                        "example": "1600022",
+                        "maxLength": 45
+                      }
+                    }
+                  },
+                  "browser_info": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "description": "カード所有者が使用するブラウザの詳細を含むJSONオブジェクト（オプション）。",
+                    "properties": {
+                      "acceptHeader": {
+                        "type": "string",
+                        "description": "ブラウザが送信するHTTP Acceptヘッダーの値。",
+                        "example": "text/html",
+                        "maxLength": 200
+                      },
+                      "screenColorDepth": {
+                        "type": "string",
+                        "description": "画面のビット単位のカラーデプス。",
+                        "example": "48",
+                        "maxLength": 2
+                      },
+                      "javaEnabled": {
+                        "type": "boolean",
+                        "description": "ブラウザでJavaが有効かどうかを示します。",
+                        "example": false
+                      },
+                      "language": {
+                        "type": "string",
+                        "description": "ブラウザの言語（通常はブラウザ設定で指定された言語）。",
+                        "example": "en",
+                        "maxLength": 10
+                      },
+                      "screenHeight": {
+                        "type": "string",
+                        "description": "画面の高さ（ピクセル単位）。",
+                        "example": "1200",
+                        "maxLength": 5
+                      },
+                      "screenWidth": {
+                        "type": "string",
+                        "description": "画面の幅（ピクセル単位）。",
+                        "example": "1600",
+                        "maxLength": 5
+                      },
+                      "challengeWindow": {
+                        "type": "string",
+                        "description": "カード所有者のブラウザがサポートするチャレンジウィンドウのサイズ。",
+                        "example": "4",
+                        "maxLength": 2
+                      },
+                      "userAgent": {
+                        "type": "string",
+                        "description": "ブラウザのユーザーエージェント文字列。",
+                        "example": "Mozilla/4.0 (MSIE 6.0; Windows NT 5.0)",
+                        "maxLength": 500
+                      }
+                    }
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "description": "取引の国別タイムゾーン。",
+                    "example": "Asia/Kuala_Lumpur",
+                    "maxLength": 128
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "card",
+                  "merchant_id",
+                  "billing_address"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "支払いが正常に承認されました",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "取引が成功した場合はtrue、失敗した場合はfalse。",
+                      "example": true
+                    },
+                    "status_code": {
+                      "type": "integer",
+                      "description": "取引のステータスコード。",
+                      "example": 201
+                    },
+                    "is_live": {
+                      "type": "boolean",
+                      "description": "本番取引の場合はtrue、テスト取引の場合はfalse。",
+                      "example": false
+                    },
+                    "transaction_type": {
+                      "type": "string",
+                      "description": "取引タイプ（例：PRE_AUTH）。",
+                      "example": "PRE_AUTH"
+                    },
+                    "gateway_response": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "description": "ゲートウェイからの応答を含むJSONオブジェクト。",
+                      "properties": {
+                        "version": {
+                          "type": "string",
+                          "description": "ゲートウェイのバージョン。",
+                          "example": "1"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "応答のタイプ（例：INFO）。",
+                          "example": "INFO"
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "ゲートウェイからのメッセージ応答。",
+                          "example": "Payment Successful."
+                        },
+                        "code": {
+                          "type": "string",
+                          "description": "応答のメッセージコード。",
+                          "example": "INFO0000"
+                        }
+                      }
+                    },
+                    "merchant_details": {
+                      "type": "object",
+                      "description": "加盟店の詳細を含むJSONオブジェクト。",
+                      "properties": {
+                        "legal_name": {
+                          "type": "string",
+                          "description": "加盟店の正式名称。",
+                          "example": "Tink15 Factory"
+                        },
+                        "mid": {
+                          "type": "string",
+                          "description": "加盟店ID（DASMID）。",
+                          "example": "< Merchant ID >"
+                        },
+                        "merchant_txn_ref": {
+                          "type": "string",
+                          "description": "加盟店の取引参照ID。",
+                          "example": "qwe"
+                        },
+                        "billing_details": {
+                          "type": "object",
+                          "description": "請求詳細を含むJSONオブジェクト。",
+                          "properties": {
+                            "billing_address": {
+                              "type": "object",
+                              "description": "請求先住所を含むJSONオブジェクト。",
+                              "properties": {
+                                "country": {
+                                  "type": "string",
+                                  "description": "カード所有者の請求先国コード。",
+                                  "example": "JP"
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "description": "カード所有者の請求先メールアドレス。",
+                                  "example": "billing@testemail.com"
+                                },
+                                "phone_number": {
+                                  "type": "string",
+                                  "description": "カード所有者の請求先電話番号。",
+                                  "example": "8112345678"
+                                },
+                                "address1": {
+                                  "type": "string",
+                                  "description": "カード所有者の請求先住所。",
+                                  "example": "1-2-3 Shinjuku"
+                                },
+                                "city": {
+                                  "type": "string",
+                                  "description": "カード所有者の請求先市区町村。",
+                                  "example": "Shinjuku-ku"
+                                },
+                                "state": {
+                                  "type": "string",
+                                  "description": "カード所有者の請求先都道府県。",
+                                  "example": "Tokyo"
+                                },
+                                "postal_code": {
+                                  "type": "string",
+                                  "description": "カード所有者の請求先郵便番号。",
+                                  "example": "1600022"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "device_details": {
+                          "type": "object",
+                          "description": "デバイスの詳細を含むJSONオブジェクト。",
+                          "properties": {
+                            "visited_ip": {
+                              "type": "string",
+                              "description": "決済ページのIPアドレス。",
+                              "example": "127.0.0.1"
+                            },
+                            "customer_ip": {
+                              "type": "string",
+                              "description": "カード所有者のIPアドレス。",
+                              "example": "127.0.0.1"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "payment_details": {
+                      "type": "object",
+                      "description": "支払いの詳細を含むJSONオブジェクト。",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "取引の金額。",
+                          "example": 1000
+                        },
+                        "response_code": {
+                          "type": "integer",
+                          "description": "アクワイアラー応答コード。",
+                          "example": 0
+                        },
+                        "auth_code": {
+                          "type": "string",
+                          "description": "アクワイアラーの認証コード。",
+                          "example": "917290"
+                        },
+                        "currency": {
+                          "type": "string",
+                          "description": "取引の通貨。",
+                          "example": "JPY"
+                        },
+                        "payment_method": {
+                          "type": "string",
+                          "description": "支払いカードの種類（例：クレジットカード）。",
+                          "example": "ECMC-SSL"
+                        },
+                        "scheme": {
+                          "type": "string",
+                          "description": "カードブランドのスキーム（例：MASTERCARD）。",
+                          "example": "MASTERCARD"
+                        },
+                        "card": {
+                          "type": "object",
+                          "description": "カードの詳細を含むJSONオブジェクト。",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "カード所有者の名前。",
+                              "example": "John Doe"
+                            },
+                            "number": {
+                              "type": "string",
+                              "description": "カード番号（マスク済み）。",
+                              "example": "5200000000001005"
+                            },
+                            "exp_month": {
+                              "type": "string",
+                              "description": "カードの有効期限の月。",
+                              "example": "12"
+                            },
+                            "exp_year": {
+                              "type": "string",
+                              "description": "カードの有効期限の年。",
+                              "example": "24"
+                            }
+                          }
+                        },
+                        "additional_data": {
+                          "type": "object",
+                          "description": "追加データを含むJSONオブジェクト。",
+                          "properties": {
+                            "payment_data_source": {
+                              "type": "object",
+                              "description": "支払いデータソースを含むJSONオブジェクト。",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "支払いデータソースの種類。",
+                                  "example": "card"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "transaction_details": {
+                      "type": "object",
+                      "description": "取引の詳細を含むJSONオブジェクト。",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "取引ID。",
+                          "example": "ab8444e7-fec0-40dd-994d-0ad813785f74"
+                        },
+                        "ref": {
+                          "type": "integer",
+                          "description": "取引の認証コード。",
+                          "example": 74797
+                        },
+                        "timestamp": {
+                          "type": "string",
+                          "description": "取引の日付と時刻。",
+                          "example": "2024-11-25T07:22:48.000Z"
+                        },
+                        "merchant_txn_ref": {
+                          "type": "string",
+                          "description": "加盟店の取引参照ID。",
+                          "example": "qwe"
+                        },
+                        "stored_payment_method_id": {
+                          "type": "string",
+                          "description": "保存された支払い方法ID（該当する場合）。",
+                          "example": null
+                        }
+                      }
+                    },
+                    "risk-details": {
+                      "type": "object",
+                      "description": "リスクの詳細を含むJSONオブジェクト。",
+                      "properties": {
+                        "risk_score": {
+                          "type": "string",
+                          "description": "リスクスコア（該当する場合）。",
+                          "example": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "認証のためのAPIキー。形式：'Basic YOUR_API_KEY_HERE'"
+      },
+      "xApiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header",
+        "description": "x-api-key専用のAPIキー。"
+      }
+    }
+  }
+}
