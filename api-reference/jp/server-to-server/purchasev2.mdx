@@ -1,0 +1,22 @@
+---
+title: '購入API'
+openapi: '/api-reference/jp/open-api-config/server-to-server/purchasev2.json POST /api/v1/server-to-server-interface/paymentv2'
+description : このAPIは認証後に即座に金額をキャプチャします。
+---
+
+## 重要なポイント
+
+<Info>
+  * 購入APIは、資金を即座にキャプチャし、認証することで、決済を同時に処理して完了させます。
+
+  * このAPIは、金額が固定され、支払いが即座に完了する必要がある取引に最適です。例えば、オンライン小売の購入やデジタル商品販売などです。
+
+  * 購入が成功した後、必要に応じて取引を返金することができ、加盟店は顧客に資金を返金できます。
+</Info>
+
+## フローダイアグラム
+
+![フローダイアグラム画像](/images/timeline-diagram/flows-API-Purchase-jp.svg)
+
+## APIパラメータ
+

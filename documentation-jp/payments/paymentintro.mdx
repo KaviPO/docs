@@ -1,5 +1,159 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'Introduction to Payments'
+description: 'Learn how the card payment process works and how our platform simplifies it.'
 ---
 
+If you're new to the payments industry, this guide will give you a clear understanding of how card transactions work and how our platform fits into the process. We’ll walk through key players, explain how payments and settlements flow, and show how we support merchants at every step.
+
+## What You’ll Learn
+
+- Key Participants in the Card Payments Ecosystem  
+- How Card Payments Work – From Initiation to Authorization  
+- Settlement – How Merchants Receive Their Funds  
+- Our Role – What We Offer and How We Simplify Payments 
+
+---
+
+## Key Participants
+
+Before we get into the technical details, Every card transaction involves a few core players:
+
+<CardGroup>
+  <Card title="Cardholder" icon="user">
+    The individual who owns a payment card and uses it to make purchases online or in person. They initiate the payment process.
+  </Card>
+
+  <Card title="Merchant" icon="store">
+    A business or service provider that sells goods or services and accepts payments through our gateway.
+  </Card>
+
+  <Card title="Issuer" icon="building-columns">
+    The bank or financial institution that provides the cardholder with their payment card and authorizes transactions on their behalf.
+  </Card>
+
+  <Card title="Acquirer" icon="building-columns">
+    The financial institution or processor that enables merchants to accept card payments and routes transactions to the relevant card schemes.
+  </Card>
+
+  <Card title="Card Scheme" icon="credit-card">
+    Global networks like Visa, Mastercard, and others that facilitate communication and transaction processing between issuers and acquirers.
+  </Card>
+</CardGroup>
+
+
+> These participants are connected through defined relationships. The issuer gives cards to customers. The acquirer allows merchants to accept card payments. Card schemes ensure secure communication between all parties.
+
+![Key Participants](/images/flows-introPayment-01.svg)
+
+<Note>
+You'll find these terms and more in our [Glossary](/documentation/glossary).
+</Note>
+
+---
+
+## Our Role as a Payment Facilitator
+
+We act as a **payment facilitator**, meaning we streamline the payment process by providing merchants with a single point of integration and managing the end-to-end transaction lifecycle.
+
+These include:
+
+<CardGroup>
+  <Card title="Direct Merchant Integration" icon="puzzle-piece">
+    Merchants connect directly to our platform using our Hosted Payment Page, REST APIs, or ready-made plugins for platforms like WooCommerce and Magento. No need for third-party gateways or processors.
+  </Card>
+
+  <Card title="Simplified Transaction Handling" icon="brain-circuit">
+    We take care of the entire transaction flow, including customer authentication, payment authorization, and securely routing transactions to the appropriate card networks and acquirers.
+  </Card>
+
+  <Card title="Acquirer Connectivity" icon="building-columns">
+    Once a transaction is authorized, we handle the communication with the acquiring banks to ensure funds are settled correctly and efficiently into the merchant's account.
+  </Card>
+
+  <Card title="Built-in Security & Risk Management" icon="lock">
+    Our platform includes advanced security features such as 3D Secure authentication, customizable risk rules, and real-time fraud detection to protect both merchants and cardholders.
+  </Card>
+  
+</CardGroup>
+
+> There is no need for merchants to work with a third-party gateway or processor — we manage the full payment lifecycle end-to-end.
+
+---
+
+## Payment Flow
+
+Let’s look at a typical payment flow when a customer makes a purchase using a card. This process includes authentication (if required), authorization, and confirmation of payment.
+
+![Payment Flow](/images/flows-introPayment-02.svg)
+
+You can integrate this flow using our:
+
+- **Hosted Payment Page (HPP)**  
+- **Server-to-Server APIs**  
+- **Plugin-based integrations** (WooCommerce, Magento, OpenCart)
+
+<Note>
+For a complete overview, please visit our [Online Payment](/documentation/payments/onlinepayment) section.
+</Note>
+
+A typical payment journey with our platform:
+
+1. Customer selects a product or service.
+2. Merchant initiates the payment using our API or Hosted Payment Page.
+3. We securely receive and validate the card details.
+4. We route the transaction to the appropriate acquirer via the card network.
+5. The issuer checks and authorizes the transaction.
+6. The result is returned back to the merchant through us in real time.
+
+Each of these methods ensures secure transmission of card data, 3D Secure support, and real-time feedback for transaction approvals or declines.
+
+---
+
+## Settlement Flow
+
+Once a transaction is successfully authorized, the merchant needs to receive the funds. Here's how the settlement process works through our platform:
+
+![Settlement Flow](/images/flows-introPayment-03.svg)
+
+1. We batch captured transactions and send them to the acquirer.
+2. The acquirer clears them through the card network.
+3. The issuer releases the funds to the acquirer.
+4. The acquirer settles the net amount to us.
+5. We disburse the merchant’s payout to their registered bank account, minus applicable fees.
+
+
+---
+
+## Our Offerings
+
+We offer a wide range of tools, products, and integration methods to support your payment needs:
+
+### Integration Methods
+
+- **Hosted Payment Page** – Launch payments with zero coding  
+- **Tokenization** – Save card data securely for future use  
+- **API Integration** – Full flexibility via REST APIs  
+- **Subscription Payments** – Automate recurring billing  
+- **Pay By Link** – Generate secure, one-time payment URLs  
+- **QR Code Payment** – Let customers pay by scanning a code  
+- **Scheduler** – Schedule payments in advance  
+- **Digital Wallets** – Accept Apple Pay, Google Pay, and more  
+
+### Tools for Merchants & Partners 
+
+- **Transaction** – Track, refund, or cancel payments  
+- **Statements** – View/Download settlement statements and reconcile your payouts  
+- **Dispute Management** – Monitor and respond to chargebacks and customer disputes  
+- **Partner Tools** – Manage multiple merchant accounts under a single partner 
+
+---
+
+## What’s Next?
+
+Ready to get started? Head over to these next steps:
+
+- [Create an Account](/documentation/createaccount)  
+- [Explore Our APIs](/api-reference/en/introduction)  
+- [Set Up Your First Payment](/api-reference/en/server-to-server/purchase)
+
+Still have questions? Visit our [FAQs](/support/faqs) or reach out via [Contact Support](/support/contact).

@@ -254,13 +254,25 @@
                   {
                     "group": "サーバー間通信",
                     "pages": [
-                      "api-reference/jp/server-to-server/purchase",
-                      "api-reference/jp/server-to-server/authorization",
+                      {
+                        "group": "購入",
+                         "pages": [
+                           "api-reference/jp/server-to-server/purchase",
+                           "api-reference/jp/server-to-server/purchasev2",
+                           "api-reference/jp/server-to-server/3dsecure"
+                         ]
+                      },
+                      {
+                        "group": "認証",
+                         "pages": [
+                           "api-reference/jp/server-to-server/authorization",
+                            "api-reference/jp/server-to-server/authorizationv2"
+                         ]
+                      },
                       "api-reference/jp/server-to-server/capture",
                       "api-reference/jp/server-to-server/refund",
                       "api-reference/jp/server-to-server/void-authorization",
-                      "api-reference/jp/server-to-server/transaction-status",
-                      "api-reference/jp/server-to-server/3dsecure"
+                      "api-reference/jp/server-to-server/transaction-status"
                     ]
                   },
                   {
