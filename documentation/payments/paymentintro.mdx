@@ -3,20 +3,20 @@ title: 'Introduction to Payments'
 description: 'Learn how the card payment process works and how our platform simplifies it.'
 ---
 
-If you're new to the payments industry, this guide will give you a clear understanding of how card transactions work and how our platform fits into the process. We’ll walk through key players, explain how payments and settlements flow, and show how we support merchants at every step.
+If you're new to the payments industry, this guide will give you a clear understanding of how card transactions work and how our platform fits into the process. We’ll walk through key participants, explain how payments and settlements flow, and show how we support merchants at every step.
 
 ## What You’ll Learn
 
-- Key Participants in the Card Payments Ecosystem  
-- How Card Payments Work – From Initiation to Authorization  
-- Settlement – How Merchants Receive Their Funds  
-- Our Role – What We Offer and How We Simplify Payments 
+- [Key Participants in the Card Payments Ecosystem](#key-participants)  
+- [How Card Payments Work – From Initiation to Authorization](#payment-flow)  
+- [Settlement – How Merchants Receive Their Funds](#settlement-flow)  
+- [Our Role – What We Offer and How We Simplify Payments](#our-role-as-a-payment-facilitator)
 
 ---
 
 ## Key Participants
 
-Before we get into the technical details, Every card transaction involves a few core players:
+Before we get into the technical details, every card transaction involves a few core participants:
 
 <CardGroup>
   <Card title="Cardholder" icon="user">
@@ -44,13 +44,12 @@ Before we get into the technical details, Every card transaction involves a few 
   </Card>
 </CardGroup>
 
-
 > These participants are connected through defined relationships. The issuer gives cards to customers. The acquirer allows merchants to accept card payments. Card schemes ensure secure communication between all parties.
 
 ![Key Participants](/images/flows-introPayment-01.svg)
 
 <Note>
-You'll find these terms and more in our [Glossary](/documentation/glossary).
+Want a quick refresher on these roles? Check out our [Glossary](/documentation/glossary) for definitions and industry terms.
 </Note>
 
 ---
@@ -59,11 +58,11 @@ You'll find these terms and more in our [Glossary](/documentation/glossary).
 
 We act as a **payment facilitator**, meaning we streamline the payment process by providing merchants with a single point of integration and managing the end-to-end transaction lifecycle.
 
-These include:
+This includes:
 
 <CardGroup>
   <Card title="Direct Merchant Integration" icon="puzzle-piece">
-    Merchants connect directly to our platform using our Hosted Payment Page, REST APIs, or ready-made plugins for platforms like WooCommerce and Magento. No need for third-party gateways or processors.
+    Merchants connect directly to our platform using our Hosted Payment Page, REST APIs, or ready-made plugins for platforms like WooCommerce and Magento. No need to integrate with third-party gateways or processors.
   </Card>
 
   <Card title="Simplified Transaction Handling" icon="brain-circuit">
@@ -77,10 +76,9 @@ These include:
   <Card title="Built-in Security & Risk Management" icon="lock">
     Our platform includes advanced security features such as 3D Secure authentication, customizable risk rules, and real-time fraud detection to protect both merchants and cardholders.
   </Card>
-  
 </CardGroup>
 
-> There is no need for merchants to work with a third-party gateway or processor — we manage the full payment lifecycle end-to-end.
+> Merchants don't need to integrate with third-party gateways or processors — our platform handles everything from transaction initiation to settlement.
 
 ---
 
@@ -119,12 +117,11 @@ Once a transaction is successfully authorized, the merchant needs to receive the
 
 ![Settlement Flow](/images/flows-introPayment-03.svg)
 
-1. We batch captured transactions and send them to the acquirer.
-2. The acquirer clears them through the card network.
-3. The issuer releases the funds to the acquirer.
-4. The acquirer settles the net amount to us.
+1. We batch captured transactions and send them to the acquirer.  
+2. The acquirer clears them through the card network.  
+3. The issuer releases the funds to the acquirer.  
+4. The acquirer settles the net amount to us.  
 5. We disburse the merchant’s payout to their registered bank account, minus applicable fees.
-
 
 ---
 
@@ -143,18 +140,18 @@ We offer a wide range of tools, products, and integration methods to support you
 - **Scheduler** – Schedule payments in advance  
 - **Digital Wallets** – Accept Apple Pay, Google Pay, and more  
 
-### Tools for Merchants & Partners 
+### Tools for Merchants & Partners
 
 - **Transaction** – Track, refund, or cancel payments  
 - **Statements** – View/Download settlement statements and reconcile your payouts  
 - **Dispute Management** – Monitor and respond to chargebacks and customer disputes  
-- **Partner Tools** – Manage multiple merchant accounts under a single partner 
+- **Partner Tools** – Manage multiple merchant accounts under a single partner
 
 ---
 
 ## What’s Next?
 
-Ready to get started? Head over to these next steps:
+Ready to get started? Here’s what you can do next:
 
 - [Create an Account](/documentation/createaccount)  
 - [Explore Our APIs](/api-reference/en/introduction)  
