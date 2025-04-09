@@ -1,160 +1,158 @@
 ---
-title: 'Introduction to Payments'
-description: 'Learn how the card payment process works and how our platform simplifies it.'
+title: '決済サービスの紹介'
+description: 'カード決済の仕組みと、それを簡素化する当社のプラットフォームについてご紹介します。'
 ---
 
-If you're new to the payments industry, this guide will give you a clear understanding of how card transactions work and how our platform fits into the process. We’ll walk through key participants, explain how payments and settlements flow, and show how we support merchants at every step.
+決済業界に不慣れな場合、このガイドはカード取引がどのように機能するかと、当社のプラットフォームがそのプロセスにどのように適合するかについて明確に理解できるようにします。主要な参加者を説明し、支払いと決済の流れを解説し、どのようにして私たちが商人をサポートするかを示します。
 
-## What You’ll Learn
+## 何を学べるか
 
-- [Key Participants in the Card Payments Ecosystem](#key-participants)  
-- [How Card Payments Work – From Initiation to Authorization](#payment-flow)  
-- [Settlement – How Merchants Receive Their Funds](#settlement-flow)  
-- [Our Role – What We Offer and How We Simplify Payments](#our-role-as-a-payment-facilitator)
+- [カード決済エコシステムの主な流れ](#key-participants)  
+- [カード決済の仕組み – 開始から承認まで](#payment-flow)  
+- [決済 – 加盟店が資金を受け取る方法](#settlement-flow)  
+- [私たちの役割 – 私たちが提供するものと決済を簡素化する方法](#our-role-as-a-payment-facilitator)
 
 ---
 
-## Key Participants
+## 主要な参加者
 
-Before we get into the technical details, every card transaction involves a few core participants:
+技術的な詳細に入る前に、すべてのカード取引にはいくつかの主要な参加者が関わっています：
 
 <CardGroup>
-  <Card title="Cardholder" icon="user">
-    The individual who owns a payment card and uses it to make purchases online or in person. They initiate the payment process.
+  <Card title="カード所有者" icon="user">
+    決済するカードを所有し、それを使用してオンラインまたは対面で購入を行う個人。決済のプロセスを開始します。
   </Card>
 
-  <Card title="Merchant" icon="store">
-    The business or service provider that sells goods or services and accepts payments through our gateway.
+  <Card title="加盟店" icon="store">
+    商品やサービスを販売し、当社のゲートウェイを通じて決済を受け入れるビジネスまたはサービス提供者。
   </Card>
 
-  <Card title="Payment Gateway" icon="server">
-    The technology platform that securely transmits transaction data between the merchant, acquirer, card scheme, and issuer. It acts as a bridge in the online payment process.
+  <Card title="決済ゲートウェイ" icon="server">
+    加盟店、アクワイアラ、カードスキーム、イシュア間で取引データを安全に転送する技術プラットフォーム。オンライン決済プロセスの橋渡しをします。
   </Card>
 
-  <Card title="Acquirer" icon="building-columns">
-    The financial institution or processor that enables merchants to accept card payments and routes transactions to the appropriate card schemes.
+  <Card title="アクワイアラ" icon="building-columns">
+    加盟店がカード決済を利用できるようにし、取引を適切なカードスキームにルーティングする金融機関またはプロセッサー。
   </Card>
 
-  <Card title="Card Scheme" icon="credit-card">
-    The global network (e.g., Visa, Mastercard) that facilitates communication and transaction processing between issuers and acquirers.
+  <Card title="カードスキーム" icon="credit-card">
+    イシュアとアクワイアラ間の通信と取引処理を促進するグローバルネットワーク（例：Visa、Mastercard）。
   </Card>
 
-  <Card title="Issuer" icon="building-columns">
-    The bank or financial institution that issues the payment card to the cardholder and authorizes transactions on their behalf.
+  <Card title="イシュア" icon="building-columns">
+    クレジットカードをカード所有者に発行し、カード所有者に代わって取引を承認する銀行または金融機関。
   </Card>
 </CardGroup>
 
-> These participants are connected through defined relationships. The issuer gives cards to customers. The acquirer allows merchants to accept card payments. Card schemes ensure secure communication between all parties.
+> これらの参加者は、定義された関係を通じて接続されています。イシュアは顧客にクレジットカードを提供します。アクワイアラは加盟店がカード決済を受け入れることを許可します。カードスキームは、すべての関係者間で安全な通信を保証します。
 
-![Key Participants](/images/flows-introPayment-01.svg)
-
+![Key Participants](/images/flows-introPayment-01-jp.svg)
 <Note>
-Want a quick refresher on these roles? Check out our [Glossary](/documentation/glossary) for definitions and industry terms.
+これらの役割について簡単に復習したいですか？ 定義と業界用語については、[用語集](/documentation/glossary)をご覧ください。
 </Note>
 
 ---
 
-## Our Role as a Payment Facilitator
+## ペイメントファシリテーターとしての役割
 
-We act as a **payment facilitator**, meaning we streamline the payment process by providing merchants with a single point of integration and managing the end-to-end transaction lifecycle.
+当社は**ペイメントファシリテーター**として、加盟店に単一の統合ポイントを提供し、エンドツーエンドの取引ライフサイクルを管理することで、決済プロセスを効率化します。
 
-This includes:
+これには以下が含まれます：
 
 <CardGroup>
-  <Card title="Direct Merchant Integration" icon="puzzle-piece">
-    Merchants connect directly to our platform using our Hosted Payment Page, REST APIs, or ready-made plugins for platforms like WooCommerce and Magento. No need to integrate with third-party gateways or processors.
+  <Card title="ダイレクト加盟店統合" icon="puzzle-piece">
+    加盟店は、ホスト型決済ページ、REST API、またはWooCommerceやMagentoなどのプラットフォーム用の既製プラグインを使用して当社のプラットフォームに直接接続します。サードパーティのゲートウェイやプロセッサーと統合する必要はありません。
   </Card>
 
-  <Card title="Simplified Transaction Handling" icon="brain-circuit">
-    We take care of the entire transaction flow, including customer authentication, payment authorization, and securely routing transactions to the appropriate card networks and acquirers.
+  <Card title="取引処理の簡素化" icon="brain-circuit">
+    顧客認証、支払いの承認、および取引を適切なカードネットワークやアクワイアラに安全にルーティングするなど、取引フロー全体を担当します。
   </Card>
 
-  <Card title="Acquirer Connectivity" icon="building-columns">
-    Once a transaction is authorized, we handle the communication with the acquiring banks to ensure funds are settled correctly and efficiently into the merchant's account.
+  <Card title="アクワイアラ接続" icon="building-columns">
+    取引が認可されると、加盟店の口座に資金が正しく効率的に入金されるように、アクワイアラの銀行との通信を担当します。
   </Card>
 
-  <Card title="Built-in Security & Risk Management" icon="lock">
-    Our platform includes advanced security features such as 3D Secure authentication, customizable risk rules, and real-time fraud detection to protect both merchants and cardholders.
+  <Card title="セキュリティとリスクマネジメント" icon="lock">
+    当社のプラットフォームには、3Dセキュア認証、カスタマイズ可能なリスクルール、リアルタイムの不正検知などの高度なセキュリティ機能が搭載されており、加盟店とカード会員の双方を保護します。
   </Card>
 </CardGroup>
 
-> Merchants don't need to integrate with third-party gateways or processors — our platform handles everything from transaction initiation to settlement.
+> 加盟店はサードパーティのゲートウェイやプロセッサーと統合する必要はありません — 当社のプラットフォームは、取引開始から決済までをすべて処理します。
 
 ---
 
-## Payment Flow
+## 決済フロー
 
-Let’s look at a typical payment flow when a customer makes a purchase using a card. This process includes authentication (if required), authorization, and confirmation of payment.
+顧客がカードを使用して購入を行う際の典型的な決済フローを見てみましょう。このプロセスには、認証（必要な場合）、承認、および決済の確認が含まれます。
 
-![Payment Flow](/images/flows-introPayment-02.svg)
+![Payment Flow](/images/flows-introPayment-02-jp.svg)
 
-You can integrate this flow using our:
+このフローは、以下の方法で統合できます：
 
-- **Hosted Payment Page (HPP)**  
-- **Server-to-Server APIs**  
-- **Plugin-based integrations** (WooCommerce, Magento, OpenCart)
+- **ホスト型決済ページ (HPP)**  
+- **サーバー間API**  
+- **プラグインベースの統合**（WooCommerce、Magento、OpenCart）
 
 <Note>
-For a complete overview, please visit our [Online Payment](/documentation/payments/onlinepayment) section.
+完全な概要については、[オンライン決済](/documentation-jp/payments/onlinepayment)セクションをご覧ください。
 </Note>
+当社のプラットフォームを使用した決済の流れ：
 
-A typical payment journey with our platform:
+1. 顧客が製品またはサービスを選択します。  
+2. 加盟店がAPIまたはホスト型決済ページを使用して決済を開始します。  
+3. 当社はカード情報を安全に受け取り、確認します。  
+4. 当社は取引を適切なアクワイアラにカードネットワークを通じてルーティングします。  
+5. イシュアが取引を確認し、承認します。  
+6. 結果はリアルタイムで当社を通じて加盟店に返されます。
 
-1. Customer selects a product or service.
-2. Merchant initiates the payment using our API or Hosted Payment Page.
-3. We securely receive and validate the card details.
-4. We route the transaction to the appropriate acquirer via the card network.
-5. The issuer checks and authorizes the transaction.
-6. The result is returned back to the merchant through us in real time.
-
-Each of these methods ensures secure transmission of card data, 3D Secure support, and real-time feedback for transaction approvals or declines.
-
----
-
-## Settlement Flow
-
-Once a transaction is successfully authorized, the merchant needs to receive the funds. Here's how the settlement process works through our platform:
-
-![Settlement Flow](/images/flows-introPayment-03.svg)
-
-1. We batch captured transactions and send them to the acquirer.  
-2. The acquirer clears them through the card network.  
-3. The issuer releases the funds to the acquirer.  
-4. The acquirer settles the net amount to us.  
-5. We disburse the merchant’s payout to their registered bank account, minus applicable fees.
+これらの方法はいずれも、カードデータの安全な送信、3Dセキュアサポート、および取引の承認または拒否に対するリアルタイムのフィードバックを保証します。
 
 ---
 
-## Our Offerings
+## 入金フロー
 
-We offer a wide range of tools, products, and integration methods to support your payment needs:
+取引が正常に承認されると、加盟店は資金を受け取る必要があります。ここでは、当社のプラットフォームでの入金プロセスをご紹介します：
 
-### Integration Methods
+![Settlement Flow](/images/flows-introPayment-03-jp.svg)
 
-- **Hosted Payment Page** – Launch payments with zero coding  
-- **Tokenization** – Save card data securely for future use  
-- **API Integration** – Full flexibility via REST APIs  
-- **Subscription Payments** – Automate recurring billing  
-- **Pay By Link** – Generate secure, one-time payment URLs  
-- **QR Code Payment** – Let customers pay by scanning a code  
-- **Scheduler** – Schedule payments in advance  
-- **Digital Wallets** – Accept Apple Pay, Google Pay, and more  
-
-### Tools for Merchants & Partners
-
-- **Transaction** – Track, refund, or cancel payments  
-- **Statements** – View/Download settlement statements and reconcile your payouts  
-- **Dispute Management** – Monitor and respond to chargebacks and customer disputes  
-- **Partner Tools** – Manage multiple merchant accounts under a single partner
+1. 当社はキャプチャされた取引をまとめ、アクワイアラに送信します。  
+2. アクワイアラはカードネットワークを通じてそれらを処理します。  
+3. イシュアは資金をアクワイアラに送金します。  
+4. アクワイアラは正味額を当社に入金します。  
+5. 手数料を差し引いた金額を、加盟店の登録銀行口座に振り込みます。
 
 ---
 
-## What’s Next?
+## 提供するサービス
 
-Ready to get started? Here’s what you can do next:
+当社は、決済ニーズをサポートするために幅広いツール、製品、統合方法を提供します：
 
-- [Create an Account](/documentation/createaccount)  
-- [Explore Our APIs](/api-reference/en/introduction)  
-- [Set Up Your First Payment](/api-reference/en/server-to-server/purchase)
+### 統合方法
 
-Still have questions? Visit our [FAQs](/support/faqs) or reach out via [Contact Support](/support/contact).
+- **ホスト型決済ページ** – コーディングなしで決済を開始  
+- **トークン化** – 将来の使用のためにカードデータを安全に保存  
+- **API統合** – REST APIによる柔軟性  
+- **サブスクリプション決済** – 定期請求の自動化  
+- **リンク決済** – 安全なワンタイムペイメントURLの生成  
+- **QRコード決済** – 顧客がコードをスキャンしてお支払い  
+- **Scheduler** – 予約を管理して事前にお支払い  
+- **デジタルウォレット** – Apple Pay、Google Payなどの受け入れ  
+
+### 加盟店とパートナー向けツール
+
+- **取引** – 決済の追跡、返金、またはキャンセル  
+- **明細書** – 入金明細の表示/ダウンロード、支払いの照合  
+- **異議申し立て管理** – 返金請求や顧客の異議申し立てに対応  
+- **パートナー向けツール** – 複数の加盟店アカウントを1つのパートナーアカウントで管理できます。
+
+---
+
+## 次のステップは？
+
+準備はできましたか？次にできることは以下の通りです：
+
+- [アカウントを作成](/documentation-jp/createaccount)  
+- [APIについて](/api-reference/jp/introduction)  
+- [初回の決済を設定](/api-reference/jp/server-to-server/purchase)
+
+ご不明な点はありますか？ [FAQ](/support-jp/faqs)をご覧いただくか、[サポートにお問い合わせ](/support/contact)ください。
