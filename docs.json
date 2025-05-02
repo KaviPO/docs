@@ -53,6 +53,12 @@
                 ]
               },
               {
+                "group": "Statements",
+                "pages": [
+                  "documentation/statements/statementoverview.mdx"
+                ]
+              },
+              {
                 "group": "Partner Account",
                 "pages": [
                   "documentation/partner/createpartner",
