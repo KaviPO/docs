@@ -526,12 +526,17 @@
                           "properties": {
                             "visited_ip": {
                               "type": "string",
-                              "description": "IP address of the payment page visited.",
+                              "description": "IP address of the payment page.",
+                              "example": "127.0.0.1"
+                            },
+                            "merchant_ip": {
+                              "type": "string",
+                              "description": "IP address of the merchant.",
                               "example": "127.0.0.1"
                             },
                             "customer_ip": {
                               "type": "string",
-                              "description": "IP address of the customer.",
+                              "description": "IP address of the cardholder.",
                               "example": "127.0.0.1"
                             }
                           }
