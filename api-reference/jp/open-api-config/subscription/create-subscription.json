@@ -526,12 +526,17 @@
                           "properties": {
                             "visited_ip": {
                               "type": "string",
-                              "description": "訪問された決済ページのIPアドレス。",
+                              "description": "決済ページのIPアドレス。",
+                              "example": "127.0.0.1"
+                            },
+                            "merchant_ip": {
+                              "type": "string",
+                              "description": "加盟店のIPアドレスです。",
                               "example": "127.0.0.1"
                             },
                             "customer_ip": {
                               "type": "string",
-                              "description": "顧客のIPアドレス。",
+                              "description": "カード所有者のIPアドレス。",
                               "example": "127.0.0.1"
                             }
                           }

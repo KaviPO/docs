@@ -349,7 +349,12 @@
                           "properties": {
                             "visited_ip": {
                               "type": "string",
-                              "description": "支払いページのIPアドレス。",
+                              "description": "決済ページのIPアドレス。",
+                              "example": "127.0.0.1"
+                            },
+                            "merchant_ip": {
+                              "type": "string",
+                              "description": "加盟店のIPアドレスです。",
                               "example": "127.0.0.1"
                             },
                             "customer_ip": {
