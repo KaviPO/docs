@@ -56,7 +56,7 @@
                         "description": "True to store the payment method or False not to store (for tokenization).",
                         "example": true
                       },
-                      "store_payment_method_id": {
+                      "stored_payment_method_id": {
                         "type": "string",
                         "description": "True to store the payment method or False not to store (for tokenization).",
                         "example": "094db781-fabc-4c6d-8fcd-18bee06a527a",
