@@ -55,7 +55,7 @@
               {
                 "group": "Statements",
                 "pages": [
-                  "documentation/statements/statementoverview"
+                  "documentation/settlement/merchantsettlement"
                 ]
               },
               {
@@ -232,6 +232,12 @@
                   "documentation-jp/paymentmethods/ewallets",
                   "documentation-jp/paymentmethods/securepayment",
                   "documentation-jp/paymentmethods/testcards"
+                ]
+              },
+              {
+                "group": "Statements",
+                "pages": [
+                  "documentation-jp/settlement/merchantsettlement"
                 ]
               },
               {
