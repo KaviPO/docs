@@ -234,10 +234,10 @@
                   "documentation-jp/paymentmethods/testcards"
                 ]
               },
-              {
-                "group": "Statements",
+                {
+                "group": "Settlement",
                 "pages": [
-                  "documentation-jp/settlement/merchantsettlement"
+                  "documentation/settlement/merchantsettlement"
                 ]
               },
               {
