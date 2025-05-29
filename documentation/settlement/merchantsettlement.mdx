@@ -1,5 +1,156 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "New file"
+description: "Description of your new file."
 ---
 
+---
+
+title: Settlement Process & Processing Summary
+
+description: Understand how Payment Options handles merchant settlements and how to interpret your settlement reports.
+
+---
+
+# Settlement Process & Processing Summary
+
+In the world of payments, **settlement** is the final and most crucial step. It’s the process where the merchant receives the actual funds from the card transactions processed via Payment Options (PO). This page outlines how settlements work on our platform and explains the key metrics used in your merchant settlement reports.
+
+---
+
+## PO Settlement Process
+
+Payment Options manages payment processing across multiple **acquirers** and **payment methods**, ensuring that merchants get paid efficiently and securely.
+
+### Step-by-Step Breakdown
+
+### 1. **Transaction Initiation**
+
+- A customer initiates a payment on the merchant’s website or app.
+
+- PO securely routes this transaction to the appropriate acquirer based on configuration.
+
+- The acquirer **authorizes** the transaction after validating the card and available funds.
+
+- If the authorization is successful, the transaction is tagged as **"Authorized"**.
+
+- Depending on the merchant’s settings:
+
+  - **Auto Capture**: PO automatically captures the amount.
+
+  - **Manual Capture**: The merchant captures the amount after fulfilling the service or product.
+
+- Only **captured** transactions are considered eligible for settlement.
+
+### 2. **Settlement**
+
+- Payment Options initiates the settlement process:
+
+  - Reconciles incoming settlement data from the acquirer with internal transaction records.
+
+  - Deducts the **Merchant Discount Rate (MDR)** and any applicable fees.
+
+  - Transfers the **net amount** to the merchant’s designated bank account.
+
+- Merchants receive a **Settlement Report** on their defined cycle:
+
+  - **Daily**
+
+  - **Weekly**
+
+  - **Monthly**
+
+### 3. **Merchant Payout**
+
+- After reconciliation and fund transfer initiation, the final amount is credited to the merchant’s bank account.
+
+- Settlement timelines vary but typically fall between **T\+1 to T\+3** working days, depending on acquirer and settlement agreement.
+
+---
+
+## Processing Summary Definitions
+
+These definitions help merchants interpret the figures shown in their **settlement reports**.
+
+### 1. **Purchase / Capture Sales Amount**
+
+**Definition**:  
+
+Total transaction amount where the payment was successfully captured.
+
+**Includes**:
+
+- Transactions where:
+
+  - `transaction_type = PURCHASE` and `transaction_event = Captured`
+
+  - OR
+
+  - `transaction_type = CAPTURE` and `transaction_event = Captured`
+
+---
+
+### 2. **Refund Amount**
+
+**Definition**:  
+
+The total amount refunded to customers.
+
+**Includes**:
+
+- Transactions where:
+
+  - `transaction_type = REFUND` and `transaction_event = Refunded`
+
+---
+
+### 3. **Successful Transaction Count**
+
+**Definition**:  
+
+Total number of successfully processed transactions.
+
+**Includes**:
+
+- Transactions where:
+
+  - `transaction_type = PURCHASE` and `transaction_event IN (Captured, Authorised)`
+
+  - PLUS
+
+  - `transaction_type = AUTHORISATION` and `transaction_event = Authorised`
+
+---
+
+### 4. **Declined Transaction Count**
+
+**Definition**:  
+
+Count of all transactions that were not successful (i.e., declined or failed during processing).
+
+**Includes**:
+
+- Transactions where:
+
+  - `transaction_type = PURCHASE` and `transaction_event = NOT SUCCESSFUL`
+
+---
+
+### 5. **Refund Fee Count**
+
+**Definition**:  
+
+Number of successful refund transactions.
+
+**Includes**:
+
+- Transactions where:
+
+  - `transaction_type = REFUND` and `transaction_event = Refunded`
+
+---
+
+## Why This Matters
+
+Understanding how settlement works ensures better **cash flow visibility** and allows your finance team to reconcile reports accurately. Our reports are designed to reflect the **real-time financial health** of your transactions — showing not only what was processed but also what was **paid out**.
+
+---
