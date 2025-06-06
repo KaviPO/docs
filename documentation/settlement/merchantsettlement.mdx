@@ -60,6 +60,24 @@ Payment Options manages payment processing across multiple **acquirers** and **p
 
 ---
 
+### Settlement Process Flow
+
+```mermaid
+flowchart TD
+    A[Customer initiates payment] --> B[PO routes to Acquirer]
+    B --> C[Acquirer authorizes transaction]
+    C --> D{Capture Method}
+    D -->|Auto Capture| E[Transaction Captured]
+    D -->|Manual Capture| E
+    E --> F[PO initiates Settlement Process]
+    F --> G[Reconcile with internal records]
+    G --> H[Deduct MDR & Fees]
+    H --> I[Generate Settlement Report]
+    I --> J[Transfer Net Amount]
+    J --> K[Merchant Bank Account (T+1 to T+3)]
+
+---
+
 ## Processing Summary Definitions
 
 These definitions help merchants interpret the figures shown in their **settlement reports**.
