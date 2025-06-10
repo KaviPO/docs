@@ -119,9 +119,7 @@ Total number of successfully processed transactions.
 - Transactions where:
 
   - `transaction_type = PURCHASE` and `transaction_status IN (Captured, Authorised)`
-
   - PLUS
-
   - `transaction_type = AUTHORISATION` and `transaction_status = Authorised`
 
 ---
@@ -136,8 +134,9 @@ Count of all transactions that were not successful (i.e., declined or failed dur
 
 - Transactions where:
 
-transaction_type = PURCHASE and transaction_status = NOT SUCCESSFUL
-transaction_type = AUTHORISATION and transaction_status = NOT SUCCESSFUL
+- `transaction_type = PURCHASE` and `transaction_status = NOT SUCCESSFUL`
+- PLUS
+- `transaction_type = AUTHORISATION` and `transaction_status = NOT SUCCESSFUL`
 
 ---
 
