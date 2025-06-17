@@ -235,9 +235,9 @@
                 ]
               },
                 {
-                "group": "Settlement",
+                "group": "入金",
                 "pages": [
-                  "documentation/settlement/merchantsettlement"
+                  "documentation-jp/settlement/merchantsettlement"
                 ]
               },
               {
