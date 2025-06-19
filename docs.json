@@ -48,6 +48,7 @@
                   "documentation/paymentmethods/cardschemes",
                   "documentation/paymentmethods/currency",
                   "documentation/paymentmethods/ewallets",
+                  "documentation/paymentmethods/googlepay",
                   "documentation/paymentmethods/securepayment",
                   "documentation/paymentmethods/testcards"
                 ]

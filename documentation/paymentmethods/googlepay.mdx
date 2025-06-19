@@ -1,0 +1,85 @@
+---
+title: Google Pay
+description: Learn how to accept Google Pay using the Hosted Payment Page (HPP).
+---
+
+# Google Pay
+
+Google Pay allows customers to complete transactions quickly using payment methods saved to their Google Account. When enabled, our Hosted Payment Page (HPP) dynamically displays the **Google Pay** button, providing a smooth, one-click checkout experience.
+
+---
+
+## Overview
+
+The **Google Pay API** enables fast, secure checkout and provides access to hundreds of millions of cards saved in Google Accounts worldwide.
+
+Once a merchant is configured for Google Pay, the Hosted Payment Page will automatically show the Google Pay button when the customer is using a supported device and browser (e.g., Chrome with Google Pay enabled).
+
+---
+
+## How It Works
+
+When a customer clicks the **Google Pay** button on the HPP, the following flow occurs:
+
+1. The **Google Pay payment sheet** opens and shows saved payment methods.
+2. The customer selects a card and confirms.
+3. Google Pay returns a **secure token** representing the payment details.
+4. The Hosted Payment Page sends this token to our gateway for processing.
+5. The transaction is completed via the configured acquirer, and the customer is shown a success or failure screen.
+
+---
+
+## Web Payment Flow
+
+![Figure 1 – Web payment flow](/assets/googlepay-flow.png)
+
+**Figure 1.** Web Payment Flow using Google Pay on HPP
+
+---
+
+## Key Points
+
+### Merchant Configuration
+
+- The merchant must be **configured for Google Pay**.
+- The **Google Pay Merchant ID** must be included in the HPP payload.
+- If the configuration is correct, the **Google Pay button** appears automatically.
+
+### Payment Button Logic
+
+- Google Pay will only be shown if:
+  - The merchant account supports Google Pay.
+  - The user is using a compatible browser (Chrome).
+  - The user has Google Pay configured with eligible cards.
+
+---
+
+## Try It Out: Hosted Payment Page with Google Pay
+
+You can test a Google Pay HPP integration by trying out our API endpoint here:
+
+[**Try the Hosted Payment Page Endpoint**](/reference/hosted-payment-page-api#generate-hosted-payment-page)
+
+Make sure you use `"paymentMethod": "gpay"` in your test request.
+
+---
+
+## Notes
+
+- No additional development is needed if using the Hosted Payment Page — Google Pay is automatically handled and tokenized securely.
+- This approach keeps you **PCI-light**, since no sensitive card data touches your systems.
+- If a customer is not eligible for Google Pay (unsupported browser or no saved cards), the button will **not appear**.
+
+---
+
+## Related Links
+
+- [Google Pay Developer Overview](https://developers.google.com/pay/api/web/overview)
+- [Hosted Payment Page Overview](/hosted-payment-page/hosted-payment-page)
+- [Payments Section](/payments)
+
+---
+
+Need help enabling Google Pay? Contact [Support](/support/contact-support) or reach out to your account manager.
+
+
