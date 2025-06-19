@@ -49,6 +49,7 @@
                   "documentation/paymentmethods/currency",
                   "documentation/paymentmethods/ewallets",
                   "documentation/paymentmethods/googlepay",
+                  "documentation/paymentmethods/applepay",
                   "documentation/paymentmethods/securepayment",
                   "documentation/paymentmethods/testcards"
                 ]
