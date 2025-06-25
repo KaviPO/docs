@@ -1,52 +1,51 @@
 ---
-title: マーチャント決済
-
-description: Payment Options によるマーチャント決済の処理方法と、決済レポートの読み取り方を理解します。
+title: 加盟店への入金
+description: Payment Optionsにおける加盟店への入金処理の仕組みと支払い明細書の見方をご説明いたします。
 ---
 
-# 決済プロセスと処理概要（Settlement Process & Processing Summary）
+# 入金プロセスと処理概要
 
-決済の世界では、**決済（settlement）** は最終かつ最も重要なステップです。これは、マーチャントが Payment Options 経由で処理されたカード取引から実際の資金を受け取るプロセスです。このページでは、当社プラットフォーム上での決済の仕組みと、マーチャント決済レポートに使用される主要な指標を説明します。
+決済の世界では、**入金**は最後にして最も重要なステップです。これは、加盟店がPayment Optionsを通じて処理されたカード取引から実際の売上金を受け取るプロセスです。本ページでは、当社プラットフォーム上での入金の仕組みと、加盟店向け支払い明細書で使用される重要な指標をご説明します。
 
 ---
 
-## Payment Options の決済プロセス
+## Payment Options入金プロセス
 
-Payment Options は複数の**アクワイアラ（acquirer）**および**決済方法（payment methods）**を通じて支払い処理を行い、マーチャントが効率的かつ安全に支払いを受け取れるようにします。
+Payment Optionsは、複数の**取得先**および**支払い方法**にわたって支払い処理を管理し、加盟店が効率的かつ安全に支払いを受けることを保証します。
 
-### ステップごとの説明
+### ステップバイステップの内訳
 
-### 1. **取引の開始（Transaction Initiation）**
+### 1. **取引開始**
 
-- 顧客がマーチャントのウェブサイトまたはアプリで支払いを開始します。
+- 顧客は加盟店のウェブサイトまたはアプリで支払いを開始します。
 
-- Payment Options はこの取引を構成に基づいて適切なアクワイアラに安全にルーティングします。
+- Payment Optionsは、設定に基づいてこの取引を適切な取得先に安全にルーティングします。
 
-- アクワイアラはカードと利用可能な資金を確認した上で、取引を**承認（authorizes）**します。
+- 取得先は、カードおよび利用可能な資金を確認した後、取引を**認可**します。
 
-- 承認が成功した場合、取引は**"Authorized"**としてタグ付けされます。
+- 認可が成功すると、取引は**「認可済み」**としてタグ付けされます。
 
-- マーチャントの設定に応じて：
+- 加盟店の設定に応じて：
 
-  - **Purchase（自動キャプチャ）**：Payment Options が自動的に金額をキャプチャします。
+  - **購入（自動キャプチャ）**：Payment Optionsは自動的に金額をキャプチャします。
 
-  - **手動キャプチャ（Manual Capture）**：マーチャントがサービスまたは商品の提供後に金額をキャプチャします。
+  - **手動キャプチャ**：加盟店はサービスや製品の提供後に金額をキャプチャします。
 
-- **キャプチャされた（captured）**取引のみが決済の対象となります。
+- **キャプチャ済み**の取引のみが決済の対象と見なされます。
 
 ![取引ライフサイクルフロー](/images/flows-msettlement-04.svg)
 
-### 2. **決済（Settlement）**
+### 2. **決済**
 
-- Payment Options は決済プロセスを開始します：
+- Payment Optionsは決済プロセスを開始します：
 
-  - アクワイアラからの決済データと内部の取引記録を照合します。
+  - 取得先からの決済データを内部取引記録と照合します。
 
-  - **マーチャント割引率（MDR）**および該当する手数料を差し引きます。
+  - **決済手数料（MDR）**および適用される手数料を差し引きます。
 
-  - **純額（net amount）**をマーチャントの指定銀行口座に、予定された支払日に応じて振込します。
+  - 予定された支払日通りに、**純額**を加盟店の指定された銀行口座に転送します。
 
-- マーチャントは定義されたサイクルに従って**決済レポート（Settlement Report）**を受け取ります：
+- 加盟店は定義されたサイクルで**支払い明細書**を受け取ります：
 
   - **毎日**
 
@@ -56,95 +55,100 @@ Payment Options は複数の**アクワイアラ（acquirer）**および**決�
 
 ![ステートメントフロー](/images/flows-msettlement-05.svg)
 
-### 3. **マーチャントへの支払い（Merchant Payout）**
+### 3. **加盟店の支払い**
 
-- 照合および資金振込の開始後、最終的な金額がマーチャントの銀行口座に入金されます。
+- 照合と資金転送開始後、最終的な金額が加盟店の銀行口座に入金されます。
 
-- 決済のタイムラインはアクワイアラや契約内容により異なりますが、通常は**T+1〜T+3**営業日以内となります。
+- 入金のタイミングは、アクワイアラーや締結された契約によって異なる場合があります。
 
 ![レポート指標ロジックフロー](/images/flows-msettlement-06.svg)
 
 ---
 
-## 処理サマリー定義（Processing Summary Definitions）
+## 処理概要の定義
 
-以下の定義は、マーチャントが**決済レポート（settlement reports）**に表示される数値を正確に理解するためのものです。
+これらの定義は、加盟店が**支払い明細書**に表示された数字を解釈するのに役立ちます。
 
-### 1. **購入 / キャプチャ売上金額（Purchase / Capture Sales Amount）**
+### 1. **購入/キャプチャ販売額**
 
-**定義**:  
+**定義**：
+
 支払いが正常にキャプチャされた取引の総額。
 
-**対象となる取引**：
+**含まれるもの**：
 
-- 以下の条件に該当する取引：
+- 次の取引が含まれます：
 
-  - `transaction_type = PURCHASE` かつ `transaction_status = Captured`
+  - `transaction_type = PURCHASE` および `transaction_status = Captured`
 
   - または
 
-  - `transaction_type = CAPTURE` かつ `transaction_status = Captured`
+  - `transaction_type = CAPTURE` および `transaction_status = Captured`
 
 ---
 
-### 2. **返金金額（Refund Amount）**
+### 2. **返金額**
 
-**定義**:  
-顧客へ返金された合計金額。
+**定義**：
 
-**対象となる取引**：
+顧客に返金された総額。
 
-- 以下の条件に該当する取引：
+**含まれるもの**：
 
-  - `transaction_type = REFUND` かつ `transaction_status = Refunded`
+- 次の取引が含まれます：
 
----
-
-### 3. **成功取引件数（Successful Transaction Count）**
-
-**定義**:  
-正常に処理された取引の件数。
-
-**対象となる取引**：
-
-- 以下の条件に該当する取引：
-
-  - `transaction_type = PURCHASE` かつ `transaction_status IN (Captured, Authorised)`
-  - ＋
-  - `transaction_type = AUTHORISATION` かつ `transaction_status = Authorised`
+  - `transaction_type = REFUND` および `transaction_status = Refunded`
 
 ---
 
-### 4. **拒否取引件数（Declined Transaction Count）**
+### 3. **成功した取引数**
 
-**定義**:  
-失敗または処理中に拒否されたすべての取引の件数。
+**定義**：
 
-**対象となる取引**：
+正常に処理された取引の総数。
 
-- 以下の条件に該当する取引：
+**含まれるもの**：
 
-  - `transaction_type = PURCHASE` かつ `transaction_status = NOT SUCCESSFUL`
-  - ＋
-  - `transaction_type = AUTHORISATION` かつ `transaction_status = NOT SUCCESSFUL`
+- 次の取引が含まれます：
 
----
-
-### 5. **返金手数料件数（Refund Fee Count）**
-
-**定義**:  
-正常に処理された返金取引の件数。
-
-**対象となる取引**：
-
-- 以下の条件に該当する取引：
-
-  - `transaction_type = REFUND` かつ `transaction_status = Refunded`
+  - `transaction_type = PURCHASE` および `transaction_status IN (Captured, Authorised)`
+  - さらに
+  - `transaction_type = AUTHORISATION` および `transaction_status = Authorised`
 
 ---
 
-## この内容が重要な理由（Why This Matters）
+### 4. **拒否された取引数**
 
-決済の仕組みを理解することで、**キャッシュフローの可視性（cash flow visibility）**が向上し、財務チームがレポートを正確に照合できるようになります。当社のレポートは、取引の**リアルタイムな財務状況（real-time financial health）**を反映するように設計されており、処理された内容だけでなく、**支払われた金額（paid out）**も明確に表示されます。
+**定義**：
+
+成功しなかったすべての取引のカウント（拒否されたまたは処理中に失敗した取引）。
+
+**含まれるもの**：
+
+- 次の取引が含まれます：
+
+  - `transaction_type = PURCHASE` および `transaction_status = NOT SUCCESSFUL`
+  - さらに
+  - `transaction_type = AUTHORISATION` および `transaction_status = NOT SUCCESSFUL`
+
+---
+
+### 5. **返金手数料数**
+
+**定義**：
+
+成功した返金取引の数。
+
+**含まれるもの**：
+
+- 次の取引が含まれます：
+
+  - `transaction_type = REFUND` および `transaction_status = Refunded`
+
+---
+
+## なぜこれが重要なのか
+
+決済の仕組みを理解することで、より良い**キャッシュフローの可視性**が確保され、財務チームが明細書を正確に照合できるようになります。当社の支払い明細書は、取引の**リアルタイムの財務状況**を反映するように設計されており、処理されたものだけでなく、**支払われた金額**も表示されます。
 
 ---
