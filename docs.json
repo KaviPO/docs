@@ -169,13 +169,6 @@
             "tab": "Support",
             "groups": [
               {
-                "group": "Guide",
-                "pages": [
-                  "support/merchantguide",
-                  "support/partnerguide"
-                ]
-              },
-              {
                 "group": "Website Plugins",
                 "pages": [
                   "support/plugins-woocommerce",
@@ -350,13 +343,6 @@
           {
             "tab": "サポート",
             "groups": [
-              {
-                "group": "ガイド",
-                "pages": [
-                  "support-jp/merchantguide",
-                  "support-jp/partnerguide"
-                ]
-              },
               {
                 "group": "ウェブサイトプラグイン",
                 "pages": [
