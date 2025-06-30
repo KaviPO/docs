@@ -47,7 +47,14 @@
                 "pages": [
                   "documentation/paymentmethods/cardschemes",
                   "documentation/paymentmethods/currency",
-                  "documentation/paymentmethods/ewallets",
+                  {
+                   "group": "E-Wallets",
+                         "pages": [
+                           "documentation/paymentmethods/ewallets",
+                           "documentation/paymentmethods/googlepay",
+                           "documentation/paymentmethods/applepay"
+                         ]
+                   },
                   "documentation/paymentmethods/securepayment",
                   "documentation/paymentmethods/testcards"
                 ]
