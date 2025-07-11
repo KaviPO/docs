@@ -11,6 +11,48 @@ This page provides a quick summary of each release, highlighting major updates a
 
 ## **Release History**
 
+<Update label="2025-07-08" description="Release 23">
+  <div style={{ fontSize: '12px', lineHeight: '1.1' }}>
+    ### Features or Enhancements Related to Merchants & Partners
+
+    * New Integration: **Cybersource Acquirer** (3DS & Non-3DS)  
+    * New Integration: **YOQO Acquirer** (3DS)  
+    * New Integration: **Google Pay**  
+    * New Feature: **Stats Tiles** (Total Sales, Total Refund, Approval Ratio) added as Quick Stats on Transaction UI  
+    * New Feature: **Browser Information** now displayed on Transaction Detail screen  
+    * New Feature: **Merchant Settings** tab added to Merchant Details  
+    * New Feature: **IP Whitelisting Configuration & Webhook URL Configuration** in Merchant Settings  
+    * New Feature: **Merchant Catalogue** tab added to Merchant Details  
+
+    ### Minor Enhancements
+
+    * Standardized terminology from **Login/Logout** to **Sign In/Sign Out** across DAS Gateway  
+    * Added **Logical Operator (AND/OR)** in Next Gen Filter between conditions  
+    * Added **Email Notifications** for Primary Contact (Merchant) under User Settings  
+    * Display **Merchant ID** field in User Profile and Merchant screen for Merchant Users  
+    * Allow **currency selection for Aggregation** under User Profile  
+    * Display **Acquirer MID** on Product Details page for Merchant login  
+    * Added **Payment Type** (Card Payment or APM) separated from Scheme  
+    * Transaction Download updated to accommodate **Payment Type**  
+    * Display all logged cases in **Chargeback History** for a Transaction in Chargeback UI  
+    * JP Translation: Billing Cycle value on Subscription HPP  
+    * JP Translation: Billing Cycle value in Subscription Email  
+
+    ### Chargeback Enhancements
+
+    * Renamed **Amount** field to **Dispute Amount** for Chargeback Case  
+    * Unified all Chargeback notifications to a **single email template**  
+    * Highlight indicator dot only for stages where user is present in Chargeback History  
+    * Email notifications sent to Merchant for **any edits to existing Chargebacks**  
+    * Support reopening/closure of a Chargeback (via Edit) in Case Discussion  
+    * UI updates on Transaction Details screen related to Chargeback  
+    * Display **System_User** for automated updates in Chargeback cases  
+    * Removed **‘Internal Dispute’** from Chargeback case type list  
+    * Added internal **‘Case Created’** stage in Chargeback Case Discussion  
+
+  </div>
+</Update>
+
 <Update label="2025-05-06" description="Release 22">
   <div style={{ fontSize: '12px', lineHeight: '1.1' }}>
     ### Features or Enhancements Related to Merchants & Partners
