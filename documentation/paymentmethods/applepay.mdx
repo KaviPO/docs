@@ -1,6 +1,6 @@
 ---
 title: Apple Pay
-description: Apple Pay enables customers to quickly and securely complete purchases using cards stored in their Apple Wallet. Once Apple Pay is enabled for a merchant, our Hosted Payment Page (HPP) dynamically shows the **Apple Pay** button when accessed from a supported Apple device or browser (like Safari on macOS or iOS).
+description: Apple Pay allows customers to complete purchases quickly and securely using cards stored in their Apple Wallet. Once enabled for a merchant, our Hosted Payment Page (HPP) dynamically displays the Apple Pay button when accessed on a supported Apple device or browser (e.g., Safari on iOS/macOS).
 ---
 
 ## Overview
@@ -11,7 +11,7 @@ Apple Pay offers a seamless and secure checkout experience using Face ID, Touch 
 
 ## How It Works
 
-When a customer clicks the **Apple Pay** button on the HPP, the flow is as follows:
+When a customer clicks the **Apple Pay** button on the Hosted Payment Page (HPP), the flow is as follows:
 
 1. The **Apple Pay payment sheet** is displayed with their default or selected card.
 2. The customer confirms the payment using biometrics or passcode.
@@ -33,13 +33,15 @@ When a customer clicks the **Apple Pay** button on the HPP, the flow is as follo
 
 ## Supported Devices & Browsers
 
-Apple Pay will only be displayed on the HPP if the following conditions are met:
+The Apple Pay button will only appear on the Hosted Payment Page (HPP) when all of the following conditions are met:
 
-- The merchant is configured for Apple Pay
-- The user is on a compatible Apple device:
+- The merchant is enabled for Apple Pay in their configuration.
+- The customer is using a supported Apple device and browser, including:
   - iPhone, iPad, or Mac
   - Safari browser
-  - Apple Wallet with an eligible card
+  - Apple Wallet with at least one eligible payment card
+
+> Note: If any of these conditions are not met, the Apple Pay button will not be displayed.
 
 ---
 
@@ -48,19 +50,19 @@ Apple Pay will only be displayed on the HPP if the following conditions are met:
 ### Merchant Configuration
 
 - Merchant must be **enabled for Apple Pay**.
-- The **Apple Pay Merchant ID** must be passed in the HPP payload.
+- The **Apple Pay Merchant ID** must be passed in the Hosted Payment Page (HPP) payload.
 - Once configured, the **Apple Pay button** appears automatically for eligible customers.
 
 ### Button Logic
 
-- The HPP dynamically checks if the customer is on a supported device/browser.
-- If eligible, Apple Pay is shown. Otherwise, the button is hidden.
+- The Hosted Payment Page (HPP) dynamically checks if the customer is on a supported device/browser.
+- If all conditions are met, the Apple Pay button is displayed. If not, the button remains hidden.
 
 ---
 
 ## Try It Out: Hosted Payment Page with Apple Pay
 
-You can test Apple Pay behavior and integration using our Hosted Payment Page endpoint:
+Test how Apple Pay behaves within our Hosted Payment Page (HPP) by accessing the live demo endpoint below:
 
 [**Try the Hosted Payment Page Endpoint**](/api-reference/en/hpp/generate-link)
 
@@ -69,7 +71,7 @@ You can test Apple Pay behavior and integration using our Hosted Payment Page en
 
 ## Notes
 
-- No frontend Apple Pay code is needed — the HPP manages display and integration automatically.
+- No frontend Apple Pay code is needed — the Hosted Payment Page (HPP) manages display and integration automatically.
 - Apple Pay only appears if the device supports it and Apple Wallet is configured.
 - This method is **PCI-light** and secure by default.
 

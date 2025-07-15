@@ -7,19 +7,19 @@ description: Google Pay allows customers to complete transactions quickly using 
 
 The **Google Pay API** enables fast, secure checkout and provides access to hundreds of millions of cards saved in Google Accounts worldwide.
 
-Once a merchant is configured for Google Pay, the Hosted Payment Page will automatically show the Google Pay button when the customer is using a supported device and browser (e.g., Chrome with Google Pay enabled).
+Once a merchant is configured for Google Pay, the Hosted Payment Page (HPP) will automatically show the Google Pay button when the customer is using a supported device and browser (e.g., Chrome with Google Pay enabled).
 
 ---
 
 ## How It Works
 
-When a customer clicks the **Google Pay** button on the HPP, the following flow occurs:
+When a customer clicks the **Google Pay** button on the Hosted Payment Page (HPP), the following flow occurs:
 
 1. The **Google Pay payment sheet** opens and shows saved payment methods.
 2. The customer selects a card and confirms.
 3. Google Pay returns a **secure token** representing the payment details.
 4. The Hosted Payment Page sends this token to our gateway for processing.
-5. The transaction is completed via the configured acquirer, and the customer is shown a success or failure screen.
+5. The transaction is completed via the configured acquirer, and The customer will be redirected to the appropriate success or failure page, as configured in your integration.
 
 ---
 
@@ -27,8 +27,20 @@ When a customer clicks the **Google Pay** button on the HPP, the following flow 
 
 ![Figure 1 – Web payment flow](/images/flows-payment-gpay.svg)
 
-**Figure 1.** Web Payment Flow using Google Pay on HPP
+**Figure 1**: Web payment flow for Google Pay transactions initiated via Hosted Payment Page.
 
+---
+
+## Supported Devices & Browsers
+
+Google Pay will only appear on the Hosted Payment Page (HPP) if the following conditions are met:
+
+- The merchant account supports Google Pay.
+- The user is using a compatible device:
+  - Android device with Google Wallet and Chrome browser.
+  - Desktop Chrome browser with Google Account and saved cards.
+- The user has at least one eligible card saved in Google Wallet.
+  
 ---
 
 ## Key Points
@@ -36,7 +48,7 @@ When a customer clicks the **Google Pay** button on the HPP, the following flow 
 ### Merchant Configuration
 
 - The merchant must be **configured for Google Pay**.
-- The **Google Pay Merchant ID** must be included in the HPP payload.
+- The **Google Pay Merchant ID** must be included in the Hosted Payment Page (HPP) payload.
 - If the configuration is correct, the **Google Pay button** appears automatically.
 
 ### Payment Button Logic
@@ -48,9 +60,9 @@ When a customer clicks the **Google Pay** button on the HPP, the following flow 
 
 ---
 
-## Try It Out: Hosted Payment Page with Google Pay
+### Test the Hosted Payment Page with Google Pay
 
-You can test a Google Pay HPP integration by trying out our API endpoint here:
+You can test a Google Pay Hosted Payment Page (HPP) integration by trying out our API endpoint here:
 
 [**Try the Hosted Payment Page Endpoint**](/api-reference/en/hpp/generate-link)
 
@@ -59,7 +71,7 @@ You can test a Google Pay HPP integration by trying out our API endpoint here:
 ## Notes
 
 - No additional development is needed if using the Hosted Payment Page — Google Pay is automatically handled and tokenized securely.
-- This approach keeps you **PCI-light**, since no sensitive card data touches your systems.
+- This approach keeps you PCI-light, meaning your system avoids directly handling sensitive card data — simplifying compliance with PCI DSS requirements.
 - If a customer is not eligible for Google Pay (unsupported browser or no saved cards), the button will **not appear**.
 
 ---
