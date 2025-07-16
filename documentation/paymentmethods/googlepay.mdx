@@ -1,6 +1,6 @@
 ---
 title: Google Pay
-description: Google Pay allows customers to complete transactions quickly using payment methods saved to their Google Account. When enabled, our Hosted Payment Page (HPP) dynamically displays the **Google Pay** button, providing a smooth, one-click checkout experience.
+description: Google Pay allows customers to complete transactions quickly using their saved credit or debit cards, bank accounts, or other payment methods stored in their Google Account. When enabled, our Hosted Payment Page (HPP) dynamically displays the **Google Pay** button, providing a smooth, one-click checkout experience.
 ---
 
 ## Overview
@@ -15,11 +15,11 @@ Once a merchant is configured for Google Pay, the Hosted Payment Page (HPP) will
 
 When a customer clicks the **Google Pay** button on the Hosted Payment Page (HPP), the following flow occurs:
 
-1. The **Google Pay payment sheet** opens and shows saved payment methods.
-2. The customer selects a card and confirms.
-3. Google Pay returns a **secure token** representing the payment details.
-4. The Hosted Payment Page sends this token to our gateway for processing.
-5. The transaction is completed via the configured acquirer, and The customer will be redirected to the appropriate success or failure page, as configured in your integration.
+1. The **Google Pay payment sheet** opens and displays the customer’s saved payment methods.
+2. The customer a preferred payment method (e.g., card) and confirms the payment.
+3. Google Pay generates and returns a **secure token** that represents the selected payment details.
+4. The Hosted Payment Page (HPP) forwards this token to PO payment gateway for processing.
+5. The transaction is completed through the configured acquirer, and the customer is redirected to the appropriate success or failure page, based on your integration settings.
 
 ---
 
@@ -48,7 +48,7 @@ Google Pay will only appear on the Hosted Payment Page (HPP) if the following co
 ### Merchant Configuration
 
 - The merchant must be **configured for Google Pay**.
-- The **Google Pay Merchant ID** must be included in the Hosted Payment Page (HPP) payload.
+- The **Merchant ID (DASMID)** must be included in the Hosted Payment Page (HPP) payload.
 - If the configuration is correct, the **Google Pay button** appears automatically.
 
 ### Payment Button Logic

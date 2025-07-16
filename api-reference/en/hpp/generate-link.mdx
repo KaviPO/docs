@@ -25,17 +25,25 @@ When a merchant is configured for Apple Pay and Google Pay, the Hosted Payment P
 ### Key Points
 
 <Info>
-  Merchant Configuration
+Merchant Configuration
+The Merchant ID for either Apple Pay or Google Pay must be included in the HPP payload when making a request to generate the payment link.
 
-  * The Merchant ID for either Apple Pay or Google Pay must be included in the HPP payload when making a request to generate the payment link.
+These payment options will automatically appear on the HPP if the merchant is properly configured for them.
 
-  * These payment options will automatically appear on the HPP if the merchant is properly configured for them.
+Payment Buttons
+The HPP will dynamically display Google Pay and Apple Pay buttons based on the availability and configuration of the merchant’s account.
 
-  Payment Buttons
+Customers can seamlessly use either method to complete the transaction directly from the HPP.
 
-  * The HPP will dynamically display Google Pay and Apple Pay buttons based on the availability and configuration of the merchant’s account.
+If both Apple Pay and Google Pay are configured for the same merchant (i.e., same DAS MID), you can control button priority by including the following optional parameter in the HPP payload:
 
-  * Customers can seamlessly use either method to complete the transaction directly from the HPP.
+```json
+"buttons": {
+  "enable_googlepay": true
+}
+```
+When set to true, this will prioritize displaying Google Pay on the payment interface. If omitted, the default prioritization will apply based on device and browser compatibility.
+
 </Info>
 
 ## Api Parameters
