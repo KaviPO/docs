@@ -1,89 +1,89 @@
 ---
-title: Google Pay
-description: Google Pay allows customers to complete transactions quickly using payment methods saved to their Google Account. When enabled, our Hosted Payment Page (HPP) dynamically displays the **Google Pay** button, providing a smooth, one-click checkout experience.
+title: Google Pay（グーグルペイ）
+description: Google Payを使用すると、顧客はGoogleアカウントに保存された支払い方法を使って迅速に取引を完了できます。有効化されている場合、当社のホスト型決済ページ（HPP）はGoogle Payボタンを動的に表示し、スムーズなワンクリック決済体験を提供します。
 ---
 
-## Overview
+## 概要
 
-The **Google Pay API** enables fast, secure checkout and provides access to hundreds of millions of cards saved in Google Accounts worldwide.
+Google Pay APIは高速かつ安全なチェックアウトを可能にし、世界中のGoogleアカウントに保存された数億枚のカードにアクセスできます。
 
-Once a merchant is configured for Google Pay, the Hosted Payment Page (HPP) will automatically show the Google Pay button when the customer is using a supported device and browser (e.g., Chrome with Google Pay enabled).
-
----
-
-## How It Works
-
-When a customer clicks the **Google Pay** button on the Hosted Payment Page (HPP), the following flow occurs:
-
-1. The **Google Pay payment sheet** opens and shows saved payment methods.
-2. The customer selects a card and confirms.
-3. Google Pay returns a **secure token** representing the payment details.
-4. The Hosted Payment Page sends this token to our gateway for processing.
-5. The transaction is completed via the configured acquirer, and The customer will be redirected to the appropriate success or failure page, as configured in your integration.
+加盟店がGoogle Payに対応するように設定されると、対応デバイスおよびブラウザ（例：Google Payが有効なChrome）を使用している顧客に対して、HPPにGoogle Payボタンが自動的に表示されます。
 
 ---
 
-## Web Payment Flow
+## 動作の仕組み
+
+顧客がホスト型決済ページ（HPP）上のGoogle Payボタンをクリックすると、以下のフローが発生します：
+
+1. Google Payの支払いシートが開き、保存された支払い方法が表示されます。
+2. 顧客がカードを選択して確認します。
+3. Google Payは支払い情報を表すセキュアトークンを返します。
+4. HPPはこのトークンを当社のゲートウェイに送信して処理します。
+5. トランザクションは設定されたアクワイアラーを通じて完了し、顧客は設定された成功または失敗のページにリダイレクトされます。
+
+---
+
+## ウェブ決済のフロー
 
 ![Figure 1 – Web payment flow](/images/flows-payment-gpay-jp.svg)
 
-**Figure 1**: Web payment flow for Google Pay transactions initiated via Hosted Payment Page.
+図1：HPPを介して開始されたGoogle Pay取引のウェブ決済フロー。
 
 ---
 
-## Supported Devices & Browsers
+## 対応デバイスとブラウザ
 
-Google Pay will only appear on the Hosted Payment Page (HPP) if the following conditions are met:
+以下の条件が満たされている場合のみ、HPP上にGoogle Payが表示されます：
 
-- The merchant account supports Google Pay.
-- The user is using a compatible device:
-  - Android device with Google Wallet and Chrome browser.
-  - Desktop Chrome browser with Google Account and saved cards.
-- The user has at least one eligible card saved in Google Wallet.
+- 加盟店アカウントがGoogle Payをサポートしていること。
+- ユーザーが互換性のあるデバイスを使用していること：
+  - Google WalletおよびChromeブラウザを備えたAndroidデバイス。
+  - Googleアカウントと保存されたカードを備えたデスクトップChromeブラウザ。
+- ユーザーがGoogle Walletに有効なカードを少なくとも1枚保存していること。
   
 ---
 
-## Key Points
+## 重要なポイント
 
-### Merchant Configuration
+### 加盟店設定
 
-- The merchant must be **configured for Google Pay**.
-- The **Google Pay Merchant ID** must be included in the Hosted Payment Page (HPP) payload.
-- If the configuration is correct, the **Google Pay button** appears automatically.
+- 加盟店はGoogle Pay用に設定されている必要があります。
+- HPPのペイロードにGoogle Pay Merchant IDを含める必要があります。
+- 設定が正しければ、Google Payボタンが自動的に表示されます。
 
-### Payment Button Logic
+### 支払いボタンのロジック
 
-- Google Pay will only be shown if:
-  - The merchant account supports Google Pay.
-  - The user is using a compatible browser (Chrome).
-  - The user has Google Pay configured with eligible cards.
-
----
-
-### Test the Hosted Payment Page with Google Pay
-
-You can test a Google Pay Hosted Payment Page (HPP) integration by trying out our API endpoint here:
-
-[**Try the Hosted Payment Page Endpoint**](/api-reference/en/hpp/generate-link)
+以下の場合にのみ、Google Payが表示されます：
+- 加盟店アカウントがGoogle Payをサポートしている。
+- ユーザーが互換性のあるブラウザ（Chrome）を使用している。
+- ユーザーがGoogle Payに有効なカードを設定している。
 
 ---
 
-## Notes
+### Google Pay対応のホステッド決済ページをテストする
 
-- No additional development is needed if using the Hosted Payment Page — Google Pay is automatically handled and tokenized securely.
-- This approach keeps you PCI-light, meaning your system avoids directly handling sensitive card data — simplifying compliance with PCI DSS requirements.
-- If a customer is not eligible for Google Pay (unsupported browser or no saved cards), the button will **not appear**.
+以下のAPIエンドポイントを使用して、Google Pay HPP統合をテストできます：
 
----
-
-## Related Links
-
-- [Google Pay Developer Overview](https://developers.google.com/pay/api/web/overview)
-- [Hosted Payment Page Overview](/documentation/payments/onlinepayment)
-- [Payments Section](/documentation/payments/paymentintro)
+[**ホスト型決済ページのエンドポイントを試す**](/api-reference/en/hpp/generate-link)
 
 ---
 
-Need help enabling Google Pay? Contact [Support](/support/contact) or reach out to your account manager.
+## 備考
+
+- HPPを使用する場合、追加の開発は不要です。Google Payは自動的に処理され、安全にトークン化されます。
+- このアプローチによりPCI-lightを維持でき、機密カード情報を直接扱わずに済むため、PCI DSS準拠が簡素化されます。
+- 顧客がGoogle Payの対象でない場合（非対応ブラウザまたは保存カードなし）、ボタンは表示されません。
+
+---
+
+## 関連リンク
+
+- [Google Pay開発者向け概要](https://developers.google.com/pay/api/web/overview)
+- [ホスト型決済ページの概要](/documentation-jp/payments/onlinepayment)
+- [決済セクション](/documentation-jp/payments/paymentintro)
+
+---
+
+Google Payの有効化に関してサポートが必要ですか？[サポートチ](/support-jp/contact)ームまたは営業担当にご連絡ください。
 
 

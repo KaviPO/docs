@@ -1,90 +1,90 @@
 ---
 title: Apple Pay
-description: Apple Pay allows customers to complete purchases quickly and securely using cards stored in their Apple Wallet. Once enabled for a merchant, our Hosted Payment Page (HPP) dynamically displays the Apple Pay button when accessed on a supported Apple device or browser (e.g., Safari on iOS/macOS).
+description: Apple Payは、Apple Walletに保存されたカードを使って、迅速かつ安全に購入を完了できるサービスです。加盟店で有効化されると、サポートされているAppleデバイスやブラウザ（例：iOS/macOSのSafari）でホスト型決済ページ（HPP）にアクセスした際、自動的にApple Payボタンが表示されます。
 ---
 
-## Overview
+## 概要
 
-Apple Pay offers a seamless and secure checkout experience using Face ID, Touch ID, or device passcode. Customers can complete payments without entering card details, helping increase conversion rates and reduce cart abandonment.
-
----
-
-## How It Works
-
-When a customer clicks the **Apple Pay** button on the Hosted Payment Page (HPP), the flow is as follows:
-
-1. The **Apple Pay payment sheet** is displayed with their default or selected card.
-2. The customer confirms the payment using biometrics or passcode.
-3. Apple returns a **secure, encrypted token**.
-4. The HPP submits the token to the PO Gateway.
-5. PO processes the token via the configured acquirer and returns the result.
-
-> Apple Pay ensures PCI compliance by handling all sensitive payment data securely on the user's device.
+Apple Payは、Face ID、Touch ID、またはデバイスのパスコードを使って、シームレスかつ安全な決済体験を提供します。カード情報を手入力せずに支払いを完了できるため、コンバージョン率の向上とカート放棄の低減に役立ちます。
 
 ---
 
-## Web Payment Flow
+## 動作の仕組み
+
+顧客がホスト型決済ページ（HPP）上のApple Payボタンをクリックすると、以下の流れで処理が行われます：
+
+1. Apple Payの支払いシートが、既定または選択されたカードと共に表示されます。
+2. 顧客が生体認証またはパスコードを使用して支払いを確定します。
+3. Appleが安全で暗号化されたトークンを返します。
+4. HPPがそのトークンをPOゲートウェイに送信します。
+5. POが設定されたアクワイアラーを通じてトークンを処理し、結果を返します。
+
+> Apple Payは、すべての機密な支払いデータをユーザーのデバイス上で安全に処理することで、PCI準拠を確保します。
+
+---
+
+## ウェブ決済フロー
 
 ![Figure 1 – Apple Pay Web Payment Flow](/images/flows-payment-applepay-jp.svg)
 
-**Figure 1.** A typical Apple Pay flow on our Hosted Payment Page
+図1：ホスト型決済ページにおける典型的なApple Payのフロー
 
 ---
 
-## Supported Devices & Browsers
+## 対応デバイスとブラウザ
 
-The Apple Pay button will only appear on the Hosted Payment Page (HPP) when all of the following conditions are met:
+Apple Pay ボタンは、以下のすべての条件が満たされた場合にのみ、ホスト型決済ページ（HPP）に表示されます：
 
-- The merchant is enabled for Apple Pay in their configuration.
-- The customer is using a supported Apple device and browser, including:
-  - iPhone, iPad, or Mac
-  - Safari browser
-  - Apple Wallet with at least one eligible payment card
+- 加盟店がApple Payを有効化していること
+- 顧客が以下を含むサポート対象のAppleデバイスおよびブラウザを使用していること：
+ - iPhone、iPad、またはMac
+ - Safariブラウザ
+ - 少なくとも1枚の利用可能なカードが登録されたApple Wallet
 
-> Note: If any of these conditions are not met, the Apple Pay button will not be displayed.
-
----
-
-## Key Points
-
-### Merchant Configuration
-
-- Merchant must be **enabled for Apple Pay**.
-- The **Apple Pay Merchant ID** must be passed in the Hosted Payment Page (HPP) payload.
-- Once configured, the **Apple Pay button** appears automatically for eligible customers.
-
-### Button Logic
-
-- The Hosted Payment Page (HPP) dynamically checks if the customer is on a supported device/browser.
-- If all conditions are met, the Apple Pay button is displayed. If not, the button remains hidden.
+> ※これらの条件のいずれかが満たされていない場合、Apple Payボタンは表示されません。
 
 ---
 
-## Try It Out: Hosted Payment Page with Apple Pay
+## 重要なポイント
 
-Test how Apple Pay behaves within our Hosted Payment Page (HPP) by accessing the live demo endpoint below:
+### 加盟店の設定
 
-[**Try the Hosted Payment Page Endpoint**](/api-reference/en/hpp/generate-link)
+- 加盟店はApple Payを有効にする必要があります。
+- ホスト型決済ページ（HPP）のペイロードにApple Pay Merchant IDを含める必要があります。
+- 設定が完了すると、対象顧客には自動的にApple Payボタンが表示されます。
 
+### ボタンの表示ロジック
 
----
-
-## Notes
-
-- No frontend Apple Pay code is needed — the Hosted Payment Page (HPP) manages display and integration automatically.
-- Apple Pay only appears if the device supports it and Apple Wallet is configured.
-- This method is **PCI-light** and secure by default.
+- ホスト型決済ページ（HPP）は、顧客がサポートされているデバイス／ブラウザを使用しているかを動的に確認します。
+- すべての条件が満たされている場合、Apple Payボタンが表示されます。そうでない場合、ボタンは非表示のままとなります。
 
 ---
 
-## Related Links
+## お試しください：Apple Pay対応のホステッド決済ページ
 
-- [Apple Pay Developer Overview](https://developer.apple.com/apple-pay/)
-- [Hosted Payment Page Overview](/documentation/payments/onlinepayment)
-- [Payments Section](/documentation/payments/paymentintro)
+以下のライブデモエンドポイントにアクセスして、ホスト型決済ページ（HPP）内でのApple Payの挙動を確認してください：
+
+[**ホスト型決済ページのエンドポイントを試す**](/api-reference/jp/hpp/generate-link)
 
 
 ---
 
-Need assistance enabling Apple Pay? Reach out to your account manager or Contact [Support](/support/contact).
+## 補足事項
+
+- フロントエンドでのApple Payのコードは不要です。ホスト型決済ページ（HPP）が表示と連携を自動で処理します。
+- Apple Payは、対応デバイスかつApple Walletが設定されている場合にのみ表示されます。
+- この方式は、PCI負担が軽く、デフォルトで安全です。
+
+---
+
+## 関連リンク
+
+- [Apple Pay 開発者向け概要](https://developer.apple.com/apple-pay/)
+- [ホスト型決済ページ概要](/documentation-jp/payments/onlinepayment)
+- [決済セクション](/documentation-jp/payments/paymentintro)
+
+
+---
+
+Apple Payの有効化についてお困りですか？営業担当または、[サポート](/support-jp/contact)までお問い合わせください。
 
