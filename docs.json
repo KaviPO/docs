@@ -229,7 +229,14 @@
                 "pages": [
                   "documentation-jp/paymentmethods/cardschemes",
                   "documentation-jp/paymentmethods/currency",
-                  "documentation-jp/paymentmethods/ewallets",
+                  {
+                   "group": "電子ウォレット",
+                         "pages": [
+                           "documentation-jp/paymentmethods/ewallets",
+                           "documentation-jp/paymentmethods/googlepay",
+                           "documentation-jp/paymentmethods/applepay"
+                         ]
+                   },
                   "documentation-jp/paymentmethods/securepayment",
                   "documentation-jp/paymentmethods/testcards"
                 ]
