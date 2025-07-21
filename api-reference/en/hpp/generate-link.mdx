@@ -37,13 +37,17 @@ Customers can seamlessly use either method to complete the transaction directly 
 
 If both Apple Pay and Google Pay are configured for the same merchant (i.e., same DAS MID), you can control button priority by including the following optional parameter in the HPP payload:
 
+  <pre>
+  <code>
+  {`"buttons": {
+    "enable_googlepay": true
+  }`}
+  </code>
+  </pre>
+
 When set to true, this will prioritize displaying Google Pay on the payment interface. If omitted, the default prioritization will apply based on device and browser compatibility.
 
 </Info>
 
-```json
-"buttons": {
-  "enable_googlepay": true
-}
 
 ## Api Parameters
