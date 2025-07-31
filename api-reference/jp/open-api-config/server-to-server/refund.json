@@ -51,7 +51,7 @@
                   "notes": {
                     "type": "string",
                     "description": "払い戻し取引の参照（オプション）。",
-                    "example": "Refund amout captured/purchased",
+                    "example": "Refund amount captured/purchased",
                     "maxLength": 128
                   }
                 },

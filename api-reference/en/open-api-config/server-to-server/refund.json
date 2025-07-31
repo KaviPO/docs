@@ -51,7 +51,7 @@
                   "notes": {
                     "type": "string",
                     "description": "The reference of the refund transaction (optional).",
-                    "example": "Refund amout captured/purchased",
+                    "example": "Refund amount captured/purchased",
                     "maxLength": 128
                   }
                 },
