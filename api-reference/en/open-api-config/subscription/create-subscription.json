@@ -304,7 +304,7 @@
                       },
                       "cycle_type": {
                         "type": "string",
-                        "description": "Type of subscription cycle (e.g., DAYS, MONTHS).",
+                        "description": "Type of subscription cycle (e.g., DAYS, WEEKLY or MONTHLY).",
                         "example": "DAYS"
                       },
                       "subscription_end_type": {
