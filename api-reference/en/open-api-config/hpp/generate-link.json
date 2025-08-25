@@ -370,12 +370,14 @@
       "apiKeyAuth": {
         "type": "apiKey",
         "name": "Authorization",
+        "example": "Basic YOUR_API_KEY_HERE",
         "in": "header",
         "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
       },
       "xApiKeyAuth": {
         "type": "apiKey",
         "name": "x-api-key",
+        "example": "x-api-key",
         "in": "header",
         "description": "API Key specific to x-api-key."
       }
