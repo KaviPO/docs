@@ -375,7 +375,7 @@
         "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
       },
       "xApiKeyAuth": {
-        "type": "x-api-Key",
+        "type": "xapiKey",
         "name": "x-api-key",
         "example": "x-api-key",
         "in": "header",
