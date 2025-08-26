@@ -12,7 +12,7 @@
   ],
   "security": [
     {
-      "authorizationHeader": [],
+      "apiKeyAuth": [],
       "xApiKeyAuth": []
     }
   ],
@@ -366,19 +366,19 @@
     }
   },
   "components": {
-  "securitySchemes": {
-    "authorizationHeader": {
-      "type": "apiKey",
-      "in": "header",
-      "name": "Authorization",
-      "description": "Send the API key encoded in Base64 as Basic credentials.\nExample: Authorization: Basic dGVzdF9hcGlfa2V5Og=="
-    },
-    "xApiKeyAuth": {
-      "type": "apiKey",
-      "in": "header",
-      "name": "x-api-key",
-      "description": "Send your plain API key in this header.\nExample: x-api-key: YOUR_PLAIN_API_KEY"
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "API Key for Authorization. Format: 'Basic YOUR_API_KEY_HERE'"
+      },
+      "xApiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header",
+        "description": "API Key specific to x-api-key."
+      }
     }
-  }
   }
 }
