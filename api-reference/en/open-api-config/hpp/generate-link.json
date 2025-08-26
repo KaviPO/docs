@@ -368,7 +368,7 @@
   "components": {
     "securitySchemes": {
       "apiKeyAuth": {
-        "type": "apiKey",
+        "type": "http",
         "name": "Authorization",
         "example": "Basic <base64(api_key)>",
         "in": "header",
