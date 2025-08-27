@@ -16,16 +16,17 @@
       "xApiKeyAuth": []
     }
   ],
-  "x-codeSamples": [
+  
+  "paths": {
+    "/api/v1/server-to-server-interface/paymentv2": {
+      "post": {
+        "x-codeSamples": [
           {
             "lang": "curl",
             "label": "cURL Request",
             "source": "curl --request POST \\\n  --url https://api-dev.paymentoptions.com/api/v1/server-to-server-interface/capture \\\n  --header 'Authorization: Basic <base64(api_key)>' \\\n  --header 'Content-Type: application/json' \\\n  --header 'x-api-key: <api-key>' \\\n  --data '{\n    \"transactionId\": \"e0b0731e-7170-4b64-8a21-7d835eebd641\",\n    \"amount\": 1000,\n    \"merchant_id\": \"<Merchant ID>\",\n    \"notes\": \"Capturing authorised amount\"\n  }'"
           }
         ],
-  "paths": {
-    "/api/v1/server-to-server-interface/paymentv2": {
-      "post": {
         "summary": "Purchase API",
         "description": "The API captured amount immediately after authorization.",
         "operationId": "processPayment",
