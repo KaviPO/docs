@@ -20,30 +20,31 @@ description: 'This page provides a list of error codes returned by the gateway, 
 
 This distinction helps merchants and developers troubleshoot errors effectively and ensures that compliance and restrictions are properly managed across regions and products.
 
-| **Error Code** | **Response Code** | **Applied Level** | **Risk Rule**        | **Error Message**                                                                 |
-| :------------- | :--------------- | :---------------- | :------------------- | :-------------------------------------------------------------------------------- |
-| **ERR3001**     | -8000            | Entity Level       | Blacklist            | “Card Country is found on Entity’s blacklist”                                     |
-| **ERR3002**     | -8001            | Entity Level       | IP Address           | “Customer IP is found on Entity’s blacklist”                                      |
-| **ERR3003**     | -8002            | Entity Level       | BIN Blocking         | “Card BIN is found on Entity’s blacklist”                                         |
-| **ERR3004**     | -8003            | Entity Level       | PAN Blocking         | “PAN is found on Entity’s blacklist”                                              |
-| **ERR3005**     | -8004            | Entity Level       | Blacklist            | “Card Country is found on Issuing Country blacklist”                              |
-| **ERR3006**     | -8005            | Product Level      | Threshold Amount      | “Transaction amount ‘undefined 0’ has exceeded the max threshold limit”           |
-| **ERR3007**     | -8007            | Product Level      | IP Address           | “Customer IP Address is found on MID blacklist”                                   |
-| **ERR3008**     | -8008            | Product Level      | PAN Limit            | “Velocity check - Same card number has been used more than 0 times in the last 0 minutes.” |
-| **ERR3009**     | -8009 / -8013    | Product Level      | PAN Limit            | “Velocity check - Same card number has been used more than 0 times in the last 0 hours.”   |
-| **ERR3010**     | -8010            | Product Level      | PAN Limit            | “Velocity check - Same card number has been used more than 0 times in the last 0 days.”    |
-| **ERR3011**     | -8011            | Product Level      | PAN Limit            | “Velocity check - Same card number has been used more than 0 times in the last 0 months.”  |
-| **ERR3012**     | -8012            | Product Level      | IP Limit             | “Velocity check - Attempts from same IP Address exceeds 0 times over the last 0 minutes.” |
-| **ERR3013**     | -8013            | Product Level      | IP Limit             | “Velocity check - Attempts from same IP Address exceeds 0 times over the last 0 hours.”   |
-| **ERR3014**     | -8014            | Product Level      | IP Limit             | “Velocity check - Attempts from same IP Address exceeds 0 times over the last 0 days.”    |
-| **ERR3015**     | -8015            | Product Level      | IP Limit             | “Velocity check - Attempts from same IP Address exceeds 0 times over the last 0 months.”  |
-| **ERR3016**     | -8006            | Product Level      | Threshold Amount      | “Transaction amount ‘undefined 0’ is less than the min threshold limit”           |
-| **ERR3017**     | -8017            | Product Level      | IP Address           | “Customer IP Address not whitelisted”                                             |
-| **ERR3018**     | -8018            | Product Level      | BIN                  | “BIN not whitelisted”                                                             |
-| **ERR3019**     | -8019            | Product Level      | Refund Limit          | “Velocity check - Refund limit exceeded”                                          |
-| **ERR3020**     | -8020            | Product Level      | Refund Volume         | “Velocity check - Refund Volume limit exceeded”                                   |
-| **VAL0035**     | -1               | Product Level      |                      | “Invalid card holder name.”                                                       |
-| **ERR0204**     | -1               | Product Level      | Refund Volume         | “You don’t have balance amount for refund.”                                       |
+| **Error Code** | **Response Code** | **Applied Level** | **Risk Rule**        | **Error Message**                 |
+| :------------- | :--------------- | :---------------- | :------------------- | :---------------------------------------- |
+| **ERR3001**    | -8000            | Entity Level       | Blacklist            | Transaction is restricted                 |
+| **ERR3002**    | -8001            | Entity Level       | IP Address           | Transaction is restricted                 |
+| **ERR3003**    | -8002            | Entity Level       | BIN Blocking         | Transaction is restricted                 |
+| **ERR3004**    | -8003            | Entity Level       | PAN Blocking         | Transaction is restricted                 |
+| **ERR3005**    | -8004            | Entity Level       | Blacklist            | Transaction is restricted                 |
+| **ERR3006**    | -8005            | Product Level      | Threshold Amount     | Amount is outside the allowed range       |
+| **ERR3007**    | -8007            | Product Level      | IP Address           | Transaction is restricted                 |
+| **ERR3008**    | -8008            | Product Level      | PAN Limit            | Transaction is restricted                 |
+| **ERR3009**    | -8009 / -8013    | Product Level      | PAN Limit            | Risk rule decline                         |
+| **ERR3010**    | -8010            | Product Level      | PAN Limit            | Risk rule decline                         |
+| **ERR3011**    | -8011            | Product Level      | PAN Limit            | Risk rule decline                         |
+| **ERR3012**    | -8012            | Product Level      | IP Limit             | Risk rule decline                         |
+| **ERR3013**    | -8013            | Product Level      | IP Limit             | Risk rule decline                         |
+| **ERR3014**    | -8014            | Product Level      | IP Limit             | Risk rule decline                         |
+| **ERR3015**    | -8015            | Product Level      | IP Limit             | Risk rule decline                         |
+| **ERR3016**    | -8006            | Product Level      | Threshold Amount     | Amount is outside the allowed range       |
+| **ERR3017**    | -8017            | Product Level      | IP Address           | Transaction is restricted                 |
+| **ERR3018**    | -8018            | Product Level      | BIN                  | Transaction is restricted                 |
+| **ERR3019**    | -8019            | Product Level      | Refund Limit         | Insufficient refund balance               |
+| **ERR3020**    | -8020            | Product Level      | Refund Volume        | Insufficient refund balance               |
+| **VAL0035**    | -1               | Product Level      |                      | Invalid card holder name.                 |
+| **ERR0204**    | -1               | Product Level      | Refund Volume        | Insufficient refund balance               |
+                                    |
 
 
 ## **Additional Resources**
