@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://api-dev.paymentoptions.com/api/v1"
+      "url": "https://api-dev.paymentoptions.com"
     }
   ],
   "security": [
