@@ -61,9 +61,9 @@
                       },
                       "expiry_year": {
                         "type": "string",
-                        "description": "カードの有効期限の年（例：2024年の場合は24）。",
-                        "example": "24",
-                        "maxLength": 2
+                        "description": "カードの有効期限の年（例：29 または 2029 年）。",
+                        "example": "29",
+                        "maxLength": 4
                       },
                       "name": {
                         "type": "string",
@@ -492,7 +492,7 @@
                             "exp_year": {
                               "type": "string",
                               "description": "カードの有効期限の年。",
-                              "example": "24"
+                              "example": "29"
                             }
                           }
                         },
@@ -609,9 +609,9 @@
                       },
                       "expiry_year": {
                         "type": "string",
-                        "description": "カードの有効期限の年（例：2024年の場合は24）。",
-                        "example": "24",
-                        "maxLength": 2
+                        "description": "カードの有効期限の年（例：29 または 2029 年）。",
+                        "example": "29",
+                        "maxLength": 4
                       },
                       "name": {
                         "type": "string",

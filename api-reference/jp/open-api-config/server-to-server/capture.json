@@ -195,7 +195,7 @@
                             "exp_year": {
                               "type": "string",
                               "description": "カードの有効期限の年。",
-                              "example": "24"
+                              "example": "29"
                             }
                           }
                         },
