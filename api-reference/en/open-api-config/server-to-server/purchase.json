@@ -53,17 +53,11 @@
                         "example": "100",
                         "maxLength": 4
                       },
-                      "expiry_month": {
-                        "type": "string",
-                        "description": "The expiry month of the card (e.g., 12 for December).",
-                        "example": "12",
-                        "maxLength": 2
-                      },
                       "expiry_year": {
                         "type": "string",
-                        "description": "The expiry year of the card (e.g., 24 for 2024).",
-                        "example": "24",
-                        "maxLength": 2
+                        "description": "The expiry year of the card (e.g., 29 or 2029 for 2029).",
+                        "example": "29",
+                        "maxLength": 4
                       },
                       "name": {
                         "type": "string",
@@ -492,7 +486,7 @@
                             "exp_year": {
                               "type": "string",
                               "description": "The expiry year of the card.",
-                              "example": "24"
+                              "example": "29"
                             }
                           }
                         },

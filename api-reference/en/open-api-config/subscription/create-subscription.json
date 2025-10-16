@@ -79,8 +79,8 @@
                       "expiry_year": {
                         "type": "string",
                         "description": "Card expiry year.",
-                        "maxLength": 2,
-                        "example": "24"
+                        "maxLength": 4,
+                        "example": "29"
                       },
                       "name": {
                         "type": "string",
@@ -599,7 +599,7 @@
                             "exp_year": {
                               "type": "string",
                               "description": "Card expiry year.",
-                              "example": "24"
+                              "example": "29"
                             }
                           }
                         },

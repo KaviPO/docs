@@ -195,7 +195,7 @@
                             "exp_year": {
                               "type": "string",
                               "description": "The expiry year of the card.",
-                              "example": "24"
+                              "example": "29"
                             }
                           }
                         },
