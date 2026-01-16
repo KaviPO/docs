@@ -8,12 +8,16 @@
     "dark": "#F18A00"
   },
   "favicon": "/favicon.svg",
+
+  "redirects": [
+  { "source": "/", "destination": "/documentation/overview" },
+  { "source": "/jp", "destination": "/documentation-jp/overview" }
+],
  "navigation": {
     "languages": [
       {
         "language": "en",
         "default": true,
-        "href": "/",
         "tabs": [
           {
             "tab": "Documentation",
@@ -195,7 +199,6 @@
       },
       {
         "language": "jp",
-        "href": "/",
         "tabs": [
           {
             "tab": "ドキュメント",
