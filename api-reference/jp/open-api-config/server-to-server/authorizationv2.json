@@ -79,6 +79,23 @@
                       }
                     }
                   },
+                  "payment_method": {
+                    "type": "object",
+                    "description": "支払い方法の詳細および将来の利用のために支払い方法を保存するかどうかを指定するJSONオブジェクト。",
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "トランザクションで使用される支払い方法の種類（例：カード決済の場合は scheme）。",
+                        "example": "scheme"
+                      },
+                      "store_payment_method": {
+                        "type": "boolean",
+                        "description": "将来のトランザクションのために支払い方法を保存するかどうかを示します。",
+                        "example": false
+                      }
+                    }
+                  },
                   "merchant_txn_ref": {
                     "type": "string",
                     "description": "加盟店の取引参照ID。",

@@ -80,6 +80,23 @@
                       }
                     }
                   },
+                  "payment_method": {
+                    "type": "object",
+                    "description": "A JSON object specifying the payment method details and whether the payment method should be stored for future use.",
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "The type of payment method used for the transaction (e.g., scheme for card payments).",
+                        "example": "scheme"
+                      },
+                      "store_payment_method": {
+                        "type": "boolean",
+                        "description": "Indicates whether the payment method should be stored for future transactions.",
+                        "example": false
+                      }
+                    }
+                  },
                   "merchant_txn_ref": {
                     "type": "string",
                     "description": "The merchant transaction reference ID.",
