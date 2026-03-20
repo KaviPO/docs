@@ -427,6 +427,47 @@
                                   "example": "1600022"
                                 }
                               }
+                            },
+                             "shipping_address": {
+                              "type": "object",
+                              "description": "A JSON object containing the shipping address.",
+                              "properties": {
+                                "country": {
+                                  "type": "string",
+                                  "description": "The cardholder’s shipping country code.",
+                                  "example": "JP"
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "description": "The cardholder’s shipping email address.",
+                                  "example": "shipping@testemail.com"
+                                },
+                                "phone_number": {
+                                  "type": "string",
+                                  "description": "The cardholder’s shipping phone number.",
+                                  "example": "8112345678"
+                                },
+                                "address1": {
+                                  "type": "string",
+                                  "description": "The cardholder’s shipping address line.",
+                                  "example": "1-2-3 Shinjuku"
+                                },
+                                "city": {
+                                  "type": "string",
+                                  "description": "The cardholder’s shipping city.",
+                                  "example": "Shinjuku-ku"
+                                },
+                                "state": {
+                                  "type": "string",
+                                  "description": "The cardholder’s shipping state.",
+                                  "example": "Tokyo"
+                                },
+                                "postal_code": {
+                                  "type": "string",
+                                  "description": "The cardholder’s shipping postal code.",
+                                  "example": "1600022"
+                                }
+                              }
                             }
                           }
                         },

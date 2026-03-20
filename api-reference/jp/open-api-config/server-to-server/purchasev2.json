@@ -427,7 +427,48 @@
                                   "example": "1600022"
                                 }
                               }
-                            }
+                            },
+                            "shipping_address": {
+  "type": "object",
+  "description": "配送先住所の情報を含むJSONオブジェクト。",
+  "properties": {
+    "country": {
+      "type": "string",
+      "description": "カード保有者の配送先の国コード。",
+      "example": "JP"
+    },
+    "email": {
+      "type": "string",
+      "description": "カード保有者の配送先のメールアドレス。",
+      "example": "shipping@testemail.com"
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "カード保有者の配送先の電話番号。",
+      "example": "8112345678"
+    },
+    "address1": {
+      "type": "string",
+      "description": "カード保有者の配送先住所（住所1）。",
+      "example": "1-2-3 Shinjuku"
+    },
+    "city": {
+      "type": "string",
+      "description": "カード保有者の配送先の市区町村。",
+      "example": "Shinjuku-ku"
+    },
+    "state": {
+      "type": "string",
+      "description": "カード保有者の配送先の都道府県。",
+      "example": "Tokyo"
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "カード保有者の配送先の郵便番号。",
+      "example": "1600022"
+    }
+  }
+}
                           }
                         },
                         "device_details": {
