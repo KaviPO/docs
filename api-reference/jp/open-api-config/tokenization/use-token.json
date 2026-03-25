@@ -216,8 +216,7 @@
                   "amount",
                   "currency",
                   "payment_method",
-                  "merchant_id",
-                  "billing_address"
+                  "merchant_id"
                 ]
               }
             }
