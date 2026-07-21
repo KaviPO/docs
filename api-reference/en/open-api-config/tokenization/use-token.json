@@ -51,11 +51,6 @@
                         "example": "scheme",
                         "maxLength": 128
                       },
-                      "store_payment_method": {
-                        "type": "boolean",
-                        "description": "True to store the payment method or False not to store (for tokenization).",
-                        "example": true
-                      },
                       "stored_payment_method_id": {
                         "type": "string",
                         "description": "True to store the payment method or False not to store (for tokenization).",

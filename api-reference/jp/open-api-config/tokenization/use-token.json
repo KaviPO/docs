@@ -51,11 +51,6 @@
                         "example": "scheme",
                         "maxLength": 128
                       },
-                      "store_payment_method": {
-                        "type": "boolean",
-                        "description": "決済方法を保存する場合はTrue、保存しない場合はFalse（トークン化のため）。",
-                        "example": true
-                      },
                       "store_payment_method_id": {
                         "type": "string",
                         "description": "決済方法を保存する場合はTrue、保存しない場合はFalse（トークン化のため）。",
