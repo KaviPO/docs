@@ -11,92 +11,37 @@ This page provides a quick summary of each release, highlighting major updates a
 
 ## **Release History**
 
-<Update label="2026-08-05" description="Release 28">
+<Update label="2026-08-07" description="Release 28">
   <div style={{ fontSize: '12px', lineHeight: '1.1' }}>
-  ### Features & Enhancements Related to Merchants & Partners
+  ### Features & Enhancements
 
-  This release introduces several new capabilities and enhancements designed to improve the merchant and partner experience across the Payment Options platform.
+  * **Google Pay 3DS Support** for SCA/PSD2 compliance.
 
-  #### New Features
+  * **Traditional Chinese Language Support** across V3 Gateway and Hosted Payment Page (HPP).
 
-  * New Feature: **Google Pay 3DS Support for SCA/PSD2 Compliance**\
-    Introduced Google Pay 3DS to support Strong Customer Authentication (SCA) and PSD2 compliance.
+  * **Real-Time Refund Status Synchronisation** for supported acquirers.
 
-  * New Feature: **Traditional Chinese Language Support**\
-    Added Traditional Chinese language support across the V3 Gateway and Hosted Payment Page (HPP).
+  * **Maximum Transaction Amount Limit** introduced as an additional transaction safeguard.
 
-  * New Feature: **Real-Time Refund Status Synchronisation**\
-    Implemented real-time refund status synchronisation between supported acquirer integrations and the V3 Gateway.
+  * **Extended Public Key Support:** Merchants can now submit **encrypted card details** using the Extended Public Key mechanism instead of sending **raw card data** in payment requests.
 
-  #### Platform Enhancements
+  ### DASPAY Launch
 
-  * Extended **Public Key** support across all supported acquirer integrations.
+  * **DASPAY has been launched**, introducing enhanced payment acceptance and transaction management capabilities for merchants.
 
-  * Added support for a **new currency** in Hosted Payment Page (HPP).
+  * **Merchant-Level Tax & Service Charge Configuration** for Catalog Cart.
 
-  * Added **Customer Service Number** under Product Details.
+  ### Fixes & Improvements
 
-  * Added **Helper Notes** for MineSec Mapping within Acquirer Configuration.
+  * Fixed timeout issues affecting **Transaction Search and Preset Filters**.
 
-  * Updated **Statement Header** for EU Merchant Statements.
+  * Fixed an issue when filtering transactions by **QR Product Type**.
 
-  * Updated **Reseller Statement Date** to automatically use the last day of the month.
+  * Fixed an issue where **Chargeback Email Notifications** were not delivered to updated email addresses.
 
-  * Implemented **Maximum Transaction Amount Restriction** as an additional transaction safeguard.
+  * Corrected **Issuing Country** information displayed in Transaction Reports.
 
-  ### DASPAY (Production Launch)
-
-  This release marks the successful production launch of key DASPAY capabilities, providing enhanced merchant configuration, settlement automation and transaction management.
-
-  #### Production Readiness
-
-  The following production readiness activities have been completed for the DASPAY platform:
-
-  * Live service deployment
-
-  * API readiness
-
-  * Infrastructure configuration
-
-  * Settlement synchronisation services
-
-  * Receipt services
-
-  * Scheduled Cron Jobs
-
-  * Production environment validation
-
-  ### Production Defect Fixes & Technical Debt
-
-  #### Production Defect Fixes
-
-  This release also delivers several production stability improvements, security fixes and platform reliability enhancements.
-
-  * Fixed timeout issue in the **ListV2 API** when no transactions exist for PO entities (CN, MU and SG).
-
-  * Resolved **500 Internal Server Error** in the **ListV2 API** when filtering by **Product Type = QR**.
-
-  * Fixed timeout issue affecting **Preset Filters**.
-
-  * Resolved issue where **Chargeback Email Notifications** were not delivered to updated email addresses.
-
-  * Addressed reported issues in the **Merchant Export Report** within DASPOS.
-
-  * Fixed **"Something Went Wrong"** error encountered during **ILK Integration**.
-
-  * Corrected **Issuing Country** display in the Transaction Report.
-
-  * Resolved multiple **Pen Testing** findings, including **Sensitive Information Disclosure**.
-
-  * Fixed issue where **Refund Transactions** were not logged correctly in **ASIABILL**.
-
-  * Restricted the **Phone Number** field on Hosted Payment Page (HPP) to accept a maximum of **11 digits**.
-
-  #### Technical Debt & Platform Improvements
-
-  * Applied database indexing optimisation on the **Transactions** table to improve query performance.
-
-  * Upgraded **Finance** and **Onboarding** microservices from **Node.js 16** to **Node.js 18**.
+  * Updated the **Phone Number** field on Hosted Payment Page (HPP) to support a maximum of **11 digits, depending on the applicable country code**.
 </div>
 </Update>
 
