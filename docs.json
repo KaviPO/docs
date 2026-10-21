@@ -136,7 +136,10 @@
                   },
                   {
                     "group": "Wallet",
-                    "pages": ["api-reference/en/wallet/wallet"]
+                    "pages": [
+                      "api-reference/en/wallet/wallet",
+                      "api-reference/en/wallet/wallet-2"
+                    ]
                   },
                   {
                     "group": "Hosted Payment Page",

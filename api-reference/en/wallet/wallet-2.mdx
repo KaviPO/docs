@@ -1,0 +1,22 @@
+---
+title: "QR Payment"
+openapi: "/api-reference/en/open-api-config/wallet/qr-payment.json POST /api/v1/server-to-server-interface/payment"
+description: "QR Payment allows customers to complete transactions by scanning a generated QR code using a supported payment application. This section uses PayNow as an example of QR-based payment integration."
+---
+
+### Key Points
+
+<Info>
+  Merchant Configuration
+
+  - The **Merchant ID** must be configured to support the selected QR payment method.
+  - For the **PayNow** example, the `payment_method` type must be set to `paynow`.
+  - The PayNow request example uses **SGD** as the processing currency.
+
+  QR Code Generation
+
+  - The Direct Payment API generates QR code data for the customer to complete the payment.
+  - For PayNow, the response includes a Base64-encoded QR code image in `url.qrCode` and the corresponding QR payment payload in `url.data`.
+  - The merchant can display the QR code for the customer to scan using a supported banking application.
+  - QR code generation does not indicate that payment has been completed.
+</Info>

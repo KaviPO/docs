@@ -1,21 +1,29 @@
 ---
-title: 'E-Wallet'
-openapi: '/api-reference/en/open-api-config/wallet/e-wallet.json POST /api/v1/server-to-server-interface/hpp/generate/link'
-description: When a merchant is configured for e.g GCash, the Hosted Payment Page (HPP) can generate an E-Wallet link that allows customers to complete their transaction using the GCash payment method.
+title: "E-Wallet"
+openapi: "/api-reference/en/open-api-config/wallet/e-wallet.json POST /api/v1/server-to-server-interface/payment"
+description: "E-Wallet payments allow customers to complete transactions using supported digital wallet services. This section demonstrates the Direct Payment integration using GCash as an example."
 ---
 
 ### Key Points
 
 <Info>
-  Merchant Configuration
+  **Merchant Configuration**
 
-  * The **Merchant ID** for GCash must be included in the payload along with the specific `payment_method` type set to `gcash`.
+  * The **Merchant ID** must be configured to support the selected E-Wallet payment method.
 
-  * If the merchant is configured for GCash, the HPP will generate an E-Wallet payment link to enable customers to pay via GCash. [See all supported E-Wallets...](/documentation/paymentmethods/ewallets)
+  * For the **GCash** example, the `payment_method` type must be set to `gcash`.
 
-  E-Wallet Link
+  * The Direct Payment API requires the transaction amount, processing currency, merchant details, return URLs, billing address, and time zone.
 
-  * The HPP will display an option for customers to pay via GCash or generate an E-Wallet link for the customer to use.
+  * [See all supported E-Wallets...](/documentation/paymentmethods/ewallets)
 
-  * This ensures a smooth process for customers using their GCash E-Wallet to complete transactions.
+  **E-Wallet Payment**
+
+  * The Direct Payment API initiates an E-Wallet transaction and returns a payment URL for the customer.
+
+  * For GCash, the response includes a payment page URL in the `url` and `redirecturl` fields.
+
+  * The merchant can redirect the customer to the provided payment URL to complete the transaction using GCash.
+
+  * The payment URL is generated when the transaction is initiated; it does not indicate that the payment has been completed.
 </Info>
