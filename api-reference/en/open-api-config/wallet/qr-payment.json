@@ -13,8 +13,7 @@
   "security": [
     {
       "apiKeyAuth": [],
-      "xApiKeyAuth": [],
-      "secretKeyAuth": []
+      "xApiKeyAuth": []
     }
   ],
   "paths": {
@@ -24,7 +23,7 @@
         "description": "Creates a QR payment using PayNow as an example. The response contains a Base64 PNG QR image and QR payment payload; generation is not confirmation of successful payment.",
         "operationId": "createQrPayment",
         "requestBody": {
-          "description": "PayNow Direct Payment request example.",
+          "description": "PayNow Direct Payment request. Billing address is required; shipping address is optional.",
           "required": true,
           "content": {
             "application/json": {
@@ -38,7 +37,8 @@
                   "merchant_txn_ref",
                   "customer_ip",
                   "merchant_id",
-                  "return_url"
+                  "return_url",
+                  "billing_address"
                 ],
                 "properties": {
                   "amount": {
@@ -110,19 +110,13 @@
                         "description": "The URL to redirect the user to after a failed transaction.",
                         "maxLength": 255,
                         "example": "https://merchant.example.com/decline"
-                      },
-                      "cancel_url": {
-                        "type": "string",
-                        "description": "The URL to redirect the user to after a canceled transaction.",
-                        "maxLength": 255,
-                        "example": "http://cancelurl.com/"
                       }
                     }
                   },
                   "billing_address": {
                     "type": "object",
                     "additionalProperties": false,
-                    "description": "A JSON object containing the billing address of the cardholder.",
+                    "description": "Required billing address for the customer.",
                     "properties": {
                       "country": {
                         "type": "string",
@@ -171,7 +165,7 @@
                   "shipping_address": {
                     "type": "object",
                     "additionalProperties": false,
-                    "description": "A JSON object containing the shipping address of the cardholder.",
+                    "description": "Optional shipping address. May be omitted from the request.",
                     "properties": {
                       "country": {
                         "type": "string",
@@ -272,7 +266,7 @@
                     "id": {
                       "type": "string",
                       "description": "The transaction reference ID.",
-                      "example": "2e6292d7-03c1-4c2f-b68a-734d54592cee"
+                      "example": "cd3c8f8c-75ec-4d63-a90d-10046616c5da"
                     },
                     "url": {
                       "type": "object",
@@ -280,11 +274,13 @@
                       "properties": {
                         "qrCode": {
                           "type": "string",
-                          "description": "Base64-encoded PNG QR image as a data URI."
+                          "description": "Base64-encoded PNG QR image as a data URI.",
+                          "example": "data:image/png;base64,<BASE64_PNG_DATA>"
                         },
                         "data": {
                           "type": "string",
-                          "description": "PayNow QR payment payload."
+                          "description": "PayNow QR payment payload.",
+                          "example": "00020101021226490009SG.PAYNOW010120210201213048R0301004082026123152040000530370254032005802SG5919BeanWorks Pte. Ltd.6009SINGAPORE621001063535026304C619"
                         }
                       }
                     },
@@ -316,7 +312,7 @@
                     },
                     "return_url": {
                       "type": "object",
-                      "description": "The return URLs for transaction outcomes.",
+                      "description": "Return URL details for payment callbacks.",
                       "properties": {
                         "webhook_url": {
                           "type": "string",
@@ -332,11 +328,6 @@
                           "type": "string",
                           "description": "The decline URL.",
                           "example": "https://merchant.example.com/decline"
-                        },
-                        "cancel_url": {
-                          "type": "string",
-                          "description": "The cancel URL.",
-                          "example": ""
                         }
                       }
                     },
@@ -383,7 +374,7 @@
                     },
                     "shipping_address": {
                       "type": "object",
-                      "description": "The shipping address details.",
+                      "description": "Shipping address details when supplied; may be an empty object when omitted.",
                       "properties": {
                         "city": {
                           "type": "string",
@@ -428,21 +419,23 @@
                       "properties": {
                         "qrCode": {
                           "type": "string",
-                          "description": "Base64-encoded PNG QR image as a data URI."
+                          "description": "Base64-encoded PNG QR image as a data URI.",
+                          "example": "data:image/png;base64,<BASE64_PNG_DATA>"
                         },
                         "data": {
                           "type": "string",
-                          "description": "PayNow QR payment payload."
+                          "description": "PayNow QR payment payload.",
+                          "example": "00020101021226490009SG.PAYNOW010120210201213048R0301004082026123152040000530370254032005802SG5919BeanWorks Pte. Ltd.6009SINGAPORE621001063535026304C619"
                         }
                       }
                     }
                   }
                 },
                 "example": {
-                  "id": "2e6292d7-03c1-4c2f-b68a-734d54592cee",
+                  "id": "cd3c8f8c-75ec-4d63-a90d-10046616c5da",
                   "url": {
                     "qrCode": "data:image/png;base64,<BASE64_PNG_DATA>",
-                    "data": "00020101021226490009SG.PAYNOW010120210201213048R0301004082026123152040000530370254032005802SG5919BeanWorks Pte. Ltd.6009SINGAPORE621001063534066304F77E"
+                    "data": "00020101021226490009SG.PAYNOW010120210201213048R0301004082026123152040000530370254032005802SG5919BeanWorks Pte. Ltd.6009SINGAPORE621001063535026304C619"
                   },
                   "amount": 200,
                   "currency": "SGD",
@@ -452,8 +445,7 @@
                   "return_url": {
                     "webhook_url": "https://merchant.example.com/webhook",
                     "success_url": "https://merchant.example.com/success",
-                    "decline_url": "https://merchant.example.com/decline",
-                    "cancel_url": ""
+                    "decline_url": "https://merchant.example.com/decline"
                   },
                   "billing_address": {
                     "city": "Minatoku",
@@ -464,18 +456,10 @@
                     "postal_code": "1000001",
                     "phone_number": "767676767"
                   },
-                  "shipping_address": {
-                    "city": "Minatoku",
-                    "email": "customer@example.com",
-                    "state": "Tokyoto",
-                    "country": "JP",
-                    "address1": "Chiyoda1-1",
-                    "postal_code": "1000001",
-                    "phone_number": "08012341234"
-                  },
+                  "shipping_address": {},
                   "redirecturl": {
                     "qrCode": "data:image/png;base64,<BASE64_PNG_DATA>",
-                    "data": "00020101021226490009SG.PAYNOW010120210201213048R0301004082026123152040000530370254032005802SG5919BeanWorks Pte. Ltd.6009SINGAPORE621001063534066304F77E"
+                    "data": "00020101021226490009SG.PAYNOW010120210201213048R0301004082026123152040000530370254032005802SG5919BeanWorks Pte. Ltd.6009SINGAPORE621001063535026304C619"
                   }
                 }
               }
@@ -501,12 +485,6 @@
         "name": "x-api-key",
         "in": "header",
         "description": "API Key specific to x-api-key."
-      },
-      "secretKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "x-secret-key",
-        "description": "Secret key supplied to authorized merchants. Never publish actual credentials."
       }
     }
   }
