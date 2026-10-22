@@ -1,21 +1,29 @@
 ---
-title: '電子ウォレット'
-openapi: '/api-reference/jp/open-api-config/wallet/e-wallet.json POST /api/v1/server-to-server-interface/hpp/generate/link'
-description: 加盟店が例えばGCashに設定されている場合、ホスト型決済ページ（HPP）は、GCash支払い方法を使用して顧客が取引を完了できるようにEウォレットリンクを生成します。
+title: "Eウォレット"
+openapi: "/api-reference/jp/open-api-config/wallet/e-wallet.json POST /api/v1/server-to-server-interface/payment"
+description: "Eウォレット決済では、対応するデジタルウォレットサービスを利用して取引を完了できます。このセクションでは、GCashを例に、Direct Payment APIを使用した連携方法を説明します。"
 ---
 
-### 重要なポイント
+### 主なポイント
 
 <Info>
-  加盟店設定
+  **加盟店の設定**
 
-  * **GCashの加盟店ID** は、ペイロードに含め、`payment_method` タイプを `gcash` に設定する必要があります。
+  * \*\*加盟店ID（Merchant ID）\*\*は、選択したEウォレット決済方法に対応するように設定されている必要があります。
 
-  * 加盟店がGCashに設定されている場合、HPPはEウォレット決済リンクを生成し、顧客がGCashを通じて支払いを完了できるようにします。[サポートされているEウォレットのすべてを表示...](/documentation/paymentmethods/ewallets)
+  * **GCash**を利用する場合、`payment_method` の `type` に `gcash` を指定する必要があります。
 
-  Eウォレットリンク
+  * Direct Payment APIでは、取引金額、処理通貨、加盟店情報、リターンURL、請求先住所、タイムゾーンの指定が必要です。
 
-  * HPPは、顧客がGCashを通じて支払うオプションを表示するか、顧客が使用できるEウォレットリンクを生成して提供します。
+  * [対応しているEウォレット一覧はこちら...](/documentation/paymentmethods/ewallets)
 
-  * これにより、GCash Eウォレットを使用して取引を完了する顧客にとってスムーズなプロセスが確保されます。
+  **Eウォレット決済**
+
+  * Direct Payment APIはEウォレット決済を開始し、顧客が決済を行うためのURLを返します。
+
+  * GCashの場合、レスポンスの `url` および `redirecturl` フィールドに決済ページのURLが含まれます。
+
+  * 加盟店は、顧客を返された決済URLにリダイレクトすることで、GCashを利用した決済を完了できるようにします。
+
+  * 決済URLは取引開始時に生成されますが、URLが生成された時点では決済の完了を意味しません。
 </Info>

@@ -1,0 +1,22 @@
+---
+title: "QRコード決済"
+openapi: "/api-reference/jp/open-api-config/wallet/qr-payment.json POST /api/v1/server-to-server-interface/payment"
+description: "QRコード決済では、対応する決済アプリケーションで生成されたQRコードをスキャンすることで、取引を完了できます。このセクションでは、QRコード決済連携の例としてPayNowを使用します。"
+---
+
+### 主なポイント
+
+<Info>
+  **加盟店の設定**
+
+  - \*\*加盟店ID（Merchant ID）\*\*は、選択したQRコード決済方法に対応するように設定されている必要があります。
+  - **PayNow**を利用する場合、`payment_method` の `type` に `paynow` を指定する必要があります。
+  - PayNowのリクエスト例では、処理通貨として\*\*SGD（シンガポールドル）\*\*を使用しています。
+
+  **QRコードの生成**
+
+  - Direct Payment APIは、顧客が決済を行うためのQRコードデータを生成します。
+  - PayNowの場合、レスポンスの `url.qrCode` にBase64エンコードされたQRコード画像が、`url.data` に対応するQR決済データが含まれます。
+  - 加盟店は生成されたQRコードを顧客に表示し、対応する銀行アプリケーションでスキャンして決済できるようにします。
+  - QRコードが生成された時点では、決済の完了を意味しません。
+</Info>

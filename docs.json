@@ -320,7 +320,10 @@
                   },
                   {
                     "group": "ウォレット",
-                    "pages": ["api-reference/jp/wallet/wallet"]
+                    "pages": [
+                      "api-reference/jp/wallet/wallet",
+                      "api-reference/jp/wallet/wallet-2"
+                    ]
                   },
                   {
                     "group": "ホスト決済ページ",

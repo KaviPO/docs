@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Payment Options API",
-    "description": "ホスト型決済ページ（HPP）リンクの生成と決済処理のためのAPI。",
+    "description": "GCash E-Walletの直接決済（購入／オーソリ）に関するAPIリファレンス。",
     "version": "1.0.0"
   },
   "servers": [
@@ -17,31 +17,46 @@
     }
   ],
   "paths": {
-    "/api/v1/server-to-server-interface/hpp/generate/link": {
+    "/api/v1/server-to-server-interface/payment": {
       "post": {
-        "summary": "ホスト型決済ページ（HPP）リンクの生成",
-        "description": "このエンドポイントは、決済処理のためのホスト型決済ページ（HPP）リンクを生成します。",
-        "operationId": "generateHppLink",
+        "summary": "GCashウォレット連携（購入／オーソリ）",
+        "description": "Direct Payment APIを使用してGCashの購入／オーソリ取引を開始します。レスポンスには、お客様が決済を行うための決済ページURLが含まれます。",
+        "operationId": "createGcashPayment",
         "requestBody": {
-          "description": "HPPリンクを生成するためのペイロード。",
+          "description": "GCash直接決済のリクエストデータ。",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": ["amount", "currency", "merchant_id", "return_url"],
+                "required": [
+                  "amount",
+                  "currency",
+                  "payment_method",
+                  "merchant_id",
+                  "return_url",
+                  "billing_address",
+                  "time_zone"
+                ],
                 "properties": {
                   "amount": {
-                    "type": "string",
-                    "description": "取引の金額。空の文字列として渡された場合、カード所有者がHPP上で手動で金額を入力します。",
-                    "example": "1000"
+                    "description": "取引金額。金額の上限は銀行によって異なります。",
+                    "example": "200",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
                   },
                   "currency": {
                     "type": "string",
-                    "description": "取引の処理通貨の略称（例：PHP＝フィリピンペソ）。",
+                    "description": "決済処理に使用する3文字の通貨コード。",
                     "maxLength": 3,
-                    "example": "PHP"
+                    "example": "USD"
                   },
                   "payment_method": {
                     "type": "object",
@@ -50,153 +65,162 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "description": "決済方法の種類（例：ウォレットの場合「gcash」）。",
+                        "description": "GCashの決済方法識別子。",
                         "maxLength": 128,
-                        "example": "gcash"
+                        "example": "gcash",
+                        "enum": [
+                          "gcash"
+                        ]
                       }
-                    }
+                    },
+                    "required": [
+                      "type"
+                    ]
                   },
                   "merchant_txn_ref": {
                     "type": "string",
                     "description": "加盟店の取引参照ID。",
                     "maxLength": 45,
-                    "example": "qwe"
+                    "example": "ORDER-12345"
                   },
                   "customer_ip": {
                     "type": "string",
-                    "description": "取引を開始する顧客のIPアドレス。",
-                    "example": "127.0.0.1"
+                    "description": "取引を開始するお客様のIPアドレス。",
+                    "example": "192.0.2.10",
+                    "maxLength": 45
                   },
                   "merchant_id": {
                     "type": "string",
-                    "description": "加盟店のユニーク識別子（DASMID）。",
+                    "description": "加盟店の一意の識別子（DASMID）。",
                     "maxLength": 128,
-                    "example": "< Webhook url >"
+                    "example": "<DASMID>"
                   },
                   "return_url": {
                     "type": "object",
                     "additionalProperties": false,
-                    "description": "リターンURLを含むJSONオブジェクト。（このフィールドは3Dセキュア取引で必須です。）",
+                    "description": "決済通知およびリダイレクト先のURL設定。",
                     "properties": {
                       "webhook_url": {
                         "type": "string",
-                        "description": "非同期通知のためのWebhook URL。",
+                        "description": "非同期通知を受信するWebhook URL。",
                         "maxLength": 255,
-                        "example": "< Webhook url >"
+                        "example": "https://merchant.example.com/webhook"
                       },
                       "success_url": {
                         "type": "string",
-                        "description": "取引成功後にユーザーをリダイレクトするURL。",
+                        "description": "決済成功後にお客様をリダイレクトするURL。",
                         "maxLength": 255,
-                        "example": "http://www.successurl.com/"
+                        "example": "https://merchant.example.com/success"
                       },
                       "decline_url": {
                         "type": "string",
-                        "description": "取引失敗後にユーザーをリダイレクトするURL。",
+                        "description": "決済失敗後にお客様をリダイレクトするURL。",
                         "maxLength": 255,
-                        "example": "http://www.declineurl.com/"
-                      },
-                      "cancel_url": {
-                        "type": "string",
-                        "description": "取引キャンセル後にユーザーをリダイレクトするURL。",
-                        "maxLength": 255,
-                        "example": "http://cancelurl.com/"
+                        "example": "https://merchant.example.com/decline"
                       }
                     }
                   },
                   "billing_address": {
                     "type": "object",
                     "additionalProperties": false,
-                    "description": "カード所有者の請求先住所を含むJSONオブジェクト。",
+                    "description": "お客様の請求先住所を含むJSONオブジェクト。",
                     "properties": {
                       "country": {
                         "type": "string",
-                        "description": "カード所有者の請求先国コード。",
+                        "description": "お客様の請求先国コード。",
                         "maxLength": 2,
                         "example": "JP"
                       },
                       "email": {
                         "type": "string",
-                        "description": "カード所有者の請求先メールアドレス。",
+                        "description": "お客様の請求先メールアドレス。",
                         "maxLength": 45,
-                        "example": "billing@testemail.com"
+                        "example": "customer@example.com"
                       },
                       "phone_number": {
                         "type": "string",
-                        "description": "カード所有者の請求先電話番号。",
-                        "maxLength": 15,
+                        "description": "お客様の請求先電話番号。",
+                        "maxLength": 20,
                         "example": "8112345678"
                       },
                       "address1": {
                         "type": "string",
-                        "description": "カード所有者の請求先住所行。",
+                        "description": "お客様の請求先住所（番地など）。",
                         "maxLength": 199,
                         "example": "1-2-3 Shinjuku"
                       },
                       "city": {
                         "type": "string",
-                        "description": "カード所有者の請求先市区町村。",
+                        "description": "お客様の請求先市区町村。",
                         "maxLength": 65,
                         "example": "Shinjuku-ku"
                       },
                       "state": {
                         "type": "string",
-                        "description": "カード所有者の請求先都道府県。",
+                        "description": "お客様の請求先都道府県・州。",
                         "maxLength": 65,
                         "example": "Tokyo"
                       },
                       "postal_code": {
                         "type": "string",
-                        "description": "カード所有者の請求先郵便番号。",
+                        "description": "お客様の請求先郵便番号。",
                         "maxLength": 45,
                         "example": "1600022"
                       }
-                    }
+                    },
+                    "required": [
+                      "country",
+                      "email",
+                      "address1",
+                      "phone_number",
+                      "city",
+                      "postal_code"
+                    ]
                   },
                   "shipping_address": {
                     "type": "object",
                     "additionalProperties": false,
-                    "description": "カード所有者の配送先住所を含むJSONオブジェクト。",
+                    "description": "お客様の配送先住所を含むJSONオブジェクト。",
                     "properties": {
                       "country": {
                         "type": "string",
-                        "description": "カード所有者の配送先国コード。",
+                        "description": "お客様の配送先国コード。",
                         "maxLength": 2,
                         "example": "JP"
                       },
                       "email": {
                         "type": "string",
-                        "description": "カード所有者の配送先メールアドレス。",
+                        "description": "お客様の配送先メールアドレス。",
                         "maxLength": 45,
-                        "example": "shipping@testemail.com"
+                        "example": "customer@example.com"
                       },
                       "phone_number": {
                         "type": "string",
-                        "description": "カード所有者の配送先電話番号。",
-                        "maxLength": 15,
+                        "description": "お客様の配送先電話番号。",
+                        "maxLength": 20,
                         "example": "8112345678"
                       },
                       "address1": {
                         "type": "string",
-                        "description": "カード所有者の配送先住所行。",
+                        "description": "お客様の配送先住所（番地など）。",
                         "maxLength": 199,
                         "example": "1-2-3 Shinjuku"
                       },
                       "city": {
                         "type": "string",
-                        "description": "カード所有者の配送先市区町村。",
+                        "description": "お客様の配送先市区町村。",
                         "maxLength": 65,
                         "example": "Shinjuku-ku"
                       },
                       "state": {
                         "type": "string",
-                        "description": "カード所有者の配送先都道府県。",
+                        "description": "お客様の配送先都道府県・州。",
                         "maxLength": 65,
                         "example": "Tokyo"
                       },
                       "postal_code": {
                         "type": "string",
-                        "description": "カード所有者の配送先郵便番号。",
+                        "description": "お客様の配送先郵便番号。",
                         "maxLength": 45,
                         "example": "1600022"
                       }
@@ -204,9 +228,44 @@
                   },
                   "time_zone": {
                     "type": "string",
-                    "description": "取引のタイムゾーン。",
-                    "example": "Asia/Kuala_Lumpur"
+                    "description": "取引に適用するタイムゾーン。",
+                    "example": "Asia/Kuala_Lumpur",
+                    "maxLength": 128
                   }
+                },
+                "example": {
+                  "amount": "200",
+                  "currency": "USD",
+                  "payment_method": {
+                    "type": "gcash"
+                  },
+                  "merchant_txn_ref": "ORDER-12345",
+                  "customer_ip": "192.0.2.10",
+                  "merchant_id": "<DASMID>",
+                  "return_url": {
+                    "webhook_url": "https://merchant.example.com/webhook",
+                    "success_url": "https://merchant.example.com/success",
+                    "decline_url": "https://merchant.example.com/decline"
+                  },
+                  "billing_address": {
+                    "country": "JP",
+                    "email": "customer@example.com",
+                    "address1": "1-2-3 Shinjuku",
+                    "phone_number": "8112345678",
+                    "city": "Shinjuku-ku",
+                    "state": "Tokyo",
+                    "postal_code": "1600022"
+                  },
+                  "shipping_address": {
+                    "country": "JP",
+                    "email": "customer@example.com",
+                    "address1": "1-2-3 Shinjuku",
+                    "phone_number": "8112345678",
+                    "city": "Shinjuku-ku",
+                    "state": "Tokyo",
+                    "postal_code": "1600022"
+                  },
+                  "time_zone": "Asia/Kuala_Lumpur"
                 }
               }
             }
@@ -214,7 +273,7 @@
         },
         "responses": {
           "200": {
-            "description": "HPPリンクが正常に生成されました。",
+            "description": "GCash決済取引が作成され、決済ページURLが返されました。",
             "content": {
               "application/json": {
                 "schema": {
@@ -223,61 +282,62 @@
                     "id": {
                       "type": "string",
                       "description": "取引参照ID。",
-                      "example": "c0728395-6a55-4f10-819e-03bdc917c4b1"
+                      "example": "2ae6f7db-7a52-495d-b816-98b57d9b5c68"
                     },
                     "url": {
                       "type": "string",
-                      "description": "生成されたホスト決済ページのURL。",
-                      "example": "https://checkout-dev.paymentoptions.com/HostedPaymentPage/GGNDZOmv"
+                      "description": "GCash決済ページのURL。",
+                      "example": "https://payment.moneycollect.com/authentication?type=2&param=<TOKEN>"
                     },
                     "amount": {
-                      "type": "integer",
+                      "type": "number",
                       "description": "取引金額。",
-                      "example": 1000
+                      "example": 200
                     },
                     "currency": {
                       "type": "string",
-                      "description": "処理通貨。",
-                      "example": "PHP"
+                      "description": "決済処理通貨。",
+                      "example": "USD"
                     },
                     "merchant_txn_ref": {
                       "type": "string",
-                      "description": "加盟店取引参照ID。",
-                      "example": "qwe"
+                      "description": "加盟店の取引参照ID。",
+                      "example": "ORDER-12345",
+                      "nullable": true
                     },
                     "merchant_id": {
                       "type": "string",
-                      "description": "取引の加盟店ID。",
-                      "example": "< Webhook url >"
+                      "description": "取引に使用した加盟店ID。",
+                      "example": "<DASMID>"
                     },
                     "merchant_email": {
                       "type": "string",
-                      "description": "加盟店のメールアドレス（利用可能な場合）。",
-                      "example": null
+                      "description": "加盟店のメールアドレス（取得できる場合）。",
+                      "nullable": true
                     },
                     "return_url": {
                       "type": "object",
-                      "description": "取引結果のリターンURL。",
+                      "description": "取引結果に応じたリターンURL。",
                       "properties": {
                         "webhook_url": {
                           "type": "string",
-                          "description": "通知のためのWebhook URL。",
-                          "example": "< Webhook url >"
+                          "description": "通知を受信するWebhook URL。",
+                          "example": "https://merchant.example.com/webhook"
                         },
                         "success_url": {
                           "type": "string",
-                          "description": "成功時のリダイレクトURL。",
-                          "example": "http://www.successurl.com/"
+                          "description": "決済成功時のリダイレクトURL。",
+                          "example": "https://merchant.example.com/success"
                         },
                         "decline_url": {
                           "type": "string",
-                          "description": "取引失敗時のリダイレクトURL。",
-                          "example": "http://www.declineurl.com/"
+                          "description": "決済失敗時のリダイレクトURL。",
+                          "example": "https://merchant.example.com/decline"
                         },
                         "cancel_url": {
                           "type": "string",
-                          "description": "キャンセル時のリダイレクトURL。",
-                          "example": "http://cancelurl.com/"
+                          "description": "決済キャンセル時のリダイレクトURL。",
+                          "example": "https://merchant.example.com/cancel"
                         }
                       }
                     },
@@ -287,37 +347,37 @@
                       "properties": {
                         "city": {
                           "type": "string",
-                          "description": "請求先の市区町村。",
+                          "description": "請求先市区町村。",
                           "example": "Shinjuku-ku"
                         },
                         "email": {
                           "type": "string",
                           "description": "請求先メールアドレス。",
-                          "example": "billing@testemail.com"
+                          "example": "customer@example.com"
                         },
                         "state": {
                           "type": "string",
-                          "description": "請求先の都道府県。",
+                          "description": "請求先都道府県・州。",
                           "example": "Tokyo"
                         },
                         "country": {
                           "type": "string",
-                          "description": "請求先の国。",
+                          "description": "請求先国コード。",
                           "example": "JP"
                         },
                         "address1": {
                           "type": "string",
-                          "description": "請求先住所の行。",
+                          "description": "請求先住所（番地など）。",
                           "example": "1-2-3 Shinjuku"
                         },
                         "postal_code": {
                           "type": "string",
-                          "description": "請求先の郵便番号。",
+                          "description": "請求先郵便番号。",
                           "example": "1600022"
                         },
                         "phone_number": {
                           "type": "string",
-                          "description": "請求先の電話番号。",
+                          "description": "請求先電話番号。",
                           "example": "8112345678"
                         }
                       }
@@ -328,41 +388,80 @@
                       "properties": {
                         "city": {
                           "type": "string",
-                          "description": "配送先の市区町村。",
+                          "description": "配送先市区町村。",
                           "example": "Shinjuku-ku"
                         },
                         "email": {
                           "type": "string",
                           "description": "配送先メールアドレス。",
-                          "example": "shipping@testemail.com"
+                          "example": "customer@example.com"
                         },
                         "state": {
                           "type": "string",
-                          "description": "配送先の都道府県。",
+                          "description": "配送先都道府県・州。",
                           "example": "Tokyo"
                         },
                         "country": {
                           "type": "string",
-                          "description": "配送先の国。",
+                          "description": "配送先国コード。",
                           "example": "JP"
                         },
                         "address1": {
                           "type": "string",
-                          "description": "配送先住所の行。",
+                          "description": "配送先住所（番地など）。",
                           "example": "1-2-3 Shinjuku"
                         },
                         "postal_code": {
                           "type": "string",
-                          "description": "配送先の郵便番号。",
+                          "description": "配送先郵便番号。",
                           "example": "1600022"
                         },
                         "phone_number": {
                           "type": "string",
-                          "description": "配送先の電話番号。",
+                          "description": "配送先電話番号。",
                           "example": "8112345678"
                         }
                       }
+                    },
+                    "redirecturl": {
+                      "type": "string",
+                      "description": "お客様をリダイレクトするために返されるGCash決済ページURL。",
+                      "example": "https://payment.moneycollect.com/authentication?type=2&param=<TOKEN>"
                     }
+                  },
+                  "example": {
+                    "id": "2ae6f7db-7a52-495d-b816-98b57d9b5c68",
+                    "url": "https://payment.moneycollect.com/authentication?type=2&param=<TOKEN>",
+                    "amount": 200,
+                    "currency": "USD",
+                    "merchant_txn_ref": null,
+                    "merchant_id": "<DASMID>",
+                    "merchant_email": null,
+                    "return_url": {
+                      "webhook_url": "https://merchant.example.com/webhook",
+                      "success_url": "https://merchant.example.com/success",
+                      "decline_url": "https://merchant.example.com/decline",
+                      "cancel_url": "https://merchant.example.com/cancel"
+                    },
+                    "billing_address": {
+                      "city": "Shinjuku-ku",
+                      "email": "customer@example.com",
+                      "state": "Tokyo",
+                      "country": "JP",
+                      "address1": "1-2-3 Shinjuku",
+                      "postal_code": "1600022",
+                      "phone_number": "8112345678"
+                    },
+                    "shipping_address": {
+                      "city": "Shinjuku-ku",
+                      "email": "customer@example.com",
+                      "state": "Tokyo",
+                      "country": "JP",
+                      "address1": "1-2-3 Shinjuku",
+                      "postal_code": "1600022",
+                      "phone_number": "8112345678"
+                    },
+                    "redirecturl": "https://payment.moneycollect.com/authentication?type=2&param=<TOKEN>"
                   }
                 }
               }
@@ -378,13 +477,13 @@
         "type": "apiKey",
         "name": "Authorization",
         "in": "header",
-        "description": "認証のためのAPIキー。フォーマット: 'Basic YOUR_API_KEY_HERE'"
+        "description": "認証用APIキー。形式：'Basic YOUR_API_KEY_HERE'。"
       },
       "xApiKeyAuth": {
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header",
-        "description": "x-api-key専用のAPIキー。"
+        "description": "x-api-keyヘッダー専用のAPIキー。"
       }
     }
   }
